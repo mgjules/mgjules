@@ -1,12 +1,304 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WIP</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="A Gopher who creates little minions; the industry calls them microservices." />
+  <meta name="keywords" content="go, developer, resume, curriculum vitae, cv, mauritius" />
+  <meta name="author" content="Michaël Giovanni Jules" />
+  <meta name="copyright" content="Michaël Giovanni Jules" />
+  <meta name="robots" content="follow" />
+
+  <meta property="og:title" content="Michaël Giovanni Jules">
+  <meta property="og:type" content="profile" />
+  <meta property="og:description" content="A Gopher who creates little minions; the industry calls them microservices.">
+  <meta property="og:image" content="https://mgjules.dev/dist/assets/profile.jpg">
+  <meta property="og:url" content="https://mgjules.dev">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:site_name" content="Michaël Giovanni Jules">
+  <meta name="twitter:image:alt" content="Michaël Giovanni Jules Profile Picture">
+  <meta name="profile:first_name" content="Michaël Giovanni">
+  <meta name="profile:first_name" content="Jules">
+  <meta name="profile:username" content="mgjules">
+  <meta name="profile:gender" content="male">
+
+  <style type="text/css">
+    [v-cloak] {
+      display: none;
+    }
+  </style>
+
+  <link rel="preload" href="/dist/app.css?v=1.0.0" as="style">
+  <link rel="preload" href="https://rsms.me/inter/inter.css" as="style">
+  <link rel="preload" href="https://code.iconify.design/2/2.2.1/iconify.min.js" as="script">
+
+  <link rel="stylesheet" href="/dist/app.css?v=1.0.0" type="text/css">
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css" type="text/css">
+  <script src="https://code.iconify.design/2/2.2.1/iconify.min.js" defer init></script>
+
+  <script type="module">
+    import { createApp } from 'https://unpkg.com/petite-vue?module'
+
+    createApp({
+      links: [],
+      technologies: [],
+      works: [],
+      awards: [],
+      contributions: [],
+      year: (new Date).getFullYear(),
+      async mounted() {
+        this.links = await this.retrieveLinks()
+        this.technologies = await this.retrieveTechnologies()
+        this.works = await this.retrieveWorks()
+        this.awards = await this.retrieveAwards()
+        this.contributions = await this.retrieveContributions()
+      },
+      async retrieveLinks() {
+        const resp = await fetch('/dist/data/links.json')
+        return await resp.json()
+      },
+      async retrieveTechnologies() {
+        const resp = await fetch('/dist/data/technologies.json')
+        return await resp.json()
+      },
+      async retrieveWorks() {
+        const resp = await fetch('/dist/data/works.json')
+        return await resp.json()
+      },
+      async retrieveAwards() {
+        const resp = await fetch('/dist/data/awards.json')
+        return await resp.json()
+      },
+      async retrieveContributions() {
+        const resp = await fetch('/dist/data/contributions.json')
+        return await resp.json()
+      },
+      technology(name) {
+        return this.technologies.find(tech => tech?.name?.toLowerCase() === name?.toLowerCase()) ?? {
+          name: "",
+          icon: ""
+        }
+      },
+      linkImage(name, alt) {
+        return `https://img.shields.io/badge/-${alt ? alt : name}-%23333?style=for-the-badge&logo=${name.toLowerCase()}&logoColor=white`
+      },
+      cleanURLForPrint(url) {
+        return url.replace(/^https?:\/\//, '').replace(/\/$/, '').replace(/mailto:/, '')
+      },
+    }).mount()
+  </script>
+
+  <title>Michaël Giovanni Jules</title>
 </head>
+
 <body>
-    WIP
+  <div class="relative pt-4 overflow-hidden antialiased bg-white sm:pt-16 print:pt-0" v-scope @vue:mounted="mounted">
+    <div class="relative px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto text-lg">
+        <h1 class="flex justify-center">
+          <span
+            class="inline-block mx-auto mt-2 text-3xl font-extrabold leading-8 tracking-tight text-center text-gray-900 sm:text-4xl">Michaël
+            Giovanni Jules</span>
+        </h1>
+        <div v-cloak v-if="links?.length > 0">
+          <div class="flex flex-wrap justify-center gap-4 mt-6 print:hidden">
+            <a :href="url" target="_blank" v-for="{ name, alt, url } in links">
+              <img :src="linkImage(name, alt)" target="_blank">
+            </a>
+          </div>
+          <div class="flex-wrap justify-center hidden gap-4 mt-6 text-sm print:flex">
+            <span v-for="{ name, url } in links">[ {{ cleanURLForPrint(url) }} ]</span>
+          </div>
+        </div>
+        <div class="flex flex-wrap justify-center gap-4 mt-6 animate-pulse print:hidden" v-else>
+          <span class="inline-block w-24 h-6 bg-slate-200"></span>
+          <span class="inline-block w-24 h-6 bg-slate-200"></span>
+          <span class="inline-block w-24 h-6 bg-slate-200"></span>
+        </div>
+        <div class="mt-6">
+          <img class="float-left w-24 h-24 mr-6 rounded-md" src="/dist/assets/profile.jpg" alt="">
+          <p class="text-xl leading-8 text-gray-500 print:text-base">A Gopher who has fallen in love with cloud-native
+            application
+            development and all the exciting opportunities and challenges it brings. Fortunate to work on several Go
+            projects from small to large, monoliths and microservices.</p>
+        </div>
+      </div>
+      <div class="max-w-4xl mx-auto prose prose-lg text-gray-500 prose-teal">
+        <!-- Work Experience -->
+        <div class="mt-8">
+          <div class="relative">
+            <div class="absolute inset-0 flex items-center" aria-hidden="true">
+              <div class="w-full border-t border-gray-300"></div>
+            </div>
+            <div class="relative flex items-center justify-start">
+              <span class="bg-white iconify" data-icon="ic:outline-work" data-width="24" data-height="24"></span>
+              <span class="pl-3 pr-6 text-2xl font-medium text-gray-700 bg-white print:text-lg">Experience</span>
+            </div>
+          </div>
+          <div>
+            <ul role="list" v-cloak v-if="works?.length > 0">
+              <li class="mt-6 group" v-for="{ company, from, to, position, technologies, tasks } in works">
+                <div>
+                  <div class="flex flex-wrap items-center justify-between">
+                    <h3 class="my-0 print:text-lg">{{ company }}</h3>
+                    <span class="text-sm text-gray-500">{{ from }} &rarr; {{ to || 'present' }}</span>
+                  </div>
+                  <span class="text-gray-500 print:text-base">{{ position }}</span>
+                  <div class="flex flex-wrap gap-5 mt-1">
+                    <span :title="technology(tech).name" v-for="tech in technologies">
+                      <span class="transition iconify grayscale print:grayscale-0 group-hover:grayscale-0"
+                        :data-icon="technology(tech).icon" data-width="28" data-height="28"></span>
+                    </span>
+                  </div>
+                  <ul role="list" class="print:text-base">
+                    <li v-for="task in tasks" v-html="task"></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+            <ul role="list" v-else>
+              <li>
+                <div class="animate-pulse">
+                  <div class="flex flex-col justify-between md:items-center sm:flex-row">
+                    <h3 class="my-0"><span class="inline-block h-2 rounded w-28 bg-slate-200"></span></h3>
+                    <span class="text-gray-500"><span class="inline-block w-20 h-2 rounded bg-slate-200"></span> - <span
+                        class="inline-block w-20 h-2 rounded bg-slate-200"></span></span>
+                  </div>
+                  <span class="text-gray-500 text-md">
+                    <div class="inline-block w-32 h-2 rounded bg-slate-200"></div>
+                  </span>
+                  <div class="flex flex-wrap gap-5 mt-1">
+                    <div class="inline-block w-8 h-8 rounded bg-slate-200"></div>
+                    <div class="inline-block w-8 h-8 rounded bg-slate-200"></div>
+                    <div class="inline-block w-8 h-8 rounded bg-slate-200"></div>
+                  </div>
+                  <ul role="list">
+                    <li><span class="inline-block w-full h-2 rounded bg-slate-200"></span><br><span
+                        class="inline-block w-3/4 h-2 rounded bg-slate-200"></span></li>
+                    <li><span class="inline-block w-full h-2 rounded bg-slate-200"></span><br><span
+                        class="inline-block w-2/3 h-2 rounded bg-slate-200"></span></li>
+                    <li><span class="inline-block w-full h-2 rounded bg-slate-200"></span></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Awards -->
+          <div class="mt-8">
+            <div class="relative">
+              <div class="absolute inset-0 flex items-center" aria-hidden="true">
+                <div class="w-full border-t border-gray-300"></div>
+              </div>
+              <div class="relative flex items-center justify-start">
+                <span class="bg-white iconify" data-icon="fa6-solid:award" data-width="24" data-height="24"></span>
+                <span class="pl-3 pr-6 text-2xl font-medium text-gray-700 bg-white print:text-lg">Awards</span>
+              </div>
+            </div>
+            <div v-cloak v-if="awards?.length > 0">
+              <div class="grid grid-cols-1 gap-4 mt-6 sm:grid-cols-2">
+                <div v-for="{ event, date, description, result, icon} in awards"
+                  class="px-4 py-3 border rounded-md shadow-sm print:shadow-none border-slate-200 group">
+                  <div class="flex items-center" :title="result">
+                    <span
+                      class="flex-shrink-0 transition bg-white iconify grayscale print:grayscale-0 group-hover:grayscale-0"
+                      :data-icon="icon" data-width="42" data-height="42"></span>
+                    <div class="w-full ml-6">
+                      <div class="flex flex-wrap items-center justify-between">
+                        <h3 class="my-0 text-lg font-medium text-gray-700">{{ event }}</h3>
+                        <span class="text-sm text-gray-500">{{ date }}</span>
+                      </div>
+                      <div class="text-sm text-gray-400">{{ description }}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="grid grid-cols-1 gap-4 mt-6 animate-pulse sm:grid-cols-2" v-else>
+              <div class="px-4 py-3 border rounded-md shadow-sm border-slate-200">
+                <div class="flex items-center">
+                  <div class="flex-shrink-0 inline-block w-10 rounded h-14 bg-slate-200"></div>
+                  <div class="w-full ml-6">
+                    <div class="flex justify-between">
+                      <h3 class="my-0 text-lg font-medium text-gray-700"><span
+                          class="inline-block h-2 rounded w-28 bg-slate-200"></span></h3>
+                      <span class="text-gray-500"><span
+                          class="inline-block w-16 h-2 rounded bg-slate-200"></span></span>
+                    </div>
+                    <div class="inline-block w-3/4 h-2 rounded bg-slate-200"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contributions -->
+          <div class="mt-8">
+            <div class="relative">
+              <div class="absolute inset-0 flex items-center" aria-hidden="true">
+                <div class="w-full border-t border-gray-300"></div>
+              </div>
+              <div class="relative flex items-center justify-start">
+                <span class="bg-white iconify" data-icon="bxs:user-voice" data-width="26" data-height="26"></span>
+                <span class="pl-3 pr-6 text-2xl font-medium text-gray-700 bg-white print:text-lg">Contributions</span>
+              </div>
+            </div>
+            <div>
+              <ul role="list" v-cloak v-if="contributions?.length > 0">
+                <li class="mt-6 group" v-for="{ event, title, from, to, role } in contributions">
+                  <div>
+                    <div class="flex flex-wrap items-center justify-between">
+                      <h3 class="my-0 text-lg">{{ event }}</h3>
+                      <span class="text-sm text-gray-500"><span v-if="from !== to">{{ from }} &rarr; </span>{{ to ||
+                        'present' }}</span>
+                    </div>
+                    <span
+                      class="px-2 py-1 text-sm text-gray-400 border rounded-lg shadow-sm print:shadow-none border-slate-200">{{
+                      role }}</span>
+                    <div class="text-gray-500">{{ title }}</d>
+                    </div>
+                </li>
+              </ul>
+              <ul role="list" v-else>
+                <li>
+                  <div class="animate-pulse">
+                    <div class="flex flex-col justify-between md:items-center sm:flex-row">
+                      <h3 class="my-0"><span class="inline-block h-2 rounded w-28 bg-slate-200"></span></h3>
+                      <span class="text-gray-500"><span class="inline-block w-20 h-2 rounded bg-slate-200"></span> -
+                        <span class="inline-block w-20 h-2 rounded bg-slate-200"></span></span>
+                    </div>
+                    <span class="text-gray-500 text-md">
+                      <div class="inline-block w-32 h-2 rounded bg-slate-200"></div>
+                    </span>
+                      <span class="inline-block w-full h-2 rounded bg-slate-200"></span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="fixed bottom-5 right-5">
+          <button @click="window.print()" type="button"
+            class="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-white transition-all bg-teal-600 border border-transparent rounded-md shadow-sm opacity-75 group print:hidden hover:opacity-90 hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500">
+            <span class="hidden group-hover:inline-block">Print Resume</span>
+            <span class="group-hover:ml-2 iconify" data-icon="fa6-solid:print" data-width="20" data-height="20"></span>
+          </button>
+        </div>
+
+        <div class="max-w-4xl mx-auto mt-8 text-base text-center text-gray-400">
+          <p class="mb-0 text-sm print:hidden">Made with <span class="inline-block text-pink-600 iconify"
+              data-icon="fa6-solid:heart" data-width="16" data-height="16"></span> using <a
+              href="https://github.com/vuejs/petite-vue" target="_blank">petite-vue</a> & <a
+              href="https://tailwindcss.com/" target="_blank">TailwindCSS</a>.</p>
+          <p class="mt-2">&copy; {{ year }} Michaël Giovanni Jules. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </div>
 </body>
+
 </html>
