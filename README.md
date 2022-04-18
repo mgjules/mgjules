@@ -1,7 +1,5 @@
 <a href="https://github.com/mgjules" target="blank">![Github Banner](https://cloudblogs.microsoft.com/uploads/prod/sites/37/2018/02/gophercon-banner.png)</a>
 
-<br>
-
  ```golang
 package mike
 
@@ -27,8 +25,6 @@ func Specialities() []string {
 	return []string{"Go", "Vue", "TailwindCSS", "SQL", "NoSQL", "Docker", "Kubernetes", "AWS"}
 }
  ```
- 
-<br>
 
 <div align ="center"> 
 	<a href="mailto:julesmichaelgiovanni@gmail.com"><img src="https://img.shields.io/badge/-Gmail-%23333?style=for-the-badge&logo=gmail&logoColor=white" target="_blank"></a>
