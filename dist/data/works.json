@@ -61,7 +61,7 @@
         ],
         "tasks": [
             "Developed several online services including <a href=\"https://culture.lexpress.mu\" target=\"_blank\">culture.lexpress.mu</a>, <a href=\"https://businessmag.mu\" target=\"_blank\">businessmag.mu</a>, <a href=\"https://lasentinelle.mu\" target=\"_blank\">lasentinelle.mu</a>, to name a few.",
-            "Implemented a custom Single Sign-On solution codenamed in Go <code>Passport</code> for a seamless user experience across the aforementioned online services."
+            "Implemented a custom Single Sign-On solution in Go codenamed <code>Passport</code> for a seamless user experience across the aforementioned online services."
         ]
     },
     {
