@@ -1,0 +1,207 @@
+{{ define "main" }}
+<div class="relative px-4 sm:px-6 lg:px-8">
+  <div class="max-w-4xl mx-auto text-lg">
+    <h1 class="flex justify-center">
+      <span
+        class="inline-block mx-auto mt-2 text-3xl font-extrabold leading-8 tracking-tight text-center text-gray-900 sm:text-4xl">{{
+        .Site.Title }}</span>
+    </h1>
+    <div class="mt-6">
+      <div class="flex flex-wrap justify-center gap-x-4 gap-y-1 print:hidden">
+        {{- range .Site.Data.links }}
+        <a href="{{ .url }}" target="_blank">
+          <img
+            src="https://img.shields.io/badge/-{{ default .name .alt }}-%23333?style=for-the-badge&logo={{ lower .name }}&logoColor=white"
+            width="100%" height="28" target="_blank" loading="lazy" alt="{{ default .name .alt }}">
+        </a>
+        {{- end }}
+      </div>
+      <div class="flex-wrap justify-center hidden gap-x-2 gap-y-1 print:flex">
+        {{- range .Site.Data.links }}
+        {{- $url := replaceRE "^https?://" "" .url }}
+        {{- $url = replaceRE "/$" "" $url }}
+        {{- $url = replaceRE "^mailto:" "" $url }}
+        <span>[ {{ $url }} ]</span>
+        {{- end }}
+      </div>
+    </div>
+    <div class="mt-6">
+      <img class="float-left w-24 h-24 mr-6 rounded-md" src="/img/profile_96x96.jpg" alt="Profile Picture"
+        loading="lazy">
+      <p class="text-xl leading-8 text-gray-500 print:text-base">A Gopher who has fallen in love with cloud-native
+        application
+        development and all the exciting opportunities and challenges it brings. Fortunate to work on several Go
+        projects from small to large, monoliths and microservices.</p>
+    </div>
+  </div>
+  <div class="max-w-4xl mx-auto prose prose-lg text-gray-500 prose-teal">
+    <!-- Work Experience -->
+    <div class="mt-8">
+      <div class="relative">
+        <div class="absolute inset-0 flex items-center" aria-hidden="true">
+          <div class="w-full border-t border-gray-300"></div>
+        </div>
+        <div class="relative flex items-center justify-start">
+          <span class="bg-white iconify" data-icon="ic:outline-work" data-width="24" data-height="24"></span>
+          <h2 class="pl-3 pr-6 my-0 text-2xl font-medium text-gray-700 bg-white print:text-lg">Experience</h2>
+        </div>
+      </div>
+      <div>
+        <ul role="list" class="pl-0 list-none">
+          {{- range .Site.Data.works }}
+          <li class="pl-0 mt-6 group">
+            <div>
+              <div class="flex flex-wrap items-center justify-between">
+                <h3 class="my-0 text-xl print:text-lg">{{ .company }}</h3>
+                <span class="text-sm text-gray-500">{{ .from }} &rarr; {{ default "present" .to }}</span>
+              </div>
+              <span class="text-gray-500 print:text-base">{{ .position }}</span>
+              <div class="flex flex-wrap gap-5 mt-1">
+                {{- range .technologies }}
+                {{- $tech := index $.Site.Data.technologies .}}
+                <span title="{{ $tech.name }}">
+                  <span class="transition iconify grayscale print:grayscale-0 group-hover:grayscale-0" {{
+                    printf "data-icon=%q" $tech.icon | safeHTMLAttr }} data-width="28" data-height="28"></span>
+                </span>
+                {{- end }}
+              </div>
+              <ul role="list" class="print:text-base">
+                {{- range .tasks }}
+                <li>{{ safeHTML . }}</li>
+                {{- end }}
+              </ul>
+            </div>
+          </li>
+          {{- end }}
+        </ul>
+      </div>
+    </div>
+
+    <!-- Projects -->
+    <div class="mt-8">
+      <div class="relative">
+        <div class="absolute inset-0 flex items-center" aria-hidden="true">
+          <div class="w-full border-t border-gray-300"></div>
+        </div>
+        <div class="relative flex items-center justify-start">
+          <span class="bg-white iconify" data-icon="carbon:cloud-app" data-width="24" data-height="24"></span>
+          <h2 class="pl-3 pr-6 my-0 text-2xl font-medium text-gray-700 bg-white print:text-lg">Projects</h2>
+        </div>
+      </div>
+      <div>
+        <ul role="list" class="pl-0 list-none">
+          {{- range .Site.Data.projects }}
+          {{- $primaryTech := index $.Site.Data.technologies (index .technologies 0) }}
+          <li class="flex pl-0 mt-6 border rounded-md shadow-sm border-slate-200 print:shadow-none group">
+            <div
+              class="flex items-center justify-center flex-shrink-0 w-20 text-sm font-medium text-gray-500 shadow-sm bg-slate-200 print:shadow-none rounded-l-md">
+              <span title="{{ $primaryTech.name }}">
+                <span class="transition iconify grayscale print:grayscale-0 group-hover:grayscale-0" {{
+                  printf "data-icon=%q" $primaryTech.icon | safeHTMLAttr }} data-width="42" data-height="42"></span>
+              </span>
+            </div>
+            <div class="flex items-center justify-between flex-1 bg-white">
+              <div class="flex-1 px-4 py-2">
+                <a href="{{ safeURL .link }}" target="_blank" class="text-xl font-medium no-underline print:text-lg">{{
+                  .name }}</a>
+                <div class="mt-1 text-sm text-gray-500 break-words whitespace-pre-wrap">{{ safeHTML .description }}
+                </div>
+                <div class="flex flex-wrap gap-5 mt-3">
+                  {{- range .technologies }}
+                  {{- if ne . $primaryTech.name }}
+                  {{- $tech := index $.Site.Data.technologies .}}
+                  <span title="{{ $tech.name }}">
+                    <span class="transition iconify grayscale print:grayscale-0 group-hover:grayscale-0" {{
+                      printf "data-icon=%q" $tech.icon | safeHTMLAttr }} data-width="28" data-height="28"></span>
+                  </span>
+                  {{- end }}
+                  {{- end }}
+                </div>
+              </div>
+            </div>
+          </li>
+          {{- end }}
+          <li><a href="https://github.com/mgjules" target="_blank" class="text-base font-medium no-underline">View
+              more projects
+              on
+              Github&nbsp&rarr; </a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Awards -->
+    <div class="mt-8">
+      <div class="relative">
+        <div class="absolute inset-0 flex items-center" aria-hidden="true">
+          <div class="w-full border-t border-gray-300"></div>
+        </div>
+        <div class="relative flex items-center justify-start">
+          <span class="bg-white iconify" data-icon="fa6-solid:award" data-width="24" data-height="24"></span>
+          <h2 class="pl-3 pr-6 my-0 text-2xl font-medium text-gray-700 bg-white print:text-lg">Awards</h2>
+        </div>
+      </div>
+      <div>
+        <div class="grid grid-cols-1 gap-4 mt-6 sm:grid-cols-2">
+          {{- range .Site.Data.awards }}
+          <div class="px-4 py-3 border rounded-md shadow-sm print:shadow-none border-slate-200 group">
+            <div class="flex items-center" title="{{ .result }}">
+              <span
+                class="flex-shrink-0 transition bg-white iconify grayscale print:grayscale-0 group-hover:grayscale-0"
+                {{ printf "data-icon=%q" .icon | safeHTMLAttr }} data-width="42" data-height="42"></span>
+              <div class="w-full ml-6">
+                <div class="flex flex-wrap items-center justify-between">
+                  <h3 class="my-0 text-xl font-medium text-gray-700 print:text-lg">{{ .event }}</h3>
+                  <span class="text-sm text-gray-500">{{ .date }}</span>
+                </div>
+                <div class="text-sm text-gray-400">{{ safeHTML .description }}</div>
+              </div>
+            </div>
+          </div>
+          {{- end }}
+        </div>
+      </div>
+    </div>
+
+    <!-- Contributions -->
+    <div class="mt-8">
+      <div class="relative">
+        <div class="absolute inset-0 flex items-center" aria-hidden="true">
+          <div class="w-full border-t border-gray-300"></div>
+        </div>
+        <div class="relative flex items-center justify-start">
+          <span class="bg-white iconify" data-icon="bxs:user-voice" data-width="26" data-height="26"></span>
+          <h2 class="pl-3 pr-6 my-0 text-2xl font-medium text-gray-700 bg-white print:text-lg">Contributions</h2>
+        </div>
+      </div>
+      <div>
+        <ul role="list" class="pl-0 list-none">
+          {{- range .Site.Data.contributions }}
+          {{- $to := default "present" .to }}
+          {{- $period := cond (eq .from $to) $to (printf "%s &rarr; %s" .from $to) }}
+          <li class="pl-0 mt-6 group">
+            <div>
+              <div class="flex flex-wrap items-center justify-between">
+                <h3 class="my-0 text-xl print:text-lg">{{ .event }}</h3>
+                <span class="text-sm text-gray-500">{{ $period | htmlUnescape }}</span>
+              </div>
+              <span
+                class="px-2 py-1 text-sm text-gray-500 border rounded-lg shadow-sm print:shadow-none border-slate-200">{{
+                .role }}</span>
+              <div class="text-gray-500">{{ .title }}</d>
+              </div>
+          </li>
+          {{- end }}
+        </ul>
+      </div>
+    </div>
+
+    <div class="fixed bottom-5 right-5">
+      <button onclick="window.print()" type="button" aria-label="Print Resume"
+        class="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-white transition-all bg-teal-600 border border-transparent rounded-md shadow-sm opacity-75 group print:hidden hover:opacity-90 hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500">
+        <span class="hidden group-hover:inline-block">Print Resume</span>
+        <span class="group-hover:ml-2 iconify" data-icon="fa6-solid:print" data-width="20" data-height="20"></span>
+      </button>
+    </div>
+  </div>
+</div>
+{{ end }}

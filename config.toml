@@ -1,0 +1,14 @@
+baseURL = 'https://mgjules.dev'
+languageCode = 'en-us'
+title = 'Michaël Giovanni Jules'
+
+disableKinds = ["taxonomy", "term"]
+
+[params]
+    description = "A Gopher who creates little minions; the industry calls them microservices."
+    keywords = ["go", "developer", "resume", "curriculum vitae", "cv", "mauritius"]
+    full_name = "Michaël Giovanni Jules"
+    first_name = "Michaël Giovanni"
+    last_name = "Jules"
+    username = "mgjules"
+    gender = "male"

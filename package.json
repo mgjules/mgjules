@@ -4,8 +4,8 @@
   "description": "Website",
   "main": "index.js",
   "scripts": {
-    "dev": "npx tailwindcss -i ./src/app.css -o ./dist/app.css --watch",
-    "dist": "npx tailwindcss -i ./src/app.css -o ./dist/app.css --minify",
+    "dev": "npx tailwindcss -i ./src/app.css -o ./static/css/app.css --watch",
+    "dist": "npx tailwindcss -i ./src/app.css -o ./static/css/app.css --minify",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
