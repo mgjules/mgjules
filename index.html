@@ -112,7 +112,7 @@
         <div v-cloak v-if="links?.length > 0">
           <div class="flex flex-wrap justify-center gap-4 mt-6 print:hidden">
             <a :href="url" target="_blank" v-for="{ name, alt, url } in links">
-              <img :src="linkImage(name, alt)" target="_blank">
+              <img :src="linkImage(name, alt)" target="_blank" :alt="`[ ${cleanURLForPrint(url)} ]`">
             </a>
           </div>
           <div class="flex-wrap justify-center hidden gap-4 mt-6 text-sm print:flex">
@@ -125,7 +125,7 @@
           <span class="inline-block w-24 h-6 bg-slate-200"></span>
         </div>
         <div class="mt-6">
-          <img class="float-left w-24 h-24 mr-6 rounded-md" src="/dist/assets/profile.jpg" alt="">
+          <img class="float-left w-24 h-24 mr-6 rounded-md" src="/dist/assets/profile.jpg" alt="Profile Picture">
           <p class="text-xl leading-8 text-gray-500 print:text-base">A Gopher who has fallen in love with cloud-native
             application
             development and all the exciting opportunities and challenges it brings. Fortunate to work on several Go
