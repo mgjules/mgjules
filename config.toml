@@ -12,3 +12,4 @@ disableKinds = ["taxonomy", "term"]
     last_name = "Jules"
     username = "mgjules"
     gender = "male"
+    github = "https://github.com/mgjules"

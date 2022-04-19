@@ -49,11 +49,13 @@
       <div>
         <ul role="list" class="pl-0 list-none">
           {{- range .Site.Data.works }}
+          {{- $to := default "present" .to }}
+          {{- $period := cond (eq .from $to) $to (printf "%s &rarr; %s" .from $to) }}
           <li class="pl-0 mt-6 group">
             <div>
               <div class="flex flex-wrap items-center justify-between">
                 <h3 class="my-0 text-xl print:text-lg">{{ .company }}</h3>
-                <span class="text-sm text-gray-500">{{ .from }} &rarr; {{ default "present" .to }}</span>
+                <span class="text-sm text-gray-500">{{ $period }}</span>
               </div>
               <span class="text-gray-500 print:text-base">{{ .position }}</span>
               <div class="flex flex-wrap gap-5 mt-1">
@@ -104,27 +106,41 @@
               <div class="flex-1 px-4 py-2">
                 <a href="{{ safeURL .link }}" target="_blank" class="text-xl font-medium no-underline print:text-lg">{{
                   .name }}</a>
-                <div class="mt-1 text-sm text-gray-500 break-words whitespace-pre-wrap">{{ safeHTML .description }}
+                <div class="mt-1 text-sm text-gray-500 break-words">
+                  {{ safeHTML .description }}
                 </div>
+                {{ $techs := slice }}
+                {{- range .technologies }}
+                {{- if ne . $primaryTech.name }}
+                {{- $techs = $techs | append (index $.Site.Data.technologies .) }}
+                {{- end }}
+                {{- end }}
+
+                {{- if gt (len $techs) 0 }}
                 <div class="flex flex-wrap gap-5 mt-3">
-                  {{- range .technologies }}
-                  {{- if ne . $primaryTech.name }}
-                  {{- $tech := index $.Site.Data.technologies .}}
-                  <span title="{{ $tech.name }}">
+                  {{- range $techs }}
+                  <span title="{{ .name }}">
                     <span class="transition iconify grayscale print:grayscale-0 group-hover:grayscale-0" {{
-                      printf "data-icon=%q" $tech.icon | safeHTMLAttr }} data-width="28" data-height="28"></span>
+                      printf "data-icon=%q" .icon | safeHTMLAttr }} data-width="28" data-height="28"></span>
                   </span>
                   {{- end }}
-                  {{- end }}
                 </div>
+                {{- end }}
               </div>
             </div>
           </li>
           {{- end }}
-          <li><a href="https://github.com/mgjules" target="_blank" class="text-base font-medium no-underline">View
+          <li>
+            <a href="{{ safeURL .Site.Params.github }}" target="_blank"
+              class="text-base font-medium no-underline print:hidden">View
               more projects
               on
-              Github&nbsp&rarr; </a></li>
+              Github &rarr;</a>
+            <span class="hidden text-base font-medium text-teal-600 print:inline">View
+              more projects
+              on
+              Github [ {{ replaceRE "^https?://" "" .Site.Params.github }} ]</span>
+          </li>
         </ul>
       </div>
     </div>
@@ -146,8 +162,8 @@
           <div class="px-4 py-3 border rounded-md shadow-sm print:shadow-none border-slate-200 group">
             <div class="flex items-center" title="{{ .result }}">
               <span
-                class="flex-shrink-0 transition bg-white iconify grayscale print:grayscale-0 group-hover:grayscale-0"
-                {{ printf "data-icon=%q" .icon | safeHTMLAttr }} data-width="42" data-height="42"></span>
+                class="flex-shrink-0 transition bg-white iconify grayscale print:grayscale-0 group-hover:grayscale-0" {{
+                printf "data-icon=%q" .icon | safeHTMLAttr }} data-width="42" data-height="42"></span>
               <div class="w-full ml-6">
                 <div class="flex flex-wrap items-center justify-between">
                   <h3 class="my-0 text-xl font-medium text-gray-700 print:text-lg">{{ .event }}</h3>
@@ -195,13 +211,14 @@
       </div>
     </div>
 
-    <div class="fixed bottom-5 right-5">
-      <button onclick="window.print()" type="button" aria-label="Print Resume"
-        class="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-white transition-all bg-teal-600 border border-transparent rounded-md shadow-sm opacity-75 group print:hidden hover:opacity-90 hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500">
-        <span class="hidden group-hover:inline-block">Print Resume</span>
-        <span class="group-hover:ml-2 iconify" data-icon="fa6-solid:print" data-width="20" data-height="20"></span>
-      </button>
-    </div>
   </div>
+</div>
+
+<div class="fixed bottom-5 right-5">
+  <button onclick="window.print()" type="button" aria-label="Print Resume"
+    class="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-white transition-all bg-teal-600 border border-transparent rounded-md shadow-sm opacity-75 group print:hidden hover:opacity-90 hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500">
+    <span class="hidden group-hover:inline-block">Print Resume</span>
+    <span class="group-hover:ml-2 iconify" data-icon="fa6-solid:print" data-width="20" data-height="20"></span>
+  </button>
 </div>
 {{ end }}
