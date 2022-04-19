@@ -151,7 +151,7 @@
           </div>
           <div>
             <ul role="list" class="pl-0 list-none" v-cloak v-if="works?.length > 0">
-              <li class="mt-6 group" v-for="{ company, from, to, position, technologies, tasks } in works">
+              <li class="pl-0 mt-6 group" v-for="{ company, from, to, position, technologies, tasks } in works">
                 <div>
                   <div class="flex flex-wrap items-center justify-between">
                     <h3 class="my-0 print:text-lg">{{ company }}</h3>
@@ -171,7 +171,7 @@
               </li>
             </ul>
             <ul role="list" class="pl-0 list-none" v-else>
-              <li>
+              <li class="pl-0 mt-6">
                 <div class="animate-pulse">
                   <div class="flex flex-col justify-between md:items-center sm:flex-row">
                     <h3 class="my-0"><span class="inline-block h-2 rounded w-28 bg-slate-200"></span></h3>
@@ -327,7 +327,7 @@
             </div>
             <div>
               <ul role="list" class="pl-0 list-none" v-cloak v-if="contributions?.length > 0">
-                <li class="mt-6 group" v-for="{ event, title, from, to, role } in contributions">
+                <li class="pl-0 mt-6 group" v-for="{ event, title, from, to, role } in contributions">
                   <div>
                     <div class="flex flex-wrap items-center justify-between">
                       <h3 class="my-0 text-lg">{{ event }}</h3>
@@ -342,7 +342,7 @@
                 </li>
               </ul>
               <ul role="list" class="pl-0 list-none" v-else>
-                <li>
+                <li class="pl-0 mt-6">
                   <div class="animate-pulse">
                     <div class="flex flex-col justify-between md:items-center sm:flex-row">
                       <h3 class="my-0"><span class="inline-block h-2 rounded w-28 bg-slate-200"></span></h3>
