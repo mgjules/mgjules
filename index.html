@@ -150,7 +150,7 @@
             </div>
           </div>
           <div>
-            <ul role="list" v-cloak v-if="works?.length > 0">
+            <ul role="list" class="pl-0 list-none" v-cloak v-if="works?.length > 0">
               <li class="mt-6 group" v-for="{ company, from, to, position, technologies, tasks } in works">
                 <div>
                   <div class="flex flex-wrap items-center justify-between">
@@ -170,7 +170,7 @@
                 </div>
               </li>
             </ul>
-            <ul role="list" v-else>
+            <ul role="list" class="pl-0 list-none" v-else>
               <li>
                 <div class="animate-pulse">
                   <div class="flex flex-col justify-between md:items-center sm:flex-row">
@@ -326,7 +326,7 @@
               </div>
             </div>
             <div>
-              <ul role="list" v-cloak v-if="contributions?.length > 0">
+              <ul role="list" class="pl-0 list-none" v-cloak v-if="contributions?.length > 0">
                 <li class="mt-6 group" v-for="{ event, title, from, to, role } in contributions">
                   <div>
                     <div class="flex flex-wrap items-center justify-between">
@@ -341,7 +341,7 @@
                     </div>
                 </li>
               </ul>
-              <ul role="list" v-else>
+              <ul role="list" class="pl-0 list-none" v-else>
                 <li>
                   <div class="animate-pulse">
                     <div class="flex flex-col justify-between md:items-center sm:flex-row">
