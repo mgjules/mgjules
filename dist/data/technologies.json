@@ -52,6 +52,14 @@
         "icon": "logos:aws-dynamodb"
     },
     {
+        "name": "Timestream",
+        "icon": "logos:aws-timestream"
+    },
+    {
+        "name": "S3",
+        "icon": "logos:aws-s3"
+    },
+    {
         "name": "AWS",
         "icon": "logos:aws"
     },

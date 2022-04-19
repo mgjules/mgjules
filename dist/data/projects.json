@@ -2,13 +2,40 @@
     {
         "name": "Spoty",
         "link": "https://github.com/mgjules/spoty",
-        "description": "Spoty is a Go microservice which provides REST API endpoints to query the current playing track on Spotify.",
+        "description": "Spoty is a microservice which provides REST API endpoints to query the current playing track on Spotify.",
         "technologies": [
             "Go",
             "RabbitMQ",
             "Docker",
             "Kubernetes",
             "Swagger"
+        ]
+    },
+    {
+        "name": "Timestream Travel",
+        "link": "https://github.com/mgjules/timestream-travel",
+        "description": "Timestream Travel is a CLI application to backup time-series data from Amazon Timestream to S3.",
+        "technologies": [
+            "Go",
+            "Timestream",
+            "S3"
+        ]
+    },
+    {
+        "name": "Mauritius Sea Cables",
+        "link": "https://github.com/mgjules/mru-sea-cables-go",
+        "description": "Speedtest CLI application for <a href=\"https://mrsunshyne.github.io/mauritius-sea-cable/\" target=\"_blank\">Mauritius Sea Cables</a>.",
+        "technologies": [
+            "Go"
+        ]
+    },
+    {
+        "name": "Gocipe",
+        "link": "https://github.com/lsldigital/gocipe",
+        "description": "Gocipe is a CLI application to generate full-blown headless Content Management Systems.",
+        "technologies": [
+            "Go",
+            "gRPC"
         ]
     }
 ]
