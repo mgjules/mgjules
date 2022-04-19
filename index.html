@@ -31,11 +31,11 @@
     }
   </style>
 
-  <link rel="preload" href="/dist/app.css?v=1.1.0" as="style">
+  <link rel="preload" href="/dist/app.css?v=1.2.0" as="style">
   <link rel="preload" href="https://rsms.me/inter/inter.css" as="style">
   <link rel="preload" href="https://code.iconify.design/2/2.2.1/iconify.min.js" as="script">
 
-  <link rel="stylesheet" href="/dist/app.css?v=1.1.0" type="text/css">
+  <link rel="stylesheet" href="/dist/app.css?v=1.2.0" type="text/css">
   <link rel="stylesheet" href="https://rsms.me/inter/inter.css" type="text/css">
   <script src="https://code.iconify.design/2/2.2.1/iconify.min.js" defer init></script>
 
@@ -54,11 +54,11 @@
         this.technologies = await this.retrieveTechnologies()
 
         await Promise.all([
-            (async()=>this.links = await this.retrieveLinks())(),
-            (async()=>this.works = await this.retrieveWorks())(),
-            (async()=>this.projects = await this.retrieveProjects())(),
-            (async()=>this.awards = await this.retrieveAwards())(),
-            (async()=>this.contributions = await this.retrieveContributions())()
+          (async () => this.links = await this.retrieveLinks())(),
+          (async () => this.works = await this.retrieveWorks())(),
+          (async () => this.projects = await this.retrieveProjects())(),
+          (async () => this.awards = await this.retrieveAwards())(),
+          (async () => this.contributions = await this.retrieveContributions())()
         ])
       },
       async retrieveLinks() {
@@ -104,7 +104,8 @@
 </head>
 
 <body>
-  <div class="relative pt-4 overflow-hidden font-sans antialiased bg-white sm:pt-16 print:pt-0" v-scope @vue:mounted="mounted">
+  <div class="relative pt-4 overflow-hidden font-sans antialiased bg-white sm:pt-16 print:pt-0" v-scope
+    @vue:mounted="mounted">
     <div class="relative px-4 sm:px-6 lg:px-8">
       <div class="max-w-4xl mx-auto text-lg">
         <h1 class="flex justify-center">
@@ -115,7 +116,8 @@
         <div v-cloak v-if="links?.length > 0">
           <div class="flex flex-wrap justify-center gap-4 mt-6 print:hidden">
             <a :href="url" target="_blank" v-for="{ name, alt, url } in links">
-              <img :src="linkImage(name, alt)" width="100%" height="28" target="_blank" :alt="`[ ${cleanURLForPrint(url)} ]`">
+              <img :src="linkImage(name, alt)" width="100%" height="28" target="_blank"
+                :alt="`[ ${cleanURLForPrint(url)} ]`">
             </a>
           </div>
           <div class="flex-wrap justify-center hidden gap-4 mt-6 text-sm print:flex">
@@ -208,8 +210,9 @@
               </div>
             </div>
             <div>
-              <ul role="list" class="grid grid-cols-1 gap-4 pl-0 mt-6 list-none">
-                <li class="flex col-span-1 pl-0 border rounded-lg shadow-sm border-slate-200 print:shadow-none group"
+              <ul v-cloak role="list" class="pl-0 list-none" v-if="projects?.length > 0">
+                <li
+                  class="flex col-span-1 pl-0 mt-6 border rounded-lg shadow-sm border-slate-200 print:shadow-none group"
                   v-for="{ name, link, description, technologies } in projects">
                   <div
                     class="flex items-center justify-center flex-shrink-0 w-20 text-sm font-medium text-gray-500 shadow-sm bg-slate-200 print:shadow-none rounded-l-md">
@@ -218,7 +221,7 @@
                         :data-icon="technology(technologies[0]).icon" data-width="42" data-height="42"></span>
                     </span>
                   </div>
-                  <div class="flex items-center justify-between flex-1 bg-white ">
+                  <div class="flex items-center justify-between flex-1 bg-white">
                     <div class="flex-1 px-4 py-2">
                       <a :href="link" class="font-medium no-underline">{{ name }}</a>
                       <div class="mt-1 text-sm text-gray-500 break-words whitespace-pre-wrap" v-html="description">
@@ -237,6 +240,28 @@
                     more projects
                     on
                     Github&nbsp&rarr; </a></li>
+              </ul>
+              <ul role="list" class="pl-0 list-none" v-else>
+                <li
+                  class="flex col-span-1 pl-0 mt-6 border rounded-lg shadow-sm border-slate-200 print:shadow-none group">
+                  <div
+                    class="flex items-center justify-center flex-shrink-0 w-20 text-sm font-medium text-gray-500 shadow-sm bg-slate-200 print:shadow-none rounded-l-md">
+                    <div class="inline-block w-8 h-8 rounded bg-slate-200"></div>
+                  </div>
+                  <div class="flex items-center justify-between flex-1 bg-white">
+                    <div class="flex-1 px-4 py-2">
+                      <div class="inline-block w-32 h-2 rounded bg-slate-200"></div>
+                      <div class="mt-1 text-sm text-gray-500">
+                        <span class="inline-block w-3/4 h-2 rounded bg-slate-200"></span>
+                      </div>
+                      <div class="flex flex-wrap gap-5 mt-3">
+                        <div class="inline-block w-8 h-8 rounded bg-slate-200"></div>
+                        <div class="inline-block w-8 h-8 rounded bg-slate-200"></div>
+                        <div class="inline-block w-8 h-8 rounded bg-slate-200"></div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
               </ul>
             </div>
           </div>
