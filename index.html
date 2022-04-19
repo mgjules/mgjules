@@ -53,7 +53,7 @@
       async mounted() {
         this.technologies = await this.retrieveTechnologies()
 
-        await Promise.all([
+        Promise.all([
           (async () => this.links = await this.retrieveLinks())(),
           (async () => this.works = await this.retrieveWorks())(),
           (async () => this.projects = await this.retrieveProjects())(),
