@@ -116,7 +116,7 @@
         <div v-cloak v-if="links?.length > 0">
           <div class="flex flex-wrap justify-center gap-4 mt-6 print:hidden">
             <a :href="url" target="_blank" v-for="{ name, alt, url } in links">
-              <img :src="linkImage(name, alt)" width="100%" height="28" target="_blank"
+              <img :src="linkImage(name, alt)" width="100%" height="28" target="_blank" loading="lazy"
                 :alt="`[ ${cleanURLForPrint(url)} ]`">
             </a>
           </div>
@@ -130,7 +130,8 @@
           <span class="inline-block w-24 h-6 bg-slate-200"></span>
         </div>
         <div class="mt-6">
-          <img class="float-left w-24 h-24 mr-6 rounded-md" src="/dist/assets/profile_96x96.jpg" alt="Profile Picture">
+          <img class="float-left w-24 h-24 mr-6 rounded-md" src="/dist/assets/profile_96x96.jpg" alt="Profile Picture"
+            loading="lazy">
           <p class="text-xl leading-8 text-gray-500 print:text-base">A Gopher who has fallen in love with cloud-native
             application
             development and all the exciting opportunities and challenges it brings. Fortunate to work on several Go
@@ -211,8 +212,7 @@
             </div>
             <div>
               <ul v-cloak role="list" class="pl-0 list-none" v-if="projects?.length > 0">
-                <li
-                  class="flex pl-0 mt-6 border rounded-md shadow-sm border-slate-200 print:shadow-none group"
+                <li class="flex pl-0 mt-6 border rounded-md shadow-sm border-slate-200 print:shadow-none group"
                   v-for="{ name, link, description, technologies } in projects">
                   <div
                     class="flex items-center justify-center flex-shrink-0 w-20 text-sm font-medium text-gray-500 shadow-sm bg-slate-200 print:shadow-none rounded-l-md">
@@ -242,8 +242,7 @@
                     Github&nbsp&rarr; </a></li>
               </ul>
               <ul role="list" class="pl-0 list-none" v-else>
-                <li
-                  class="flex pl-0 mt-6 border rounded-md shadow-sm border-slate-200 print:shadow-none group">
+                <li class="flex pl-0 mt-6 border rounded-md shadow-sm border-slate-200 print:shadow-none group">
                   <div
                     class="flex items-center justify-center flex-shrink-0 w-20 text-sm font-medium text-gray-500 shadow-sm bg-slate-200 print:shadow-none rounded-l-md">
                     <div class="inline-block w-8 h-8 rounded bg-slate-200"></div>
