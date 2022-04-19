@@ -113,21 +113,21 @@
             class="inline-block mx-auto mt-2 text-3xl font-extrabold leading-8 tracking-tight text-center text-gray-900 sm:text-4xl">Michaël
             Giovanni Jules</span>
         </h1>
-        <div v-cloak v-if="links?.length > 0">
-          <div class="flex flex-wrap justify-center gap-4 mt-6 print:hidden">
+        <div class="h-6 mt-6">
+          <div class="flex flex-wrap justify-center gap-4 print:hidden" v-cloak v-if="links?.length > 0">
             <a :href="url" target="_blank" v-for="{ name, alt, url } in links">
               <img :src="linkImage(name, alt)" width="100%" height="28" target="_blank" loading="lazy"
                 :alt="`[ ${cleanURLForPrint(url)} ]`">
             </a>
           </div>
-          <div class="flex-wrap justify-center hidden gap-4 mt-6 text-sm print:flex">
+          <div class="flex flex-wrap justify-center gap-4 animate-pulse print:hidden" v-else>
+            <span class="inline-block w-24 h-6 bg-slate-200"></span>
+            <span class="inline-block w-24 h-6 bg-slate-200"></span>
+            <span class="inline-block w-24 h-6 bg-slate-200"></span>
+          </div>
+          <div class="flex-wrap justify-center hidden gap-4 print:flex">
             <span v-for="{ name, url } in links">[ {{ cleanURLForPrint(url) }} ]</span>
           </div>
-        </div>
-        <div class="flex flex-wrap justify-center gap-4 mt-6 animate-pulse print:hidden" v-else>
-          <span class="inline-block w-24 h-6 bg-slate-200"></span>
-          <span class="inline-block w-24 h-6 bg-slate-200"></span>
-          <span class="inline-block w-24 h-6 bg-slate-200"></span>
         </div>
         <div class="mt-6">
           <img class="float-left w-24 h-24 mr-6 rounded-md" src="/dist/assets/profile_96x96.jpg" alt="Profile Picture"
