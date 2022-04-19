@@ -147,7 +147,7 @@
             </div>
             <div class="relative flex items-center justify-start">
               <span class="bg-white iconify" data-icon="ic:outline-work" data-width="24" data-height="24"></span>
-              <span class="pl-3 pr-6 text-2xl font-medium text-gray-700 bg-white print:text-lg">Experience</span>
+              <h2 class="pl-3 pr-6 my-0 text-2xl font-medium text-gray-700 bg-white print:text-lg">Experience</h2>
             </div>
           </div>
           <div>
@@ -155,7 +155,7 @@
               <li class="pl-0 mt-6 group" v-for="{ company, from, to, position, technologies, tasks } in works">
                 <div>
                   <div class="flex flex-wrap items-center justify-between">
-                    <h3 class="my-0 print:text-lg">{{ company }}</h3>
+                    <h3 class="my-0 text-xl print:text-lg">{{ company }}</h3>
                     <span class="text-sm text-gray-500">{{ from }} &rarr; {{ to || 'present' }}</span>
                   </div>
                   <span class="text-gray-500 print:text-base">{{ position }}</span>
@@ -207,7 +207,7 @@
               </div>
               <div class="relative flex items-center justify-start">
                 <span class="bg-white iconify" data-icon="carbon:cloud-app" data-width="24" data-height="24"></span>
-                <span class="pl-3 pr-6 text-2xl font-medium text-gray-700 bg-white print:text-lg">Projects</span>
+                <h2 class="pl-3 pr-6 my-0 text-2xl font-medium text-gray-700 bg-white print:text-lg">Projects</h2>
               </div>
             </div>
             <div>
@@ -223,7 +223,7 @@
                   </div>
                   <div class="flex items-center justify-between flex-1 bg-white">
                     <div class="flex-1 px-4 py-2">
-                      <a :href="link" class="font-medium no-underline">{{ name }}</a>
+                      <a :href="link" class="text-xl font-medium no-underline print:text-lg">{{ name }}</a>
                       <div class="mt-1 text-sm text-gray-500 break-words whitespace-pre-wrap" v-html="description">
                       </div>
                       <div class="flex flex-wrap gap-5 mt-3" v-if="technologies?.length > 1">
@@ -273,7 +273,7 @@
               </div>
               <div class="relative flex items-center justify-start">
                 <span class="bg-white iconify" data-icon="fa6-solid:award" data-width="24" data-height="24"></span>
-                <span class="pl-3 pr-6 text-2xl font-medium text-gray-700 bg-white print:text-lg">Awards</span>
+                <h2 class="pl-3 pr-6 my-0 text-2xl font-medium text-gray-700 bg-white print:text-lg">Awards</h2>
               </div>
             </div>
             <div v-cloak v-if="awards?.length > 0">
@@ -286,7 +286,7 @@
                       :data-icon="icon" data-width="42" data-height="42"></span>
                     <div class="w-full ml-6">
                       <div class="flex flex-wrap items-center justify-between">
-                        <h3 class="my-0 text-lg font-medium text-gray-700">{{ event }}</h3>
+                        <h3 class="my-0 text-xl font-medium text-gray-700 print:text-lg">{{ event }}</h3>
                         <span class="text-sm text-gray-500">{{ date }}</span>
                       </div>
                       <div class="text-sm text-gray-400">{{ description }}</div>
@@ -321,7 +321,7 @@
               </div>
               <div class="relative flex items-center justify-start">
                 <span class="bg-white iconify" data-icon="bxs:user-voice" data-width="26" data-height="26"></span>
-                <span class="pl-3 pr-6 text-2xl font-medium text-gray-700 bg-white print:text-lg">Contributions</span>
+                <h2 class="pl-3 pr-6 my-0 text-2xl font-medium text-gray-700 bg-white print:text-lg">Contributions</h2>
               </div>
             </div>
             <div>
@@ -329,7 +329,7 @@
                 <li class="pl-0 mt-6 group" v-for="{ event, title, from, to, role } in contributions">
                   <div>
                     <div class="flex flex-wrap items-center justify-between">
-                      <h3 class="my-0 text-lg">{{ event }}</h3>
+                      <h3 class="my-0 text-xl print:text-lg">{{ event }}</h3>
                       <span class="text-sm text-gray-500"><span v-if="from !== to">{{ from }} &rarr; </span>{{ to ||
                         'present' }}</span>
                     </div>
