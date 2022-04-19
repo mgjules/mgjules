@@ -31,7 +31,7 @@
     }
   </style>
 
-  <link rel="preload" href="/dist/app.css?v=1.0.0" as="style">
+  <link rel="preload" href="/dist/app.css?v=1.1.0" as="style">
   <link rel="preload" href="https://rsms.me/inter/inter.css" as="style">
   <link rel="preload" href="https://code.iconify.design/2/2.2.1/iconify.min.js" as="script">
 
@@ -46,6 +46,7 @@
       links: [],
       technologies: [],
       works: [],
+      projects: [],
       awards: [],
       contributions: [],
       year: (new Date).getFullYear(),
@@ -53,6 +54,7 @@
         this.links = await this.retrieveLinks()
         this.technologies = await this.retrieveTechnologies()
         this.works = await this.retrieveWorks()
+        this.projects = await this.retrieveProjects()
         this.awards = await this.retrieveAwards()
         this.contributions = await this.retrieveContributions()
       },
@@ -66,6 +68,10 @@
       },
       async retrieveWorks() {
         const resp = await fetch('/dist/data/works.json')
+        return await resp.json()
+      },
+      async retrieveProjects() {
+        const resp = await fetch('/dist/data/projects.json')
         return await resp.json()
       },
       async retrieveAwards() {
@@ -187,6 +193,50 @@
             </ul>
           </div>
 
+          <!-- Projects -->
+          <div class="mt-8">
+            <div class="relative">
+              <div class="absolute inset-0 flex items-center" aria-hidden="true">
+                <div class="w-full border-t border-gray-300"></div>
+              </div>
+              <div class="relative flex items-center justify-start">
+                <span class="bg-white iconify" data-icon="carbon:cloud-app" data-width="24" data-height="24"></span>
+                <span class="pl-3 pr-6 text-2xl font-medium text-gray-700 bg-white print:text-lg">Projects</span>
+              </div>
+            </div>
+            <div>
+              <ul role="list" class="grid grid-cols-1 gap-4 pl-0 mt-6 list-none">
+                <li class="flex col-span-1 pl-0 border rounded-lg shadow-sm border-slate-200 print:shadow-none group"
+                  v-for="{ name, link, description, technologies } in projects">
+                  <div
+                    class="flex items-center justify-center flex-shrink-0 w-20 text-sm font-medium text-gray-500 shadow-sm bg-slate-200 print:shadow-none rounded-l-md">
+                    <span :title="technology(technologies[0]).name">
+                      <span class="transition iconify grayscale print:grayscale-0 group-hover:grayscale-0"
+                        :data-icon="technology(technologies[0]).icon" data-width="42" data-height="42"></span>
+                    </span>
+                  </div>
+                  <div class="flex items-center justify-between flex-1 bg-white ">
+                    <div class="flex-1 px-4 py-2">
+                      <a :href="link" class="font-medium no-underline">{{ name }}</a>
+                      <div class="mt-1 text-sm text-gray-500 break-words whitespace-pre-wrap" v-html="description">
+                      </div>
+                      <div class="flex flex-wrap gap-5 mt-3">
+                        <span :title="technology(tech).name" v-for="(tech, index) in technologies"
+                          :class="{'hidden': index === 0}">
+                          <span class="transition iconify grayscale print:grayscale-0 group-hover:grayscale-0"
+                            :data-icon="technology(tech).icon" data-width="24" data-height="24"></span>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li><a href="https://github.com/mgjules" class="text-base font-medium no-underline">View more projects
+                    on
+                    Github&nbsp&rarr; </a></li>
+              </ul>
+            </div>
+          </div>
+
           <!-- Awards -->
           <div class="mt-8">
             <div class="relative">
@@ -273,7 +323,7 @@
                     <span class="text-gray-500 text-md">
                       <div class="inline-block w-32 h-2 rounded bg-slate-200"></div>
                     </span>
-                      <span class="inline-block w-full h-2 rounded bg-slate-200"></span>
+                    <span class="inline-block w-full h-2 rounded bg-slate-200"></span>
                   </div>
                 </li>
               </ul>

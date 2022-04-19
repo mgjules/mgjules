@@ -1,0 +1,14 @@
+[
+    {
+        "name": "Spoty",
+        "link": "https://github.com/mgjules/spoty",
+        "description": "Spoty is a Go microservice which provides REST API endpoints to query the current playing track on Spotify.",
+        "technologies": [
+            "Go",
+            "RabbitMQ",
+            "Docker",
+            "Kubernetes",
+            "Swagger"
+        ]
+    }
+]
