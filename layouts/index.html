@@ -16,7 +16,7 @@
         </a>
         {{- end }}
       </div>
-      <div class="flex-wrap justify-center hidden gap-x-2 gap-y-1 print:flex">
+      <div class="flex-wrap justify-center hidden text-base gap-x-2 gap-y-1 print:flex">
         {{- range .Site.Data.links }}
         {{- $url := replaceRE "^https?://" "" .url }}
         {{- $url = replaceRE "/$" "" $url }}
@@ -55,7 +55,7 @@
             <div>
               <div class="flex flex-wrap items-center justify-between">
                 <h3 class="my-0 text-xl print:text-lg">{{ .company }}</h3>
-                <span class="text-sm text-gray-500">{{ $period }}</span>
+                <span class="text-sm text-gray-500">{{ $period | htmlUnescape }}</span>
               </div>
               <span class="text-gray-500 print:text-base">{{ .position }}</span>
               <div class="flex flex-wrap gap-5 mt-1">
