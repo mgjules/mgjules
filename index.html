@@ -51,12 +51,15 @@
       contributions: [],
       year: (new Date).getFullYear(),
       async mounted() {
-        this.links = await this.retrieveLinks()
         this.technologies = await this.retrieveTechnologies()
-        this.works = await this.retrieveWorks()
-        this.projects = await this.retrieveProjects()
-        this.awards = await this.retrieveAwards()
-        this.contributions = await this.retrieveContributions()
+
+        await Promise.all([
+            (async()=>this.links = await this.retrieveLinks())(),
+            (async()=>this.works = await this.retrieveWorks())(),
+            (async()=>this.projects = await this.retrieveProjects())(),
+            (async()=>this.awards = await this.retrieveAwards())(),
+            (async()=>this.contributions = await this.retrieveContributions())()
+        ])
       },
       async retrieveLinks() {
         const resp = await fetch('/dist/data/links.json')
@@ -101,7 +104,7 @@
 </head>
 
 <body>
-  <div class="relative pt-4 overflow-hidden antialiased bg-white sm:pt-16 print:pt-0" v-scope @vue:mounted="mounted">
+  <div class="relative pt-4 overflow-hidden font-sans antialiased bg-white sm:pt-16 print:pt-0" v-scope @vue:mounted="mounted">
     <div class="relative px-4 sm:px-6 lg:px-8">
       <div class="max-w-4xl mx-auto text-lg">
         <h1 class="flex justify-center">
@@ -112,7 +115,7 @@
         <div v-cloak v-if="links?.length > 0">
           <div class="flex flex-wrap justify-center gap-4 mt-6 print:hidden">
             <a :href="url" target="_blank" v-for="{ name, alt, url } in links">
-              <img :src="linkImage(name, alt)" target="_blank" :alt="`[ ${cleanURLForPrint(url)} ]`">
+              <img :src="linkImage(name, alt)" width="100%" height="28" target="_blank" :alt="`[ ${cleanURLForPrint(url)} ]`">
             </a>
           </div>
           <div class="flex-wrap justify-center hidden gap-4 mt-6 text-sm print:flex">
