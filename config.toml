@@ -13,4 +13,4 @@ disableKinds = ["taxonomy", "term"]
     username = "mgjules"
     gender = "male"
     github = "https://github.com/mgjules"
-    css_version = "1.4.1"
+    css_version = "1.5.0"
