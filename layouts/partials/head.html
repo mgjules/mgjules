@@ -29,7 +29,7 @@
   <meta name="profile:username" content="{{ .Site.Params.username }}">
   <meta name="profile:gender" content="{{ .Site.Params.gender }}">
 
-  <link rel="preload" href="{{ $appCss.Permalink }}" as="style">
+  <link rel="preload" href="{{ $appCss.Permalink }}" as="style" integrity="{{ $appCss.Data.Integrity }}">
   <link rel="preload" href="{{ "https://rsms.me/inter/inter.css" | safeURL }}" as="style">
   <link rel="preload" href="{{ "https://code.iconify.design/2/2.2.1/iconify.min.js" | safeURL }}" as="script">
 
