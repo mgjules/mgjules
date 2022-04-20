@@ -5,12 +5,11 @@ title = 'Michaël Giovanni Jules'
 disableKinds = ["taxonomy", "term"]
 
 [params]
-    description = "A Gopher who creates little minions; the industry calls them microservices."
-    keywords = ["go", "developer", "resume", "curriculum vitae", "cv", "mauritius"]
-    full_name = "Michaël Giovanni Jules"
-    first_name = "Michaël Giovanni"
-    last_name = "Jules"
-    username = "mgjules"
-    gender = "male"
-    github = "https://github.com/mgjules"
-    css_version = "1.5.0"
+description = "A Gopher who creates little minions; the industry calls them microservices."
+first_name = "Michaël Giovanni"
+full_name = "Michaël Giovanni Jules"
+gender = "male"
+github = "https://github.com/mgjules"
+keywords = ["go", "developer", "resume", "curriculum vitae", "cv", "mauritius"]
+last_name = "Jules"
+username = "mgjules"
