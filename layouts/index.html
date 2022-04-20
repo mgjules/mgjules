@@ -25,9 +25,13 @@
         {{- end }}
       </div>
     </div>
+    {{- $profilePicture := resources.Get "img/profile_96x96.jpg" }}
+    {{- if hugo.IsProduction }}
+    {{- $profilePicture = $profilePicture | resources.Fingerprint "sha512" }}
+    {{- end }}
     <div class="mt-6">
-      <img class="float-left w-24 h-24 mt-1 mr-6 rounded-md" src="{{ "/img/profile_96x96.jpg" | relURL }}" alt="Profile Picture"
-        loading="lazy">
+      <img class="float-left w-24 h-24 mt-1 mr-6 rounded-md" src="{{ $profilePicture.Permalink }}"
+        alt="Profile Picture" loading="lazy" integrity="{{ $profilePicture.Data.Integrity }}">
       <p class="text-xl text-gray-500 print:text-base">{{ .Page.Content | plainify }}</p>
     </div>
   </div>
@@ -101,7 +105,8 @@
             </div>
             <div class="flex items-center justify-between flex-1 bg-white">
               <div class="flex-1 px-4 py-2">
-                <a href="{{ .link | safeURL }}" target="_blank" class="text-xl font-medium no-underline print:text-lg">{{
+                <a href="{{ .link | safeURL }}" target="_blank"
+                  class="text-xl font-medium no-underline print:text-lg">{{
                   .name }}</a>
                 <div class="mt-1 text-sm text-gray-500 break-words">
                   {{ safeHTML .description }}
