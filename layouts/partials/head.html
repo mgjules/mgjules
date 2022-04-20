@@ -11,13 +11,9 @@
 
   {{- $profilePicture := resources.Get "img/profile.jpg" }}
   {{- $appCss := resources.Get "css/app.css" }}
-  {{- $interCss := resources.GetRemote "https://rsms.me/inter/inter.css" }}
-  {{- $iconifyJs := resources.GetRemote "https://code.iconify.design/2/2.2.1/iconify.min.js" }}
   {{- if hugo.IsProduction }}
   {{- $profilePicture = $profilePicture | resources.Fingerprint "sha512" }}
   {{- $appCss = $appCss | resources.Minify  | resources.Fingerprint "sha512" | resources.PostProcess }}
-  {{- $interCss = $interCss | resources.Minify  | resources.Fingerprint "sha512" | resources.PostProcess }}
-  {{- $iconifyJs = $iconifyJs | resources.Minify  | resources.Fingerprint "sha512" | resources.PostProcess }}
   {{- end }}
 
   <meta property="og:title" content="{{ .Site.Title }}">
@@ -34,12 +30,12 @@
   <meta name="profile:gender" content="{{ .Site.Params.gender }}">
 
   <link rel="preload" href="{{ $appCss.Permalink }}" as="style">
-  <link rel="preload" href="{{ $interCss.Permalink }}" as="style">
-  <link rel="preload" href="{{ $iconifyJs.Permalink }}" as="script">
+  <link rel="preload" href="{{ "https://rsms.me/inter/inter.css" | safeURL }}" as="style">
+  <link rel="preload" href="{{ "https://code.iconify.design/2/2.2.1/iconify.min.js" | safeURL }}" as="script">
 
   <link rel="stylesheet" href="{{ $appCss.Permalink }}" type="text/css" integrity="{{ $appCss.Data.Integrity }}">
-  <link rel="stylesheet" href="{{ $interCss.Permalink }}" type="text/css" integrity="{{ $interCss.Data.Integrity }}">
-  <script src="{{ $iconifyJs.Permalink }}" integrity="{{ $iconifyJs.Data.Integrity }}" defer init></script>
+  <link rel="stylesheet" href="{{ "https://rsms.me/inter/inter.css" | safeURL }}" type="text/css">
+  <script src="{{ "https://code.iconify.design/2/2.2.1/iconify.min.js" | safeURL }}" defer init></script>
 
   <title>{{ .Site.Title }}</title>
 </head>
