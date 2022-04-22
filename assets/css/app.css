@@ -1474,6 +1474,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   line-height: 2rem;
 }
 
+.leading-5 {
+  line-height: 1.25rem;
+}
+
 .leading-4 {
   line-height: 1rem;
 }

@@ -10,7 +10,7 @@
       <div class="flex flex-wrap justify-center gap-x-4 gap-y-1 print:hidden">
         {{- range .Site.Data.links }}
         <a href="{{ .url | safeURL }}" target="_blank">
-          <div class="flex items-center gap-2 px-2 py-1 text-xs font-semibold tracking-wider text-white uppercase bg-gray-800 rounded-md hover:bg-gray-600">
+          <div class="flex items-center gap-2 px-2 py-1 text-xs font-semibold leading-5 tracking-wider text-white uppercase bg-gray-800 rounded-md hover:bg-gray-600">
             <span class="transition iconify grayscale print:grayscale-0 group-hover:grayscale-0" {{
               printf "data-icon=%q" .icon | safeHTMLAttr }} data-width="16" data-height="16"></span>
             <span>{{ .name }}</span>
