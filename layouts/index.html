@@ -2,9 +2,10 @@
 <div class="relative px-4 sm:px-6 lg:px-8">
   <div class="max-w-4xl mx-auto text-lg">
     <h1 class="flex justify-center">
-      <span
-        class="inline-block mx-auto mt-2 text-3xl font-extrabold leading-8 tracking-tight text-center text-gray-900 sm:text-4xl">{{
-        .Site.Title }}</span>
+      <span class="inline-block mx-auto mt-2 tracking-tight text-center text-gray-900 text-3xlleading-8 sm:text-4xl">
+        <span class="font-light">{{ .Site.Params.first_name }}</span>
+        <span class="font-semibold">{{ .Site.Params.last_name }}</span>
+      </span>
     </h1>
     <div class="mt-6">
       <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 print:hidden">
@@ -53,11 +54,11 @@
         </div>
       </div>
       <div>
-        <ul role="list" class="pl-0 list-none">
+        <ul role="list" class="grid grid-cols-1 pl-0 mt-6 list-none gap-y-8">
           {{- range .Site.Data.works }}
           {{- $to := .to | default "present" }}
           {{- $period := cond (eq .from $to) $to (printf "%s &rarr; %s" .from $to) }}
-          <li class="pl-0 mt-6 group">
+          <li class="pl-0 my-0 group">
             <div class="flex flex-wrap items-center justify-between">
               <h3 class="my-0 text-xl print:text-lg">{{ .company }}</h3>
               <span class="text-sm text-gray-500">{{ $period | htmlUnescape }}</span>
@@ -72,9 +73,9 @@
               </span>
               {{- end }}
             </div>
-            <ul role="list" class="print:text-base">
+            <ul role="list" class="mt-2 mb-0 print:text-base">
               {{- range .tasks }}
-              <li>{{ safeHTML . }}</li>
+              <li class="mt-1 mb-0">{{ safeHTML . }}</li>
               {{- end }}
             </ul>
           </li>
@@ -200,15 +201,65 @@
           {{- $to := .to | default "present" }}
           {{- $period := cond (eq .from $to) $to (printf "%s &rarr; %s" .from $to) }}
           <li class="pl-0 my-0 group">
+            <div class="flex flex-col sm:items-center sm:justify-between sm:flex-row">
+              <h3 class="my-0 text-xl print:text-lg">{{ .event }}</h3>
+              <span class="text-sm text-gray-500">{{ $period | htmlUnescape }}</span>
+            </div>
+            <span
+              class="px-2 py-1 text-sm text-gray-500 border rounded-lg shadow-sm print:shadow-none border-slate-200">{{
+              .role }}</span>
+            <div class="text-gray-500">{{ .title }}</div>
+          </li>
+          {{- end }}
+        </ul>
+      </div>
+    </div>
+
+    <!-- Interests -->
+    <div class="mt-8">
+      <div class="relative">
+        <div class="absolute inset-0 flex items-center" aria-hidden="true">
+          <div class="w-full border-t border-gray-300"></div>
+        </div>
+        <div class="relative flex items-center justify-start">
+          <span class="bg-white iconify" data-icon="mdi:nintendo-game-boy" data-width="26" data-height="26"></span>
+          <h2 class="pl-3 pr-6 my-0 text-2xl font-medium text-gray-700 bg-white print:text-lg">Interests</h2>
+        </div>
+      </div>
+      <div>
+        <ul role="list" class="grid grid-cols-1 pl-0 mt-6 list-none gap-x-12 gap-y-4 sm:grid-cols-2">
+          {{- range .Site.Data.interests }}
+          <li class="flex items-center gap-4 pl-0 my-0 group">
+            <span class="flex-shrink-0 transition bg-white rounded-md iconify grayscale print:grayscale-0 group-hover:grayscale-0"
+              {{ printf "data-icon=%q" .icon | safeHTMLAttr }} data-width="42" data-height="42"></span>
+            <span>{{ .name }}</span>
+          </li>
+          {{- end }}
+        </ul>
+      </div>
+    </div>
+
+    <!-- Languages -->
+    <div class="mt-8">
+      <div class="relative">
+        <div class="absolute inset-0 flex items-center" aria-hidden="true">
+          <div class="w-full border-t border-gray-300"></div>
+        </div>
+        <div class="relative flex items-center justify-start">
+          <span class="bg-white iconify" data-icon="entypo:language" data-width="26" data-height="26"></span>
+          <h2 class="pl-3 pr-6 my-0 text-2xl font-medium text-gray-700 bg-white print:text-lg">Languages</h2>
+        </div>
+      </div>
+      <div>
+        <ul role="list" class="grid grid-cols-1 pl-0 mt-6 list-none gap-x-12 gap-y-4 sm:grid-cols-2">
+          {{- range .Site.Data.languages }}
+          <li class="flex items-center gap-4 pl-0 my-0 group">
+            <span class="flex-shrink-0 transition bg-white rounded-md iconify grayscale print:grayscale-0 group-hover:grayscale-0"
+              {{ printf "data-icon=%q" .icon | safeHTMLAttr }} data-width="42" data-height="42"></span>
             <div>
-              <div class="flex flex-col sm:items-center sm:justify-between sm:flex-row">
-                <h3 class="my-0 text-xl print:text-lg">{{ .event }}</h3>
-                <span class="text-sm text-gray-500">{{ $period | htmlUnescape }}</span>
-              </div>
-              <span
-                class="px-2 py-1 text-sm text-gray-500 border rounded-lg shadow-sm print:shadow-none border-slate-200">{{
-                .role }}</span>
-              <div class="text-gray-500">{{ .title }}</div>
+              <h3 class="my-0 text-xl print:text-lg">{{ .name }}</h3>
+              <div class="text-gray-500">{{ .level }}</div>
+            </div>
           </li>
           {{- end }}
         </ul>

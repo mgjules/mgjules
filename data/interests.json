@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Skateboarding",
+        "icon": "iconoir:skateboard"
+    },
+    {
+        "name": "Artificial Intelligence",
+        "icon": "mdi:robot-excited-outline"
+    },
+    {
+        "name": "Space Exploration",
+        "icon": "fluent:rocket-16-regular"
+    },
+    {
+        "name": "Movie",
+        "icon": "bxs:camera-movie"
+    },
+    {
+        "name": "Gaming",
+        "icon": "maki:gaming"
+    },
+    {
+        "name": "Anime",
+        "icon": "simple-icons:crunchyroll"
+    }
+]

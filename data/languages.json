@@ -1,0 +1,12 @@
+[
+    {
+        "name": "English",
+        "icon": "flag:us-1x1",
+        "level": "Full professional proficiency"
+    },
+    {
+        "name": "French",
+        "icon": "flag:fr-1x1",
+        "level": "Full professional proficiency"
+    }
+]
