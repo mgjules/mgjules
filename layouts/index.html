@@ -92,10 +92,10 @@
         </div>
       </div>
       <div>
-        <ul role="list" class="pl-0 list-none">
+        <ul role="list" class="flex flex-col gap-4 pl-0 mt-6 list-none">
           {{- range .Site.Data.projects }}
           {{- $primaryTech := index $.Site.Data.technologies (index .technologies 0) }}
-          <li class="flex pl-0 mt-6 border rounded-md shadow-sm border-slate-200 print:shadow-none group">
+          <li class="flex pl-0 my-0 border rounded-md shadow-sm border-slate-200 print:shadow-none group">
             <div
               class="flex items-center justify-center flex-shrink-0 w-20 text-sm font-medium text-gray-500 shadow-sm bg-slate-200 print:shadow-none rounded-l-md">
               <span title="{{ $primaryTech.name }}">
@@ -192,13 +192,13 @@
         </div>
       </div>
       <div>
-        <ul role="list" class="pl-0 list-none">
+        <ul role="list" class="grid grid-cols-1 pl-0 mt-6 list-none gap-x-12 gap-y-4 sm:grid-cols-2">
           {{- range .Site.Data.contributions }}
           {{- $to := .to | default "present" }}
           {{- $period := cond (eq .from $to) $to (printf "%s &rarr; %s" .from $to) }}
-          <li class="pl-0 mt-6 group">
+          <li class="pl-0 my-0 group">
             <div>
-              <div class="flex flex-wrap items-center justify-between">
+              <div class="flex flex-col sm:items-center sm:justify-between sm:flex-row">
                 <h3 class="my-0 text-xl print:text-lg">{{ .event }}</h3>
                 <span class="text-sm text-gray-500">{{ $period | htmlUnescape }}</span>
               </div>
@@ -219,7 +219,7 @@
 <div class="fixed bottom-5 right-5">
   <button onclick="window.print()" type="button" aria-label="Print Resume"
     class="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-white transition-all border border-transparent rounded-md shadow-sm opacity-75 bg-sky-600 group print:hidden hover:opacity-90 hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500">
-    <span class="hidden group-hover:inline-block">Print Resume</span>
+    <span class="hidden transition-all group-hover:inline-block">Print Resume</span>
     <span class="group-hover:ml-2 iconify" data-icon="fa6-solid:print" data-width="20" data-height="20"></span>
   </button>
 </div>
