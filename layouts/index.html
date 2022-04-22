@@ -7,7 +7,7 @@
         .Site.Title }}</span>
     </h1>
     <div class="mt-6">
-      <div class="flex flex-wrap justify-center gap-x-4 gap-y-1 print:hidden">
+      <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 print:hidden">
         {{- range .Site.Data.links }}
         <a href="{{ .url | safeURL }}" target="_blank">
           <div class="flex items-center gap-2 px-2 py-1 text-xs font-semibold leading-5 tracking-wider text-white uppercase bg-gray-800 rounded-md hover:bg-gray-600">
@@ -27,7 +27,7 @@
         {{- end }}
       </div>
     </div>
-    {{- $profilePicture := resources.Get "img/profile_96x96.jpg" }}
+    {{- $profilePicture := resources.Get "img/profile_96x96.png" }}
     {{- if hugo.IsProduction }}
     {{- $profilePicture = $profilePicture | resources.Fingerprint "sha512" }}
     {{- end }}
