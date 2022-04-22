@@ -53,27 +53,25 @@
           {{- $to := .to | default "present" }}
           {{- $period := cond (eq .from $to) $to (printf "%s &rarr; %s" .from $to) }}
           <li class="pl-0 mt-6 group">
-            <div>
-              <div class="flex flex-wrap items-center justify-between">
-                <h3 class="my-0 text-xl print:text-lg">{{ .company }}</h3>
-                <span class="text-sm text-gray-500">{{ $period | htmlUnescape }}</span>
-              </div>
-              <span class="text-gray-500 print:text-base">{{ .position }}</span>
-              <div class="flex flex-wrap gap-5 mt-1">
-                {{- range .technologies }}
-                {{- $tech := index $.Site.Data.technologies .}}
-                <span class="h-8" title="{{ $tech.name }}">
-                  <span class="transition iconify grayscale print:grayscale-0 group-hover:grayscale-0" {{
-                    printf "data-icon=%q" $tech.icon | safeHTMLAttr }} data-width="28" data-height="28"></span>
-                </span>
-                {{- end }}
-              </div>
-              <ul role="list" class="print:text-base">
-                {{- range .tasks }}
-                <li>{{ safeHTML . }}</li>
-                {{- end }}
-              </ul>
+            <div class="flex flex-wrap items-center justify-between">
+              <h3 class="my-0 text-xl print:text-lg">{{ .company }}</h3>
+              <span class="text-sm text-gray-500">{{ $period | htmlUnescape }}</span>
             </div>
+            <span class="text-gray-500 print:text-base">{{ .position }}</span>
+            <div class="flex flex-wrap gap-5 mt-1">
+              {{- range .technologies }}
+              {{- $tech := index $.Site.Data.technologies .}}
+              <span class="h-8" title="{{ $tech.name }}">
+                <span class="transition iconify grayscale print:grayscale-0 group-hover:grayscale-0" {{
+                  printf "data-icon=%q" $tech.icon | safeHTMLAttr }} data-width="28" data-height="28"></span>
+              </span>
+              {{- end }}
+            </div>
+            <ul role="list" class="print:text-base">
+              {{- range .tasks }}
+              <li>{{ safeHTML . }}</li>
+              {{- end }}
+            </ul>
           </li>
           {{- end }}
         </ul>
