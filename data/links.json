@@ -1,22 +1,22 @@
 [
     {
-        "name": "Go",
-        "alt": "Developer",
-        "url": "https://gophers.mu"
+        "name": "Developer",
+        "url": "https://gophers.mu",
+        "icon": "simple-icons:go"
     },
     {
         "name": "Github",
-        "alt": "",
-        "url": "https://github.com/mgjules"
+        "url": "https://github.com/mgjules",
+        "icon": "simple-icons:github"
     },
     {
         "name": "LinkedIn",
-        "alt": "",
-        "url": "https://linkedin.com/in/mgjules"
+        "url": "https://linkedin.com/in/mgjules",
+        "icon": "simple-icons:linkedin"
     },
     {
-        "name": "Gmail",
-        "alt": "Mail",
-        "url": "mailto:julesmichaelgiovanni@gmail.com"
+        "name": "Mail",
+        "url": "mailto:julesmichaelgiovanni@gmail.com",
+        "icon": "simple-icons:gmail"
     }
 ]
