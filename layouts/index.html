@@ -32,7 +32,7 @@
     {{- $profilePicture = $profilePicture | resources.Fingerprint "sha512" }}
     {{- end }}
     <div class="mt-6">
-      <img class="float-left w-24 h-24 mt-1 mr-6 transition-all rounded-md grayscale hover:grayscale-0" src="{{ $profilePicture.Permalink }}"
+      <img class="float-left w-24 h-24 mt-1 mr-6 transition-all rounded-md grayscale hover:grayscale-0 print:grayscale-0" src="{{ $profilePicture.Permalink }}"
         alt="Profile Picture" loading="lazy" integrity="{{ $profilePicture.Data.Integrity }}">
       <p class="text-xl text-gray-500 print:text-base">{{ .Page.Content | plainify }}</p>
     </div>
