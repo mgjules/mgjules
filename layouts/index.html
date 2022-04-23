@@ -55,7 +55,7 @@
       </div>
       <div>
         <ul role="list" class="grid grid-cols-1 pl-0 mt-6 list-none gap-y-8">
-          {{- range .Site.Data.works }}
+          {{- range .Site.Data.experiences }}
           {{- $to := .to | default "present" }}
           {{- $period := cond (eq .from $to) $to (printf "%s &rarr; %s" .from $to) }}
           <li class="pl-0 my-0 group">
