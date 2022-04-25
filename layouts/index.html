@@ -113,14 +113,15 @@
             </div>
             <div class="flex items-center justify-between flex-1 bg-white">
               <div class="flex-1 px-4 py-2">
-                <a href="{{ .link | safeURL }}" target="_blank"
-                  class="text-xl font-medium no-underline print:text-lg">{{
-                  .name }}
-                  <span class="hidden text-sm print:inline">
-                    ( {{ replaceRE "^https?://" "" .link }} )
-                  </span>
-                </a>
-                <div class="mt-1 text-sm text-gray-500 break-words">
+                <h3 class="my-0 text-xl print:text-lg">
+                  <a href="{{ .link | safeURL }}" target="_blank" class="font-medium no-underline print:text-lg">{{
+                    .name }}
+                    <span class="hidden text-sm print:inline">
+                      ( {{ replaceRE "^https?://" "" .link }} )
+                    </span>
+                  </a>
+                </h3>
+                <div class="mt-1 text-gray-500 break-words">
                   {{ safeHTML .description }}
                 </div>
                 {{ $techs := slice }}
