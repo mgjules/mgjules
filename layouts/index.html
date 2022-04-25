@@ -54,7 +54,7 @@
         </div>
         <div class="relative flex items-center justify-start">
           <span class="bg-white iconify" data-icon="ic:outline-work" data-width="24" data-height="24"></span>
-          <h2 class="pl-3 pr-6 my-0 text-2xl font-medium text-gray-700 bg-white print:text-lg">Experience</h2>
+          <h2 class="pl-3 pr-6 my-0 font-medium bg-white">Experience</h2>
         </div>
       </div>
       <div>
@@ -64,7 +64,7 @@
           {{- $period := cond (eq .from $to) $to (printf "%s &rarr; %s" .from $to) }}
           <li class="pl-0 my-0 group">
             <div class="flex flex-wrap items-center justify-between">
-              <h3 class="my-0 text-xl print:text-lg">{{ .company }}</h3>
+              <h3 class="my-0">{{ .company }}</h3>
               <span class="text-sm text-gray-500">{{ $period | htmlUnescape }}</span>
             </div>
             <span class="text-gray-500 print:text-base">{{ .position }}</span>
@@ -96,7 +96,7 @@
         </div>
         <div class="relative flex items-center justify-start">
           <span class="bg-white iconify" data-icon="carbon:cloud-app" data-width="24" data-height="24"></span>
-          <h2 class="pl-3 pr-6 my-0 text-2xl font-medium text-gray-700 bg-white print:text-lg">Projects</h2>
+          <h2 class="pl-3 pr-6 my-0 font-medium bg-white">Projects</h2>
         </div>
       </div>
       <div>
@@ -113,8 +113,8 @@
             </div>
             <div class="flex items-center justify-between flex-1 bg-white">
               <div class="flex-1 px-4 py-2">
-                <h3 class="my-0 text-xl print:text-lg">
-                  <a href="{{ .link | safeURL }}" target="_blank" class="font-medium no-underline print:text-lg">{{
+                <h3 class="my-0">
+                  <a href="{{ .link | safeURL }}" target="_blank" class="font-medium no-underline">{{
                     .name }}
                     <span class="hidden text-sm print:inline">
                       ( {{ replaceRE "^https?://" "" .link }} )
@@ -168,7 +168,7 @@
         </div>
         <div class="relative flex items-center justify-start">
           <span class="bg-white iconify" data-icon="fa6-solid:award" data-width="24" data-height="24"></span>
-          <h2 class="pl-3 pr-6 my-0 text-2xl font-medium text-gray-700 bg-white print:text-lg">Awards</h2>
+          <h2 class="pl-3 pr-6 my-0 font-medium bg-white">Awards</h2>
         </div>
       </div>
       <div>
@@ -181,7 +181,7 @@
                 printf "data-icon=%q" .icon | safeHTMLAttr }} data-width="42" data-height="42"></span>
               <div class="w-full ml-6">
                 <div class="flex flex-wrap items-center justify-between">
-                  <h3 class="my-0 text-xl font-medium text-gray-700 print:text-lg">{{ .event }}</h3>
+                  <h3 class="my-0">{{ .event }}</h3>
                   <span class="text-sm text-gray-500">{{ .date }}</span>
                 </div>
                 <div class="text-sm text-gray-400">{{ .description | safeHTML }}</div>
@@ -201,7 +201,7 @@
         </div>
         <div class="relative flex items-center justify-start">
           <span class="bg-white iconify" data-icon="bxs:user-voice" data-width="26" data-height="26"></span>
-          <h2 class="pl-3 pr-6 my-0 text-2xl font-medium text-gray-700 bg-white print:text-lg">Contributions</h2>
+          <h2 class="pl-3 pr-6 my-0 font-medium bg-white">Contributions</h2>
         </div>
       </div>
       <div>
@@ -211,7 +211,7 @@
           {{- $period := cond (eq .from $to) $to (printf "%s &rarr; %s" .from $to) }}
           <li class="pl-0 my-0 group">
             <div class="flex flex-col sm:items-center sm:justify-between sm:flex-row">
-              <h3 class="my-0 text-xl print:text-lg">{{ .event }}</h3>
+              <h3 class="my-0">{{ .event }}</h3>
               <span class="text-sm text-gray-500">{{ $period | htmlUnescape }}</span>
             </div>
             <span
@@ -232,7 +232,7 @@
         </div>
         <div class="relative flex items-center justify-start">
           <span class="bg-white iconify" data-icon="mdi:nintendo-game-boy" data-width="26" data-height="26"></span>
-          <h2 class="pl-3 pr-6 my-0 text-2xl font-medium text-gray-700 bg-white print:text-lg">Interests</h2>
+          <h2 class="pl-3 pr-6 my-0 font-medium bg-white">Interests</h2>
         </div>
       </div>
       <div>
@@ -257,7 +257,7 @@
         </div>
         <div class="relative flex items-center justify-start">
           <span class="bg-white iconify" data-icon="entypo:language" data-width="26" data-height="26"></span>
-          <h2 class="pl-3 pr-6 my-0 text-2xl font-medium text-gray-700 bg-white print:text-lg">Languages</h2>
+          <h2 class="pl-3 pr-6 my-0 font-medium bg-white">Languages</h2>
         </div>
       </div>
       <div>
@@ -268,7 +268,7 @@
               class="flex-shrink-0 transition bg-white rounded-md iconify grayscale print:grayscale-0 group-hover:grayscale-0"
               {{ printf "data-icon=%q" .icon | safeHTMLAttr }} data-width="42" data-height="42"></span>
             <div>
-              <h3 class="my-0 text-xl print:text-lg">{{ .name }}</h3>
+              <h3 class="my-0">{{ .name }}</h3>
               <div class="text-gray-500">{{ .level }}</div>
             </div>
           </li>

@@ -1246,11 +1246,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   line-height: 1.75rem;
 }
 
-.text-2xl {
-  font-size: 1.5rem;
-  line-height: 2rem;
-}
-
 .text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -1305,11 +1300,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-gray-500 {
   --tw-text-opacity: 1;
   color: rgb(107 114 128 / var(--tw-text-opacity));
-}
-
-.text-gray-700 {
-  --tw-text-opacity: 1;
-  color: rgb(55 65 81 / var(--tw-text-opacity));
 }
 
 .text-sky-600 {
@@ -1438,11 +1428,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   .print\:text-base {
     font-size: 1rem;
     line-height: 1.5rem;
-  }
-
-  .print\:text-lg {
-    font-size: 1.125rem;
-    line-height: 1.75rem;
   }
 
   .print\:shadow-none {
