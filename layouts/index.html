@@ -42,7 +42,7 @@
         class="float-left w-24 h-24 mr-6 transition-all rounded-md grayscale group-hover:grayscale-0 print:grayscale-0"
         src="{{ $profilePicture.Permalink }}" alt="Profile Picture" loading="lazy"
         integrity="{{ $profilePicture.Data.Integrity }}">
-      <p class="text-lg text-gray-500 print:text-base">{{ .Page.Content | plainify }}</p>
+      <p class="text-lg text-gray-500">{{ .Page.Content | plainify }}</p>
     </div>
   </div>
   <div class="max-w-4xl mx-auto prose text-gray-500 prose-sky">
