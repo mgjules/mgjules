@@ -1083,11 +1083,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   row-gap: 0.25rem;
 }
 
-.gap-x-2 {
-  -moz-column-gap: 0.5rem;
-       column-gap: 0.5rem;
-}
-
 .gap-y-8 {
   row-gap: 2rem;
 }

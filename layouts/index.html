@@ -20,12 +20,16 @@
         </a>
         {{- end }}
       </div>
-      <div class="flex-wrap justify-center hidden text-base gap-x-2 gap-y-1 print:flex">
+      <div class="flex-wrap justify-center hidden text-base gap-x-4 gap-y-1 print:flex">
         {{- range .Site.Data.links }}
         {{- $url := replaceRE "^https?://" "" .url }}
         {{- $url = replaceRE "/$" "" $url }}
         {{- $url = replaceRE "^mailto:" "" $url }}
-        <span>[ {{ $url | safeURL }} ]</span>
+        <span class="flex items-center gap-2">
+          <span class="iconify" {{ printf "data-icon=%q" .icon | safeHTMLAttr }} data-width="16"
+            data-height="16"></span>
+          <span>{{ $url | safeURL }}</span>
+        </span>
         {{- end }}
       </div>
     </div>
@@ -111,7 +115,11 @@
               <div class="flex-1 px-4 py-2">
                 <a href="{{ .link | safeURL }}" target="_blank"
                   class="text-xl font-medium no-underline print:text-lg">{{
-                  .name }}</a>
+                  .name }}
+                  <span class="hidden text-sm print:inline">
+                    ( {{ replaceRE "^https?://" "" .link }} )
+                  </span>
+                </a>
                 <div class="mt-1 text-sm text-gray-500 break-words">
                   {{ safeHTML .description }}
                 </div>
@@ -230,7 +238,8 @@
         <ul role="list" class="grid grid-cols-1 pl-0 mt-6 list-none gap-x-12 gap-y-4 sm:grid-cols-2">
           {{- range .Site.Data.interests }}
           <li class="flex items-center gap-4 pl-0 my-0 group">
-            <span class="flex-shrink-0 transition bg-white rounded-md iconify grayscale print:grayscale-0 group-hover:grayscale-0"
+            <span
+              class="flex-shrink-0 transition bg-white rounded-md iconify grayscale print:grayscale-0 group-hover:grayscale-0"
               {{ printf "data-icon=%q" .icon | safeHTMLAttr }} data-width="42" data-height="42"></span>
             <span>{{ .name }}</span>
           </li>
@@ -254,7 +263,8 @@
         <ul role="list" class="grid grid-cols-1 pl-0 mt-6 list-none gap-x-12 gap-y-4 sm:grid-cols-2">
           {{- range .Site.Data.languages }}
           <li class="flex items-center gap-4 pl-0 my-0 group">
-            <span class="flex-shrink-0 transition bg-white rounded-md iconify grayscale print:grayscale-0 group-hover:grayscale-0"
+            <span
+              class="flex-shrink-0 transition bg-white rounded-md iconify grayscale print:grayscale-0 group-hover:grayscale-0"
               {{ printf "data-icon=%q" .icon | safeHTMLAttr }} data-width="42" data-height="42"></span>
             <div>
               <h3 class="my-0 text-xl print:text-lg">{{ .name }}</h3>
