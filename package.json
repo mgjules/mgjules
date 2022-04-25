@@ -2,10 +2,9 @@
   "name": "mgjules",
   "version": "1.0.0",
   "description": "Website",
-  "main": "index.js",
   "scripts": {
-    "dev": "npx tailwindcss -i ./src/app.css -o ./assets/css/app.css --watch",
-    "dist": "npx tailwindcss -i ./src/app.css -o ./assets/css/app.css",
+    "dev": "npx tailwindcss -i ./css/app.css -o ./assets/css/app.css --watch",
+    "dist": "npx tailwindcss -i ./css/app.css -o ./assets/css/app.css",
     "hugo:dev": "hugo server",
     "hugo:dist": "hugo -d docs --minify",
     "test": "echo \"Error: no test specified\" && exit 1"
