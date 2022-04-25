@@ -18,5 +18,10 @@
         "name": "Mail",
         "url": "mailto:julesmichaelgiovanni@gmail.com",
         "icon": "simple-icons:gmail"
+    },
+    {
+        "name": "Mauritius",
+        "url": "https://goo.gl/maps/rnfGNDHd5rXqKGEUA",
+        "icon": "fa6-solid:location-dot"
     }
 ]
