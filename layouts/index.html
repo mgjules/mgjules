@@ -28,7 +28,7 @@
         <span class="flex items-center gap-2">
           <span class="iconify" {{ printf "data-icon=%q" .icon | safeHTMLAttr }} data-width="16"
             data-height="16"></span>
-          <span>{{ $url | safeURL }}</span>
+          <span>{{ cond (eq .use_name_for_print true) .name ($url | safeURL) }}</span>
         </span>
         {{- end }}
       </div>

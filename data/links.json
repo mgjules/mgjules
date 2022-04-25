@@ -21,6 +21,7 @@
     },
     {
         "name": "Mauritius",
+        "use_name_for_print": true,
         "url": "https://goo.gl/maps/rnfGNDHd5rXqKGEUA",
         "icon": "fa6-solid:location-dot"
     }
