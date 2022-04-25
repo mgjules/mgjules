@@ -962,6 +962,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-left: 1.5rem;
 }
 
+.block {
+  display: block;
+}
+
 .inline-block {
   display: inline-block;
 }
