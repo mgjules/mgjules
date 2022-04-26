@@ -3,13 +3,12 @@
   "version": "1.0.0",
   "description": "Website",
   "scripts": {
-    "dev": "concurrently npm:watch:*",
-    "watch:tailwindcss": "tailwindcss -i ./css/app.css -o ./assets/css/app.css --watch",
-    "watch:hugo": "hugo server",
+    "dev": "concurrently npm:dev:*",
+    "dev:tailwindcss": "tailwindcss -i ./css/app.css -o ./assets/css/app.css --watch",
+    "dev:hugo": "hugo server",
     "dist": "npm run dist:tailwindcss && npm run dist:hugo",
     "dist:tailwindcss": "tailwindcss -i ./css/app.css -o ./assets/css/app.css",
-    "dist:hugo": "hugo -d docs --minify",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dist:hugo": "hugo -d docs --minify"
   },
   "repository": {
     "type": "git",
