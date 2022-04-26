@@ -4,10 +4,10 @@
   "description": "Website",
   "scripts": {
     "dev": "concurrently npm:dev:*",
-    "dev:tailwindcss": "tailwindcss -i ./css/app.css -o ./assets/css/app.css --watch",
+    "dev:tailwindcss": "tailwindcss -i ./assets/css/tailwind.css -o ./assets/css/app.css --watch",
     "dev:hugo": "hugo server",
     "dist": "npm run dist:tailwindcss && npm run dist:hugo",
-    "dist:tailwindcss": "tailwindcss -i ./css/app.css -o ./assets/css/app.css",
+    "dist:tailwindcss": "tailwindcss -i ./assets/css/tailwind.css -o ./assets/css/app.css",
     "dist:hugo": "hugo --minify"
   },
   "repository": {
