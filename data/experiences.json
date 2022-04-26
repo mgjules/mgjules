@@ -21,7 +21,7 @@
             "Developed a Go microservice codenamed <code>Atlas</code> to fully automate provisioning of the Ringier Event Bus on AWS with automated integration testing.<br>Infrastructure cost reduced by 35% and new environment provisioning time reduced by 30%.",
             "Developed a Go CLI application codenamed <code>Timestream Travel</code> as an AWS Timestream backup solution for <a href=\"https://webvitalize.io\" target=\"_blank\">webvitalize.io</a>.",
             "Developed and showcased a payment Go microservice using Blockchain during a playweek.",
-            "Holding company-wide Go workshops to onboard and train new Gophers."
+            "Organising company-wide Go workshops to onboard and train new Gophers."
         ]
     },
     {
