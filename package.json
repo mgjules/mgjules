@@ -8,7 +8,7 @@
     "dev:hugo": "hugo server",
     "dist": "npm run dist:tailwindcss && npm run dist:hugo",
     "dist:tailwindcss": "tailwindcss -i ./css/app.css -o ./assets/css/app.css",
-    "dist:hugo": "hugo -d docs --minify"
+    "dist:hugo": "hugo --minify"
   },
   "repository": {
     "type": "git",
