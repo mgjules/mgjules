@@ -12,6 +12,18 @@
         ]
     },
     {
+        "name": "Minion",
+        "link": "https://github.com/mgjules/minion",
+        "description": "A little minion (i.e microservice) that can be replicated to create more minions.",
+        "technologies": [
+            "Go",
+            "RabbitMQ",
+            "Docker",
+            "Kubernetes",
+            "Swagger"
+        ]
+    },
+    {
         "name": "Timestream Travel",
         "link": "https://github.com/mgjules/timestream-travel",
         "description": "Timestream Travel is a CLI application to backup time-series data from Amazon Timestream to S3.",
