@@ -1034,6 +1034,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   list-style-type: none;
 }
 
+.break-inside-avoid {
+  -moz-column-break-inside: avoid;
+       break-inside: avoid;
+}
+
 .grid-cols-1 {
   grid-template-columns: repeat(1, minmax(0, 1fr));
 }
@@ -1215,6 +1220,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .text-center {
   text-align: center;
+}
+
+.text-justify {
+  text-align: justify;
 }
 
 .font-sans {
@@ -1399,6 +1408,22 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 @media print {
+  .print\:mt-8 {
+    margin-top: 2rem;
+  }
+
+  .print\:mt-4 {
+    margin-top: 1rem;
+  }
+
+  .print\:block {
+    display: block;
+  }
+
+  .print\:inline-block {
+    display: inline-block;
+  }
+
   .print\:inline {
     display: inline;
   }
@@ -1411,8 +1436,17 @@ Ensure the default browser behavior of the `hidden` attribute.
     display: none;
   }
 
+  .print\:break-inside-avoid {
+    -moz-column-break-inside: avoid;
+         break-inside: avoid;
+  }
+
   .print\:pt-0 {
     padding-top: 0px;
+  }
+
+  .print\:text-justify {
+    text-align: justify;
   }
 
   .print\:text-base {
