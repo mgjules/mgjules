@@ -97,11 +97,11 @@
       </div>
     </div>
     <div>
-      <ul role="list" class="flex flex-col gap-4 pl-0 mt-6 list-none print:block print:mt-4">
+      <ul role="list" class="flex flex-col gap-4 pl-0 mt-6 list-none print:block print:mt-4 print:columns-1">
         {{- range .Site.Data.projects }}
         {{- $primaryTech := index $.Site.Data.technologies (index .technologies 0) }}
         <li id="{{ (printf " projects %s" .name) | anchorize }}"
-          class="flex pl-0 my-0 border rounded-md shadow-sm border-slate-200 print:shadow-none group print:mt-4 print:break-inside-avoid">
+          class="flex pl-0 my-0 border rounded-md shadow-sm border-slate-200 print:shadow-none group print:mt-4 print:first:mt-0 print:break-inside-avoid">
           <div
             class="flex items-center justify-center flex-shrink-0 w-20 text-sm font-medium text-gray-500 shadow-sm bg-slate-200 print:shadow-none rounded-l-md">
             <span title="{{ $primaryTech.name }}">
@@ -170,10 +170,10 @@
       </div>
     </div>
     <div>
-      <div class="grid grid-cols-1 mt-6 gap-x-12 gap-y-4 sm:grid-cols-2 print:block print:mt-4">
+      <div class="grid grid-cols-1 mt-6 gap-x-12 gap-y-4 sm:grid-cols-2 print:block print:mt-4 print:gap-x-6 print:columns-2">
         {{- range .Site.Data.awards }}
         <div id="{{ (printf " Awards %s %s" .event .date) | anchorize }}"
-          class="px-4 py-3 border rounded-md shadow-sm print:shadow-none border-slate-200 group print:mt-4 print:break-inside-avoid">
+          class="px-4 py-3 border rounded-md shadow-sm print:shadow-none border-slate-200 group print:mt-4 print:first:mt-0 print:break-inside-avoid">
           <div class="flex items-center" title="{{ .result }}">
             <span class="flex-shrink-0 transition bg-white iconify grayscale print:grayscale-0 group-hover:grayscale-0"
               {{ printf "data-icon=%q" .icon | safeHTMLAttr }} data-width="42" data-height="42"></span>
@@ -203,11 +203,11 @@
       </div>
     </div>
     <div>
-      <ul role="list" class="grid grid-cols-1 pl-0 mt-6 list-none gap-x-12 gap-y-4 sm:grid-cols-2 print:block print:mt-4">
+      <ul role="list" class="grid grid-cols-1 pl-0 mt-6 list-none gap-x-12 gap-y-4 sm:grid-cols-2 print:block print:mt-4 print:columns-2">
         {{- range .Site.Data.contributions }}
         {{- $to := .to | default "present" }}
         {{- $period := cond (eq .from $to) $to (printf "%s &rarr; %s" .from $to) }}
-        <li id="{{ (printf " Contributions %s %s" .event .title) | anchorize }}" class="pl-0 my-0 group print:mt-4 print:break-inside-avoid">
+        <li id="{{ (printf " Contributions %s %s" .event .title) | anchorize }}" class="pl-0 my-0 group print:mt-4 print:first:mt-0 print:break-inside-avoid">
           <div class="flex flex-col sm:items-center sm:justify-between sm:flex-row">
             <h3 class="my-0">{{ .event }}</h3>
             <span class="text-sm text-gray-500">{{ $period | htmlUnescape }}</span>
@@ -234,9 +234,9 @@
       </div>
     </div>
     <div>
-      <ul role="list" class="grid grid-cols-1 pl-0 mt-6 list-none gap-x-12 gap-y-4 sm:grid-cols-2 print:block print:mt-4">
+      <ul role="list" class="grid grid-cols-1 pl-0 mt-6 list-none gap-x-12 gap-y-4 sm:grid-cols-2 print:block print:mt-4 print:columns-2">
         {{- range .Site.Data.interests }}
-        <li id="{{ (printf " Interests %s" .name) | anchorize }}" class="flex items-center gap-4 pl-0 my-0 group print:mt-4 print:break-inside-avoid">
+        <li id="{{ (printf " Interests %s" .name) | anchorize }}" class="flex items-center gap-4 pl-0 my-0 group print:mt-4 print:first:mt-0 print:break-inside-avoid">
           <span
             class="flex-shrink-0 transition bg-white rounded-md iconify grayscale print:grayscale-0 group-hover:grayscale-0"
             {{ printf "data-icon=%q" .icon | safeHTMLAttr }} data-width="42" data-height="42"></span>
@@ -259,9 +259,9 @@
       </div>
     </div>
     <div>
-      <ul role="list" class="grid grid-cols-1 pl-0 mt-6 list-none gap-x-12 gap-y-4 sm:grid-cols-2 print:block print:mt-4">
+      <ul role="list" class="grid grid-cols-1 pl-0 mt-6 list-none gap-x-12 gap-y-4 sm:grid-cols-2 print:block print:mt-4 print:columns-2">
         {{- range .Site.Data.languages }}
-        <li id="{{ (printf " Languages %s" .name) | anchorize }}" class="flex items-center gap-4 pl-0 my-0 group print:mt-4 print:break-inside-avoid">
+        <li id="{{ (printf " Languages %s" .name) | anchorize }}" class="flex items-center gap-4 pl-0 my-0 group print:mt-4 print:first:mt-0 print:break-inside-avoid">
           <span
             class="flex-shrink-0 transition bg-white rounded-md iconify grayscale print:grayscale-0 group-hover:grayscale-0"
             {{ printf "data-icon=%q" .icon | safeHTMLAttr }} data-width="42" data-height="42"></span>
