@@ -59,7 +59,8 @@
         {{- range .Site.Data.experiences }}
         {{- $to := .to | default "present" }}
         {{- $period := cond (eq .from $to) $to (printf "%s &rarr; %s" .from $to) }}
-        <li id="{{ (printf " Experience %s" .company) | anchorize }}" class="pl-0 my-0 group print:mt-4 print:break-inside-avoid">
+        <li id="{{ (printf " Experience %s" .company) | anchorize }}"
+          class="pl-0 my-0 group print:mt-4 print:break-inside-avoid">
           <div class="flex flex-wrap items-center justify-between">
             <h3 class="my-0">{{ .company }}</h3>
             <span class="text-sm text-gray-500">{{ $period | htmlUnescape }}</span>
@@ -145,14 +146,11 @@
         {{- end }}
         <li class="pl-0 my-0 print:mt-4">
           <a href="{{ safeURL .Site.Params.github }}" target="_blank"
-            class="text-base font-medium no-underline print:hidden">View
+            class="text-base font-medium no-underline">View
             more projects
             on
-            Github &rarr;</a>
-          <span class="hidden text-base font-medium text-sky-600 print:inline">View
-            more projects
-            on
-            Github [ {{ replaceRE "^https?://" "" .Site.Params.github }} ]</span>
+            Github <span class="hidden print:inline">[ {{ replaceRE "^https?://" "" .Site.Params.github }} ]</span>
+            &rarr;</a>
         </li>
       </ul>
     </div>
@@ -170,7 +168,8 @@
       </div>
     </div>
     <div>
-      <div class="grid grid-cols-1 mt-6 gap-x-12 gap-y-4 sm:grid-cols-2 print:block print:mt-4 print:gap-x-6 print:columns-2">
+      <div
+        class="grid grid-cols-1 mt-6 gap-x-12 gap-y-4 sm:grid-cols-2 print:block print:mt-4 print:gap-x-6 print:columns-2">
         {{- range .Site.Data.awards }}
         <div id="{{ (printf " Awards %s %s" .event .date) | anchorize }}"
           class="px-4 py-3 border rounded-md shadow-sm print:shadow-none border-slate-200 group print:mt-4 print:first:mt-0 print:break-inside-avoid">
@@ -203,11 +202,13 @@
       </div>
     </div>
     <div>
-      <ul role="list" class="grid grid-cols-1 pl-0 mt-6 list-none gap-x-12 gap-y-4 sm:grid-cols-2 print:block print:mt-4 print:columns-2">
+      <ul role="list"
+        class="grid grid-cols-1 pl-0 mt-6 list-none gap-x-12 gap-y-4 sm:grid-cols-2 print:block print:mt-4 print:columns-2">
         {{- range .Site.Data.contributions }}
         {{- $to := .to | default "present" }}
         {{- $period := cond (eq .from $to) $to (printf "%s &rarr; %s" .from $to) }}
-        <li id="{{ (printf " Contributions %s %s" .event .title) | anchorize }}" class="pl-0 my-0 group print:mt-4 print:first:mt-0 print:break-inside-avoid">
+        <li id="{{ (printf " Contributions %s %s" .event .title) | anchorize }}"
+          class="pl-0 my-0 group print:mt-4 print:first:mt-0 print:break-inside-avoid">
           <div class="flex flex-col sm:items-center sm:justify-between sm:flex-row">
             <h3 class="my-0">{{ .event }}</h3>
             <span class="text-sm text-gray-500">{{ $period | htmlUnescape }}</span>
@@ -234,9 +235,11 @@
       </div>
     </div>
     <div>
-      <ul role="list" class="grid grid-cols-1 pl-0 mt-6 list-none gap-x-12 gap-y-4 sm:grid-cols-2 print:block print:mt-4 print:columns-2">
+      <ul role="list"
+        class="grid grid-cols-1 pl-0 mt-6 list-none gap-x-12 gap-y-4 sm:grid-cols-2 print:block print:mt-4 print:columns-2">
         {{- range .Site.Data.interests }}
-        <li id="{{ (printf " Interests %s" .name) | anchorize }}" class="flex items-center gap-4 pl-0 my-0 group print:mt-4 print:first:mt-0 print:break-inside-avoid">
+        <li id="{{ (printf " Interests %s" .name) | anchorize }}"
+          class="flex items-center gap-4 pl-0 my-0 group print:mt-4 print:first:mt-0 print:break-inside-avoid">
           <span
             class="flex-shrink-0 transition bg-white rounded-md iconify grayscale print:grayscale-0 group-hover:grayscale-0"
             {{ printf "data-icon=%q" .icon | safeHTMLAttr }} data-width="42" data-height="42"></span>
@@ -259,9 +262,11 @@
       </div>
     </div>
     <div>
-      <ul role="list" class="grid grid-cols-1 pl-0 mt-6 list-none gap-x-12 gap-y-4 sm:grid-cols-2 print:block print:mt-4 print:columns-2">
+      <ul role="list"
+        class="grid grid-cols-1 pl-0 mt-6 list-none gap-x-12 gap-y-4 sm:grid-cols-2 print:block print:mt-4 print:columns-2">
         {{- range .Site.Data.languages }}
-        <li id="{{ (printf " Languages %s" .name) | anchorize }}" class="flex items-center gap-4 pl-0 my-0 group print:mt-4 print:first:mt-0 print:break-inside-avoid">
+        <li id="{{ (printf " Languages %s" .name) | anchorize }}"
+          class="flex items-center gap-4 pl-0 my-0 group print:mt-4 print:first:mt-0 print:break-inside-avoid">
           <span
             class="flex-shrink-0 transition bg-white rounded-md iconify grayscale print:grayscale-0 group-hover:grayscale-0"
             {{ printf "data-icon=%q" .icon | safeHTMLAttr }} data-width="42" data-height="42"></span>
