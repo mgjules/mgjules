@@ -56,7 +56,18 @@
         "description": "Gocipe is a CLI application to generate full-blown headless Content Management Systems.",
         "technologies": [
             "Go",
-            "gRPC"
+            "gRPC",
+            "Docker"
+        ]
+    },
+    {
+        "name": "Deckr",
+        "link": "https://github.com/mgjules/deckr",
+        "description": "Deckr is a REST/gRPC microservice to simulate a deck of cards.",
+        "technologies": [
+            "Go",
+            "gRPC",
+            "Swagger"
         ]
     }
 ]
