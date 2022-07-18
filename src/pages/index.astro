@@ -1,0 +1,35 @@
+---
+import Layout from "../layouts/Layout.astro"
+import Intro from "../components/Intro.astro"
+import Experiences from "../components/Experiences.astro"
+import Projects from "../components/Projects.astro"
+import Awards from "../components/Awards.astro"
+import Contributions from "../components/Contributions.astro"
+import Interests from "../components/Interests.astro"
+import Languages from "../components/Languages.astro"
+import FixedPrintButton from "../components/FixedPrintButton.astro"
+import {
+  first_name,
+  last_name,
+  description,
+  lang,
+  keywords,
+  username,
+  gender,
+  base_url
+} from "../data/meta.json"
+---
+
+<Layout title={`${first_name} ${last_name}`} first_name={first_name} last_name={last_name} lang={lang}
+  description={description} keywords={keywords} base_url={base_url} gender={gender} username={username}>
+  <Intro />
+  <div class="max-w-4xl mx-auto prose text-gray-500 prose-sky">
+    <Experiences />
+    <Projects />
+    <Awards />
+    <Contributions />
+    <Interests />
+    <Languages />
+  </div>
+  <FixedPrintButton />
+</Layout>

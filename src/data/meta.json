@@ -1,0 +1,18 @@
+{
+    "base_url": "https://mgjules.dev",
+    "lang": "en",
+    "description": "A Gopher who creates little minions; the industry calls them microservices.",
+    "first_name": "Michaël Giovanni",
+    "last_name": "Jules",
+    "keywords": [
+        "go",
+        "developer",
+        "resume",
+        "curriculum vitae",
+        "cv",
+        "mauritius"
+    ],
+    "github": "https://github.com/mgjules",
+    "username": "mgjules",
+    "gender": "male"
+}

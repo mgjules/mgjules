@@ -1,0 +1,94 @@
+[
+    {
+        "name": "AWS",
+        "icon": "logos:aws"
+    },
+    {
+        "name": "Blockchain",
+        "icon": "icon-park:blockchain"
+    },
+    {
+        "name": "Bootstrap",
+        "icon": "logos:bootstrap"
+    },
+    {
+        "name": "Datadog",
+        "icon": "logos:datadog"
+    },
+    {
+        "name": "Docker",
+        "icon": "logos:docker-icon"
+    },
+    {
+        "name": "Drupal",
+        "icon": "logos:drupal"
+    },
+    {
+        "name": "DynamoDB",
+        "icon": "logos:aws-dynamodb"
+    },
+    {
+        "name": "Go",
+        "icon": "logos:go"
+    },
+    {
+        "name": "GraphQL",
+        "icon": "logos:graphql"
+    },
+    {
+        "name": "gRPC",
+        "icon": "logos:grpc"
+    },
+    {
+        "name": "jQuery",
+        "icon": "logos:jquery"
+    },
+    {
+        "name": "Kubernetes",
+        "icon": "logos:kubernetes"
+    },
+    {
+        "name": "MySQL",
+        "icon": "logos:mysql-icon"
+    },
+    {
+        "name": "PHP",
+        "icon": "logos:php-alt"
+    },
+    {
+        "name": "PostgreSQL",
+        "icon": "logos:postgresql"
+    },
+    {
+        "name": "RabbitMQ",
+        "icon": "logos:rabbitmq-icon"
+    },
+    {
+        "name": "Redis",
+        "icon": "logos:redis"
+    },
+    {
+        "name": "S3",
+        "icon": "logos:aws-s3"
+    },
+    {
+        "name": "SvelteJS",
+        "icon": "logos:svelte-icon"
+    },
+    {
+        "name": "Swagger",
+        "icon": "logos:swagger"
+    },
+    {
+        "name": "TailwindCSS",
+        "icon": "logos:tailwindcss-icon"
+    },
+    {
+        "name": "Timestream",
+        "icon": "logos:aws-timestream"
+    },
+    {
+        "name": "VueJS",
+        "icon": "logos:vue"
+    }
+]

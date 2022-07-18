@@ -1,0 +1,30 @@
+---
+import slugify from "slugify"
+import interests from "../data/interests.json"
+---
+
+<div id={slugify("Interests")} class="mt-8 print:mt-4">
+  <div class="relative">
+    <div class="absolute inset-0 flex items-center" aria-hidden="true">
+      <div class="w-full border-t border-gray-300"></div>
+    </div>
+    <div class="relative flex items-center justify-start">
+      <span class="bg-white iconify" data-icon="mdi:nintendo-game-boy" data-width="26" data-height="26"></span>
+      <h2 class="pl-3 pr-6 my-0 font-medium bg-white">Interests</h2>
+    </div>
+  </div>
+  <div>
+    <ul role="list"
+      class="grid grid-cols-1 pl-0 mt-6 list-none gap-x-12 gap-y-4 sm:grid-cols-2 print:block print:mt-4 print:columns-2">
+      {interests.map(interest => 
+      <li id={slugify("Interest "+interest.name)}
+        class="flex items-center gap-4 pl-0 my-0 group print:mt-4 print:first:mt-0 print:break-inside-avoid">
+        <span
+          class="flex-shrink-0 transition bg-white rounded-md iconify grayscale print:grayscale-0 group-hover:grayscale-0"
+          data-icon={interest.icon} data-width="42" data-height="42"></span>
+        <span>{interest.name}</span>
+      </li>
+      )}
+    </ul>
+  </div>
+</div>

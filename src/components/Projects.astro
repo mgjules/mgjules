@@ -1,0 +1,69 @@
+---
+import slugify from "slugify"
+import projects from "../data/projects.json"
+import technologies from "../data/technologies.json"
+import { github } from "../data/meta.json"
+---
+
+<div id={slugify("Projects")} class="mt-8 print:mt-4">
+  <div class="relative">
+    <div class="absolute inset-0 flex items-center" aria-hidden="true">
+      <div class="w-full border-t border-gray-300"></div>
+    </div>
+    <div class="relative flex items-center justify-start">
+      <span class="bg-white iconify" data-icon="carbon:cloud-app" data-width="24" data-height="24"></span>
+      <h2 class="pl-3 pr-6 my-0 font-medium bg-white">Projects</h2>
+    </div>
+  </div>
+  <div>
+    <ul role="list" class="flex flex-col gap-4 pl-0 mt-6 list-none print:block print:mt-4 print:columns-1">
+      {projects.map(project =>
+      <li id={slugify("Projects "+project.name)}
+        class=" flex pl-0 my-0 border rounded-md shadow-sm border-slate-200 print:shadow-none group print:mt-4
+        print:first:mt-0 print:break-inside-avoid">
+        <div
+          class="flex items-center justify-center flex-shrink-0 w-20 text-sm font-medium text-gray-500 shadow-sm bg-slate-200 print:shadow-none rounded-l-md">
+          <span title={project.technologies[0]}>
+            <span class="transition iconify grayscale print:grayscale-0 group-hover:grayscale-0"
+              data-icon={technologies.find(tech=> project.technologies[0] === tech.name).icon} data-width="42"
+              data-height="42"></span>
+          </span>
+        </div>
+        <div class="flex items-center justify-between flex-1 bg-white">
+          <div class="flex-1 px-4 py-2">
+            <h3 class="my-0">
+              <a href={ project.link } target="_blank" class="font-medium no-underline">{project.name}
+                <span class="hidden text-sm print:inline">
+                  ( {project.link.replace(/^https?:\/\//, "")} )
+                </span>
+              </a>
+            </h3>
+            <div class="mt-1 text-gray-500 break-words" set:html={project.description}></div>
+            {project.technologies.length > 1 &&
+            <div class="flex flex-wrap gap-5 mt-3">
+              {project.technologies.map((technologie, i) => {
+              if (i === 0) return
+
+              const tech = technologies.find(tech => tech.name === technologie)
+
+              return <span class="h-8" title={tech.name}>
+                <span class="transition iconify grayscale print:grayscale-0 group-hover:grayscale-0"
+                  data-icon={tech.icon} data-width="28" data-height="28"></span>
+              </span>
+              })}
+            </div>
+            }
+          </div>
+        </div>
+      </li>
+      )}
+      <li class="pl-0 my-0 print:mt-4">
+        <a href={github} target="_blank" class="text-base font-medium no-underline">View
+          more projects
+          on
+          Github <span class="hidden print:inline">[ {github.replace(/^https?:\/\//, "")} ]</span>
+          &rarr;</a>
+      </li>
+    </ul>
+  </div>
+</div>

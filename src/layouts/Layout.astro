@@ -1,0 +1,70 @@
+---
+import ogImage from '../img/profile.jpg'
+
+export interface Props {
+  title: string;
+  lang: string;
+  base_url: string;
+  first_name: string;
+  last_name: string;
+  description: string;
+  username: string;
+  gender: string;
+  keywords: string[];
+}
+
+const { title, lang, first_name, last_name, description, keywords, base_url, username, gender } = Astro.props as Props;
+---
+
+<!DOCTYPE html>
+<html lang={lang}>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+  <meta name="description" content={description} />
+  <meta name="keywords" content={keywords.join(",")} />
+  <meta name="author" content={`${first_name} ${last_name}`} />
+  <meta name="copyright" content={`${first_name} ${last_name}`} />
+  <meta name="robots" content="follow" />
+
+  <meta property="og:title" content={title}>
+  <meta property="og:type" content="profile" />
+  <meta property="og:description" content={description}>
+  <meta property="og:image" content={ogImage}>
+  <meta property="og:url" content={base_url}>
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:site_name" content={title}>
+  <meta name="twitter:image:alt" content={`${first_name} ${last_name} Profile Picture`}>
+  <meta name="profile:first_name" content={first_name}>
+  <meta name="profile:last_name" content={last_name}>
+  <meta name="profile:username" content={username}>
+  <meta name="profile:gender" content={gender}>
+
+  <link rel="preload" href="https://rsms.me/inter/inter.css" as="style">
+  <link rel="preload" href="https://code.iconify.design/2/2.2.1/iconify.min.js" as="script">
+
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css" type="text/css">
+  <script src="https://code.iconify.design/2/2.2.1/iconify.min.js" defer init></script>
+
+  <title>{title}</title>
+</head>
+
+<body class="font-sans antialiased bg-white">
+  <div class="relative px-4 pt-4 sm:pt-16 print:pt-0 sm:px-6 lg:px-8">
+    <slot />
+  </div>
+
+  <div class="max-w-4xl mx-auto mt-8 mb-4 text-base prose text-center text-gray-400 prose-sky">
+    <p class="hidden print:inline-block">Printed from mgjules.dev</p>
+    <p class="mb-0 text-sm print:hidden">Made with <span class="inline-block text-pink-600 iconify"
+        data-icon="fa6-solid:heart" data-width="16" data-height="16"></span> using <a href="https://astro.build/"
+        target="_blank">Astro</a> & <a href="https://tailwindcss.com/" target="_blank">TailwindCSS</a>.</p>
+    <p class="mt-2 print:hidden">&copy; { (new Date()).getFullYear() } { title }. All rights reserved.
+    </p>
+  </div>
+</body>
+
+</html>

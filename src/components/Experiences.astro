@@ -1,0 +1,45 @@
+---
+import slugify from "slugify"
+import experiences from "../data/experiences.json"
+import technologies from "../data/technologies.json"
+---
+
+<div id={slugify("experience")} class="mt-8 print:mt-4">
+  <div class="relative">
+    <div class="absolute inset-0 flex items-center" aria-hidden="true">
+      <div class="w-full border-t border-gray-300"></div>
+    </div>
+    <div class="relative flex items-center justify-start">
+      <span class="bg-white iconify" data-icon="ic:outline-work" data-width="24" data-height="24"></span>
+      <h2 class="pl-3 pr-6 my-0 font-medium bg-white">Experience</h2>
+    </div>
+  </div>
+  <div>
+    <ul role="list" class="grid grid-cols-1 pl-0 mt-6 list-none gap-y-8 print:block print:mt-4">
+      {experiences.map(experience =>
+      <li id={slugify("Experience "+experience.company)} class="pl-0 my-0 group print:mt-4 print:break-inside-avoid">
+        <div class="flex flex-wrap items-center justify-between">
+          <h3 class="my-0">{ experience.company }</h3>
+          <span class="text-sm text-gray-500">{experience.from === experience.to ? experience.to : `${experience.from} →
+            ${experience.to || 'present'}`}</span>
+        </div>
+        <span class="text-gray-500 print:text-base">{ experience.position }</span>
+        <div class="flex flex-wrap gap-5 mt-1">
+          {experience.technologies.map(technologie =>
+          <span class="h-8" title={technologie}>
+            <span class="transition iconify grayscale print:grayscale-0 group-hover:grayscale-0"
+              data-icon={technologies.find(tech=> technologie === tech.name).icon} data-width="28"
+              data-height="28"></span>
+          </span>
+          )}
+        </div>
+        <ul role="list" class="mt-2 mb-0 print:text-base">
+          {experience.tasks.map(task =>
+          <li class="mt-1 mb-0" set:html={task}></li>
+          )}
+        </ul>
+      </li>
+      )}
+    </ul>
+  </div>
+</div>
