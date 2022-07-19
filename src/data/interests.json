@@ -21,6 +21,6 @@
     },
     {
         "name": "Movie",
-        "icon": "bxs:camera-movie"
+        "icon": "bx:bxs-camera-movie"
     }
 ]

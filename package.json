@@ -15,6 +15,7 @@
     "slugify": "^1.6.5"
   },
   "dependencies": {
-    "astro-compress": "^0.0.13"
+    "astro-compress": "^0.0.13",
+    "astro-icon": "^0.7.1"
   }
 }

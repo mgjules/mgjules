@@ -6,5 +6,10 @@ import compress from "astro-compress";
 // https://astro.build/config
 export default defineConfig({
   experimental: { integrations: true },
-  integrations: [tailwind(), compress()]
+  integrations: [tailwind(), compress()],
+  vite: {
+    ssr: {
+      external: ["svgo"],
+    },
+  },
 });

@@ -1,4 +1,5 @@
 ---
+import { Icon } from "astro-icon"
 import profilePicture from "../img/profile_96x96.png"
 import {
   first_name,
@@ -23,7 +24,7 @@ import {
       <a href={link.url} target="_blank">
         <div
           class="flex items-center gap-2 px-2 py-1 text-xs font-semibold leading-5 tracking-wider text-white uppercase transition-all bg-gray-800 rounded-md hover:bg-sky-600">
-          <span class="iconify" data-icon={link.icon} data-width="16" data-height="16"></span>
+          <Icon name={link.icon} class="w-4 h-4" />
           <span>{ link.name }</span>
         </div>
       </a>
@@ -32,7 +33,7 @@ import {
     <div class="flex-wrap justify-center hidden text-base gap-x-4 gap-y-2 print:flex">
       {links.map(link =>
       <span class="flex items-center gap-2">
-        <span class="iconify" data-icon={link.icon} data-width="16" data-height="16"></span>
+        <Icon name={link.icon} class="w-4 h-4" />
         <span>{ link.use_name_for_print ? link.name : link.url.replace(/^https?:\/\//, "").replace(/\/$/,
           "").replace(/^mailto:/, "") }</span>
       </span>
@@ -40,7 +41,8 @@ import {
     </div>
   </div>
   <div class="mt-6 group">
-    <img class="float-left w-24 h-24 mr-6 transition-all rounded-md scale-x-[-1] grayscale group-hover:grayscale-0 print:grayscale-0"
+    <img
+      class="float-left w-24 h-24 mr-6 transition-all rounded-md scale-x-[-1] grayscale group-hover:grayscale-0 print:grayscale-0"
       src={profilePicture} alt="Profile Picture" loading="lazy">
     <p class="text-lg text-justify text-gray-500">{introduction}</p>
   </div>

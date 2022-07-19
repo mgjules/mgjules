@@ -1,18 +1,11 @@
 ---
+import { Icon } from "astro-icon"
+import Section from "../components/Section.astro"
 import slugify from "slugify"
 import awards from "../data/awards.json"
 ---
 
-<div id={slugify("Awards")} class="mt-8 print:mt-4">
-  <div class="relative">
-    <div class="absolute inset-0 flex items-center" aria-hidden="true">
-      <div class="w-full border-t border-gray-300"></div>
-    </div>
-    <div class="relative flex items-center justify-start">
-      <span class="bg-white iconify" data-icon="fa6-solid:award" data-width="24" data-height="24"></span>
-      <h2 class="pl-3 pr-6 my-0 font-medium bg-white">Awards</h2>
-    </div>
-  </div>
+<Section title="Awards" icon="dashicons:awards">
   <div>
     <div
       class="grid grid-cols-1 mt-6 gap-x-12 gap-y-4 sm:grid-cols-2 print:block print:mt-4 print:gap-x-6 print:columns-2">
@@ -21,8 +14,8 @@ import awards from "../data/awards.json"
         class=" px-4 py-3 border rounded-md shadow-sm print:shadow-none border-slate-200 group print:mt-4
         print:first:mt-0 print:break-inside-avoid">
         <div class="flex items-center" title={ award.result }>
-          <span class="flex-shrink-0 transition bg-white iconify grayscale print:grayscale-0 group-hover:grayscale-0"
-            data-icon={award.icon} data-width="42" data-height="42"></span>
+          <Icon name={award.icon}
+            class="w-10 h-10 flex-shrink-0 transition bg-white grayscale print:grayscale-0 group-hover:grayscale-0" />
           <div class="w-full ml-6">
             <div class="flex flex-wrap items-center justify-between">
               <h3 class="my-0">{ award.event }</h3>
@@ -35,4 +28,4 @@ import awards from "../data/awards.json"
       )}
     </div>
   </div>
-</div>
+</Section>

@@ -1,20 +1,13 @@
 ---
+import { Icon } from "astro-icon"
+import Section from "../components/Section.astro"
 import slugify from "slugify"
 import projects from "../data/projects.json"
 import technologies from "../data/technologies.json"
 import { github } from "../data/meta.json"
 ---
 
-<div id={slugify("Projects")} class="mt-8 print:mt-4">
-  <div class="relative">
-    <div class="absolute inset-0 flex items-center" aria-hidden="true">
-      <div class="w-full border-t border-gray-300"></div>
-    </div>
-    <div class="relative flex items-center justify-start">
-      <span class="bg-white iconify" data-icon="carbon:cloud-app" data-width="24" data-height="24"></span>
-      <h2 class="pl-3 pr-6 my-0 font-medium bg-white">Projects</h2>
-    </div>
-  </div>
+<Section title="Projects" icon="carbon:cloud-app">
   <div>
     <ul role="list" class="flex flex-col gap-4 pl-0 mt-6 list-none print:block print:mt-4 print:columns-1">
       {projects.map(project =>
@@ -24,9 +17,8 @@ import { github } from "../data/meta.json"
         <div
           class="flex items-center justify-center flex-shrink-0 w-20 text-sm font-medium text-gray-500 shadow-sm bg-slate-200 print:shadow-none rounded-l-md">
           <span title={project.technologies[0]}>
-            <span class="transition iconify grayscale print:grayscale-0 group-hover:grayscale-0"
-              data-icon={technologies.find(tech=> project.technologies[0] === tech.name).icon} data-width="42"
-              data-height="42"></span>
+            <Icon class="w-10 h-10 transition grayscale print:grayscale-0 group-hover:grayscale-0"
+              name={technologies.find(tech=> project.technologies[0] === tech.name).icon} />
           </span>
         </div>
         <div class="flex items-center justify-between flex-1 bg-white">
@@ -47,8 +39,7 @@ import { github } from "../data/meta.json"
               const tech = technologies.find(tech => tech.name === technologie)
 
               return <span class="h-8" title={tech.name}>
-                <span class="transition iconify grayscale print:grayscale-0 group-hover:grayscale-0"
-                  data-icon={tech.icon} data-width="28" data-height="28"></span>
+                <Icon class="w-7 h-7 transition grayscale print:grayscale-0 group-hover:grayscale-0" name={tech.icon} />
               </span>
               })}
             </div>
@@ -66,4 +57,4 @@ import { github } from "../data/meta.json"
       </li>
     </ul>
   </div>
-</div>
+</Section>

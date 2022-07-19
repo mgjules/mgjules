@@ -1,12 +1,12 @@
 [
     {
         "name": "English",
-        "icon": "flag:us-1x1",
+        "icon": "emojione-v1:flag-for-united-states",
         "level": "Full professional proficiency"
     },
     {
         "name": "French",
-        "icon": "flag:fr-1x1",
+        "icon": "emojione-v1:flag-for-france",
         "level": "Full professional proficiency"
     }
 ]

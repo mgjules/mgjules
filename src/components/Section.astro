@@ -1,0 +1,24 @@
+---
+import { Icon } from "astro-icon"
+import slugify from "slugify"
+
+export interface Props {
+  title: string;
+  icon: string;
+}
+
+const { title, icon } = Astro.props as Props;
+---
+
+<div id={slugify(title)} class="mt-8 print:mt-4">
+  <div class="relative">
+    <div class="absolute inset-0 flex items-center" aria-hidden="true">
+      <div class="w-full border-t border-gray-300"></div>
+    </div>
+    <div class="relative flex items-center justify-start">
+      <Icon class="w-6 h-6 bg-white" name={icon} />
+      <h2 class="pl-3 pr-6 my-0 font-medium bg-white capitalize">{title}</h2>
+    </div>
+  </div>
+  <slot></slot>
+</div>

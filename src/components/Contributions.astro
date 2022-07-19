@@ -1,18 +1,10 @@
 ---
+import Section from "../components/Section.astro"
 import slugify from "slugify"
 import contributions from "../data/contributions.json"
 ---
 
-<div id={slugify("Contributions")} class="mt-8 print:mt-4">
-  <div class="relative">
-    <div class="absolute inset-0 flex items-center" aria-hidden="true">
-      <div class="w-full border-t border-gray-300"></div>
-    </div>
-    <div class="relative flex items-center justify-start">
-      <span class="bg-white iconify" data-icon="bxs:user-voice" data-width="26" data-height="26"></span>
-      <h2 class="pl-3 pr-6 my-0 font-medium bg-white">Contributions</h2>
-    </div>
-  </div>
+<Section title="Contributions" icon="ph:users-three-fill">
   <div>
     <ul role="list"
       class="grid grid-cols-1 pl-0 mt-6 list-none gap-x-12 gap-y-4 sm:grid-cols-2 print:block print:mt-4 print:columns-2">
@@ -32,4 +24,4 @@ import contributions from "../data/contributions.json"
       )}
     </ul>
   </div>
-</div>
+</Section>
