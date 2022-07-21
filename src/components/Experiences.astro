@@ -17,7 +17,7 @@ import technologies from "../data/technologies.json"
       <div class="flex flex-wrap gap-5 mt-1">
         {experience.technologies.map(technologie =>
         <span class="h-8" title={technologie}>
-          <div class={`i-${technologies.find(tech=> technologie === tech.name).icon} w-7 h-7 transition grayscale
+          <div class={`i-${technologies.find(tech=> technologie === tech.name).icon} bg-[length:100%_100%] w-7 h-7 transition grayscale
             print:grayscale-0 group-hover:grayscale-0`} />
         </span>
         )}
