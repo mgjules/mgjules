@@ -17,11 +17,6 @@ jobs:
           submodules: true
           fetch-depth: 0
 
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
-        with:
-          hugo-version: "latest"
-
       - uses: actions/setup-node@v3
         with:
           node-version: '14'
