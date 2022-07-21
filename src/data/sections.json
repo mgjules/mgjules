@@ -8,12 +8,12 @@
         "icon": "carbon:cloud-app"
     },
     {
-        "name": "Awards",
-        "icon": "dashicons:awards"
-    },
-    {
         "name": "Contributions",
         "icon": "ph:users-three-fill"
+    },
+    {
+        "name": "Awards",
+        "icon": "dashicons:awards"
     },
     {
         "name": "Interests",
