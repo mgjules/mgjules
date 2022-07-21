@@ -1,22 +1,18 @@
 ---
-import { Icon } from "astro-icon"
-import Section from "../components/Section.astro"
 import slugify from "slugify"
 import interests from "../data/interests.json"
 ---
 
-<Section title="Interests" icon="mdi:nintendo-game-boy">
-  <div>
-    <ul role="list"
-      class="grid grid-cols-1 pl-0 mt-6 list-none gap-x-12 gap-y-4 sm:grid-cols-2 print:block print:mt-4 print:columns-2">
-      {interests.map(interest =>
-      <li id={slugify("Interest "+interest.name)}
+<div>
+  <ul role="list"
+    class="grid grid-cols-1 pl-0 mt-6 list-none gap-x-12 gap-y-4 sm:grid-cols-2 print:block print:mt-4 print:columns-2">
+    {interests.map(interest =>
+    <li id={slugify("Interest "+interest.name)}
         class=" flex items-center gap-4 pl-0 my-0 group print:mt-4 print:first:mt-0 print:break-inside-avoid">
-        <Icon name={interest.icon}
-          class="w-10 h-10 flex-shrink-0 transition bg-white rounded-md grayscale print:grayscale-0 group-hover:grayscale-0" />
-        <span>{interest.name}</span>
-      </li>
-      )}
-    </ul>
-  </div>
-</Section>
+      <div class={`i-${interest.icon} w-10 h-10 flex-shrink-0 transition rounded-md grayscale print:grayscale-0
+        group-hover:grayscale-0`} />
+      <span>{interest.name}</span>
+    </li>
+    )}
+  </ul>
+</div>

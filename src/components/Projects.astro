@@ -1,60 +1,56 @@
 ---
-import { Icon } from "astro-icon"
-import Section from "../components/Section.astro"
 import slugify from "slugify"
 import projects from "../data/projects.json"
 import technologies from "../data/technologies.json"
 import { github } from "../data/meta.json"
 ---
 
-<Section title="Projects" icon="carbon:cloud-app">
-  <div>
-    <ul role="list" class="flex flex-col gap-4 pl-0 mt-6 list-none print:block print:mt-4 print:columns-1">
-      {projects.map(project =>
-      <li id={slugify("Projects "+project.name)}
-        class=" flex pl-0 my-0 border rounded-md shadow-sm border-slate-200 print:shadow-none group print:mt-4
-        print:first:mt-0 print:break-inside-avoid">
-        <div
-          class="flex items-center justify-center flex-shrink-0 w-20 text-sm font-medium text-gray-500 shadow-sm bg-slate-200 print:shadow-none rounded-l-md">
-          <span title={project.technologies[0]}>
-            <Icon class="w-10 h-10 transition grayscale print:grayscale-0 group-hover:grayscale-0"
-              name={technologies.find(tech=> project.technologies[0] === tech.name).icon} />
-          </span>
-        </div>
-        <div class="flex items-center justify-between flex-1 bg-white">
-          <div class="flex-1 px-4 py-2">
-            <h3 class="my-0">
-              <a href={ project.link } target="_blank" class="font-medium no-underline">{project.name}
-                <span class="hidden text-sm print:inline">
-                  ( {project.link.replace(/^https?:\/\//, "")} )
-                </span>
-              </a>
-            </h3>
-            <div class="mt-1 text-gray-500 break-words" set:html={project.description}></div>
-            {project.technologies.length > 1 &&
-            <div class="flex flex-wrap gap-5 mt-3">
-              {project.technologies.map((technologie, i) => {
-              if (i === 0) return
-
-              const tech = technologies.find(tech => tech.name === technologie)
-
-              return <span class="h-8" title={tech.name}>
-                <Icon class="w-7 h-7 transition grayscale print:grayscale-0 group-hover:grayscale-0" name={tech.icon} />
+<div>
+  <ul role="list" class="flex flex-col gap-4 pl-0 mt-6 list-none print:block print:mt-4 print:columns-1">
+    {projects.map(project =>
+    <li id={slugify("Projects "+project.name)}
+      class=" flex pl-0 my-0 border rounded-md shadow-sm border-slate-200 print:shadow-none group print:mt-4
+      print:first:mt-0 print:break-inside-avoid">
+      <div
+        class="flex items-center justify-center flex-shrink-0 w-20 text-sm font-medium text-gray-500 shadow-sm bg-slate-200 print:shadow-none rounded-l-md">
+        <span title={project.technologies[0]}>
+          <div class={`i-${technologies.find(tech=> project.technologies[0] === tech.name).icon} w-10 h-10 transition
+            grayscale print:grayscale-0 group-hover:grayscale-0`} />
+        </span>
+      </div>
+      <div class="flex items-center justify-between flex-1 bg-white">
+        <div class="flex-1 px-4 py-2">
+          <h3 class="my-0">
+            <a href={ project.link } target="_blank" class="font-medium no-underline">{project.name}
+              <span class="hidden text-sm print:inline">
+                ( {project.link.replace(/^https?:\/\//, "")} )
               </span>
-              })}
-            </div>
-            }
+            </a>
+          </h3>
+          <div class="mt-1 text-gray-500 break-words" set:html={project.description}></div>
+          {project.technologies.length > 1 &&
+          <div class="flex flex-wrap gap-5 mt-3">
+            {project.technologies.map((technologie, i) => {
+            if (i === 0) return
+
+            const tech = technologies.find(tech => tech.name === technologie)
+
+            return <span class="h-8" title={tech.name}>
+              <div class={`i-${tech.icon} w-7 h-7 transition grayscale print:grayscale-0 group-hover:grayscale-0`} />
+            </span>
+            })}
           </div>
+          }
         </div>
-      </li>
-      )}
-      <li class="pl-0 my-0 print:mt-4">
-        <a href={github} target="_blank" class="text-base font-medium no-underline">View
-          more projects
-          on
-          Github <span class="hidden print:inline">[ {github.replace(/^https?:\/\//, "")} ]</span>
-          &rarr;</a>
-      </li>
-    </ul>
-  </div>
-</Section>
+      </div>
+    </li>
+    )}
+    <li class="pl-0 my-0 print:mt-4">
+      <a href={github} target="_blank" class="text-base font-medium no-underline">View
+        more projects
+        on
+        Github <span class="hidden print:inline">[ {github.replace(/^https?:\/\//, "")} ]</span>
+        &rarr;</a>
+    </li>
+  </ul>
+</div>

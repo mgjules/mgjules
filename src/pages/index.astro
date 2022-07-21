@@ -1,12 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro"
+import Section from "../components/Section.astro"
 import Intro from "../components/Intro.astro"
-import Experiences from "../components/Experiences.astro"
-import Projects from "../components/Projects.astro"
-import Awards from "../components/Awards.astro"
-import Contributions from "../components/Contributions.astro"
-import Interests from "../components/Interests.astro"
-import Languages from "../components/Languages.astro"
 import FixedPrintButton from "../components/FixedPrintButton.astro"
 import {
   first_name,
@@ -18,18 +13,23 @@ import {
   gender,
   base_url
 } from "../data/meta.json"
+import sections from "../data/sections.json"
 ---
 
 <Layout title={`${first_name} ${last_name}`} first_name={first_name} last_name={last_name} lang={lang}
   description={description} keywords={keywords} base_url={base_url} gender={gender} username={username}>
   <Intro />
   <div class="max-w-4xl mx-auto prose text-gray-500 prose-sky">
-    <Experiences />
-    <Projects />
-    <Awards />
-    <Contributions />
-    <Interests />
-    <Languages />
+    {sections.map(section =>
+    <Section title={section.name} icon={section.icon}>
+      {
+        async () => {
+          const DynamicComponent = (await import(`../components/${section.name}.astro`)).default
+          return <DynamicComponent />
+        }
+      }
+    </Section>
+    )}
   </div>
   <FixedPrintButton />
 </Layout>

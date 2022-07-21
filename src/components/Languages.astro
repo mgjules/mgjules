@@ -1,25 +1,21 @@
 ---
-import { Icon } from "astro-icon"
-import Section from "../components/Section.astro"
 import slugify from "slugify"
 import languages from "../data/languages.json"
 ---
 
-<Section title="Languages" icon="entypo:language">
-  <div>
-    <ul role="list"
-      class="grid grid-cols-1 pl-0 mt-6 list-none gap-x-12 gap-y-4 sm:grid-cols-2 print:block print:mt-4 print:columns-2">
-      {languages.map(language =>
-      <li id={slugify("Languages "+language.name)}
+<div>
+  <ul role="list"
+    class="grid grid-cols-1 pl-0 mt-6 list-none gap-x-12 gap-y-4 sm:grid-cols-2 print:block print:mt-4 print:columns-2">
+    {languages.map(language =>
+    <li id={slugify("Languages "+language.name)}
         class=" flex items-center gap-4 pl-0 my-0 group print:mt-4 print:first:mt-0 print:break-inside-avoid">
-        <Icon name={language.icon}
-          class="w-10 h-10 flex-shrink-0 transition bg-white rounded-md grayscale print:grayscale-0 group-hover:grayscale-0" />
-        <div>
-          <h3 class="my-0">{ language.name }</h3>
-          <div class="text-gray-500">{ language.level }</div>
-        </div>
-      </li>
-      )}
-    </ul>
-  </div>
-</Section>
+      <div class={`i-${language.icon} w-10 h-10 flex-shrink-0 transition bg-white rounded-md grayscale print:grayscale-0
+        group-hover:grayscale-0`} />
+      <div>
+        <h3 class="my-0">{ language.name }</h3>
+        <div class="text-gray-500">{ language.level }</div>
+      </div>
+    </li>
+    )}
+  </ul>
+</div>

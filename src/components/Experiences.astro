@@ -1,37 +1,33 @@
 ---
-import { Icon } from "astro-icon"
-import Section from "../components/Section.astro"
 import slugify from "slugify"
 import experiences from "../data/experiences.json"
 import technologies from "../data/technologies.json"
 ---
 
-<Section title="Experience" icon="ic:outline-work">
-  <div>
-    <ul role="list" class="grid grid-cols-1 pl-0 mt-6 list-none gap-y-8 print:block print:mt-4">
-      {experiences.map(experience =>
-      <li id={slugify("Experience "+experience.company)} class=" pl-0 my-0 group print:mt-4 print:break-inside-avoid">
-        <div class="flex flex-wrap items-center justify-between">
-          <h3 class="my-0">{ experience.company }</h3>
-          <span class="text-sm text-gray-500">{experience.from === experience.to ? experience.to : `${experience.from} →
-            ${experience.to || 'present'}`}</span>
-        </div>
-        <span class="text-gray-500 print:text-base">{ experience.position }</span>
-        <div class="flex flex-wrap gap-5 mt-1">
-          {experience.technologies.map(technologie =>
-          <span class="h-8" title={technologie}>
-            <Icon class="w-7 h-7 transition grayscale print:grayscale-0 group-hover:grayscale-0"
-              name={technologies.find(tech=> technologie === tech.name).icon} />
-          </span>
-          )}
-        </div>
-        <ul role="list" class="mt-2 mb-0 print:text-base">
-          {experience.tasks.map(task =>
-          <li class="mt-1 mb-0" set:html={task}></li>
-          )}
-        </ul>
-      </li>
-      )}
-    </ul>
-  </div>
-</Section>
+<div>
+  <ul role="list" class="grid grid-cols-1 pl-0 mt-6 list-none gap-y-8 print:block print:mt-4">
+    {experiences.map(experience =>
+    <li id={slugify("Experience "+experience.company)} class=" pl-0 my-0 group print:mt-4 print:break-inside-avoid">
+      <div class="flex flex-wrap items-center justify-between">
+        <h3 class="my-0">{ experience.company }</h3>
+        <span class="text-sm text-gray-500">{experience.from === experience.to ? experience.to : `${experience.from} →
+          ${experience.to || 'present'}`}</span>
+      </div>
+      <span class="text-gray-500 print:text-base">{ experience.position }</span>
+      <div class="flex flex-wrap gap-5 mt-1">
+        {experience.technologies.map(technologie =>
+        <span class="h-8" title={technologie}>
+          <div class={`i-${technologies.find(tech=> technologie === tech.name).icon} w-7 h-7 transition grayscale
+            print:grayscale-0 group-hover:grayscale-0`} />
+        </span>
+        )}
+      </div>
+      <ul role="list" class="mt-2 mb-0 print:text-base">
+        {experience.tasks.map(task =>
+        <li class="mt-1 mb-0" set:html={task}></li>
+        )}
+      </ul>
+    </li>
+    )}
+  </ul>
+</div>
