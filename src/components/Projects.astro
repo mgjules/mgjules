@@ -5,7 +5,11 @@ import { projects } from "@data/projects.json"
 import { technologies } from "@data/technologies.json"
 import { github } from "@data/meta.json"
 
-const md = MarkdownIt()
+const md = MarkdownIt({
+  html: true,
+  linkify: true,
+  typographer: true
+})
 ---
 
 <div>

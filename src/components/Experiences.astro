@@ -1,7 +1,14 @@
 ---
 import slugify from "slugify"
+import MarkdownIt from "markdown-it"
 import { experiences } from "@data/experiences.json"
 import { technologies } from "@data/technologies.json"
+
+const md = MarkdownIt({
+  html: true,
+  linkify: true,
+  typographer: true
+})
 ---
 
 <div>
@@ -24,7 +31,7 @@ import { technologies } from "@data/technologies.json"
       </div>
       <ul role="list" class="mt-2 mb-0 print:text-base">
         {experience.tasks.map(task =>
-        <li class="mt-1 mb-0" set:html={task}></li>
+        <li class="mt-1 mb-0" set:html={md.renderInline(task)}></li>
         )}
       </ul>
     </li>

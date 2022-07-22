@@ -7,7 +7,11 @@ import {
 import { links } from "@data/links.json"
 import { introduction, avatar } from "@data/intro.json"
 
-const md = MarkdownIt()
+const md = MarkdownIt({
+  html: true,
+  linkify: true,
+  typographer: true
+})
 ---
 
 <div class="max-w-4xl mx-auto text-lg">
