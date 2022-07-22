@@ -50,6 +50,13 @@
       "role": "Co-speaker"
     },
     {
+      "from": "07/2019",
+      "to": "07/2019",
+      "event": "Front-End Coders Meetup",
+      "role": "Speaker",
+      "title": "What the Svelte?!"
+    },
+    {
       "event": "Gophers MU",
       "title": "",
       "from": "01/2019",
