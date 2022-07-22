@@ -1,28 +1,28 @@
 {
-    "interests": [
-        {
-            "name": "Space Exploration",
-            "icon": "fluent:rocket-16-regular"
-        },
-        {
-            "name": "Artificial Intelligence",
-            "icon": "mdi:robot-excited-outline"
-        },
-        {
-            "name": "Skateboarding",
-            "icon": "iconoir:skateboard"
-        },
-        {
-            "name": "Anime",
-            "icon": "simple-icons:crunchyroll"
-        },
-        {
-            "name": "Gaming",
-            "icon": "maki:gaming"
-        },
-        {
-            "name": "Movie",
-            "icon": "bx:bxs-camera-movie"
-        }
-    ]
+  "interests": [
+    {
+      "name": "Space Exploration",
+      "icon": "fluent:rocket-16-regular"
+    },
+    {
+      "name": "Artificial Intelligence",
+      "icon": "mdi:robot-excited-outline"
+    },
+    {
+      "name": "Skateboardings",
+      "icon": "iconoir:skateboard"
+    },
+    {
+      "name": "Anime",
+      "icon": "simple-icons:crunchyroll"
+    },
+    {
+      "name": "Gaming",
+      "icon": "maki:gaming"
+    },
+    {
+      "name": "Movie",
+      "icon": "bx:bxs-camera-movie"
+    }
+  ]
 }
