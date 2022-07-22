@@ -4,6 +4,7 @@ import uno from "astro-uno"
 import { presetAttributify, presetUno, presetTypography } from "unocss"
 import presetIcons from "@unocss/preset-icons"
 import compress from "astro-compress"
+import sitemap from '@astrojs/sitemap';
 
 // Icons
 import sections from "./src/data/sections.json" assert {type: "json"}
@@ -15,6 +16,7 @@ import interests from "./src/data/interests.json" assert {type: "json"}
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://mgjules.dev",
   experimental: { integrations: true },
   integrations: [
     uno({
@@ -35,7 +37,8 @@ export default defineConfig({
         })
       ],
     }),
-    compress()
+    compress(),
+    sitemap()
   ],
   vite: {
     plugins: []
