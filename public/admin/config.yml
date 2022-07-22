@@ -2,9 +2,10 @@ backend:
   name: git-gateway
   branch: main
 
-local_backend: true
+local_backend: false
 
-publish_mode: editorial_workflow
+site_url: https://mgjules.dev
+logo_url: /assets/uploads/logo.png
 
 media_folder: public/assets/uploads
 public_folder: "/assets/uploads"
@@ -12,6 +13,7 @@ public_folder: "/assets/uploads"
 collections:
   - label: "Curriculum Vitae"
     name: "cv"
+    publish_mode: editorial_workflow
     files:
       - label: "Meta"
         name: "meta"
