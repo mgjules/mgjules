@@ -2,8 +2,6 @@
 import "@unocss/reset/tailwind.css"
 import "unocss-hmr-fix"
 
-import ogImage from '../img/profile.jpg'
-
 export interface Props {
   title: string;
   lang: string;
@@ -36,7 +34,7 @@ const { title, lang, first_name, last_name, description, keywords, base_url, use
   <meta property="og:title" content={title}>
   <meta property="og:type" content="profile" />
   <meta property="og:description" content={description}>
-  <meta property="og:image" content={ogImage}>
+  <meta property="og:image" content="/assets/uploads/profile.jpg">
   <meta property="og:url" content={base_url}>
   <meta name="twitter:card" content="summary_large_image">
   <meta property="og:site_name" content={title}>

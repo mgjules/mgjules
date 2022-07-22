@@ -1,0 +1,28 @@
+{
+  "sections": [
+    {
+      "name": "Experiences",
+      "icon": "ic:outline-work"
+    },
+    {
+      "name": "Projects",
+      "icon": "carbon:cloud-app"
+    },
+    {
+      "name": "Contributions",
+      "icon": "ph:users-three-fill"
+    },
+    {
+      "name": "Awards",
+      "icon": "dashicons:awards"
+    },
+    {
+      "name": "Interests",
+      "icon": "mdi:nintendo-game-boy"
+    },
+    {
+      "name": "Languages",
+      "icon": "entypo:language"
+    }
+  ]
+}

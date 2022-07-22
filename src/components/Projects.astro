@@ -1,8 +1,9 @@
 ---
 import slugify from "slugify"
-import projects from "../data/projects.json"
-import technologies from "../data/technologies.json"
-import { github } from "../data/meta.json"
+import { Markdown } from "astro/components"
+import { projects } from "@data/projects.json"
+import { technologies } from "@data/technologies.json"
+import { github } from "@data/meta.json"
 ---
 
 <div>
@@ -27,7 +28,7 @@ import { github } from "../data/meta.json"
               </span>
             </a>
           </h3>
-          <div class="mt-1 text-gray-500 break-words" set:html={project.description}></div>
+          <Markdown class="mt-1 text-gray-500 break-words" content={project.description}></Markdown>
           {project.technologies.length > 1 &&
           <div class="flex flex-wrap gap-5 mt-3">
             {project.technologies.map((technologie, i) => {

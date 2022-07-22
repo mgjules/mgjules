@@ -1,0 +1,75 @@
+{
+  "projects": [
+    {
+      "name": "Harvit",
+      "link": "https://github.com/mgjules/harvit",
+      "description": "Harvit harvests data from different sources (e.g websites, APIs), converts and transforms it.",
+      "technologies": [
+        "Go",
+        "Docker"
+      ]
+    },
+    {
+      "name": "Spoty",
+      "link": "https://github.com/mgjules/spoty",
+      "description": "Spoty is a microservice which provides REST API endpoints to query the current playing track on Spotify.",
+      "technologies": [
+        "Go",
+        "RabbitMQ",
+        "Docker",
+        "Kubernetes",
+        "Swagger"
+      ]
+    },
+    {
+      "name": "Minion",
+      "link": "https://github.com/mgjules/minion",
+      "description": "A little minion (i.e microservice) that can be replicated to create more minions.",
+      "technologies": [
+        "Go",
+        "RabbitMQ",
+        "Docker",
+        "Kubernetes",
+        "Swagger"
+      ]
+    },
+    {
+      "name": "Timestream Travel",
+      "link": "https://github.com/mgjules/timestream-travel",
+      "description": "Timestream Travel is a CLI application to backup time-series data from Amazon Timestream to S3.",
+      "technologies": [
+        "Go",
+        "Timestream",
+        "S3"
+      ]
+    },
+    {
+      "name": "Mauritius Sea Cables",
+      "link": "https://github.com/mgjules/mru-sea-cables-go",
+      "description": "Speedtest CLI application for <a href=\"https://mrsunshyne.github.io/mauritius-sea-cable/\" target=\"_blank\">Mauritius Sea Cables</a>.",
+      "technologies": [
+        "Go"
+      ]
+    },
+    {
+      "name": "Gocipe",
+      "link": "https://github.com/lsldigital/gocipe",
+      "description": "Gocipe is a CLI application to generate full-blown headless Content Management Systems.",
+      "technologies": [
+        "Go",
+        "gRPC",
+        "Docker"
+      ]
+    },
+    {
+      "name": "Deckr",
+      "link": "https://github.com/mgjules/deckr",
+      "description": "Deckr is a REST/gRPC microservice to simulate a deck of cards.",
+      "technologies": [
+        "Go",
+        "gRPC",
+        "Swagger"
+      ]
+    }
+  ]
+}

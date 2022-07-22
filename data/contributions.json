@@ -1,0 +1,60 @@
+{
+  "contributions": [
+    {
+      "event": "Front-End Coders Meetup",
+      "title": "Reactivity Everywhere.js",
+      "from": "2022",
+      "to": "2022",
+      "role": "Speaker"
+    },
+    {
+      "event": "Gophers MU Meetup",
+      "title": "WTF is Go?",
+      "from": "2021",
+      "to": "2021",
+      "role": "Speaker"
+    },
+    {
+      "event": "Virtual Meetup",
+      "title": "Go routines",
+      "from": "2020",
+      "to": "2020",
+      "role": "Speaker"
+    },
+    {
+      "event": "Virtual Developers Conference",
+      "title": "Go - From Zero to Hero",
+      "from": "2020",
+      "to": "2020",
+      "role": "Co-speaker"
+    },
+    {
+      "event": "Developers Conference",
+      "title": "Becoming an expert programmer",
+      "from": "2019",
+      "to": "2019",
+      "role": "Speaker"
+    },
+    {
+      "event": "Gophers MU Workshop",
+      "title": "First steps with Go",
+      "from": "2019",
+      "to": "2019",
+      "role": "Co-directed"
+    },
+    {
+      "event": "Devfest",
+      "title": "Go - Turbocharge your programs",
+      "from": "2019",
+      "to": "2019",
+      "role": "Co-speaker"
+    },
+    {
+      "event": "Gophers MU",
+      "title": "",
+      "from": "2019",
+      "to": "",
+      "role": "Co-founder"
+    }
+  ]
+}

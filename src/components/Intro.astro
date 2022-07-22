@@ -1,13 +1,11 @@
 ---
-import profilePicture from "../img/profile_96x96.png"
+import { Markdown } from 'astro/components';
 import {
   first_name,
   last_name
-} from "../data/meta.json"
-import links from "../data/links.json"
-import {
-  introduction
-} from "../data/intro.json"
+} from "@data/meta.json"
+import { links } from "@data/links.json"
+import { introduction, avatar } from "@data/intro.json"
 ---
 
 <div class="max-w-4xl mx-auto text-lg">
@@ -42,7 +40,7 @@ import {
   <div class="mt-6 group">
     <img
       class="float-left w-24 h-24 mr-6 transition-all rounded-md scale-x-[-1] grayscale group-hover:grayscale-0 print:grayscale-0"
-      src={profilePicture} alt="Profile Picture" loading="lazy">
-    <p class="text-lg text-justify text-gray-500">{introduction}</p>
+      src={avatar} alt="Profile Picture" loading="lazy">
+    <Markdown class="text-lg text-justify text-gray-500" content={introduction}></Markdown>
   </div>
 </div>

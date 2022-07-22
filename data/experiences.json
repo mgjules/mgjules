@@ -1,0 +1,101 @@
+{
+  "experiences": [
+    {
+      "company": "Ringier SA",
+      "from": "02/2021",
+      "to": "",
+      "position": "Senior Full-Stack Developer",
+      "technologies": [
+        "Go",
+        "VueJS",
+        "TailwindCSS",
+        "DynamoDB",
+        "RabbitMQ",
+        "Redis",
+        "Docker",
+        "Datadog",
+        "AWS",
+        "Blockchain",
+        "Swagger"
+      ],
+      "tasks": [
+        "Working on the core Go microservices powering the <a href=\"https://docs.bus.ritdu.net/\" target=\"_blank\">Ringier Event Bus</a> serving millions of events monthly across more than a dozen of companies and teams.",
+        "Developed an Infrastructure as Code Go microservice codenamed <code>Atlas</code> to fully automate provisioning of the Ringier Event Bus on AWS with automated integration testing.<br>Infrastructure cost reduced by 35% and new environment provisioning time reduced by 30%.",
+        "Developed a Go CLI application codenamed <code>Timestream Travel</code> as an AWS Timestream backup solution for <a href=\"https://webvitalize.io\" target=\"_blank\">webvitalize.io</a>.",
+        "Developed and showcased a payment Go microservice using Blockchain during a playweek.",
+        "Organising company-wide Go workshops to onboard and train new Gophers."
+      ]
+    },
+    {
+      "company": "Bocasay",
+      "from": "04/2020",
+      "to": "02/2021",
+      "position": "Senior Web Developer",
+      "technologies": [
+        "PHP",
+        "VueJS",
+        "TailwindCSS",
+        "MySQL",
+        "Redis",
+        "Docker"
+      ],
+      "tasks": [
+        "Implemented an advanced user experience for launching SMS campaigns.",
+        "Improved an existing payment and subscription system using Stripe."
+      ]
+    },
+    {
+      "company": "La Sentinelle Digital Ltd",
+      "from": "06/2018",
+      "to": "04/2020",
+      "position": "Senior Software Engineer",
+      "technologies": [
+        "Go",
+        "PHP",
+        "GraphQL",
+        "gRPC",
+        "VueJS",
+        "SvelteJS",
+        "TailwindCSS",
+        "PostgreSQL",
+        "Redis",
+        "Docker",
+        "Swagger"
+      ],
+      "tasks": [
+        "Developed several online services including <a href=\"https://culture.lexpress.mu\" target=\"_blank\">culture.lexpress.mu</a>, <a href=\"https://businessmag.mu\" target=\"_blank\">businessmag.mu</a>, <a href=\"https://lasentinelle.mu\" target=\"_blank\">lasentinelle.mu</a>, to name a few.",
+        "Developed a Go CLI application codenamed <code>Gocipe</code> to generate the Content Management Systems powering the aformentioned online services.",
+        "Developed a custom Single Sign-On solution in Go codenamed <code>Passport</code> for a seamless user experience across the aforementioned online services."
+      ]
+    },
+    {
+      "company": "Expat-Blog Ltd",
+      "from": "04/2013",
+      "to": "02/2014",
+      "position": "PHP Developer",
+      "technologies": [
+        "PHP",
+        "jQuery",
+        "Bootstrap",
+        "MySQL"
+      ],
+      "tasks": [
+        "Developed a new major version of expat-blog.com; now <a href=\"https://expat.com\" target=\"_blank\">expat.com</a>.<br>The rehauled user interface and experience contributed to the platform crossing the 1.5M total registered users."
+      ]
+    },
+    {
+      "company": "Noveo IT Ltd",
+      "from": "07/2011",
+      "to": "12/2011",
+      "position": "PHP Developer",
+      "technologies": [
+        "Drupal",
+        "jQuery",
+        "MySQL"
+      ],
+      "tasks": [
+        "Developed a new major version of <a href=\"https://packshot-creator.com\" target=\"_blank\">packshot-creator.com</a> in 2 months with the primary objective to provide an augmented experience of the Packshot Creator product line."
+      ]
+    }
+  ]
+}

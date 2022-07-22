@@ -7,12 +7,12 @@ import compress from "astro-compress"
 import sitemap from '@astrojs/sitemap';
 
 // Icons
-import sections from "./src/data/sections.json" assert {type: "json"}
-import technologies from "./src/data/technologies.json" assert {type: "json"}
-import awards from "./src/data/awards.json" assert {type: "json"}
-import links from "./src/data/links.json" assert {type: "json"}
-import languages from "./src/data/languages.json" assert {type: "json"}
-import interests from "./src/data/interests.json" assert {type: "json"}
+import sections from "./data/sections.json" assert {type: "json"}
+import technologies from "./data/technologies.json" assert {type: "json"}
+import awards from "./data/awards.json" assert {type: "json"}
+import links from "./data/links.json" assert {type: "json"}
+import languages from "./data/languages.json" assert {type: "json"}
+import interests from "./data/interests.json" assert {type: "json"}
 
 // https://astro.build/config
 export default defineConfig({
@@ -21,12 +21,12 @@ export default defineConfig({
   integrations: [
     uno({
       safelist: [
-        ...Array.from(sections, sec => `i-${sec.icon}`),
-        ...Array.from(technologies, tech => `i-${tech.icon}`),
-        ...Array.from(awards, aw => `i-${aw.icon}`),
-        ...Array.from(links, link => `i-${link.icon}`),
-        ...Array.from(languages, lang => `i-${lang.icon}`),
-        ...Array.from(interests, int => `i-${int.icon}`)
+        ...Array.from(sections.sections, sec => `i-${sec.icon}`),
+        ...Array.from(technologies.technologies, tech => `i-${tech.icon}`),
+        ...Array.from(awards.awards, aw => `i-${aw.icon}`),
+        ...Array.from(links.links, link => `i-${link.icon}`),
+        ...Array.from(languages.languages, lang => `i-${lang.icon}`),
+        ...Array.from(interests.interests, int => `i-${int.icon}`)
       ],
       presets: [
         presetAttributify(),

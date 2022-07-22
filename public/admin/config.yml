@@ -1,0 +1,243 @@
+backend:
+  name: git-gateway
+  branch: master
+
+local_backend: true
+
+media_folder: public/assets/uploads
+public_folder: "/assets/uploads"
+
+collections:
+  - label: "Curriculum Vitae"
+    name: "cv"
+    files:
+      - label: "Meta"
+        name: "meta"
+        file: "data/meta.json"
+        fields:
+          - label: Base URL
+            name: base_url
+            widget: string
+          - label: Language
+            name: lang
+            widget: select
+            options:
+              - { label: "English", value: "en" }
+          - label: Description
+            name: description
+            widget: text
+          - label: Firstname
+            name: first_name
+            widget: string
+          - label: Lastname
+            name: last_name
+            widget: string
+          - label: Username
+            name: username
+            widget: string
+          - label: Gender
+            name: gender
+            widget: select
+            options:
+              - { label: "Male", value: "male" }
+              - { label: "Female", value: "female" }
+          - label: Avatar
+            name: avatar
+            widget: image
+            options:
+              allow_multiple: false
+          - label: Keywords
+            name: keywords
+            widget: list
+      - label: "Links"
+        name: "links"
+        file: "data/links.json"
+        fields:
+          - label: Links
+            name: links
+            widget: list
+            fields:
+              - { label: Name, name: name, widget: string }
+              - { label: Url, name: url, widget: string }
+              - { label: Icon, name: icon, widget: string }
+      - label: "Introduction"
+        name: "introduction"
+        file: "data/intro.json"
+        fields:
+          - label: Avatar
+            name: avatar
+            widget: image
+            options:
+              allow_multiple: false
+          - label: Introduction
+            name: introduction
+            widget: markdown
+      - label: "Sections"
+        name: "sections"
+        file: "data/sections.json"
+        fields:
+          - label: Sections
+            name: sections
+            widget: list
+            fields:
+              - { label: Name, name: name, widget: string }
+              - { label: Icon, name: icon, widget: string }
+      - label: "Technologies"
+        name: "technologies"
+        file: "data/technologies.json"
+        fields:
+          - label: Technologies
+            name: technologies
+            widget: list
+            fields:
+              - { label: Name, name: name, widget: string }
+              - { label: Icon, name: icon, widget: string }
+      - label: "Experiences"
+        name: "experiences"
+        file: "data/experiences.json"
+        fields:
+          - label: Experiences
+            name: experiences
+            widget: list
+            add_to_top: true
+            fields:
+              - { label: Company, name: company, widget: string }
+              - { label: From, name: from, widget: date, format: "MM/YYYY" }
+              - {
+                  label: To,
+                  name: to,
+                  widget: date,
+                  format: "MM/YYYY",
+                  required: false,
+                }
+              - { label: Position, name: position, widget: string }
+              - {
+                  label: Technologies,
+                  name: technologies,
+                  widget: relation,
+                  multiple: true,
+                  collection: cv,
+                  file: technologies,
+                  search_fields: ["technologies.*.name"],
+                  display_fields: ["technologies.*.name"],
+                  value_field: "technologies.*.name",
+                }
+              - {
+                  label: Tasks,
+                  name: tasks,
+                  widget: list,
+                  summary: "{{fields.content}}",
+                  field: { label: Content, name: content, widget: markdown },
+                }
+      - label: "Projects"
+        name: "projects"
+        file: "data/projects.json"
+        fields:
+          - label: Projects
+            name: projects
+            widget: list
+            add_to_top: true
+            fields:
+              - { label: Name, name: name, widget: string }
+              - { label: Link, name: link, widget: string }
+              - { label: Description, name: description, widget: markdown }
+              - {
+                  label: Technologies,
+                  name: technologies,
+                  widget: relation,
+                  multiple: true,
+                  collection: cv,
+                  file: technologies,
+                  search_fields: ["technologies.*.name"],
+                  display_fields: ["technologies.*.name"],
+                  value_field: "technologies.*.name",
+                }
+      - label: "Contributions"
+        name: "contributions"
+        file: "data/contributions.json"
+        fields:
+          - label: Contributions
+            name: contributions
+            widget: list
+            add_to_top: true
+            summary: "{{fields.event}} - {{fields.from}}"
+            fields:
+              - { label: Event, name: event, widget: string }
+              - { label: From, name: from, widget: date, format: "YYYY" }
+              - {
+                  label: To,
+                  name: to,
+                  widget: date,
+                  format: "YYYY",
+                  required: false,
+                }
+              - {
+                  label: Role,
+                  name: role,
+                  widget: select,
+                  options:
+                    [
+                      "Speaker",
+                      "Co-speaker",
+                      "Directed",
+                      "Co-directed",
+                      "Founder",
+                      "Co-founder",
+                    ],
+                }
+              - { label: Title, name: title, widget: string, required: false }
+      - label: "Awards"
+        name: "awards"
+        file: "data/awards.json"
+        fields:
+          - label: Awards
+            name: awards
+            widget: list
+            add_to_top: true
+            summary: "{{fields.event}} - {{fields.date}}"
+            fields:
+              - { label: Event, name: event, widget: string }
+              - { label: Date, name: date, widget: date, format: "YYYY" }
+              - { label: Icon, name: icon, widget: string }
+              - {
+                  label: Result,
+                  name: result,
+                  widget: select,
+                  options:
+                    [
+                      "Winner",
+                      "Runner-up",
+                      "Third",
+                    ],
+                }
+              - { label: Description, name: description, widget: markdown }
+      - label: "Interests"
+        name: "interests"
+        file: "data/interests.json"
+        fields:
+          - label: Interests
+            name: interests
+            widget: list
+            fields:
+              - { label: Name, name: name, widget: string }
+              - { label: Icon, name: icon, widget: string }
+      - label: "Languages"
+        name: "languages"
+        file: "data/languages.json"
+        fields:
+          - label: Languages
+            name: languages
+            widget: list
+            fields:
+              - { label: Name, name: name, widget: string }
+              - { label: Icon, name: icon, widget: string }
+              - {
+                  label: Level,
+                  name: level,
+                  widget: select,
+                  options:
+                    [
+                      "Full professional proficiency",
+                      "Semi professional proficiency"
+                    ],
+                }

@@ -1,9 +1,9 @@
 ---
-import Layout from "../layouts/Layout.astro"
-import Section from "../components/Section.astro"
-import Intro from "../components/Intro.astro"
-import FixedPrintButton from "../components/FixedPrintButton.astro"
-import Footer from "../components/Footer.astro"
+import Layout from "@layouts/Layout.astro"
+import Section from "@components/Section.astro"
+import Intro from "@components/Intro.astro"
+import FixedPrintButton from "@components/FixedPrintButton.astro"
+import Footer from "@components/Footer.astro"
 import {
   first_name,
   last_name,
@@ -13,8 +13,8 @@ import {
   username,
   gender,
   base_url
-} from "../data/meta.json"
-import sections from "../data/sections.json"
+} from "@data/meta.json"
+import { sections } from "@data/sections.json"
 ---
 
 <Layout title={`${first_name} ${last_name}`} first_name={first_name} last_name={last_name} lang={lang}

@@ -1,6 +1,7 @@
 ---
+import { Markdown } from 'astro/components';
 import slugify from "slugify"
-import awards from "../data/awards.json"
+import { awards } from "@data/awards.json"
 ---
 
 <div>
@@ -11,14 +12,14 @@ import awards from "../data/awards.json"
         class=" px-4 py-3 border rounded-md shadow-sm print:shadow-none border-slate-200 group print:mt-4
       print:first:mt-0 print:break-inside-avoid">
       <div class="flex items-center" title={ award.result }>
-        <div class={`i-${award.icon} w-10 h-10 bg-[length:100%_100%] flex-shrink-0 transition bg-white grayscale print:grayscale-0
-          group-hover:grayscale-0`} />
+        <div class={`i-${award.icon} w-10 h-10 bg-[length:100%_100%] flex-shrink-0 transition bg-white grayscale
+          print:grayscale-0 group-hover:grayscale-0`} />
         <div class="w-full ml-6">
           <div class="flex flex-wrap items-center justify-between">
             <h3 class="my-0">{ award.event }</h3>
             <span class="text-sm text-gray-500">{ award.date }</span>
           </div>
-          <div class="text-gray-400" set:html={award.description}></div>
+          <Markdown class="text-gray-400 m-0" content={award.description}></Markdown>
         </div>
       </div>
     </div>

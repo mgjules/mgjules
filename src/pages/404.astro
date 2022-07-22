@@ -1,5 +1,5 @@
 ---
-import Layout from "../layouts/Layout.astro"
+import Layout from "@layouts/Layout.astro"
 import {
   first_name,
   last_name,
@@ -9,7 +9,7 @@ import {
   username,
   gender,
   base_url
-} from "../data/meta.json"
+} from "@data/meta.json"
 ---
 
 <Layout title={`${first_name} ${last_name} - Not Found`} first_name={first_name} last_name={last_name} lang={lang}
