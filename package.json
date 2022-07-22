@@ -34,8 +34,5 @@
     "markdown-it": "^13.0.1",
     "slugify": "^1.6.5",
     "unocss": "^0.44.5"
-  },
-  "dependencies": {
-    "netlify-cms-app": "^2.15.72"
   }
 }
