@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro"
 import Section from "../components/Section.astro"
 import Intro from "../components/Intro.astro"
 import FixedPrintButton from "../components/FixedPrintButton.astro"
+import Footer from "../components/Footer.astro"
 import {
   first_name,
   last_name,
@@ -18,18 +19,21 @@ import sections from "../data/sections.json"
 
 <Layout title={`${first_name} ${last_name}`} first_name={first_name} last_name={last_name} lang={lang}
   description={description} keywords={keywords} base_url={base_url} gender={gender} username={username}>
-  <Intro />
-  <div class="max-w-4xl mx-auto prose text-gray-500 prose-sky">
-    {sections.map(section =>
-    <Section title={section.name} icon={section.icon}>
-      {
-        async () => {
-          const DynamicComponent = (await import(`../components/${section.name}.astro`)).default
-          return <DynamicComponent />
+  <div class="relative px-4 pt-4 sm:pt-16 print:pt-0 sm:px-6 lg:px-8">
+    <Intro />
+    <div class="max-w-4xl mx-auto prose text-gray-500 prose-sky">
+      {sections.map(section =>
+      <Section title={section.name} icon={section.icon}>
+        { 
+          async () => {
+            const DynamicComponent = (await import(`../components/${section.name}.astro`)).default
+            return <DynamicComponent />
         }
       }
-    </Section>
-    )}
+      </Section>
+      )}
+    </div>
+    <FixedPrintButton />
+    <Footer title={`${first_name} ${last_name}`} />
   </div>
-  <FixedPrintButton />
 </Layout>
