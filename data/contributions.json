@@ -15,7 +15,7 @@
       "role": "Speaker"
     },
     {
-      "event": "Front-end Coders x Gophers.mu April Online Meetup",
+      "event": "Front-End Coders x Gophers.mu Online Meetup",
       "title": "Go routines",
       "from": "04/2020",
       "to": "04/2020",
@@ -48,6 +48,13 @@
       "from": "10/2019",
       "to": "10/2019",
       "role": "Co-speaker"
+    },
+    {
+      "from": "07/2019",
+      "to": "07/2019",
+      "event": "Front-End Coders Meetup",
+      "role": "Speaker",
+      "title": "What the Svelte?!"
     },
     {
       "event": "Gophers MU",
