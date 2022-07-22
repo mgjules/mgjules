@@ -1,7 +1,9 @@
 ---
-import { Markdown } from 'astro/components';
+import MarkdownIt from "markdown-it"
 import slugify from "slugify"
 import { awards } from "@data/awards.json"
+
+const md = MarkdownIt()
 ---
 
 <div>
@@ -19,7 +21,7 @@ import { awards } from "@data/awards.json"
             <h3 class="my-0">{ award.event }</h3>
             <span class="text-sm text-gray-500">{ award.date }</span>
           </div>
-          <Markdown class="text-gray-400 m-0" content={award.description}></Markdown>
+          <div class="text-gray-400 m-0" set:html={md.renderInline(award.description)} />
         </div>
       </div>
     </div>

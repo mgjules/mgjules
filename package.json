@@ -31,6 +31,7 @@
     "astro": "^1.0.0-beta.73",
     "astro-compress": "^0.0.13",
     "astro-uno": "^0.1.4",
+    "markdown-it": "^13.0.1",
     "slugify": "^1.6.5",
     "unocss": "^0.44.5"
   },

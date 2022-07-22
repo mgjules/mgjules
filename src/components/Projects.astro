@@ -1,9 +1,11 @@
 ---
 import slugify from "slugify"
-import { Markdown } from "astro/components"
+import MarkdownIt from "markdown-it"
 import { projects } from "@data/projects.json"
 import { technologies } from "@data/technologies.json"
 import { github } from "@data/meta.json"
+
+const md = MarkdownIt()
 ---
 
 <div>
@@ -28,7 +30,7 @@ import { github } from "@data/meta.json"
               </span>
             </a>
           </h3>
-          <Markdown class="mt-1 text-gray-500 break-words" content={project.description}></Markdown>
+          <div class="mt-1 text-gray-500 break-words" set:html={md.renderInline(project.description)} />
           {project.technologies.length > 1 &&
           <div class="flex flex-wrap gap-5 mt-3">
             {project.technologies.map((technologie, i) => {

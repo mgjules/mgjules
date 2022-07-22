@@ -1,11 +1,13 @@
 ---
-import { Markdown } from 'astro/components';
+import MarkdownIt from "markdown-it"
 import {
   first_name,
   last_name
 } from "@data/meta.json"
 import { links } from "@data/links.json"
 import { introduction, avatar } from "@data/intro.json"
+
+const md = MarkdownIt()
 ---
 
 <div class="max-w-4xl mx-auto text-lg">
@@ -41,6 +43,6 @@ import { introduction, avatar } from "@data/intro.json"
     <img
       class="float-left w-24 h-24 mr-6 transition-all rounded-md scale-x-[-1] grayscale group-hover:grayscale-0 print:grayscale-0"
       src={avatar} alt="Profile Picture" loading="lazy">
-    <Markdown class="text-lg text-justify text-gray-500" content={introduction}></Markdown>
+    <div class="text-lg text-justify text-gray-500" set:html={md.renderInline(introduction)} />
   </div>
 </div>
