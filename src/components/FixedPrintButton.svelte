@@ -2,7 +2,7 @@
   import { onMount } from "svelte";
 
   let print = undefined;
-  onMount(async () => {
+  onMount(() => {
     print = () => window.print();
   });
 </script>
