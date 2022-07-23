@@ -1,16 +1,24 @@
 <script>
-  import { onMount } from 'svelte'
+  import { onMount } from "svelte";
 
-  let print = undefined
+  let print = undefined;
   onMount(async () => {
-    print = () => window.print()
-  })
+    print = () => window.print();
+  });
 </script>
 
 <div class="fixed bottom-5 right-5">
-  <button on:click={print} type="button" aria-label="Print Resume"
-    class="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-white transition-all border border-transparent rounded-md shadow-sm opacity-75 bg-sky-600 group print:hidden hover:opacity-90 hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500">
-    <span class="hidden transition-all group-hover:inline-block">Print Resume</span>
-    <div class="i-ic:baseline-local-printshop bg-[length:100%_100%] w-6 h-6 group-hover:ml-2" />
+  <button
+    on:click={print}
+    type="button"
+    aria-label="Print Resume"
+    class="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-white transition-all border border-transparent rounded-md shadow-sm opacity-75 bg-sky-600 group print:hidden hover:opacity-90 hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500"
+  >
+    <span class="hidden transition-all group-hover:inline-block"
+      >Print Resume</span
+    >
+    <div
+      class="i-ic:baseline-local-printshop bg-[length:100%_100%] w-6 h-6 group-hover:ml-2"
+    />
   </button>
 </div>
