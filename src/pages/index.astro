@@ -2,7 +2,7 @@
 import Layout from "@layouts/Layout.astro"
 import Section from "@components/Section.astro"
 import Intro from "@components/Intro.astro"
-import FixedPrintButton from "@components/FixedPrintButton.astro"
+import FixedPrintButton from "@components/FixedPrintButton.svelte"
 import Footer from "@components/Footer.astro"
 import {
   first_name,
@@ -33,7 +33,7 @@ import { sections } from "@data/sections.json"
       </Section>
       )}
     </div>
-    <FixedPrintButton />
+    <FixedPrintButton client:idle />
     <Footer title={`${first_name} ${last_name}`} />
   </div>
 </Layout>

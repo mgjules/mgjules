@@ -5,6 +5,7 @@ import { presetAttributify, presetUno, presetTypography } from "unocss"
 import presetIcons from "@unocss/preset-icons"
 import compress from "astro-compress"
 import sitemap from '@astrojs/sitemap';
+import svelte from '@astrojs/svelte';
 
 // Icons
 import sections from "./data/sections.json" assert {type: "json"}
@@ -37,6 +38,7 @@ export default defineConfig({
         })
       ],
     }),
+    svelte(),
     compress(),
     sitemap()
   ],
