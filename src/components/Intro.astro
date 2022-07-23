@@ -26,7 +26,7 @@ const md = MarkdownIt({
       {links.map(link =>
       <a href={link.url} target="_blank" class="no-underline">
         <div
-          class="flex items-center gap-2 px-2 py-1 text-xs font-semibold leading-5 tracking-wider text-white uppercase transition-all bg-gray-800 rounded-md hover:bg-sky-600">
+          class="flex items-center gap-2 px-2 py-1 text-xs font-semibold border border-b-3 border-gray-700 hover:border-b-2 leading-5 tracking-wider text-white uppercase transition-all bg-gray-600 rounded-md hover:bg-sky-600">
           <div class={`i-${link.icon} bg-[length:100%_100%] w-4 h-4`} />
           <span>{ link.name }</span>
         </div>

@@ -16,7 +16,7 @@ const md = MarkdownIt({
   <ul role="list" class="flex flex-col gap-4 pl-0 mt-6 list-none print:block print:mt-4 print:columns-1">
     {projects.map(project =>
     <li id={slugify("Projects "+project.name)}
-      class=" flex pl-0 my-0 border rounded-md shadow-sm border-slate-200 print:shadow-none group print:mt-4
+      class=" flex pl-0 my-0 border rounded-md border-b-3 border-slate-200 print:shadow-none group print:mt-4
       print:first:mt-0 print:break-inside-avoid">
       <div
         class="flex items-center justify-center flex-shrink-0 w-20 text-sm font-medium text-gray-500 shadow-sm bg-slate-200 print:shadow-none rounded-l-md">
@@ -36,7 +36,7 @@ const md = MarkdownIt({
           </h3>
           <div class="mt-1 text-gray-500 break-words" set:html={md.renderInline(project.description)} />
           {project.technologies.length > 1 &&
-          <div class="flex flex-wrap gap-5 mt-3">
+          <div class="flex flex-wrap gap-5 mt-2">
             {project.technologies.map((technologie, i) => {
             if (i === 0) return
 

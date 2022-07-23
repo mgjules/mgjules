@@ -15,7 +15,7 @@ const md = MarkdownIt({
     class="grid grid-cols-1 mt-6 gap-x-12 gap-y-4 sm:grid-cols-2 print:block print:mt-4 print:gap-x-6 print:columns-2">
     {awards.map(award =>
     <div id={slugify("Awards "+award.event+" "+award.date)}
-        class=" px-4 py-3 border rounded-md shadow-sm print:shadow-none border-slate-200 group print:mt-4
+        class="px-4 py-3 border rounded-md print:shadow-none border-slate-200 border-b-3 group print:mt-4
       print:first:mt-0 print:break-inside-avoid">
       <div class="flex items-center" title={ award.result }>
         <div class={`i-${award.icon} w-10 h-10 bg-[length:100%_100%] flex-shrink-0 transition bg-white grayscale

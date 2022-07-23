@@ -12,7 +12,7 @@
     on:click={print}
     type="button"
     aria-label="Print Resume"
-    class="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-white transition-all border border-transparent rounded-md shadow-sm opacity-75 bg-sky-600 group print:hidden hover:opacity-90 hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500"
+    class="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-white transition-all border border-sky-900 rounded-md border-b-3 hover:border-b-2 opacity-75 bg-sky-600 group print:hidden hover:opacity-90 hover:bg-sky-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500"
   >
     <span class="hidden transition-all group-hover:inline-block"
       >Print Resume</span

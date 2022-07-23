@@ -15,7 +15,7 @@ import { contributions } from "@data/contributions.json"
           `${contribution.from} →
           ${contribution.to || 'present'}`}</span>
       </div>
-      <span class="px-2 py-1 text-sm text-gray-500 border rounded-lg shadow-sm print:shadow-none border-slate-200">{
+      <span class="px-2 py-1 text-sm text-gray-500 border rounded-lg border-b-3 select-none print:shadow-none border-slate-200">{
         contribution.role }</span>
       <div class="text-gray-500">{ contribution.title }</div>
     </li>
