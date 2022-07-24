@@ -3,10 +3,13 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "dev": "astro dev",
+    "preview": "astro preview",
+    "start": "astro dev"
+  },
+  "dependencies": {
+    "@astrojs/svelte": "^0.4.1"
   },
   "devDependencies": {
     "@astrojs/sitemap": "^0.2.6",
@@ -34,8 +37,5 @@
     "markdown-it": "^13.0.1",
     "slugify": "^1.6.5",
     "unocss": "^0.44.5"
-  },
-  "dependencies": {
-    "@astrojs/svelte": "^0.4.1"
   }
 }
