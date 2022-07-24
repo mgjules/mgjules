@@ -23,13 +23,12 @@ import { sections } from "@data/sections.json"
     <Intro />
     <div class="max-w-4xl mx-auto prose text-gray-500 prose-sky">
       {sections.map(section =>
-      <Section title={section.name} icon={section.icon}>
-        { 
-          async () => {
-            const DynamicComponent = (await import(`../components/${section.name}.astro`)).default
-            return <DynamicComponent />
-        }
-      }
+      <Section title={section.name} icon={section.icon}>{async () => {
+        const DynamicComponent = (await import(`../components/${section.name}.astro`)).default
+        return <>
+          <DynamicComponent />
+        </>
+        }}
       </Section>
       )}
     </div>

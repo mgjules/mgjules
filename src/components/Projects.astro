@@ -16,12 +16,12 @@ const md = MarkdownIt({
   <ul role="list" class="flex flex-col gap-4 pl-0 mt-6 list-none print:block print:mt-4 print:columns-1">
     {projects.map(project =>
     <li id={slugify("Projects "+project.name)}
-      class=" flex pl-0 my-0 border rounded-md border-b-3 border-slate-200 print:shadow-none group print:mt-4
-      print:first:mt-0 print:break-inside-avoid">
+      class="flex pl-0 my-0 border rounded-md  border-b-3 border-slate-200 print:shadow-none group print:mt-4 print:first:mt-0 print:break-inside-avoid">
       <div
         class="flex items-center justify-center flex-shrink-0 w-20 text-sm font-medium text-gray-500 shadow-sm bg-slate-200 print:shadow-none rounded-l-md">
         <span title={project.technologies[0]}>
-          <div class={`i-${technologies.find(tech=> project.technologies[0] === tech.name).icon} bg-[length:100%_100%] w-10 h-10 transition
+          <div class={`i-${technologies.find(tech=> project.technologies[0] === tech.name).icon} bg-[length:100%_100%]
+            w-10 h-10 transition
             grayscale print:grayscale-0 group-hover:grayscale-0`} />
         </span>
       </div>
@@ -43,7 +43,8 @@ const md = MarkdownIt({
             const tech = technologies.find(tech => tech.name === technologie)
 
             return <span class="h-8" title={tech.name}>
-              <div class={`i-${tech.icon} bg-[length:100%_100%] w-7 h-7 transition grayscale print:grayscale-0 group-hover:grayscale-0`} />
+              <div class={`i-${tech.icon} bg-[length:100%_100%] w-7 h-7 transition grayscale print:grayscale-0
+                group-hover:grayscale-0`} />
             </span>
             })}
           </div>

@@ -8,9 +8,9 @@ import { interests } from "@data/interests.json"
     class="grid grid-cols-1 pl-0 mt-6 list-none gap-x-12 gap-y-4 sm:grid-cols-2 print:block print:mt-4 print:columns-2">
     {interests.map(interest =>
     <li id={slugify("Interest "+interest.name)}
-        class=" flex items-center gap-4 pl-0 my-0 group print:mt-4 print:first:mt-0 print:break-inside-avoid">
-      <div class={`i-${interest.icon} bg-[length:100%_100%] w-10 h-10 flex-shrink-0 transition rounded-md grayscale print:grayscale-0
-        group-hover:grayscale-0`} />
+        class="flex items-center gap-4 pl-0 my-0  group print:mt-4 print:first:mt-0 print:break-inside-avoid">
+      <div class={`i-${interest.icon} bg-[length:100%_100%] w-10 h-10 flex-shrink-0 transition rounded-md grayscale
+        print:grayscale-0 group-hover:grayscale-0`} />
       <span>{interest.name}</span>
     </li>
     )}

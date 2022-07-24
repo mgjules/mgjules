@@ -14,7 +14,7 @@ const md = MarkdownIt({
 <div>
   <ul role="list" class="grid grid-cols-1 pl-0 mt-6 list-none gap-y-8 print:block print:mt-4">
     {experiences.map(experience =>
-    <li id={slugify("Experience "+experience.company)} class=" pl-0 my-0 group print:mt-4 print:break-inside-avoid">
+    <li id={slugify("Experience "+experience.company)} class="pl-0 my-0  group print:mt-4 print:break-inside-avoid">
       <div class="flex flex-wrap items-center justify-between">
         <h3 class="my-0">{ experience.company }</h3>
         <span class="text-sm text-gray-500">{experience.from === experience.to ? experience.to : `${experience.from} →
@@ -24,7 +24,8 @@ const md = MarkdownIt({
       <div class="flex flex-wrap gap-5 mt-1">
         {experience.technologies.map(technologie =>
         <span class="h-8" title={technologie}>
-          <div class={`i-${technologies.find(tech=> technologie === tech.name).icon} bg-[length:100%_100%] w-7 h-7 transition grayscale
+          <div class={`i-${technologies.find(tech=> technologie === tech.name).icon} bg-[length:100%_100%] w-7 h-7
+            transition grayscale
             print:grayscale-0 group-hover:grayscale-0`} />
         </span>
         )}
