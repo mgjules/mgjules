@@ -1,7 +1,7 @@
 import { defineConfig } from "astro/config"
 
 import uno from "astro-uno"
-import { presetAttributify, presetUno, presetTypography } from "unocss"
+import { presetUno, presetTypography } from "unocss"
 import presetIcons from "@unocss/preset-icons"
 import compress from "astro-compress"
 import sitemap from '@astrojs/sitemap';
@@ -30,7 +30,6 @@ export default defineConfig({
         ...Array.from(interests.interests, int => `i-${int.icon}`)
       ],
       presets: [
-        presetAttributify(),
         presetUno(),
         presetTypography(),
         presetIcons({
