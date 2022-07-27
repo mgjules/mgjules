@@ -11,20 +11,19 @@ const md = MarkdownIt({
 ---
 
 <div>
-  <div
-    class="grid grid-cols-1 mt-6 gap-x-12 gap-y-4 sm:grid-cols-2 print:block print:mt-4 print:gap-x-6 print:columns-2">
+  <div class="grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-2 print:block print:mt-4 print:gap-x-6 print:columns-2">
     {awards.map(award =>
     <div id={slugify("Awards "+award.event+" "+award.date)}
-        class="px-4 py-3 border rounded-md  print:shadow-none border-slate-200 border-b-3 group print:mt-4 print:first:mt-0 print:break-inside-avoid">
-      <div class="flex items-center" title={ award.result }>
-        <div class={`i-${award.icon} w-10 h-10 bg-[length:100%_100%] flex-shrink-0 transition bg-white grayscale
-          print:grayscale-0 group-hover:grayscale-0`} />
-        <div class="w-full ml-6">
+        class=" px-4 py-3 border rounded-md print:shadow-none border-slate-900/50 bg-slate-700/10 border-b-3 group
+      print:mt-4 print:first:mt-0 print:break-inside-avoid">
+      <div class="flex items-center gap-4" title={ award.result }>
+        <div class={`i-${award.icon} w-10 h-10 bg-[length:100%_100%] flex-shrink-0`} />
+        <div class="w-full">
           <div class="flex flex-wrap items-center justify-between">
             <h3 class="my-0">{ award.event }</h3>
-            <span class="text-sm text-gray-500">{ award.date }</span>
+            <span class="text-sm text-slate-500">{ award.date }</span>
           </div>
-          <div class="m-0 text-gray-400" set:html={md.renderInline(award.description)} />
+          <div class="m-0 text-slate-400" set:html={md.renderInline(award.description)} />
         </div>
       </div>
     </div>

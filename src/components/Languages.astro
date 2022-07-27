@@ -5,15 +5,14 @@ import { languages } from "@data/languages.json"
 
 <div>
   <ul role="list"
-    class="grid grid-cols-1 pl-0 mt-6 list-none gap-x-12 gap-y-4 sm:grid-cols-2 print:block print:mt-4 print:columns-2">
+    class="grid grid-cols-1 pl-0 my-0 list-none gap-x-12 gap-y-4 sm:grid-cols-2 print:block print:mt-4 print:columns-2">
     {languages.map(language =>
     <li id={slugify("Languages "+language.name)}
-        class="flex items-center gap-4 pl-0 my-0  group print:mt-4 print:first:mt-0 print:break-inside-avoid">
-      <div class={`i-${language.icon} bg-[length:100%_100%] w-10 h-10 flex-shrink-0 transition bg-white rounded-md
-        grayscale print:grayscale-0 group-hover:grayscale-0`} />
+        class=" flex items-center gap-4 pl-0 my-0 group print:mt-4 print:first:mt-0 print:break-inside-avoid">
+      <div class={`i-${language.icon} bg-[length:100%_100%] w-10 h-10 flex-shrink-0 transition rounded-md`} />
       <div>
         <h3 class="my-0">{ language.name }</h3>
-        <div class="text-gray-500">{ language.level }</div>
+        <div>{ language.level }</div>
       </div>
     </li>
     )}

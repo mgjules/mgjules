@@ -2,95 +2,97 @@
   "technologies": [
     {
       "name": "AWS",
-      "icon": "logos:aws"
+      "icon": "simple-icons:amazonaws"
     },
     {
       "name": "Blockchain",
-      "icon": "icon-park:blockchain"
+      "icon": "simple-icons:blockchaindotcom"
     },
     {
       "name": "Bootstrap",
-      "icon": "logos:bootstrap"
+      "icon": "simple-icons:bootstrap"
     },
     {
       "name": "Datadog",
-      "icon": "logos:datadog"
+      "icon": "simple-icons:datadog"
     },
     {
       "name": "Docker",
-      "icon": "logos:docker-icon"
+      "icon": "simple-icons:docker"
     },
     {
       "name": "Drupal",
-      "icon": "logos:drupal"
+      "icon": "simple-icons:drupal"
     },
     {
       "name": "DynamoDB",
-      "icon": "logos:aws-dynamodb"
+      "icon": "simple-icons:amazondynamodb"
     },
     {
       "name": "Go",
-      "icon": "logos:go"
+      "icon": "simple-icons:go"
     },
     {
       "name": "GraphQL",
-      "icon": "logos:graphql"
+      "icon": "simple-icons:graphql"
     },
     {
       "name": "gRPC",
-      "icon": "logos:grpc"
+      "icon": "logos:grpc",
+      "saturate": true
     },
     {
       "name": "jQuery",
-      "icon": "logos:jquery"
+      "icon": "simple-icons:jquery"
     },
     {
       "name": "Kubernetes",
-      "icon": "logos:kubernetes"
+      "icon": "simple-icons:kubernetes"
     },
     {
       "name": "MySQL",
-      "icon": "logos:mysql-icon"
+      "icon": "simple-icons:mysql"
     },
     {
       "name": "PHP",
-      "icon": "logos:php-alt"
+      "icon": "simple-icons:php"
     },
     {
       "name": "PostgreSQL",
-      "icon": "logos:postgresql"
+      "icon": "simple-icons:postgresql"
     },
     {
       "name": "RabbitMQ",
-      "icon": "logos:rabbitmq-icon"
+      "icon": "simple-icons:rabbitmq"
     },
     {
       "name": "Redis",
-      "icon": "logos:redis"
+      "icon": "simple-icons:redis"
     },
     {
       "name": "S3",
-      "icon": "logos:aws-s3"
+      "icon": "simple-icons:amazons3"
     },
     {
       "name": "SvelteJS",
-      "icon": "logos:svelte-icon"
+      "icon": "simple-icons:svelte"
     },
     {
       "name": "Swagger",
-      "icon": "logos:swagger"
+      "icon": "simple-icons:swagger"
     },
     {
       "name": "TailwindCSS",
-      "icon": "logos:tailwindcss-icon"
+      "icon": "simple-icons:tailwindcss"
     },
     {
       "name": "Timestream",
-      "icon": "logos:aws-timestream"
+      "icon": "logos:aws-timestream",
+      "saturate": true
     },
     {
       "name": "VueJS",
-      "icon": "logos:vue"
+      "icon": "simple-icons:vuedotjs"
     }
   ]
 }

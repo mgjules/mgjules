@@ -14,39 +14,8 @@ const md = MarkdownIt({
 })
 ---
 
-<div class="max-w-4xl mx-auto text-lg">
-  <h1 class="flex justify-center">
-    <span class="inline-block mx-auto mt-2 text-3xl leading-8 tracking-tight text-center text-gray-900 sm:text-4xl">
-      <span class="font-light">{first_name}</span>
-      <span class="font-semibold">{last_name}</span>
-    </span>
-  </h1>
-  <div class="mt-6">
-    <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 print:hidden">
-      {links.map(link =>
-      <a href={link.url} target="_blank" class="no-underline">
-        <div
-          class="flex items-center gap-2 px-2 py-1 text-xs font-semibold leading-5 tracking-wider text-white uppercase transition-all bg-gray-600 border border-gray-700 rounded-md border-b-3 hover:border-b-2 hover:bg-sky-600">
-          <div class={`i-${link.icon} bg-[length:100%_100%] w-4 h-4`} />
-          <span>{ link.name }</span>
-        </div>
-      </a>
-      )}
-    </div>
-    <div class="flex-wrap justify-center hidden text-base gap-x-4 gap-y-2 print:flex">
-      {links.map(link =>
-      <span class="flex items-center gap-2">
-        <div class={`i-${link.icon} bg-[length:100%_100%] w-4 h-4`} />
-        <span>{ link.use_name_for_print ? link.name : link.url.replace(/^https?:\/\//, "").replace(/\/$/,
-          "").replace(/^mailto:/, "") }</span>
-      </span>
-      )}
-    </div>
-  </div>
-  <div class="mt-6 group">
-    <img
-      class="float-left w-24 h-24 mr-6 transition-all rounded-md scale-x-[-1] grayscale group-hover:grayscale-0 print:grayscale-0"
-      src={avatar} alt="Profile Picture" loading="lazy">
-    <div class="text-lg text-justify text-gray-500" set:html={md.renderInline(introduction)} />
-  </div>
+<div class="group">
+  <img class="float-left w-14 h-14 mr-4 transition-all rounded-md scale-x-[-1]" src={avatar} alt="Profile Picture"
+    loading="lazy">
+  <div class="text-justify" set:html={md.renderInline(introduction)} />
 </div>

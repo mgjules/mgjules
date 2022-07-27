@@ -70,6 +70,9 @@ collections:
               - label: Icon
                 name: icon
                 widget: string
+              - label: Open in New Window
+                name: new_window
+                widget: boolean
       - label: Introduction
         name: introduction
         file: data/intro.json
@@ -110,6 +113,9 @@ collections:
               - label: Icon
                 name: icon
                 widget: string
+              - label: Remove Saturation
+                name: saturate
+                widget: boolean
       - label: Experiences
         name: experiences
         file: data/experiences.json

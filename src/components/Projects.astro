@@ -13,19 +13,19 @@ const md = MarkdownIt({
 ---
 
 <div>
-  <ul role="list" class="flex flex-col gap-4 pl-0 mt-6 list-none print:block print:mt-4 print:columns-1">
+  <ul role="list" class="flex flex-col gap-4 pl-0 my-0 list-none print:block print:mt-4 print:columns-1">
     {projects.map(project =>
     <li id={slugify("Projects "+project.name)}
-      class="flex pl-0 my-0 border rounded-md  border-b-3 border-slate-200 print:shadow-none group print:mt-4 print:first:mt-0 print:break-inside-avoid">
+      class=" flex pl-0 my-0 border rounded-md border-b-3 border-slate-900/50 group print:mt-4 print:first:mt-0
+      print:break-inside-avoid">
       <div
-        class="flex items-center justify-center flex-shrink-0 w-20 text-sm font-medium text-gray-500 shadow-sm bg-slate-200 print:shadow-none rounded-l-md">
+        class="flex items-center justify-center flex-shrink-0 w-20 text-sm font-medium text-slate-400 bg-slate-700/40 rounded-l-md">
         <span title={project.technologies[0]}>
           <div class={`i-${technologies.find(tech=> project.technologies[0] === tech.name).icon} bg-[length:100%_100%]
-            w-10 h-10 transition
-            grayscale print:grayscale-0 group-hover:grayscale-0`} />
+            w-10 h-10`} />
         </span>
       </div>
-      <div class="flex items-center justify-between flex-1 bg-white">
+      <div class="flex items-center justify-between flex-1 bg-slate-700/10 rounded-r-md">
         <div class="flex-1 px-4 py-2">
           <h3 class="my-0">
             <a href={ project.link } target="_blank" class="font-medium no-underline">{project.name}
@@ -34,7 +34,7 @@ const md = MarkdownIt({
               </span>
             </a>
           </h3>
-          <div class="mt-1 text-gray-500 break-words" set:html={md.renderInline(project.description)} />
+          <div class="mt-1 text-slate-400 break-words" set:html={md.renderInline(project.description)} />
           {project.technologies.length > 1 &&
           <div class="flex flex-wrap gap-5 mt-2">
             {project.technologies.map((technologie, i) => {
@@ -43,8 +43,7 @@ const md = MarkdownIt({
             const tech = technologies.find(tech => tech.name === technologie)
 
             return <span class="h-8" title={tech.name}>
-              <div class={`i-${tech.icon} bg-[length:100%_100%] w-7 h-7 transition grayscale print:grayscale-0
-                group-hover:grayscale-0`} />
+              <div class={`i-${tech.icon} ${tech.saturate ? 'saturate-0' : '' } bg-[length:100%_100%] w-7 h-7`} />
             </span>
             })}
           </div>
@@ -54,7 +53,7 @@ const md = MarkdownIt({
     </li>
     )}
     <li class="pl-0 my-0 print:mt-4">
-      <a href={github} target="_blank" class="text-base font-medium no-underline">View
+      <a href={github} target="_blank" class="font-medium no-underline">View
         more projects
         on
         Github <span class="hidden print:inline">[ {github.replace(/^https?:\/\//, "")} ]</span>

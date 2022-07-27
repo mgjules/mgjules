@@ -27,11 +27,24 @@ export default defineConfig({
         ...Array.from(awards.awards, aw => `i-${aw.icon}`),
         ...Array.from(links.links, link => `i-${link.icon}`),
         ...Array.from(languages.languages, lang => `i-${lang.icon}`),
-        ...Array.from(interests.interests, int => `i-${int.icon}`)
+        ...Array.from(interests.interests, int => `i-${int.icon}`),
+        "i-ooui:article-not-found-ltr"
       ],
       presets: [
         presetUno(),
-        presetTypography(),
+        presetTypography({
+          cssExtend: {
+            'h1,h2,h3,h4,a,code': {
+              color: '#0891b2',
+            },
+            'a:hover': {
+              color: '#22d3ee',
+            },
+            'a:visited': {
+              color: '#0e7490',
+            },
+          },
+        }),
         presetIcons({
           autoInstall: true
         })

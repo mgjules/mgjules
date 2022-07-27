@@ -1,30 +1,45 @@
 {
   "links": [
     {
-      "name": "Developer",
+      "name": "Curriculum Vitae",
+      "url": "/cv",
+      "icon": "ic:outline-work"
+    },
+    {
+      "name": "Go Developer",
       "url": "https://gophers.mu",
-      "icon": "simple-icons:go"
+      "icon": "file-icons:go-old",
+      "new_window": true
     },
     {
       "name": "Github",
       "url": "https://github.com/mgjules",
-      "icon": "simple-icons:github"
+      "icon": "simple-icons:github",
+      "new_window": true
     },
     {
       "name": "LinkedIn",
       "url": "https://linkedin.com/in/mgjules",
-      "icon": "simple-icons:linkedin"
+      "icon": "simple-icons:linkedin",
+      "new_window": true
     },
     {
       "name": "Mail",
       "url": "mailto:hi@mgjules.dev",
-      "icon": "simple-icons:gmail"
+      "icon": "simple-icons:gmail",
+      "new_window": true
     },
     {
       "name": "Mauritius",
-      "use_name_for_print": true,
       "url": "https://goo.gl/maps/rnfGNDHd5rXqKGEUA",
-      "icon": "carbon:location-filled"
+      "icon": "carbon:location-filled",
+      "new_window": true
+    },
+    {
+      "name": "CMS",
+      "url": "/admin/index.html",
+      "icon": "carbon:virtual-column-key",
+      "new_window": true
     }
   ]
 }

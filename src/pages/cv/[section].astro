@@ -1,0 +1,29 @@
+---
+import EditorLayout from "@layouts/EditorLayout.astro"
+
+import { sections } from "@data/sections.json"
+import { links } from "@data/links.json"
+
+export function getStaticPaths() {
+  return sections.map(section => {
+    return { params: { section: section.name.toLocaleLowerCase() } }
+  })
+}
+
+function capitalize(str) {
+  return str.charAt(0).toUpperCase() + str.slice(1)
+}
+
+const { section: current_tab_name } = Astro.params;
+
+const current_tab = sections.find(section => section.name === capitalize(current_tab_name))
+---
+
+<EditorLayout current_tab={current_tab} extension="cv" links={links} tabs={sections} print>
+  {async () => {
+  const DynamicComponent = (await import(`../../components/${current_tab.name}.astro`)).default
+  return <>
+    <DynamicComponent />
+  </>
+  }}
+</EditorLayout>

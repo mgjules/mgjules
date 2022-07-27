@@ -10,14 +10,10 @@ const { title, icon } = Astro.props as Props;
 ---
 
 <div id={slugify(title)} class="mt-8 print:mt-4">
-  <div class="relative">
-    <div class="absolute inset-0 flex items-center left-9" aria-hidden="true">
-      <div class="w-full border-t border-gray-300"></div>
-    </div>
-    <div class="relative flex items-center justify-start">
-      <div class={`i-${icon} bg-[length:100%_100%] w-6 h-6`} />
-      <h2 class="pl-3 pr-6 my-0 font-medium capitalize bg-white">{title}</h2>
-    </div>
+  <div class="relative flex items-center justify-start gap-4">
+    <div class={`i-${icon} bg-[length:100%_100%] w-6 h-6`} />
+    <h2 class="my-0 font-medium capitalize">{title}</h2>
+    <div class="w-full border-t border-gray-300"></div>
   </div>
   <slot></slot>
 </div>

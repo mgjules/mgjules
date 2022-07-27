@@ -5,20 +5,20 @@ import { contributions } from "@data/contributions.json"
 
 <div>
   <ul role="list"
-    class="grid grid-cols-1 pl-0 mt-6 list-none gap-x-12 gap-y-4 sm:grid-cols-2 print:block print:mt-4 print:columns-2">
+    class="grid grid-cols-1 pl-0 my-0 list-none gap-x-12 gap-y-4 sm:grid-cols-2 print:block print:mt-4 print:columns-2">
     {contributions.map(contribution =>
     <li id={slugify("Contributions "+contribution.event+" "+contribution.title)}
-        class="pl-0 my-0  group print:mt-4 print:first:mt-0 print:break-inside-avoid">
+        class=" flex flex-col pl-0 my-0 group print:mt-4 print:first:mt-0 print:break-inside-avoid">
       <div class="flex flex-col sm:items-center sm:justify-between sm:flex-row gap-x-2">
         <h3 class="my-0">{ contribution.event }</h3>
-        <span class="text-sm text-gray-500">{contribution.from === contribution.to ? contribution.to :
+        <span class="text-sm text-slate-500">{contribution.from === contribution.to ? contribution.to :
           `${contribution.from} →
           ${contribution.to || 'present'}`}</span>
       </div>
       <span
-        class="px-2 py-1 text-sm text-gray-500 border rounded-lg select-none border-b-3 print:shadow-none border-slate-200">{
+        class="w-fit px-2 py-1 text-sm text-slate-400 border rounded-md select-none border-b-3 border-slate-900/60 bg-slate-700/40">{
         contribution.role }</span>
-      <div class="text-gray-500">{ contribution.title }</div>
+      <div class="text-slate-500">{ contribution.title }</div>
     </li>
     )}
   </ul>
