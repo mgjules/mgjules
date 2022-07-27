@@ -8,12 +8,12 @@ import sitemap from '@astrojs/sitemap';
 import svelte from '@astrojs/svelte';
 
 // Icons
-import sections from "./data/sections.json" assert {type: "json"}
-import technologies from "./data/technologies.json" assert {type: "json"}
-import awards from "./data/awards.json" assert {type: "json"}
-import links from "./data/links.json" assert {type: "json"}
-import languages from "./data/languages.json" assert {type: "json"}
-import interests from "./data/interests.json" assert {type: "json"}
+import sections from "./data/cv/sections.json" assert {type: "json"}
+import technologies from "./data/cv/technologies.json" assert {type: "json"}
+import awards from "./data/cv/awards.json" assert {type: "json"}
+import links from "./data/cv/links.json" assert {type: "json"}
+import languages from "./data/cv/languages.json" assert {type: "json"}
+import interests from "./data/cv/interests.json" assert {type: "json"}
 
 // https://astro.build/config
 export default defineConfig({

@@ -8,8 +8,8 @@ logo_url: "/assets/uploads/logo.png"
 media_folder: public/assets/uploads
 public_folder: "/assets/uploads"
 collections:
-  - label: Curriculum Vitae
-    name: cv
+  - label: General
+    name: general
     publish_mode: editorial_workflow
     files:
       - label: Meta
@@ -53,9 +53,13 @@ collections:
           - label: Keywords
             name: keywords
             widget: list
+  - label: Curriculum Vitae
+    name: cv
+    publish_mode: editorial_workflow
+    files:
       - label: Links
         name: links
-        file: data/links.json
+        file: data/cv/links.json
         fields:
           - label: Links
             name: links
@@ -76,7 +80,7 @@ collections:
                 required: false
       - label: Introduction
         name: introduction
-        file: data/intro.json
+        file: data/cv/intro.json
         fields:
           - label: Avatar
             name: avatar
@@ -88,7 +92,7 @@ collections:
             widget: markdown
       - label: Sections
         name: sections
-        file: data/sections.json
+        file: data/cv/sections.json
         fields:
           - label: Sections
             name: sections
@@ -102,7 +106,7 @@ collections:
                 widget: string
       - label: Technologies
         name: technologies
-        file: data/technologies.json
+        file: data/cv/technologies.json
         fields:
           - label: Technologies
             name: technologies
@@ -120,7 +124,7 @@ collections:
                 required: false
       - label: Experiences
         name: experiences
-        file: data/experiences.json
+        file: data/cv/experiences.json
         fields:
           - label: Experiences
             name: experiences
@@ -163,7 +167,7 @@ collections:
                   widget: markdown
       - label: Projects
         name: projects
-        file: data/projects.json
+        file: data/cv/projects.json
         fields:
           - label: Projects
             name: projects
@@ -192,7 +196,7 @@ collections:
                 value_field: technologies.*.name
       - label: Contributions
         name: contributions
-        file: data/contributions.json
+        file: data/cv/contributions.json
         fields:
           - label: Contributions
             name: contributions
@@ -228,7 +232,7 @@ collections:
                 required: false
       - label: Awards
         name: awards
-        file: data/awards.json
+        file: data/cv/awards.json
         fields:
           - label: Awards
             name: awards
@@ -258,7 +262,7 @@ collections:
                 widget: markdown
       - label: Interests
         name: interests
-        file: data/interests.json
+        file: data/cv/interests.json
         fields:
           - label: Interests
             name: interests
@@ -272,7 +276,7 @@ collections:
                 widget: string
       - label: Languages
         name: languages
-        file: data/languages.json
+        file: data/cv/languages.json
         fields:
           - label: Languages
             name: languages
