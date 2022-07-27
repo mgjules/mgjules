@@ -1,8 +1,13 @@
 {
   "links": [
     {
+      "name": "Home",
+      "url": "/",
+      "icon": "carbon:home"
+    },
+    {
       "name": "Curriculum Vitae",
-      "url": "/cv/introduction",
+      "url": "/cv/experiences",
       "icon": "pepicons:cv"
     },
     {

@@ -1,5 +1,20 @@
 ---
-import CVIndex from "@pages/cv/index.astro"
+import EditorLayout from "@layouts/EditorLayout.astro"
+import Introduction from "@components/Introduction.astro"
+import { links } from "@data/cv/links.json"
+
+const tabs = [
+  {
+    name: "Index",
+    icon: "carbon:home"
+  }
+]
+
+const current_tab = {
+  name: "Index"
+}
 ---
 
-<CVIndex />
+<EditorLayout current_tab={current_tab} extension="main" links={links} tabs={tabs}>
+  <Introduction />
+</EditorLayout>

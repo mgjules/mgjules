@@ -33,6 +33,15 @@ export interface Props {
 const { tabs, links, extension, current_tab, print } = Astro.props as Props;
 
 const current_year = (new Date()).getFullYear()
+
+function isCurrentLink(url: string) {
+  const pathname = Astro.url.pathname
+  if (pathname.length === 1 || url.length === 1) {
+    return pathname === url
+  }
+
+  return Astro.url.pathname.startsWith(url)
+}
 ---
 
 <Layout title={`${first_name} ${last_name} - ${current_tab.name}.${extension}`} first_name={first_name}
@@ -54,9 +63,9 @@ const current_year = (new Date()).getFullYear()
       <div class="flex flex-row">
         <div class="flex flex-col gap-5 px-3 py-4 border-r border-slate-700 shrink-0">
           {links.map(link =>
-          <a href={link.url} title={link.name} target={link.new_window ? "_blank" : "_self" } class={`i-${link.icon}
-            ${Astro.url.pathname.startsWith(link.url) ? 'text-slate-300 cursor-default' : 'text-slate-600' }
-            bg-[length:100%_100%] w-6 h-6 hover:text-slate-300`}></a>
+          <a href={link.url} title={link.name} target={link.new_window ? "_blank" : "_self" } class={`i-${link.icon} ${
+            isCurrentLink(link.url) ? 'text-slate-300 cursor-default' : 'text-slate-600' } bg-[length:100%_100%] w-6 h-6
+            hover:text-slate-300`}></a>
           )}
         </div>
         <div class="w-full overflow-hidden">
