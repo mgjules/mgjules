@@ -73,6 +73,7 @@ collections:
               - label: Open in New Window
                 name: new_window
                 widget: boolean
+                required: false
       - label: Introduction
         name: introduction
         file: data/intro.json
@@ -116,6 +117,7 @@ collections:
               - label: Remove Saturation
                 name: saturate
                 widget: boolean
+                required: false
       - label: Experiences
         name: experiences
         file: data/experiences.json
