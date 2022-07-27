@@ -65,8 +65,8 @@ const current_year = (new Date()).getFullYear()
             <div class="flex -mb-[2px] overflow-x-scroll min-h-8 shrink scrollbar">
               {tabs && tabs.map(tab =>
               <a href={`/cv/${tab.name.toLowerCase()}`} class={`${current_tab.name===tab.name
-                ? 'text-slate-400 bg-[#1A2334]/70 border-b-white/20' : '' } flex box-border border-b
-                border-b-transparent items-center gap-2 px-4 leading-7 border-r border-r-black/30 hover:bg-slate-500/10
+                ? 'text-slate-400 bg-[#1A2334]/70 border-b-white/20' : '' } flex border-b border-b-transparent
+                items-center gap-2 px-4 leading-7 border-r border-r-black/30 hover:bg-slate-500/10
                 hover:cursor-pointer`}>
                 <span class={`i-${tab.icon} h-3 w-3`}></span>
                 <span>{tab.name}.{extension}</span>
@@ -82,7 +82,7 @@ const current_year = (new Date()).getFullYear()
             }
           </div>
           }
-          <div class="max-w-full box-border px-4 py-4 text-sm prose prose-sky prose-invert text-slate-400">
+          <div class="max-w-full px-4 py-4 text-sm prose prose-sky prose-invert text-slate-400">
             <slot />
           </div>
         </div>
