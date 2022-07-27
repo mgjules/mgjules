@@ -1,6 +1,10 @@
 {
   "sections": [
     {
+      "name": "Introduction",
+      "icon": "pepicons:person-filled"
+    },
+    {
       "name": "Experiences",
       "icon": "ic:outline-work"
     },
