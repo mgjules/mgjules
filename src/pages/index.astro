@@ -1,18 +1,5 @@
 ---
-import EditorLayout from "@layouts/EditorLayout.astro"
-import Intro from "@components/Intro.astro"
-import { sections } from "@data/sections.json"
-import { links } from "@data/links.json"
-
-const current_tab = {
-  name: "Introduction",
-  icon: ""
-}
+import CVIndex from "@pages/cv/index.astro"
 ---
 
-<EditorLayout current_tab={current_tab} extension="cv" links={links} tabs={sections}>
-  <Intro />
-  <div class="mt-6">
-    To learn more about me <b>click on any of the tabs above ↑</b>
-  </div>
-</EditorLayout>
+<CVIndex />
