@@ -21,7 +21,7 @@ const current_tab = sections.find(section => section.name === capitalize(current
 
 <EditorLayout current_tab={current_tab} extension="cv" links={links} tabs={sections} print>
   {async () => {
-  const DynamicComponent = (await import(`../../components/${current_tab.name}.astro`)).default
+  const DynamicComponent = (await import(`../../components/cv/${current_tab.name}.astro`)).default
   return <>
     <DynamicComponent />
   </>
