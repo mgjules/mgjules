@@ -61,12 +61,12 @@ const current_year = (new Date()).getFullYear()
         </div>
         <div class="w-full overflow-hidden">
           {(tabs || print) &&
-          <div class="flex text-[0.8rem] text-slate-600 bg-slate-900/70 items-center justify-between gap-2">
+          <div class="flex text-[0.8rem] text-slate-600 bg-slate-900/50 items-center justify-between gap-2">
             <div class="flex -mb-[2px] overflow-x-scroll min-h-8 shrink scrollbar">
               {tabs && tabs.map(tab =>
               <a href={`/cv/${tab.name.toLowerCase()}`} class={`${current_tab.name===tab.name
-                ? 'text-slate-400 bg-[#1A2334] border-b-white/20' : '' } flex box-border border-b border-b-transparent
-                items-center gap-2 px-4 leading-7 border-r border-r-black/30 hover:bg-slate-400/10
+                ? 'text-slate-400 bg-[#1A2334]/70 border-b-white/20' : '' } flex box-border border-b
+                border-b-transparent items-center gap-2 px-4 leading-7 border-r border-r-black/30 hover:bg-slate-500/10
                 hover:cursor-pointer`}>
                 <span class={`i-${tab.icon} h-3 w-3`}></span>
                 <span>{tab.name}.{extension}</span>
