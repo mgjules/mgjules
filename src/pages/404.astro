@@ -2,8 +2,6 @@
 import EditorLayout from "@layouts/EditorLayout.astro"
 import { links } from "@data/links.json"
 
-const { href, origin } = Astro.url
-
 const tabs = [
   {
     name: "NotFound",
@@ -19,8 +17,7 @@ const current_tab = {
 <EditorLayout current_tab={current_tab} extension="404" links={links} tabs={tabs}>
   <div class="flex flex-col gap-y-4 items-center justify-center">
     <div class="i-iconoir:file-not-found w-32 h-32 text-slate-400/20"></div>
-    <div class="text-slate-400/50 text-center">It appears that you are lost<br />because I don't know
-      <code>{href.replace(origin, '')}</code> 😢
+    <div class="text-slate-400/50 text-center">It appears that you are lost<br />because there's nothing here 😢
     </div>
   </div>
 </EditorLayout>
