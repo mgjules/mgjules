@@ -11,31 +11,29 @@ const md = MarkdownIt({
 })
 ---
 
-<div>
-  <ul role="list" class="grid grid-cols-1 pl-0 my-0 list-none gap-y-8 print:block print:mt-4">
-    {experiences.map(experience =>
-    <li id={slugify("Experience "+experience.company)} class=" pl-0 my-0 group print:mt-4 print:break-inside-avoid">
-      <div class="flex flex-wrap items-center justify-between">
-        <h3 class="my-0">{ experience.company }</h3>
-        <span class="text-sm text-slate-500">{experience.from === experience.to ? experience.to : `${experience.from} →
-          ${experience.to || 'present'}`}</span>
-      </div>
-      <span class="text-slate-500 print:text-base">{ experience.position }</span>
-      <div class="flex flex-wrap gap-5 mt-1">
-        {experience.technologies.map(technologie => {
-        const tech = technologies.find(tech=> technologie === tech.name)
-        return <span class="h-7" title={technologie}>
-          <div class={`i-${tech.icon} ${tech.saturate ? 'saturate-0' : '' } bg-[length:100%_100%] w-7 h-7`} />
-        </span>
-        }
-        )}
-      </div>
-      <ul role="list" class="mt-2 mb-0 print:text-base">
-        {experience.tasks.map(task =>
-        <li class="mt-1 mb-0" set:html={md.renderInline(task)}></li>
-        )}
-      </ul>
-    </li>
-    )}
-  </ul>
-</div>
+<ul role="list" class="grid grid-cols-1 m-4 ml-0 list-none gap-y-8 print:block print:mt-4">
+  {experiences.map(experience =>
+  <li id={slugify("Experience "+experience.company)} class=" pl-0 my-0 group print:mt-4 print:break-inside-avoid">
+    <div class="flex flex-wrap items-center justify-between">
+      <h3 class="my-0">{ experience.company }</h3>
+      <span class="text-sm text-slate-500">{experience.from === experience.to ? experience.to : `${experience.from} →
+        ${experience.to || 'present'}`}</span>
+    </div>
+    <span class="text-slate-500 print:text-base">{ experience.position }</span>
+    <div class="flex flex-wrap gap-5 mt-1">
+      {experience.technologies.map(technologie => {
+      const tech = technologies.find(tech=> technologie === tech.name)
+      return <span class="h-7" title={technologie}>
+        <div class={`i-${tech.icon} ${tech.saturate ? 'saturate-0' : '' } bg-[length:100%_100%] w-7 h-7`} />
+      </span>
+      }
+      )}
+    </div>
+    <ul role="list" class="mt-2 mb-0 print:text-base">
+      {experience.tasks.map(task =>
+      <li class="mt-1 mb-0" set:html={md.renderInline(task)}></li>
+      )}
+    </ul>
+  </li>
+  )}
+</ul>

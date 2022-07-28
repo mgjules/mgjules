@@ -53,6 +53,18 @@ collections:
           - label: Keywords
             name: keywords
             widget: list
+      - label: Introduction
+        name: introduction
+        file: data/introduction.json
+        fields:
+          - label: Avatar
+            name: avatar
+            widget: image
+            options:
+              allow_multiple: false
+          - label: Introduction
+            name: introduction
+            widget: markdown
   - label: Curriculum Vitae
     name: cv
     publish_mode: editorial_workflow
@@ -78,18 +90,6 @@ collections:
                 name: new_window
                 widget: boolean
                 required: false
-      - label: Introduction
-        name: introduction
-        file: data/cv/intro.json
-        fields:
-          - label: Avatar
-            name: avatar
-            widget: image
-            options:
-              allow_multiple: false
-          - label: Introduction
-            name: introduction
-            widget: markdown
       - label: Sections
         name: sections
         file: data/cv/sections.json
@@ -136,12 +136,16 @@ collections:
                 widget: string
               - label: From
                 name: from
-                widget: date
-                format: MM/YYYY
+                widget: datetime
+                time_format: false
+                date_format: MMM YYYY
+                format: MMM YYYY
               - label: To
                 name: to
-                widget: date
-                format: MM/YYYY
+                widget: datetime
+                time_format: false
+                date_format: MMM YYYY
+                format: MMM YYYY
                 required: false
               - label: Position
                 name: position
@@ -209,12 +213,16 @@ collections:
                 widget: string
               - label: From
                 name: from
-                widget: date
-                format: MM/YYYY
+                widget: datetime
+                time_format: false
+                date_format: MMM YYYY
+                format: MMM YYYY
               - label: To
                 name: to
-                widget: date
-                format: MM/YYYY
+                widget: datetime
+                time_format: false
+                date_format: MMM YYYY
+                format: MMM YYYY
                 required: false
               - label: Role
                 name: role
@@ -245,7 +253,9 @@ collections:
                 widget: string
               - label: Date
                 name: date
-                widget: date
+                widget: datetime
+                time_format: false
+                date_format: YYYY
                 format: YYYY
               - label: Icon
                 name: icon

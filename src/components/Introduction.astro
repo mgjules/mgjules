@@ -1,20 +1,17 @@
 ---
 import MarkdownIt from "markdown-it"
-import { introduction, avatar } from "@data/cv/intro.json"
+import { introduction, avatar } from "@data/introduction.json"
 
 const md = MarkdownIt({
   html: true,
   linkify: true,
-  typographer: true
+  typographer: true,
 })
+
 ---
 
-<div class="group">
+<div class="m-4">
   <img class="float-left w-14 h-14 mr-4 transition-all rounded-md scale-x-[-1]" src={avatar} alt="Profile Picture"
     loading="lazy">
-  <div class="text-justify" set:html={md.renderInline(introduction)} />
-</div>
-
-<div class="mt-6">
-  ⬅ Use the links to learn more about me
+  <div class="text-justify" set:html={md.render(introduction)} />
 </div>

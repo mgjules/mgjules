@@ -2,7 +2,7 @@
   "experiences": [
     {
       "company": "Ringier SA",
-      "from": "02/2021",
+      "from": "Feb 2021",
       "to": "",
       "position": "Senior Full-Stack Developer",
       "technologies": [
@@ -28,8 +28,8 @@
     },
     {
       "company": "Bocasay",
-      "from": "04/2020",
-      "to": "02/2021",
+      "from": "Apr 2020",
+      "to": "Feb 2021",
       "position": "Senior Web Developer",
       "technologies": [
         "PHP",
@@ -46,8 +46,8 @@
     },
     {
       "company": "La Sentinelle Digital Ltd",
-      "from": "06/2018",
-      "to": "04/2020",
+      "from": "Jun 2018",
+      "to": "Apr 2020",
       "position": "Senior Software Engineer",
       "technologies": [
         "Go",
@@ -70,8 +70,8 @@
     },
     {
       "company": "Expat-Blog Ltd",
-      "from": "04/2013",
-      "to": "02/2014",
+      "from": "Apr 2013",
+      "to": "Feb 2014",
       "position": "PHP Developer",
       "technologies": [
         "PHP",
@@ -85,8 +85,8 @@
     },
     {
       "company": "Noveo IT Ltd",
-      "from": "07/2011",
-      "to": "12/2011",
+      "from": "Jul 2011",
+      "to": "Dec 2011",
       "position": "PHP Developer",
       "technologies": [
         "Drupal",
