@@ -37,5 +37,9 @@ const md = MarkdownIt({
 
 <EditorLayout current_tab={current_tab} extension="post" links={links} tabs={tabs} print>
   <img src={post.frontmatter.cover_image} class="object-cover w-full max-h-64" />
+  <div class="m-4 text-xs text-slate-500">By <span class="text-slate-400">{post.frontmatter.author}</span> on
+    <span class="text-slate-400">{post.frontmatter.date}</span> with tags
+    <span class="text-slate-400">{post.frontmatter.tags.join(', ')}</span>
+  </div>
   {async() => <div class="m-4" set:html={md.render((await post.compiledContent()).toString())}></div>}
 </EditorLayout>
