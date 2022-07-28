@@ -1,0 +1,43 @@
+---
+import MarkdownIt from "markdown-it"
+import { format, parse, getUnixTime } from "date-fns"
+import EditorLayout from "@layouts/EditorLayout.astro"
+import { links } from "@data/cv/links.json"
+
+export async function getStaticPaths() {
+  const posts = await Astro.glob('/data/blog/posts/*.md')
+  return posts.map(post => {
+    return {
+      params: {
+        slug: post.file.replace(/^.*[\\\/]/, '').replace(/\.[^/.]+$/, "")
+      },
+      props: { post }
+    }
+  })
+}
+
+const { slug } = Astro.params
+const { post } = Astro.props
+
+const current_tab = {
+  name: slug as string,
+  icon: "carbon:document"
+}
+
+const tabs = [
+  current_tab
+]
+
+const md = MarkdownIt({
+  html: true,
+  linkify: true,
+  typographer: true
+})
+---
+
+<EditorLayout current_tab={current_tab} extension="post" links={links} tabs={tabs} print>
+  <div class="max-w-full prose text-slate-400 prose-sky prose-base prose-invert">
+    <img src={post.frontmatter.cover_image} class="object-cover w-full max-h-64" />
+    {async() => <div class="m-4" set:html={md.render((await post.compiledContent()).toString())}></div>}
+  </div>
+</EditorLayout>

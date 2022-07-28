@@ -3,18 +3,19 @@ import EditorLayout from "@layouts/EditorLayout.astro"
 import Introduction from "@components/Introduction.astro"
 import { links } from "@data/cv/links.json"
 
-const tabs = [
-  {
-    name: "Index",
-    icon: "carbon:home"
-  }
-]
+const current_tab = links.find(link => link.name === "Home")
 
-const current_tab = {
-  name: "Index"
-}
+const tabs = [
+  current_tab
+]
 ---
 
-<EditorLayout current_tab={current_tab} extension="main" links={links} tabs={tabs}>
+<EditorLayout current_tab={current_tab} extension="index" links={links} tabs={tabs}>
   <Introduction />
+  <div class="flex items-center gap-2 m-4">
+    <div
+      class="flex items-center justify-center bg-slate-400 rounded-full w-3.5 h-3.5 text-[0.76rem] text-gray-700 select-none">
+      ←</div>
+    <span>Use the links to learn more about me.</span>
+  </div>
 </EditorLayout>

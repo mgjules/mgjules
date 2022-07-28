@@ -13,5 +13,5 @@ const md = MarkdownIt({
 <div class="m-4">
   <img class="float-left w-14 h-14 mr-4 transition-all rounded-md scale-x-[-1]" src={avatar} alt="Profile Picture"
     loading="lazy">
-  <div class="text-justify" set:html={md.render(introduction)} />
+  <div set:html={md.render(introduction)} />
 </div>

@@ -8,7 +8,12 @@
     {
       "name": "Curriculum Vitae",
       "url": "/cv/experiences",
-      "icon": "pepicons:cv"
+      "icon": "bi:file-person"
+    },
+    {
+      "name": "Blog",
+      "url": "/blog",
+      "icon": "carbon:volume-file-storage"
     },
     {
       "name": "Go Developer",

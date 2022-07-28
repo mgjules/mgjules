@@ -7,10 +7,12 @@ site_url: https://mgjules.dev
 logo_url: "/assets/uploads/logo.png"
 media_folder: public/assets/uploads
 public_folder: "/assets/uploads"
+publish_mode: editorial_workflow
 collections:
   - label: General
     name: general
-    publish_mode: editorial_workflow
+    editor:
+      preview: false
     files:
       - label: Meta
         name: meta
@@ -67,7 +69,8 @@ collections:
             widget: markdown
   - label: Curriculum Vitae
     name: cv
-    publish_mode: editorial_workflow
+    editor:
+      preview: false
     files:
       - label: Links
         name: links
@@ -304,3 +307,59 @@ collections:
                 options:
                   - Full professional proficiency
                   - Semi professional proficiency
+  - name: posts
+    label: Posts
+    label_singular: Post
+    folder: data/blog/posts
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}_{{slug}}"
+    editor:
+      preview: false
+    fields:
+      - label: Title
+        name: title
+        widget: string
+      - label: Publish Date
+        name: date
+        widget: datetime
+        time_format: false
+        date_format: DD MMM YYYY
+        format: DD MMM YYYY
+      - label: Author
+        name: author
+        widget: select
+        options:
+          - Michaël Giovanni Jules
+      - label: Cover Image
+        name: cover_image
+        widget: image
+        options:
+          allow_multiple: false
+      - label: Summary
+        name: summary
+        widget: text
+      - label: Tags
+        name: tags
+        widget: relation
+        multiple: true
+        collection: tags
+        search_fields:
+          - name
+        display_fields:
+          - name
+        value_field: name
+      - label: Body
+        name: body
+        widget: markdown
+  - name: tags
+    label: Tags
+    label_singular: Tag
+    folder: data/blog/tags
+    create: true
+    identifier_field: name
+    editor:
+      preview: false
+    fields:
+      - label: Name
+        name: name
+        widget: string

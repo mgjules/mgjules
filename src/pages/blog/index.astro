@@ -1,0 +1,62 @@
+---
+import { format, parse, getUnixTime } from "date-fns"
+import EditorLayout from "@layouts/EditorLayout.astro"
+import { links } from "@data/cv/links.json"
+
+const current_tab = links.find(link => link.name === "Blog")
+
+const tabs = [
+  current_tab
+]
+
+const tags = await Astro.glob('/data/blog/tags/*.md')
+let posts = await Astro.glob('/data/blog/posts/*.md')
+posts = posts.map(post => {
+  return {
+    ...post,
+    frontmatter: {
+      ...post.frontmatter,
+      tags: post.frontmatter.tags.filter(tag => tags.some(t => t.frontmatter.name === tag)),
+      parsedDate: parse(post.frontmatter.date, 'dd MMM yyyy', new Date()),
+      slug: post.file.replace(/^.*[\\\/]/, '').replace(/\.[^/.]+$/, "")
+    }
+  }
+}).sort((a, b) => {
+  const dateA = getUnixTime(a.frontmatter.parsedDate)
+  const dateB = getUnixTime(b.frontmatter.parsedDate)
+
+  return dateB - dateA
+})
+---
+
+<EditorLayout current_tab={current_tab} extension="index" links={links} tabs={tabs}>
+  <div class="max-w-full m-4 prose text-slate-400 prose-sky prose-base prose-invert">
+    <div>I don't write often but when I do, it's still not often enough 😢</div>
+    <div class="flex flex-col gap-4 mt-4">
+      {posts.map(async post =>
+      <div class="flex gap-4">
+        <div class="flex flex-col items-center shrink-0">
+          <div class="text-4xl text-slate-400">{format(post.frontmatter.parsedDate, 'dd')}</div>
+          <div class="text-lg text-slate-500">{format(post.frontmatter.parsedDate, 'MMM yyy')}
+          </div>
+        </div>
+        <div class="flex-1">
+          <h2 class="my-0 ">
+            <a href={`/blog/${post.frontmatter.slug}`}
+              class="no-underline hover:text-sky-400/70">{post.frontmatter.title}</a>
+          </h2>
+          <div class="mt-1 line-clamp-2">{post.frontmatter.summary}</div>
+          <div class="flex gap-2 mt-1 ">
+            {post.frontmatter.tags && post.frontmatter.tags.map(tag =>
+            <div
+              class="px-2 py-1 text-xs capitalize border rounded-md select-none border-b-3 border-slate-900/60 bg-slate-700/40">
+              {tag}
+            </div>
+            )}
+          </div>
+        </div>
+      </div>
+      )}
+    </div>
+  </div>
+</EditorLayout>

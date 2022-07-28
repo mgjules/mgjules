@@ -2,20 +2,19 @@
 import EditorLayout from "@layouts/EditorLayout.astro"
 import { links } from "@data/cv/links.json"
 
-const tabs = [
-  {
-    name: "NotFound",
-    icon: "ooui:article-not-found-ltr"
-  }
-]
 
 const current_tab = {
-  name: "NotFound"
+  name: "NotFound",
+  icon: "ooui:article-not-found-ltr"
 }
+
+const tabs = [
+  current_tab
+]
 ---
 
 <EditorLayout current_tab={current_tab} extension="404" links={links} tabs={tabs}>
-  <div class="flex flex-col gap-y-4 items-center justify-center">
+  <div class="flex flex-col gap-y-4 items-center justify-center m-4">
     <div class="i-iconoir:file-not-found w-32 h-32 text-slate-400/20"></div>
     <div class="text-slate-400/50 text-center">It appears that you are lost<br />because there's nothing here 😢
     </div>
