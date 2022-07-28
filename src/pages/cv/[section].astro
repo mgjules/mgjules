@@ -16,10 +16,17 @@ function capitalize(str) {
 
 const { section: current_tab_name } = Astro.params;
 
-const current_tab = sections.find(section => section.name === capitalize(current_tab_name))
+const tabs = sections.map(section => {
+  return {
+    ...section,
+    link: `/cv/${section.name.toLowerCase()}`
+  }
+})
+
+const current_tab = tabs.find(tab => tab.name === capitalize(current_tab_name))
 ---
 
-<EditorLayout current_tab={current_tab} extension="cv" links={links} tabs={sections} print>
+<EditorLayout current_tab={current_tab} extension="cv" links={links} tabs={tabs} print>
   {async () => {
   const DynamicComponent = (await import(`../../components/cv/${current_tab.name}.astro`)).default
   return <>
