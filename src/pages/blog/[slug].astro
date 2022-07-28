@@ -36,8 +36,6 @@ const md = MarkdownIt({
 ---
 
 <EditorLayout current_tab={current_tab} extension="post" links={links} tabs={tabs} print>
-  <div class="max-w-full prose text-slate-400 prose-sky prose-base prose-invert">
-    <img src={post.frontmatter.cover_image} class="object-cover w-full max-h-64" />
-    {async() => <div class="m-4" set:html={md.render((await post.compiledContent()).toString())}></div>}
-  </div>
+  <img src={post.frontmatter.cover_image} class="object-cover w-full max-h-64" />
+  {async() => <div class="m-4" set:html={md.render((await post.compiledContent()).toString())}></div>}
 </EditorLayout>

@@ -40,9 +40,6 @@ export default defineConfig({
             'a:hover': {
               color: '#22d3ee',
             },
-            'a:visited': {
-              color: '#0e7490',
-            },
           },
         }),
         presetIcons({

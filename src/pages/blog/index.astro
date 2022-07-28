@@ -30,7 +30,7 @@ posts = posts.map(post => {
 ---
 
 <EditorLayout current_tab={current_tab} extension="index" links={links} tabs={tabs}>
-  <div class="max-w-full m-4 prose text-slate-400 prose-sky prose-base prose-invert">
+  <div class="m-4">
     <div>I don't write often but when I do, it's still not often enough 😢</div>
     <div class="flex flex-col gap-4 mt-4">
       {posts.map(async post =>
@@ -41,10 +41,7 @@ posts = posts.map(post => {
           </div>
         </div>
         <div class="flex-1">
-          <h2 class="my-0 ">
-            <a href={`/blog/${post.frontmatter.slug}`}
-              class="no-underline hover:text-sky-400/70">{post.frontmatter.title}</a>
-          </h2>
+          <a href={`/blog/${post.frontmatter.slug}`} class="text-xl no-underline">{post.frontmatter.title}</a>
           <div class="mt-1 line-clamp-2">{post.frontmatter.summary}</div>
           <div class="flex gap-2 mt-1 ">
             {post.frontmatter.tags && post.frontmatter.tags.map(tag =>
