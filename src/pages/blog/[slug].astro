@@ -58,7 +58,7 @@ const md = MarkdownIt({
         }
       </div>
     </div>
-    <img src={post.frontmatter.cover_image} class="object-cover w-full max-h-72" />
+    <img src={post.frontmatter.cover_image} class="object-cover w-full aspect-video max-h-72" />
   </div>
   {post.frontmatter.summary && <div class="m-4 text-slate-500">{post.frontmatter.summary}</div>}
   {async() => <div class="m-4" set:html={md.render((await post.compiledContent()).toString())}></div>}
