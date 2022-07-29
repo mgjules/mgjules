@@ -19,6 +19,9 @@ export async function getStaticPaths() {
 const { slug } = Astro.params
 const { post } = Astro.props
 
+const tags = await Astro.glob('/data/blog/tags/*.md')
+post.frontmatter.tags = post.frontmatter.tags.filter(tag => tags.some(t => t.frontmatter.name === tag))
+
 const current_tab = {
   name: slug as string,
   icon: "carbon:document"
