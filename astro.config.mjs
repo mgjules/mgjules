@@ -11,7 +11,7 @@ import svelte from '@astrojs/svelte';
 import sections from "./data/cv/sections.json" assert {type: "json"}
 import technologies from "./data/cv/technologies.json" assert {type: "json"}
 import awards from "./data/cv/awards.json" assert {type: "json"}
-import links from "./data/cv/links.json" assert {type: "json"}
+import links from "./data/links.json" assert {type: "json"}
 import languages from "./data/cv/languages.json" assert {type: "json"}
 import interests from "./data/cv/interests.json" assert {type: "json"}
 

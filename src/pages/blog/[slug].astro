@@ -2,7 +2,7 @@
 import MarkdownIt from "markdown-it"
 import { format, parse, getUnixTime } from "date-fns"
 import EditorLayout from "@layouts/EditorLayout.astro"
-import { links } from "@data/cv/links.json"
+import { links } from "@data/links.json"
 
 export async function getStaticPaths() {
   const posts = await Astro.glob('/data/blog/posts/*.md')

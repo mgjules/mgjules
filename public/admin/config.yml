@@ -55,6 +55,31 @@ collections:
           - label: Keywords
             name: keywords
             widget: list
+      - label: Links
+        name: links
+        file: data/links.json
+        fields:
+          - label: Links
+            name: links
+            widget: list
+            fields:
+              - label: Name
+                name: name
+                widget: string
+              - label: Url
+                name: url
+                widget: string
+              - label: Alternate Url
+                name: alternate_url
+                widget: string
+                required: false
+              - label: Icon
+                name: icon
+                widget: string
+              - label: Open in New Window
+                name: new_window
+                widget: boolean
+                required: false
       - label: Introduction
         name: introduction
         file: data/introduction.json
@@ -72,27 +97,6 @@ collections:
     editor:
       preview: false
     files:
-      - label: Links
-        name: links
-        file: data/cv/links.json
-        fields:
-          - label: Links
-            name: links
-            widget: list
-            fields:
-              - label: Name
-                name: name
-                widget: string
-              - label: Url
-                name: url
-                widget: string
-              - label: Icon
-                name: icon
-                widget: string
-              - label: Open in New Window
-                name: new_window
-                widget: boolean
-                required: false
       - label: Sections
         name: sections
         file: data/cv/sections.json

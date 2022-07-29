@@ -7,8 +7,9 @@
     },
     {
       "name": "Curriculum Vitae",
-      "url": "/cv/experiences",
-      "icon": "bi:file-person"
+      "url": "/cv",
+      "icon": "bi:file-person",
+      "alternate_url": "/cv/experiences"
     },
     {
       "name": "Blog",
