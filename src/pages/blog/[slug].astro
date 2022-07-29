@@ -38,7 +38,7 @@ const md = MarkdownIt({
 <EditorLayout current_tab={current_tab} extension="post" links={links} tabs={tabs} print>
   <div class="relative">
     <div class="absolute bottom-0 left-0 w-full px-4 py-2 bg-slate-900/50 backdrop-blur-sm">
-      <div class="flex items-center justify-between">
+      <div class="flex flex-col sm:items-center sm:justify-between sm:flex-row">
         <div>
           <div class="text-xl drop-shadow-sm text-slate-300">{post.frontmatter.title}</div>
           <div class="mt-1 text-xs drop-shadow-sm text-slate-500"><span
@@ -47,7 +47,7 @@ const md = MarkdownIt({
           </div>
         </div>
         {post.frontmatter.tags &&
-        <div class="flex gap-2">
+        <div class="flex gap-2 mt-1 sm:mt-0">
           {post.frontmatter.tags.map(tag =>
           <div
             class="px-2 py-1 text-xs capitalize border rounded-md select-none border-b-3 border-slate-900/60 bg-slate-700/40">
