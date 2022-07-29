@@ -37,24 +37,30 @@ const md = MarkdownIt({
 
 <EditorLayout current_tab={current_tab} extension="post" links={links} tabs={tabs} print>
   <div class="relative">
-    <div class="absolute bottom-0 left-0 w-full p-4 bg-slate-900/50 backdrop-blur-sm">
-      <div class="text-xl drop-shadow-sm text-slate-300">{post.frontmatter.title}</div>
-      <div class="text-xs drop-shadow-sm text-slate-500"><span class="text-slate-400">{post.frontmatter.date}</span> by
-        <span class="text-slate-400">{post.frontmatter.author}</span>
+    <div class="absolute bottom-0 left-0 w-full px-4 py-2 bg-slate-900/50 backdrop-blur-sm">
+      <div class="flex items-center justify-between">
+        <div>
+          <div class="text-xl drop-shadow-sm text-slate-300">{post.frontmatter.title}</div>
+          <div class="mt-1 text-xs drop-shadow-sm text-slate-500"><span
+              class="text-slate-400">{post.frontmatter.date}</span> by
+            <span class="text-slate-400">{post.frontmatter.author}</span>
+          </div>
+        </div>
+        {post.frontmatter.tags &&
+        <div class="flex gap-2">
+          {post.frontmatter.tags.map(tag =>
+          <div
+            class="px-2 py-1 text-xs capitalize border rounded-md select-none border-b-3 border-slate-900/60 bg-slate-700/40">
+            {tag}
+          </div>
+          )}
+        </div>
+        }
       </div>
     </div>
     <img src={post.frontmatter.cover_image} class="object-cover w-full max-h-72" />
   </div>
   {post.frontmatter.summary && <div class="m-4 text-slate-500">{post.frontmatter.summary}</div>}
   {async() => <div class="m-4" set:html={md.render((await post.compiledContent()).toString())}></div>}
-  {post.frontmatter.tags &&
-  <div class="flex gap-2 m-4 ">
-    {post.frontmatter.tags.map(tag =>
-    <div
-      class="px-2 py-1 text-xs capitalize border rounded-md select-none border-b-3 border-slate-900/60 bg-slate-700/40">
-      {tag}
-    </div>
-    )}
-  </div>
-  }
+
 </EditorLayout>
