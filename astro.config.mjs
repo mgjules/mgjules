@@ -1,7 +1,7 @@
 import { defineConfig } from "astro/config"
 
 import uno from "astro-uno"
-import { presetUno, presetTypography } from "unocss"
+import { presetUno, presetTypography, presetAttributify } from "unocss"
 import presetIcons from "@unocss/preset-icons"
 import compress from "astro-compress"
 import sitemap from '@astrojs/sitemap';
@@ -30,7 +30,16 @@ export default defineConfig({
         ...Array.from(interests.interests, int => `i-${int.icon}`),
         ...["i-ooui:article-not-found-ltr", "i-carbon:document"]
       ],
+      include: [
+        "./**/*.astro",
+        "./**/*.svelte",
+        "./**/*.vue",
+        "./**/*.tsx",
+        "./**/*.json",
+        "./**/*.md"
+      ],
       presets: [
+        presetAttributify(),
         presetUno(),
         presetTypography({
           cssExtend: {
