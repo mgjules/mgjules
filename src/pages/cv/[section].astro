@@ -1,8 +1,9 @@
 ---
 import EditorLayout from "@layouts/EditorLayout.astro"
-
 import { sections } from "@data/cv/sections.json"
-import { links } from "@data/links.json"
+import { getLinks } from "@api/index"
+
+const links = await getLinks()
 
 export function getStaticPaths() {
   return sections.map(section => {

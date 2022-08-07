@@ -4,8 +4,9 @@ import uno from "astro-uno"
 import { presetUno, presetTypography, presetAttributify } from "unocss"
 import presetIcons from "@unocss/preset-icons"
 import compress from "astro-compress"
-import sitemap from '@astrojs/sitemap';
-import svelte from '@astrojs/svelte';
+import sitemap from '@astrojs/sitemap'
+import svelte from '@astrojs/svelte'
+import netlify from '@astrojs/netlify/functions'
 
 // Icons
 import sections from "./data/cv/sections.json" assert {type: "json"}
@@ -17,6 +18,8 @@ import interests from "./data/cv/interests.json" assert {type: "json"}
 
 // https://astro.build/config
 export default defineConfig({
+  adapter: netlify(),
+  output: "server",
   site: "https://mgjules.dev",
   experimental: { integrations: true },
   integrations: [
