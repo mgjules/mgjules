@@ -33,14 +33,6 @@ export default defineConfig({
         ...Array.from(interests.interests, int => `i-${int.icon}`),
         ...["i-ooui:article-not-found-ltr", "i-carbon:document"]
       ],
-      include: [
-        "./**/*.astro",
-        "./**/*.svelte",
-        "./**/*.vue",
-        "./**/*.tsx",
-        "./**/*.json",
-        "./**/*.md"
-      ],
       presets: [
         presetAttributify(),
         presetUno(),
@@ -60,7 +52,6 @@ export default defineConfig({
       ],
     }),
     svelte(),
-    compress(),
     sitemap()
   ],
   vite: {
