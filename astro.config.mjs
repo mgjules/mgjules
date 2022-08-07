@@ -55,6 +55,8 @@ export default defineConfig({
     sitemap()
   ],
   vite: {
-    plugins: []
+    build: {
+      ssr: true
+    }
   },
 })
