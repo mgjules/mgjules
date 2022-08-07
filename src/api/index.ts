@@ -1,9 +1,9 @@
 import directus from "../utils/directus-client"
 import { Link } from "../utils/types"
 
-export async function getLinks(): Link[] {
+export async function getLinks(): Promise<Link[]> {
   const raw = await directus.items('links').readByQuery({
-    sort: ['sort'],
+    sort: ['sort'] as never,
     filter: {
       status: {
         _eq: "published"
