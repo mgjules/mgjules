@@ -52,6 +52,7 @@ export default defineConfig({
       ],
     }),
     svelte(),
+    compress(),
     sitemap()
   ],
   vite: {
