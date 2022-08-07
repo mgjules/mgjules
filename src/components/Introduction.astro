@@ -1,6 +1,10 @@
 ---
 import MarkdownIt from "markdown-it"
-import { introduction, avatar } from "@data/introduction.json"
+import { getIntroduction } from "@api/index"
+
+const intro = await getIntroduction()
+
+console.log(intro)
 
 const md = MarkdownIt({
   html: true,
@@ -11,7 +15,7 @@ const md = MarkdownIt({
 ---
 
 <div class="m-4">
-  <img class="float-left w-14 h-14 mr-4 transition-all rounded-md scale-x-[-1]" src={avatar} alt="Profile Picture"
-    loading="lazy">
-  <div set:html={md.render(introduction)} />
+  <img class="float-left w-14 h-14 mr-4 transition-all rounded-md scale-x-[-1]"
+    src={`${import.meta.env.DIRECTUS_URL}assets/${intro.avatar}`} alt="Profile Picture" loading="lazy">
+  <div set:html={md.render(intro.introduction)} />
 </div>
