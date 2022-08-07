@@ -29,6 +29,12 @@
       ],
       "@pages/*": [
         "src/pages/*"
+      ],
+      "@utils/*": [
+        "src/utils/*"
+      ],
+      "@api/*": [
+        "src/api/*"
       ]
     }
   }

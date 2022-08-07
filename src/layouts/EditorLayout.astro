@@ -10,6 +10,7 @@ import {
   gender,
   base_url
 } from "@data/meta.json"
+import { Link } from "@utils/types"
 
 export interface Props {
   extension: string;
@@ -22,13 +23,7 @@ export interface Props {
     icon: string;
     link?: string;
   }[];
-  links: {
-    name: string;
-    url: string;
-    icon: string;
-    alternate_url?: string;
-    new_window?: boolean;
-  }[];
+  links: Link[];
   print?: boolean;
 }
 

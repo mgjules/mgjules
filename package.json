@@ -9,7 +9,9 @@
     "start": "astro dev"
   },
   "dependencies": {
-    "@astrojs/svelte": "^0.5.0"
+    "@astrojs/netlify": "^0.5.0",
+    "@astrojs/svelte": "^0.5.0",
+    "@directus/sdk": "^10.1.4"
   },
   "devDependencies": {
     "@astrojs/sitemap": "^0.3.0",
