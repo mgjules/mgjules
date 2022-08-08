@@ -55,4 +55,6 @@ export type MySpace = {
   introduction: Introduction;
   tags: Tag;
   sections: Section;
+
+  directus_users: User;
 }
