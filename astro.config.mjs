@@ -31,7 +31,8 @@ export default defineConfig({
         ...Array.from(links.links, link => `i-${link.icon}`),
         ...Array.from(languages.languages, lang => `i-${lang.icon}`),
         ...Array.from(interests.interests, int => `i-${int.icon}`),
-        ...["i-ooui:article-not-found-ltr", "i-carbon:document"]
+        ...["i-ooui:article-not-found-ltr", "i-carbon:document"],
+        ...["text-xl", "font-semibold", "font-light", "sm:mt-2"]
       ],
       presets: [
         presetAttributify(),
