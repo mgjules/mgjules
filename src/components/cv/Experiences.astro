@@ -24,8 +24,7 @@ const md = MarkdownIt({
       {experience.technologies.map(technologie => {
       const tech = technologies.find(tech=> technologie === tech.name)
       return <span class="h-7" title={technologie}>
-        <iconify-icon icon={tech.icon} class={`${tech.saturate ? 'saturate-0' : '' } bg-[length:100%_100%] w-7`}
-          width="28" />
+        <iconify-icon icon={tech.icon} class={`${tech.saturate ? 'saturate-0' : '' } w-7 h-7`} width="28" height="28" />
       </span>
       }
       )}
