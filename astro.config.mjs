@@ -41,7 +41,7 @@ export default defineConfig({
       ssr: true
     },
     ssr: {
-      noExternal: false
+      noExternal: true
     }
   },
 })
