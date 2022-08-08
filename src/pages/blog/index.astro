@@ -1,34 +1,18 @@
 ---
-import { format, parse, getUnixTime } from "date-fns"
+import { format, parseISO } from "date-fns"
 import EditorLayout from "@layouts/EditorLayout.astro"
-import { getLinks } from "@api/index"
+import { getLinks, getPosts } from "@api/index"
+import { Link } from "@utils/types"
 
 const links = await getLinks()
 
-const current_tab = links.find(link => link.name === "Blog")
+const current_tab = links.find(link => link.name === "Blog") as Link
 
 const tabs = [
   current_tab
 ]
 
-const tags = await Astro.glob('/data/blog/tags/*.md')
-let posts = await Astro.glob('/data/blog/posts/*.md')
-posts = posts.map(post => {
-  return {
-    ...post,
-    frontmatter: {
-      ...post.frontmatter,
-      tags: post.frontmatter.tags.filter(tag => tags.some(t => t.frontmatter.name === tag)),
-      parsedDate: parse(post.frontmatter.date, 'dd MMM yyyy', new Date()),
-      slug: post.file.replace(/^.*[\\\/]/, '').replace(/\.[^/.]+$/, "")
-    }
-  }
-}).sort((a, b) => {
-  const dateA = getUnixTime(a.frontmatter.parsedDate)
-  const dateB = getUnixTime(b.frontmatter.parsedDate)
-
-  return dateB - dateA
-})
+const posts = await getPosts()
 ---
 
 <EditorLayout current_tab={current_tab} extension="index" links={links} tabs={tabs}>
@@ -38,18 +22,18 @@ posts = posts.map(post => {
       {posts.map(async post =>
       <div class="flex gap-4">
         <div class="flex flex-col items-center shrink-0">
-          <div class="text-4xl text-slate-400">{format(post.frontmatter.parsedDate, 'dd')}</div>
-          <div class="text-lg text-slate-500">{format(post.frontmatter.parsedDate, 'MMM yyy')}
+          <div class="text-4xl text-slate-400">{format(parseISO(post.date_created as string), 'dd')}</div>
+          <div class="text-lg text-slate-500">{format(parseISO(post.date_created as string), 'MMM yyy')}
           </div>
         </div>
         <div class="flex-1">
-          <a href={`/blog/${post.frontmatter.slug}`} class="text-xl no-underline">{post.frontmatter.title}</a>
-          <div class="mt-1 line-clamp-2">{post.frontmatter.summary}</div>
+          <a href={`/blog/${post.slug}`} class="text-xl no-underline">{post.title}</a>
+          <div class="mt-1 line-clamp-2">{post.summary}</div>
           <div class="flex gap-2 mt-1 ">
-            {post.frontmatter.tags && post.frontmatter.tags.map(tag =>
+            {post.tags && post.tags.map(tag =>
             <div
               class="px-2 py-1 text-xs capitalize border rounded-md select-none border-b-3 border-slate-900/60 bg-slate-700/40">
-              {tag}
+              {tag.tags_id.name}
             </div>
             )}
           </div>

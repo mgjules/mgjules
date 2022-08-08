@@ -10,6 +10,7 @@ import {
   gender,
   base_url
 } from "@data/meta.json"
+import { PartialItem } from "@directus/sdk";
 import { Link } from "@utils/types"
 
 export interface Props {
@@ -23,7 +24,7 @@ export interface Props {
     icon: string;
     link?: string;
   }[];
-  links: Link[];
+  links: PartialItem<Link>[];
   print?: boolean;
 }
 
