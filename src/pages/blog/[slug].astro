@@ -36,7 +36,7 @@ const md = MarkdownIt({
         <div>
           <div class="text-xl drop-shadow-sm text-slate-300">{post.title}</div>
           <div class="mt-1 text-xs drop-shadow-sm text-slate-500"><span
-              class="text-slate-400">{format(parseISO(post.date_created as string), 'dd MM yyyy')}</span> by
+              class="text-slate-400">{format(parseISO(post.date_created as string), 'dd MMM yyyy')}</span> by
             <span class="text-slate-400">{post.user_created.first_name} {post.user_created.last_name}</span>
           </div>
         </div>
