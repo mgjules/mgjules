@@ -39,6 +39,9 @@ export default defineConfig({
   vite: {
     build: {
       ssr: true
+    },
+    ssr: {
+      noExternal: false
     }
   },
 })
