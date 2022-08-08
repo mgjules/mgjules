@@ -63,8 +63,10 @@ function isCurrentLink(url: string) {
         <div class="flex flex-col gap-5 px-3 py-4 border-r border-slate-700 shrink-0 print:hidden">
           {links.map(link =>
           <a href={link.alternate_url || link.url} title={link.name} target={link.new_window ? "_blank" : "_self" }
-            class={`i-${link.icon} ${ isCurrentLink(link.url) ? 'text-slate-300 cursor-default' : 'text-slate-600' }
-            bg-[length:100%_100%] w-6 h-6 hover:text-slate-300`}></a>
+            class={`${ isCurrentLink(link.url) ? 'text-slate-300 cursor-default' : 'text-slate-600' }
+            hover:text-slate-300 w-6 h-6`}>
+            <iconify-icon icon={link.icon} width="24"></iconify-icon>
+          </a>
           )}
         </div>
         <div class="w-full overflow-hidden">
