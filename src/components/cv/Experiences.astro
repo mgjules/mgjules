@@ -13,7 +13,7 @@ const md = MarkdownIt({
 
 <ul role="list" class="grid grid-cols-1 m-4 ml-0 list-none gap-y-8 print:block print:mt-4">
   {experiences.map(experience =>
-  <li id={slugify("Experience "+experience.company)} class="pl-0 my-0  group print:mt-4 print:break-inside-avoid">
+  <li id={slugify("Experience "+experience.company)} class=" pl-0 my-0 group print:mt-4 print:break-inside-avoid">
     <div class="flex flex-wrap items-center justify-between">
       <h3 class="my-0">{ experience.company }</h3>
       <span class="text-sm text-slate-500">{experience.from === experience.to ? experience.to : `${experience.from} →
@@ -24,7 +24,8 @@ const md = MarkdownIt({
       {experience.technologies.map(technologie => {
       const tech = technologies.find(tech=> technologie === tech.name)
       return <span class="h-7" title={technologie}>
-        <div class={`i-${tech.icon} ${tech.saturate ? 'saturate-0' : '' } bg-[length:100%_100%] w-7 h-7`} />
+        <iconify-icon icon={tech.icon} class={`${tech.saturate ? 'saturate-0' : '' } bg-[length:100%_100%] w-7`}
+          width="28" />
       </span>
       }
       )}
