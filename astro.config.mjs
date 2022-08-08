@@ -5,7 +5,7 @@ import { presetUno, presetTypography } from 'unocss'
 import compress from 'astro-compress'
 import sitemap from '@astrojs/sitemap'
 import svelte from '@astrojs/svelte'
-import netlify from '@astrojs/netlify/edge-functions'
+import netlify from '@astrojs/netlify/functions'
 
 // https://astro.build/config
 export default defineConfig({
@@ -35,10 +35,5 @@ export default defineConfig({
     svelte(),
     compress(),
     sitemap()
-  ],
-  vite: {
-    ssr: {
-      noExternal: false
-    }
-  }
+  ]
 })
