@@ -43,9 +43,16 @@ export type Post = {
   user_created: User;
 }
 
+export type Section = {
+  id: ID;
+  name: string;
+  icon: string;
+}
+
 export type MySpace = {
   links: Link;
   posts: Post;
   introduction: Introduction;
   tags: Tag;
+  sections: Section;
 }

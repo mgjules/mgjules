@@ -1,15 +1,11 @@
 ---
 import EditorLayout from "@layouts/EditorLayout.astro"
-import { sections } from "@data/cv/sections.json"
-import { getLinks } from "@api/index"
+import { getLinks, getSections } from "@api/index"
+import { Link } from "@utils/types"
 
 const links = await getLinks()
 
-export function getStaticPaths() {
-  return sections.map(section => {
-    return { params: { section: section.name.toLocaleLowerCase() } }
-  })
-}
+const sections = await getSections()
 
 function capitalize(str) {
   return str.charAt(0).toUpperCase() + str.slice(1)
@@ -19,7 +15,7 @@ const { section: current_tab_name } = Astro.params;
 
 const tabs = sections.map(section => {
   return {
-    ...section,
+    ...section as Link,
     link: `/cv/${section.name.toLowerCase()}`
   }
 })

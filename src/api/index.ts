@@ -55,3 +55,12 @@ export async function getPost(slug: string): Promise<Post | null> {
 
   return null
 }
+
+export async function getSections() {
+  const sections = await directus.items('sections').readByQuery({
+    sort: ['sort'] as never,
+    limit: -1,
+  });
+
+  return sections.data
+}
