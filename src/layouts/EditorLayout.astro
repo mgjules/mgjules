@@ -61,7 +61,7 @@ function isCurrentLink(url: string) {
           {links.map(link =>
           <a href={link.alternate_url || link.url} title={link.name} target={link.new_window ? "_blank" : "_self" }
             class={`${ isCurrentLink(link.url) ? 'text-slate-300 cursor-default' : 'text-slate-600' }
-            hover:text-slate-300 w-6 h-6`}>
+            hover:text-slate-300 transition-all w-6 h-6`}>
             <iconify-icon icon={link.icon} width="24" />
           </a>
           )}
@@ -73,8 +73,8 @@ function isCurrentLink(url: string) {
               {tabs && tabs.map(tab =>
               <a href={`${tab.link || '#' }`} class={`${current_tab.name===tab.name
                 ? 'text-slate-400 bg-slate-600/10 border-b-white/20' : '' } flex border-b border-b-transparent
-                items-center gap-2 shrink-0 px-4 leading-7 border-r border-r-black/30 hover:bg-slate-500/10
-                hover:cursor-pointer`}>
+                items-center gap-2 shrink-0 px-4 leading-7 border-r border-r-black/30 transition-all
+                hover:bg-slate-500/10 hover:cursor-pointer`}>
                 <iconify-icon icon={tab.icon} class="w-3" width="12" />
                 <span>{tab.name}.{extension}</span>
               </a>
@@ -83,7 +83,7 @@ function isCurrentLink(url: string) {
             {print &&
             <div class="flex items-center gap-1 mr-1 shrink-0 print:hidden">
               <a href="#" title="Print" onclick="window.print()"
-                class="flex items-center py-0.5 px-1 hover:bg-slate-300/20 rounded-sm">
+                class="flex items-center py-0.5 px-1 transition-all hover:bg-slate-300/20 rounded-sm">
                 <iconify-icon icon="ic:baseline-local-printshop" class="w-3 text-slate-300" width="12" />
               </a>
             </div>
@@ -101,15 +101,15 @@ function isCurrentLink(url: string) {
           <div class="flex items-start gap-2.5">
             <div class="hidden sm:block">Built with</div>
             <a href="https://astro.build/" target="_blank" title="Astro"
-              class="w-4 h-4 text-slate-600 hover:text-slate-400 hover:cursor-pointer">
+              class="w-4 h-4 transition-all text-slate-600 hover:text-slate-400 hover:cursor-pointer">
               <iconify-icon icon="simple-icons:astro" width="16" />
             </a>
             <a href="https://uno.antfu.me/" target="_blank" title="UnoCSS"
-              class="w-4 h-4 text-slate-600 hover:text-slate-400 hover:cursor-pointer">
+              class="w-4 h-4 transition-all text-slate-600 hover:text-slate-400 hover:cursor-pointer">
               <iconify-icon icon="simple-icons:unocss" width="16" />
             </a>
             <a href="https://directus.io/" target="_blank" title="Directus"
-              class="w-4 h-4 text-slate-600 hover:text-slate-400 hover:cursor-pointer">
+              class="w-4 h-4 transition-all text-slate-600 hover:text-slate-400 hover:cursor-pointer">
               <iconify-icon icon="simple-icons:directus" width="16" />
             </a>
           </div>
