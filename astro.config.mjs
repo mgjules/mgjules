@@ -8,12 +8,6 @@ import sitemap from '@astrojs/sitemap'
 import svelte from '@astrojs/svelte'
 import netlify from '@astrojs/netlify/functions'
 
-// Icons
-import technologies from "./data/cv/technologies.json" assert {type: "json"}
-import awards from "./data/cv/awards.json" assert {type: "json"}
-import languages from "./data/cv/languages.json" assert {type: "json"}
-import interests from "./data/cv/interests.json" assert {type: "json"}
-
 // https://astro.build/config
 export default defineConfig({
   adapter: netlify(),
@@ -23,11 +17,6 @@ export default defineConfig({
   integrations: [
     uno({
       safelist: [
-        ...Array.from(technologies.technologies, tech => `i-${tech.icon}`),
-        ...Array.from(awards.awards, aw => `i-${aw.icon}`),
-        ...Array.from(languages.languages, lang => `i-${lang.icon}`),
-        ...Array.from(interests.interests, int => `i-${int.icon}`),
-        ...["i-ooui:article-not-found-ltr", "i-carbon:document"],
         ...["text-xl", "font-semibold", "font-light", "sm:mt-2", "text-red"]
       ],
       presets: [

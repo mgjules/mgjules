@@ -16,7 +16,7 @@ const md = MarkdownIt({
         class=" px-4 py-3 border rounded-md print:shadow-none border-slate-900/50 bg-slate-700/10 border-b-3 group
     print:mt-4 print:first:mt-0 print:break-inside-avoid">
     <div class="flex items-center gap-4" title={ award.result }>
-      <div class={`i-${award.icon} w-10 h-10 bg-[length:100%_100%] flex-shrink-0`} />
+      <iconify-icon icon={award.icon} class="flex-shrink-0 w-10 h-10" width="40" height="40" />
       <div class="w-full">
         <div class="flex flex-wrap items-center justify-between">
           <h3 class="my-0">{ award.event }</h3>

@@ -20,8 +20,8 @@ const md = MarkdownIt({
     <div
       class="flex items-center justify-center flex-shrink-0 w-20 text-sm font-medium text-slate-400 bg-slate-700/40 rounded-l-md">
       <span title={project.technologies[0]}>
-        <div class={`i-${technologies.find(tech=> project.technologies[0] === tech.name).icon} bg-[length:100%_100%]
-          w-10 h-10`} />
+        <iconify-icon icon={technologies.find(tech=> project.technologies[0] === tech.name).icon} class="w-10 h-10"
+          width="40" height="40" />
       </span>
     </div>
     <div class="flex items-center justify-between flex-1 bg-slate-700/10 rounded-r-md">
@@ -42,7 +42,8 @@ const md = MarkdownIt({
           const tech = technologies.find(tech => tech.name === technologie)
 
           return <span class="h-8" title={tech.name}>
-            <div class={`i-${tech.icon} ${tech.saturate ? 'saturate-0' : '' } bg-[length:100%_100%] w-7 h-7`} />
+            <iconify-icon icon={tech.icon} class={`${tech.saturate ? 'saturate-0' : '' } w-7 h-7`} width="28"
+              height="28" />
           </span>
           })}
         </div>

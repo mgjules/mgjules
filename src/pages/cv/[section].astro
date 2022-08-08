@@ -21,6 +21,11 @@ const tabs = sections.map(section => {
 })
 
 const current_tab = tabs.find(tab => tab.name === capitalize(current_tab_name))
+
+if (!current_tab) {
+  return Astro.redirect('/404')
+}
+
 ---
 
 <EditorLayout current_tab={current_tab} extension="cv" links={links} tabs={tabs} print>

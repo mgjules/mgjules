@@ -8,7 +8,9 @@ import { languages } from "@data/cv/languages.json"
   {languages.map(language =>
   <li id={slugify("Languages "+language.name)}
         class=" flex items-center gap-4 pl-0 my-0 group print:mt-4 print:first:mt-0 print:break-inside-avoid">
-    <div class={`i-${language.icon} bg-[length:100%_100%] w-10 h-10 flex-shrink-0 transition rounded-md`} />
+    <div class="flex-shrink-0 w-10 h-10 overflow-hidden transition border rounded-md border-slate-900/30">
+      <iconify-icon icon={language.icon} width="40" height="40" />
+    </div>
     <div>
       <h3 class="my-0">{ language.name }</h3>
       <div>{ language.level }</div>

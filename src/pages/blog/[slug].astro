@@ -10,10 +10,7 @@ const { slug } = Astro.params
 const post = await getPost(slug as string)
 
 if (!post) {
-  return new Response(null, {
-    status: 404,
-    statusText: 'Not found'
-  });
+  return Astro.redirect('/404')
 }
 
 const current_tab = {

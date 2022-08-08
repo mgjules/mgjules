@@ -8,7 +8,7 @@ import { interests } from "@data/cv/interests.json"
   {interests.map(interest =>
   <li id={slugify("Interest "+interest.name)}
         class=" flex items-center gap-4 pl-0 my-0 group print:mt-4 print:first:mt-0 print:break-inside-avoid">
-    <div class={`i-${interest.icon} bg-[length:100%_100%] w-10 h-10 flex-shrink-0`} />
+    <iconify-icon icon={interest.icon} class="flex-shrink-0 w-10 h-10" width="40" height="40" />
     <span>{interest.name}</span>
   </li>
   )}
