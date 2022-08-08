@@ -32,7 +32,7 @@ export default defineConfig({
         ...Array.from(languages.languages, lang => `i-${lang.icon}`),
         ...Array.from(interests.interests, int => `i-${int.icon}`),
         ...["i-ooui:article-not-found-ltr", "i-carbon:document"],
-        ...["text-xl", "font-semibold", "font-light", "sm:mt-2"]
+        ...["text-xl", "font-semibold", "font-light", "sm:mt-2", "text-red"]
       ],
       presets: [
         presetAttributify(),

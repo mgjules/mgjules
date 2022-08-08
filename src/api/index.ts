@@ -1,7 +1,8 @@
 import directus from "../utils/directus-client"
+import { Post } from "../utils/types"
 
 export async function getLinks() {
-  const raw = await directus.items('links').readByQuery({
+  const links = await directus.items('links').readByQuery({
     sort: ['sort'] as never,
     filter: {
       status: {
@@ -11,7 +12,7 @@ export async function getLinks() {
     limit: -1,
   });
 
-  return raw.data
+  return links.data
 }
 
 export async function getIntroduction() {
@@ -19,7 +20,7 @@ export async function getIntroduction() {
 }
 
 export async function getPosts() {
-  const raw = await directus.items('posts').readByQuery({
+  const posts = await directus.items('posts').readByQuery({
     fields: ['id', 'title', 'slug', 'summary', 'date_created', 'cover_image', 'content', 'status', 'tags.*.name'],
     sort: ['date_created'] as never,
     filter: {
@@ -30,5 +31,27 @@ export async function getPosts() {
     limit: -1,
   });
 
-  return raw.data
+  return posts.data
+}
+
+export async function getPost(slug: string): Promise<Post | null> {
+  const posts = await directus.items('posts').readByQuery({
+    fields: ['id', 'title', 'slug', 'summary', 'date_created', 'cover_image', 'content', 'status', 'tags.*.name', 'user_created.*'],
+    sort: ['date_created'] as never,
+    filter: {
+      slug: {
+        _eq: slug
+      },
+      status: {
+        _eq: "published"
+      }
+    },
+    limit: 1,
+  });
+
+  if (posts.data && posts.data.length > 0) {
+    return posts.data[0]
+  }
+
+  return null
 }

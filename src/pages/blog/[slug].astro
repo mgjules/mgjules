@@ -1,27 +1,20 @@
 ---
 import MarkdownIt from "markdown-it"
+import { format, parseISO } from "date-fns"
 import EditorLayout from "@layouts/EditorLayout.astro"
-import { getLinks } from "@api/index"
+import { getLinks, getPost } from "@api/index"
 
 const links = await getLinks()
 
-export async function getStaticPaths() {
-  const posts = await Astro.glob('/data/blog/posts/*.md')
-  return posts.map(post => {
-    return {
-      params: {
-        slug: post.file.replace(/^.*[\\\/]/, '').replace(/\.[^/.]+$/, "")
-      },
-      props: { post }
-    }
-  })
-}
-
 const { slug } = Astro.params
-const { post } = Astro.props
+const post = await getPost(slug as string)
 
-const tags = await Astro.glob('/data/blog/tags/*.md')
-post.frontmatter.tags = post.frontmatter.tags.filter(tag => tags.some(t => t.frontmatter.name === tag))
+if (!post) {
+  return new Response(null, {
+    status: 404,
+    statusText: 'Not found'
+  });
+}
 
 const current_tab = {
   name: slug as string,
@@ -44,26 +37,27 @@ const md = MarkdownIt({
     <div class="absolute bottom-0 left-0 w-full px-4 py-2 bg-slate-900/50 backdrop-blur-sm">
       <div class="flex flex-col sm:items-center sm:justify-between sm:flex-row">
         <div>
-          <div class="text-xl drop-shadow-sm text-slate-300">{post.frontmatter.title}</div>
+          <div class="text-xl drop-shadow-sm text-slate-300">{post.title}</div>
           <div class="mt-1 text-xs drop-shadow-sm text-slate-500"><span
-              class="text-slate-400">{post.frontmatter.date}</span> by
-            <span class="text-slate-400">{post.frontmatter.author}</span>
+              class="text-slate-400">{format(parseISO(post.date_created as string), 'dd MM yyyy')}</span> by
+            <span class="text-slate-400">{post.user_created.first_name} {post.user_created.last_name}</span>
           </div>
         </div>
-        {post.frontmatter.tags &&
+        {post.tags &&
         <div class="flex gap-2 mt-1 sm:mt-0">
-          {post.frontmatter.tags.map(tag =>
+          {post.tags.map(tag =>
           <div
             class="px-2 py-1 text-xs capitalize border rounded-md select-none border-b-3 border-slate-900/60 bg-slate-700/40">
-            {tag}
+            {tag.tags_id.name}
           </div>
           )}
         </div>
         }
       </div>
     </div>
-    <img src={post.frontmatter.cover_image} class="object-cover w-full aspect-video max-h-72" />
+    <img src={`${import.meta.env.DIRECTUS_URL}assets/${post.cover_image}`}
+      class="object-cover w-full aspect-video max-h-72" />
   </div>
-  {post.frontmatter.summary && <div class="m-4 text-slate-500">{post.frontmatter.summary}</div>}
-  {async() => <div class="m-4" set:html={md.render((await post.compiledContent()).toString())}></div>}
+  {post.summary && <div class="m-4 text-slate-500">{post.summary}</div>}
+  {async() => <div class="m-4" set:html={md.render(post.content)}></div>}
 </EditorLayout>

@@ -21,6 +21,12 @@ export type Tag = {
   name: string;
 }
 
+export type User = {
+  first_name?: string;
+  last_name?: string;
+  avatar?: string;
+}
+
 export type Post = {
   id: ID;
   title: string;
@@ -34,6 +40,7 @@ export type Post = {
     id: ID;
     tags_id: Tag;
   }[];
+  user_created: User;
 }
 
 export type MySpace = {
