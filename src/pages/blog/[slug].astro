@@ -52,7 +52,7 @@ const md = MarkdownIt({
         }
       </div>
     </div>
-    <img src={`${import.meta.env.DIRECTUS_URL}assets/${post.cover_image}`}
+    <img src={`${import.meta.env.DIRECTUS_URL}assets/${post.cover_image}/cover.jpg`} alt="Cover Image"
       class="object-cover w-full aspect-video max-h-72" />
   </div>
   {post.summary && <div class="m-4 text-slate-500">{post.summary}</div>}
