@@ -1,12 +1,12 @@
-import directus from "../utils/directus-client"
-import { Post } from "../utils/types"
+import directus from '../utils/directus-client'
+import { Post } from '../utils/types'
 
 export async function getLinks() {
   const links = await directus.items('links').readByQuery({
     sort: ['sort'] as never,
     filter: {
       status: {
-        _eq: "published"
+        _eq: 'published'
       }
     },
     limit: -1,
@@ -16,7 +16,7 @@ export async function getLinks() {
 }
 
 export async function getIntroduction() {
-  return await directus.items('introduction').readOne("01a48809-19e1-4e23-9f91-d6182ddc28bf")
+  return await directus.items('introduction').readOne('01a48809-19e1-4e23-9f91-d6182ddc28bf')
 }
 
 export async function getPosts() {
@@ -25,7 +25,7 @@ export async function getPosts() {
     sort: ['date_created'] as never,
     filter: {
       status: {
-        _eq: "published"
+        _eq: 'published'
       }
     },
     limit: -1,
@@ -43,7 +43,7 @@ export async function getPost(slug: string): Promise<Post | null> {
         _eq: slug
       },
       status: {
-        _eq: "published"
+        _eq: 'published'
       }
     },
     limit: 1,
@@ -66,5 +66,5 @@ export async function getSections() {
 }
 
 export async function getMeta() {
-  return await directus.items('meta').readOne("7b0504e8-58d0-4bf3-9d70-514f486ca962")
+  return await directus.items('meta').readOne('7b0504e8-58d0-4bf3-9d70-514f486ca962')
 }

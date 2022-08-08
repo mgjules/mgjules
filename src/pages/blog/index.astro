@@ -1,12 +1,12 @@
 ---
-import { format, parseISO } from "date-fns"
-import EditorLayout from "@layouts/EditorLayout.astro"
-import { getLinks, getPosts } from "@api/index"
-import { Link } from "@utils/types"
+import { format, parseISO } from 'date-fns'
+import EditorLayout from '@layouts/EditorLayout.astro'
+import { getLinks, getPosts } from '@api/index'
+import { Link } from '@utils/types'
 
 const links = await getLinks()
 
-const current_tab = links.find(link => link.name === "Blog") as Link
+const current_tab = links.find(link => link.name === 'Blog') as Link
 
 const tabs = [
   current_tab

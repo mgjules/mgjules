@@ -1,8 +1,8 @@
-import { defineConfig } from "astro/config"
+import { defineConfig } from 'astro/config'
 
-import uno from "astro-uno"
-import { presetUno, presetTypography } from "unocss"
-import compress from "astro-compress"
+import uno from 'astro-uno'
+import { presetUno, presetTypography } from 'unocss'
+import compress from 'astro-compress'
 import sitemap from '@astrojs/sitemap'
 import svelte from '@astrojs/svelte'
 import netlify from '@astrojs/netlify/functions'
@@ -10,13 +10,13 @@ import netlify from '@astrojs/netlify/functions'
 // https://astro.build/config
 export default defineConfig({
   adapter: netlify(),
-  output: "server",
-  site: "https://mgjules.dev",
+  output: 'server',
+  site: 'https://mgjules.dev',
   experimental: { integrations: true },
   integrations: [
     uno({
       safelist: [
-        ...["text-xl", "font-semibold", "font-light", "sm:mt-2", "text-red"]
+        ...['text-xl', 'font-semibold', 'font-light', 'sm:mt-2', 'text-red']
       ],
       presets: [
         presetUno(),

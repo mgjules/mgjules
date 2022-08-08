@@ -1,12 +1,12 @@
 ---
-import EditorLayout from "@layouts/EditorLayout.astro"
-import Introduction from "@components/Introduction.astro"
-import { getLinks } from "@api/index"
-import { Link } from "@utils/types"
+import EditorLayout from '@layouts/EditorLayout.astro'
+import Introduction from '@components/Introduction.astro'
+import { getLinks } from '@api/index'
+import { Link } from '@utils/types'
 
 const links = await getLinks()
 
-const current_tab = links.find(link => link.name === "Home") as Link
+const current_tab = links.find(link => link.name === 'Home') as Link
 
 const tabs = [
   current_tab

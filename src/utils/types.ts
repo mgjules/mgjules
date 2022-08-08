@@ -1,4 +1,4 @@
-import { ID } from '@directus/sdk';
+import { ID } from '@directus/sdk'
 
 export type Link = {
   id: ID;

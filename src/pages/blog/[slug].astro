@@ -1,8 +1,8 @@
 ---
-import MarkdownIt from "markdown-it"
-import { format, parseISO } from "date-fns"
-import EditorLayout from "@layouts/EditorLayout.astro"
-import { getLinks, getPost } from "@api/index"
+import MarkdownIt from 'markdown-it'
+import { format, parseISO } from 'date-fns'
+import EditorLayout from '@layouts/EditorLayout.astro'
+import { getLinks, getPost } from '@api/index'
 
 const links = await getLinks()
 
@@ -15,7 +15,7 @@ if (!post) {
 
 const current_tab = {
   name: slug as string,
-  icon: "carbon:document"
+  icon: 'carbon:document'
 }
 
 const tabs = [

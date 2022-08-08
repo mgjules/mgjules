@@ -1,8 +1,8 @@
 ---
-import Layout from "@layouts/Layout.astro"
-import { PartialItem } from "@directus/sdk";
-import { getMeta } from "@api/index";
-import { Link } from "@utils/types"
+import Layout from '@layouts/Layout.astro'
+import { PartialItem } from '@directus/sdk'
+import { getMeta } from '@api/index'
+import { Link } from '@utils/types'
 
 const meta = await getMeta()
 if (!meta) {

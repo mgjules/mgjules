@@ -1,13 +1,13 @@
 ---
-import slugify from "slugify"
-import MarkdownIt from "markdown-it"
-import { projects } from "@data/cv/projects.json"
-import { technologies } from "@data/cv/technologies.json"
-import { getMeta } from "@api/index";
+import slugify from 'slugify'
+import MarkdownIt from 'markdown-it'
+import { projects } from '@data/cv/projects.json'
+import { technologies } from '@data/cv/technologies.json'
+import { getMeta } from '@api/index'
 
 const meta = await getMeta()
 
-const github = meta?.github || ""
+const github = meta?.github || ''
 
 const md = MarkdownIt({
   html: true,
