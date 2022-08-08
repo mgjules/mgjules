@@ -36,12 +36,4 @@ export default defineConfig({
     compress(),
     sitemap()
   ],
-  vite: {
-    build: {
-      ssr: true
-    },
-    ssr: {
-      noExternal: true
-    }
-  },
 })
