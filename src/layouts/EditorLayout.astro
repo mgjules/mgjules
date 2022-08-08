@@ -1,17 +1,13 @@
 ---
 import Layout from "@layouts/Layout.astro"
-import {
-  first_name,
-  last_name,
-  description,
-  lang,
-  keywords,
-  username,
-  gender,
-  base_url
-} from "@data/meta.json"
 import { PartialItem } from "@directus/sdk";
+import { getMeta } from "@api/index";
 import { Link } from "@utils/types"
+
+const meta = await getMeta()
+if (!meta) {
+  return Astro.redirect("/400")
+}
 
 export interface Props {
   extension: string;
@@ -42,9 +38,9 @@ function isCurrentLink(url: string) {
 }
 ---
 
-<Layout title={`${first_name} ${last_name} - ${current_tab.name}.${extension}`} first_name={first_name}
-  last_name={last_name} lang={lang} description={description} keywords={keywords} base_url={base_url} gender={gender}
-  username={username}>
+<Layout title={`${meta.first_name} ${meta.last_name} - ${current_tab.name}.${extension}`} first_name={meta.first_name}
+  last_name={meta.last_name} lang={meta.lang} description={meta.description} keywords={meta.keywords}
+  base_url={meta.base_url} gender={meta.gender} username={meta.username}>
   <div class="flex justify-center">
     <div
       class="text-slate-400 max-w-4xl print:max-w-full print:w-full print:rounded-none print:m-0 bg-[#1A2334]/90 backdrop-blur-sm border border-slate-700/80 my-4 mx-4 w-full rounded-lg shadow-xl">
@@ -54,7 +50,8 @@ function isCurrentLink(url: string) {
           <div class="w-2.5 h-2.5 rounded-full bg-slate-600"></div>
           <div class="w-2.5 h-2.5 rounded-full bg-slate-600"></div>
         </div>
-        <div class="text-[0.7rem] leading-3 text-slate-500 truncate">{current_tab.name}.{extension} - {username} - MG
+        <div class="text-[0.7rem] leading-3 text-slate-500 truncate">{current_tab.name}.{extension} - {meta.username} -
+          MG
           Code
         </div>
         <div></div>
@@ -118,8 +115,8 @@ function isCurrentLink(url: string) {
           </div>
           <div class="flex items-start gap-1 truncate">
             <iconify-icon icon="ph:copyright" class="w-3.5 shrink-0" width="14" />
-            <div class="truncate">{ current_year } { `${first_name}
-              ${last_name}` }. All rights reserved.</div>
+            <div class="truncate">{ current_year } { `${meta.first_name}
+              ${meta.last_name}` }. All rights reserved.</div>
           </div>
         </div>
       </div>

@@ -49,12 +49,28 @@ export type Section = {
   icon: string;
 }
 
+export type Meta = {
+  id: ID;
+  base_url: string;
+  lang: string;
+  description: string;
+  first_name: string;
+  last_name: string;
+  keywords: string[];
+  github: string;
+  username: string;
+  gender: string;
+  avatar: string;
+}
+
+
 export type MySpace = {
   links: Link;
   posts: Post;
   introduction: Introduction;
   tags: Tag;
   sections: Section;
+  meta: Meta;
 
   directus_users: User;
 }
