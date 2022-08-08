@@ -61,8 +61,8 @@ function isCurrentLink(url: string) {
           {links.map(link =>
           <a href={link.alternate_url || link.url} title={link.name} target={link.new_window ? "_blank" : "_self" }
             class={`${ isCurrentLink(link.url) ? 'text-slate-300 cursor-default border-slate-300/90'
-            : 'text-slate-600 border-transparent' } hover:text-slate-300 transition-all block shrink-0 box-border
-            border-l-2 p-3 h-11 w-11`}>
+            : 'text-slate-600 border-transparent' } hover:text-slate-300 transition-all flex items-center justify-center
+            shrink-0 box-border border-l-2 p-3 h-11 w-11`}>
             <iconify-icon icon={link.icon} class="inline-block" width="20" />
           </a>
           )}
