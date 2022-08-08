@@ -9,10 +9,8 @@ import svelte from '@astrojs/svelte'
 import netlify from '@astrojs/netlify/functions'
 
 // Icons
-import sections from "./data/cv/sections.json" assert {type: "json"}
 import technologies from "./data/cv/technologies.json" assert {type: "json"}
 import awards from "./data/cv/awards.json" assert {type: "json"}
-import links from "./data/links.json" assert {type: "json"}
 import languages from "./data/cv/languages.json" assert {type: "json"}
 import interests from "./data/cv/interests.json" assert {type: "json"}
 
@@ -25,10 +23,8 @@ export default defineConfig({
   integrations: [
     uno({
       safelist: [
-        ...Array.from(sections.sections, sec => `i-${sec.icon}`),
         ...Array.from(technologies.technologies, tech => `i-${tech.icon}`),
         ...Array.from(awards.awards, aw => `i-${aw.icon}`),
-        ...Array.from(links.links, link => `i-${link.icon}`),
         ...Array.from(languages.languages, lang => `i-${lang.icon}`),
         ...Array.from(interests.interests, int => `i-${int.icon}`),
         ...["i-ooui:article-not-found-ltr", "i-carbon:document"],
