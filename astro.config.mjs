@@ -1,8 +1,7 @@
 import { defineConfig } from "astro/config"
 
 import uno from "astro-uno"
-import { presetUno, presetTypography, presetAttributify } from "unocss"
-import presetIcons from "@unocss/preset-icons"
+import { presetUno, presetTypography } from "unocss"
 import compress from "astro-compress"
 import sitemap from '@astrojs/sitemap'
 import svelte from '@astrojs/svelte'
@@ -20,7 +19,6 @@ export default defineConfig({
         ...["text-xl", "font-semibold", "font-light", "sm:mt-2", "text-red"]
       ],
       presets: [
-        presetAttributify(),
         presetUno(),
         presetTypography({
           cssExtend: {
@@ -31,9 +29,6 @@ export default defineConfig({
               color: '#22d3ee',
             },
           },
-        }),
-        presetIcons({
-          autoInstall: true
         })
       ],
     }),
