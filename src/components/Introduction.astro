@@ -1,20 +1,13 @@
 ---
-import MarkdownIt from 'markdown-it'
+import marked from 'marked'
 import { getIntroduction } from '@api/index'
 
 const intro = await getIntroduction()
-
-const md = MarkdownIt({
-  html: true,
-  linkify: true,
-  typographer: true,
-})
-
 ---
 
 <div class="m-4">
   <img class="float-left w-14 h-14 mr-4 transition-all rounded-md scale-x-[-1]"
     src={`${import.meta.env.DIRECTUS_URL}assets/${intro.avatar}/avatar.jpg?key=intro-avatar`} alt="Avatar"
     loading="lazy">
-  <div set:html={md.render(intro.introduction)} />
+  <div set:html={marked.parse(intro.introduction)} />
 </div>

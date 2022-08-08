@@ -1,14 +1,8 @@
 ---
 import slugify from 'slugify'
-import MarkdownIt from 'markdown-it'
+import marked from 'marked'
 import { experiences } from '@data/cv/experiences.json'
 import { technologies } from '@data/cv/technologies.json'
-
-const md = MarkdownIt({
-  html: true,
-  linkify: true,
-  typographer: true
-})
 ---
 
 <ul role="list" class="grid grid-cols-1 m-4 ml-0 list-none gap-y-8 print:block print:mt-4">
@@ -31,7 +25,7 @@ const md = MarkdownIt({
     </div>
     <ul role="list" class="mt-2 mb-0 print:text-base">
       {experience.tasks.map(task =>
-      <li class="mt-1 mb-0" set:html={md.renderInline(task)}></li>
+      <li class="mt-1 mb-0" set:html={marked.parseInline(task)}></li>
       )}
     </ul>
   </li>

@@ -11,7 +11,8 @@
   "dependencies": {
     "@astrojs/netlify": "^0.5.0",
     "@astrojs/svelte": "^0.5.1",
-    "@directus/sdk": "^10.1.4"
+    "@directus/sdk": "^10.1.4",
+    "marked": "^4.0.18"
   },
   "devDependencies": {
     "@astrojs/sitemap": "^0.3.0",
@@ -41,7 +42,6 @@
     "astro-compress": "^0.0.15",
     "astro-uno": "^0.1.5",
     "date-fns": "^2.29.1",
-    "markdown-it": "^13.0.1",
     "slugify": "^1.6.5",
     "unocss": "^0.45.5"
   }

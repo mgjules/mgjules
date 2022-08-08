@@ -1,5 +1,5 @@
 ---
-import MarkdownIt from 'markdown-it'
+import marked from 'marked'
 import { format, parseISO } from 'date-fns'
 import EditorLayout from '@layouts/EditorLayout.astro'
 import { getLinks, getPost } from '@api/index'
@@ -21,12 +21,6 @@ const current_tab = {
 const tabs = [
   current_tab
 ]
-
-const md = MarkdownIt({
-  html: true,
-  linkify: true,
-  typographer: true
-})
 ---
 
 <EditorLayout current_tab={current_tab} extension="post" links={links} tabs={tabs} print>
@@ -63,5 +57,5 @@ const md = MarkdownIt({
       class="object-cover w-full aspect-video max-h-72" />
   </div>
   {post.summary && <div class="m-4 text-slate-500">{post.summary}</div>}
-  {async() => <div class="m-4" set:html={md.render(post.content)}></div>}
+  <div class="m-4" set:html={marked.parse(post.content)}></div>
 </EditorLayout>

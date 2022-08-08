@@ -1,6 +1,6 @@
 ---
 import slugify from 'slugify'
-import MarkdownIt from 'markdown-it'
+import marked from 'marked'
 import { projects } from '@data/cv/projects.json'
 import { technologies } from '@data/cv/technologies.json'
 import { getMeta } from '@api/index'
@@ -8,12 +8,6 @@ import { getMeta } from '@api/index'
 const meta = await getMeta()
 
 const github = meta?.github || ''
-
-const md = MarkdownIt({
-  html: true,
-  linkify: true,
-  typographer: true
-})
 ---
 
 <ul role="list" class="flex flex-col gap-4 m-4 ml-0 list-none print:block print:mt-4 print:columns-1">
@@ -37,7 +31,7 @@ const md = MarkdownIt({
             </span>
           </a>
         </h3>
-        <div class="mt-1 break-words text-slate-400" set:html={md.renderInline(project.description)} />
+        <div class="mt-1 break-words text-slate-400" set:html={marked.parseInline(project.description)} />
         {project.technologies.length > 1 &&
         <div class="flex flex-wrap gap-5 mt-2">
           {project.technologies.map((technologie, i) => {
