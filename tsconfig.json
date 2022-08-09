@@ -14,7 +14,8 @@
     "isolatedModules": true,
     // Add type definitions for our Astro runtime.
     "types": [
-      "astro/client"
+      "astro/client",
+      "vite/client"
     ],
     "baseUrl": ".",
     "paths": {
