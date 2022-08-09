@@ -1,8 +1,18 @@
 ---
 import slugify from 'slugify'
+import { format, parseISO } from 'date-fns'
 import { marked } from 'marked'
-import { experiences } from '@data/cv/experiences.json'
-import { technologies } from '@data/cv/technologies.json'
+import { getExperiences } from '@api/index'
+
+let experiences = await getExperiences()
+
+experiences = experiences.map(experience => {
+  return {
+    ...experience,
+    formattedFrom: format(parseISO(experience.from as string), 'MMM yyyy'),
+    formattedTo: format(parseISO(experience.to as string), 'MMM yyyy')
+  }
+})
 ---
 
 <ul role="list" class="grid grid-cols-1 m-4 ml-0 list-none gap-y-8 print:block print:mt-4">
@@ -10,22 +20,23 @@ import { technologies } from '@data/cv/technologies.json'
   <li id={slugify("Experience "+experience.company)} class=" pl-0 my-0 group print:mt-4 print:break-inside-avoid">
     <div class="flex flex-wrap items-center justify-between">
       <h3 class="my-0">{ experience.company }</h3>
-      <span class="text-sm text-slate-500">{experience.from === experience.to ? experience.to : `${experience.from} →
-        ${experience.to || 'present'}`}</span>
+      <span class="text-sm text-slate-500">{experience.formattedFrom === experience.formattedTo ? experience.formattedTo
+        : `${experience.formattedFrom} →
+        ${experience.formattedTo || 'present'}`}</span>
     </div>
     <span class="text-slate-500 print:text-base">{ experience.position }</span>
     <div class="flex flex-wrap gap-5 mt-1">
       {experience.technologies.map(technologie => {
-      const tech = technologies.find(tech=> technologie === tech.name)
-      return <span class="h-7" title={technologie}>
-        <iconify-icon icon={tech.icon} class={`${tech.saturate ? 'saturate-0' : '' } w-7 h-7`} width="28" height="28" />
+      return <span class="h-7" title={technologie.technologies_id.name}>
+        <iconify-icon icon={technologie.technologies_id.icon} class={`${technologie.technologies_id.saturate
+          ? 'saturate-0' : '' } w-7 h-7`} width="28" height="28" />
       </span>
       }
       )}
     </div>
     <ul role="list" class="mt-2 mb-0 print:text-base">
       {experience.tasks.map(task =>
-      <li class="mt-1 mb-0" set:html={marked.parseInline(task)}></li>
+      <li class="mt-1 mb-0" set:html={marked.parse(task.task)}></li>
       )}
     </ul>
   </li>

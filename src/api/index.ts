@@ -68,3 +68,18 @@ export async function getSections() {
 export async function getMeta() {
   return await directus.items('meta').readOne('7b0504e8-58d0-4bf3-9d70-514f486ca962')
 }
+
+export async function getExperiences() {
+  const experiences = await directus.items('experiences').readByQuery({
+    fields: ['id', 'company', 'position', 'from', 'to', 'technologies.*.name', 'technologies.*.icon', 'tasks', 'status'],
+    sort: ['-from'] as never,
+    filter: {
+      status: {
+        _eq: 'published'
+      }
+    },
+    limit: -1,
+  });
+
+  return experiences.data
+}

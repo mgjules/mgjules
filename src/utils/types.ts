@@ -63,6 +63,29 @@ export type Meta = {
   avatar: string;
 }
 
+export type Technologie = {
+  id: ID;
+  name: string;
+  icon: string;
+}
+
+export type Task = {
+  task: string;
+}
+
+export type Experience = {
+  id: ID;
+  company: string;
+  position: string;
+  from: string;
+  to: string;
+  technologies: {
+    id: ID;
+    technologies: Technologie;
+  }[];
+  tasks: Task[];
+  status: string;
+}
 
 export type MySpace = {
   links: Link;
@@ -71,6 +94,8 @@ export type MySpace = {
   tags: Tag;
   sections: Section;
   meta: Meta;
+  technologies: Technologie;
+  experiences: Experience;
 
   directus_users: User;
 }
