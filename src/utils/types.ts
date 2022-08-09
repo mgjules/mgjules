@@ -67,6 +67,7 @@ export type Technologie = {
   id: ID;
   name: string;
   icon: string;
+  saturate: boolean;
 }
 
 export type Task = {
@@ -79,9 +80,11 @@ export type Experience = {
   position: string;
   from: string;
   to: string;
+  formattedFrom?: string;
+  formattedTo?: string;
   technologies: {
     id: ID;
-    technologies: Technologie;
+    technologies_id: Technologie;
   }[];
   tasks: Task[];
   status: string;
