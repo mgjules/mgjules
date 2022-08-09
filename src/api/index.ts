@@ -24,7 +24,7 @@ export async function getIntroduction(): Promise<PartialItem<Introduction> | und
 export async function getPosts(): Promise<Post[] | null | undefined> {
   const posts = await directus.items('posts').readByQuery({
     fields: ['id', 'title', 'slug', 'summary', 'date_created', 'cover_image', 'content', 'tags.*.name', 'status'],
-    sort: ['date_created'] as never,
+    sort: ['-date_created'] as never,
     filter: {
       status: {
         _eq: 'published'
@@ -39,7 +39,7 @@ export async function getPosts(): Promise<Post[] | null | undefined> {
 export async function getPost(slug: string): Promise<Post | null> {
   const posts = await directus.items('posts').readByQuery({
     fields: ['id', 'title', 'slug', 'summary', 'date_created', 'cover_image', 'content', 'tags.*.name', 'user_created.*', 'status'],
-    sort: ['date_created'] as never,
+    sort: ['-date_created'] as never,
     filter: {
       slug: {
         _eq: slug
