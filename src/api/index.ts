@@ -74,7 +74,7 @@ export async function getMeta(): Promise<PartialItem<Meta> | null | undefined> {
 
 export async function getExperiences(): Promise<Experience[] | null | undefined> {
   const experiences = await directus.items('experiences').readByQuery({
-    fields: ['id', 'company', 'position', 'from', 'to', 'technologies.*.name', 'technologies.*.icon', 'tasks', 'status'],
+    fields: ['id', 'company', 'position', 'from', 'to', 'technologies.*.name', 'technologies.*.icon', 'technologies.*.saturate', 'tasks', 'status'],
     sort: ['-from'] as never,
     filter: {
       status: {
