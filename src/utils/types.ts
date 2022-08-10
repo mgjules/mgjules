@@ -90,6 +90,18 @@ export type Experience = {
   status: string;
 }
 
+export type Project = {
+  id: ID;
+  name: string;
+  link: string;
+  description: string;
+  technologies: {
+    id: ID;
+    technologies_id: Technologie;
+  }[];
+  status: string;
+}
+
 export type MySpace = {
   links: Link;
   posts: Post;
@@ -99,6 +111,7 @@ export type MySpace = {
   meta: Meta;
   technologies: Technologie;
   experiences: Experience;
+  projects: Project;
 
   directus_users: User;
 }

@@ -1,11 +1,11 @@
 ---
 import slugify from 'slugify'
 import { marked } from 'marked'
-import { projects } from '@data/cv/projects.json'
-import { technologies } from '@data/cv/technologies.json'
-import { getMeta } from '@api/index'
+import { getMeta, getProjects } from '@api/index'
 
 const meta = await getMeta()
+
+const projects = await getProjects()
 
 const github = meta?.github || ''
 ---
@@ -17,9 +17,8 @@ const github = meta?.github || ''
     print:break-inside-avoid">
     <div
       class="flex items-center justify-center flex-shrink-0 w-20 text-sm font-medium text-slate-400 bg-slate-700/40 rounded-l-md">
-      <span title={project.technologies[0]}>
-        <iconify-icon icon={technologies.find(tech=> project.technologies[0] === tech.name).icon} class="w-10 h-10"
-          width="40" height="40" />
+      <span title={project.technologies[0].technologies_id.name}>
+        <iconify-icon icon={project.technologies[0].technologies_id.icon} class="w-10 h-10" width="40" height="40" />
       </span>
     </div>
     <div class="flex items-center justify-between flex-1 bg-slate-700/10 rounded-r-md">
@@ -37,11 +36,9 @@ const github = meta?.github || ''
           {project.technologies.map((technologie, i) => {
           if (i === 0) return
 
-          const tech = technologies.find(tech => tech.name === technologie)
-
-          return <span class="h-8" title={tech.name}>
-            <iconify-icon icon={tech.icon} class={`${tech.saturate ? 'saturate-0' : '' } w-7 h-7`} width="28"
-              height="28" />
+          return <span class="h-7" title={technologie.technologies_id.name}>
+            <iconify-icon icon={technologie.technologies_id.icon} class={`${technologie.technologies_id.saturate
+              ? 'saturate-0' : '' } w-7 h-7`} width="28" height="28" />
           </span>
           })}
         </div>

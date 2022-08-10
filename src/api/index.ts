@@ -1,6 +1,6 @@
 import directus from '../utils/directus-client'
 import { PartialItem } from '@directus/sdk'
-import { Introduction, Post, Link, Meta, Section, Experience } from '../utils/types'
+import { Introduction, Post, Link, Meta, Section, Experience, Project } from '../utils/types'
 
 export async function getLinks(): Promise<Link[] | null | undefined> {
   const links = await directus.items('links').readByQuery({
@@ -85,4 +85,19 @@ export async function getExperiences(): Promise<Experience[] | null | undefined>
   });
 
   return experiences.data
+}
+
+export async function getProjects(): Promise<Project[] | null | undefined> {
+  const projects = await directus.items('projects').readByQuery({
+    fields: ['id', 'name', 'description', 'link', 'technologies.*.name', 'technologies.*.icon', 'technologies.*.saturate', 'status'],
+    sort: ['sort'] as never,
+    filter: {
+      status: {
+        _eq: 'published'
+      }
+    },
+    limit: -1,
+  });
+
+  return projects.data
 }
