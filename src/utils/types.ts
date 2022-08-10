@@ -135,6 +135,14 @@ export type Interest = {
   status: string;
 }
 
+export type Language = {
+  id: ID;
+  name: string;
+  icon: string;
+  level: string;
+  status: string;
+}
+
 export type MySpace = {
   links: Link;
   posts: Post;
@@ -148,6 +156,7 @@ export type MySpace = {
   contributions: Contribution;
   awards: Award;
   interests: Interest;
+  languages: Language;
 
   directus_users: User;
 }

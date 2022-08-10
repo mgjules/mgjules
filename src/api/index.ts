@@ -10,7 +10,8 @@ import {
   Project,
   Contribution,
   Award,
-  Interest
+  Interest,
+  Language
 } from '../utils/types'
 
 export async function getLinks(): Promise<Link[] | null | undefined> {
@@ -156,4 +157,14 @@ export async function getInterests(): Promise<Interest[] | null | undefined> {
   });
 
   return interests.data
+}
+
+export async function getLanguages(): Promise<Language[] | null | undefined> {
+  const languages = await directus.items('languages').readByQuery({
+    fields: ['id', 'name', 'icon', 'level', 'status'],
+    sort: ['-sort'] as never,
+    limit: -1,
+  });
+
+  return languages.data
 }

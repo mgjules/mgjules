@@ -1,6 +1,8 @@
 ---
 import slugify from 'slugify'
-import { languages } from '@data/cv/languages.json'
+import { getLanguages } from '@api/index'
+
+const languages = await getLanguages()
 ---
 
 <ul role="list"
