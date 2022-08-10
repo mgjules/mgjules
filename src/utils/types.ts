@@ -128,6 +128,12 @@ export type Award = {
   status: string;
 }
 
+export type Interest = {
+  id: ID;
+  name: string;
+  icon: string;
+  status: string;
+}
 
 export type MySpace = {
   links: Link;
@@ -141,6 +147,7 @@ export type MySpace = {
   projects: Project;
   contributions: Contribution;
   awards: Award;
+  interests: Interest;
 
   directus_users: User;
 }

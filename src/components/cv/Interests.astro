@@ -1,6 +1,8 @@
 ---
 import slugify from 'slugify'
-import { interests } from '@data/cv/interests.json'
+import { getInterests } from '@api/index'
+
+const interests = await getInterests()
 ---
 
 <ul role="list"
