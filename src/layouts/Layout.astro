@@ -49,6 +49,12 @@ const { title, lang, first_name, last_name, description, keywords, base_url, use
   <script src="https://unpkg.com/@swup/progress-plugin@latest/dist/SwupProgressPlugin.min.js" defer></script>
   <script src="https://unpkg.com/@swup/preload-plugin@latest/dist/SwupPreloadPlugin.min.js" defer></script>
   <script src="https://unpkg.com/@swup/head-plugin@latest/dist/SwupHeadPlugin.min.js" defer></script>
+  <script type="module" is:inline defer>
+    new Swup({
+      animationSelector: '[class*="swup-transition-"]',
+      plugins: [new SwupProgressPlugin(), new SwupPreloadPlugin(), new SwupHeadPlugin()]
+    })
+  </script>
 
   <title>{title}</title>
 </head>
