@@ -82,6 +82,7 @@ export type Experience = {
   to: string;
   formattedFrom?: string;
   formattedTo?: string;
+  link: string;
   technologies: {
     id: ID;
     technologies_id: Technologie;
@@ -108,6 +109,7 @@ export type Contribution = {
   title: string;
   from: string;
   to: string;
+  link: string;
   formattedFrom?: string;
   formattedTo?: string;
   role: string;

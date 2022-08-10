@@ -20,7 +20,13 @@ contributions = contributions.map(contribution => {
   <li id={slugify("Contributions "+contribution.event+" "+contribution.title)}
         class=" flex flex-col pl-0 my-0 group print:mt-4 print:first:mt-0 print:break-inside-avoid">
     <div class="flex flex-col sm:justify-between sm:flex-row gap-x-2">
-      <h3 class="my-0">{ contribution.event }</h3>
+      <h3 class="my-0">
+        <a href={ contribution.link } target="_blank" class="font-medium no-underline">{contribution.event}
+          <span class="hidden text-sm print:inline">
+            ( {contribution.link.replace(/^https?:\/\//, "")} )
+          </span>
+        </a>
+      </h3>
       <span class="text-sm sm:mt-0.5 text-slate-500 shrink-0">{contribution.formattedFrom === contribution.formattedTo ?
         contribution.formattedTo :
         `${contribution.formattedFrom} →
