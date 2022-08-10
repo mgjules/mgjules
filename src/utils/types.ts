@@ -116,6 +116,19 @@ export type Contribution = {
   status: string;
 }
 
+export type Award = {
+  id: ID;
+  event: string;
+  description: string;
+  date: string;
+  formattedDate?: string;
+  link: string;
+  result: string;
+  icon: string;
+  status: string;
+}
+
+
 export type MySpace = {
   links: Link;
   posts: Post;
@@ -127,6 +140,7 @@ export type MySpace = {
   experiences: Experience;
   projects: Project;
   contributions: Contribution;
+  awards: Award;
 
   directus_users: User;
 }

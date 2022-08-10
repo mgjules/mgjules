@@ -1,12 +1,22 @@
 ---
 import { marked } from 'marked'
+import { format, parseISO } from 'date-fns'
 import slugify from 'slugify'
-import { awards } from '@data/cv/awards.json'
+import { getAwards } from '@api/index'
+
+let awards = await getAwards()
+
+awards = awards.map(award => {
+  return {
+    ...award,
+    formattedDate: format(parseISO(award.date), 'MMM yyyy')
+  }
+})
 ---
 
 <div class="grid grid-cols-1 p-4 gap-x-4 gap-y-4 sm:grid-cols-2 print:block print:mt-4 print:gap-x-6 print:columns-2">
   {awards.map(award =>
-  <div id={slugify("Awards "+award.event+" "+award.date)}
+  <div id={slugify("Awards "+award.event+" "+award.formattedDate)}
         class=" px-4 py-3 border rounded-md print:shadow-none border-slate-900/50 bg-slate-700/10 border-b-3 group
     print:mt-4 print:first:mt-0 print:break-inside-avoid">
     <div class="flex items-center gap-4" title={ award.result }>
@@ -14,7 +24,7 @@ import { awards } from '@data/cv/awards.json'
       <div class="w-full">
         <div class="flex flex-wrap items-center justify-between">
           <h3 class="my-0">{ award.event }</h3>
-          <span class="text-sm text-slate-500">{ award.date }</span>
+          <span class="text-sm text-slate-500">{ award.formattedDate }</span>
         </div>
         <div class="m-0 text-slate-400" set:html={marked.parseInline(award.description)} />
       </div>
