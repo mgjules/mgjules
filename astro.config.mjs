@@ -22,7 +22,7 @@ export default defineConfig({
         presetUno(),
         presetTypography({
           cssExtend: {
-            'h1,h2,h3,h4,a,code': {
+            'a,code': {
               color: '#0891b2',
             },
             'a:hover': {
