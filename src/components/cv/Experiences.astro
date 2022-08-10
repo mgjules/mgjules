@@ -9,8 +9,8 @@ let experiences = await getExperiences()
 experiences = experiences.map(experience => {
   return {
     ...experience,
-    formattedFrom: format(parseISO(experience.from as string), 'MMM yyyy'),
-    formattedTo: format(parseISO(experience.to as string), 'MMM yyyy')
+    formattedFrom: format(parseISO(experience.from), 'MMM yyyy'),
+    formattedTo: experience.to && format(parseISO(experience.to), 'MMM yyyy')
   }
 })
 ---
