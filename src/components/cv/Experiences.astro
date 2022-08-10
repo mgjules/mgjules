@@ -41,7 +41,7 @@ experiences = experiences.map(experience => {
       )}
     </div>
     <ul role="list" class="mt-2 mb-0 print:text-base">
-      {experience.tasks.map(task =>
+      {experience.tasks?.map(task =>
       <li class="mt-1 mb-0" set:html={marked.parseInline(task.task)}></li>
       )}
     </ul>
