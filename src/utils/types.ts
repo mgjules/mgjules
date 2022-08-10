@@ -102,6 +102,18 @@ export type Project = {
   status: string;
 }
 
+export type Contribution = {
+  id: ID;
+  event: string;
+  title: string;
+  from: string;
+  to: string;
+  formattedFrom?: string;
+  formattedTo?: string;
+  role: string;
+  status: string;
+}
+
 export type MySpace = {
   links: Link;
   posts: Post;
@@ -112,6 +124,7 @@ export type MySpace = {
   technologies: Technologie;
   experiences: Experience;
   projects: Project;
+  contributions: Contribution;
 
   directus_users: User;
 }
