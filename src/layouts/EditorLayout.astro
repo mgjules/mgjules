@@ -132,14 +132,45 @@ function isCurrentLink(url: string) {
 </Layout>
 
 <style is:global>
+  .swup-transition-fade {
+    transition-duration: 0.3s;
+    filter: blur(0);
+  }
+
+  html.is-animating .swup-transition-fade {
+    filter: blur(0.01rem);
+    animation-name: pulse;
+    animation-duration: 2s;
+    animation-timing-function: ease-out;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    animation-play-state: running;
+  }
+
+  @keyframes pulse {
+    0% {
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 0.8;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
   .swup-transition-fade .content {
     transition: 0.4s;
     opacity: 1;
+    filter: blur(0);
   }
 
   html.is-animating .swup-transition-fade .content {
     opacity: 0;
-    transform: translateY(-25px)
+    transform: translateY(-25px);
+    filter: blur(1px);
   }
 
   .swup-progress-bar {
