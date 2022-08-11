@@ -39,7 +39,7 @@ export default defineConfig({
         presetWebFonts({
           provider: 'google',
           fonts: {
-            sans: 'Roboto',
+            sans: 'Open Sans',
             mono: ['Fira Code', 'Fira Mono:400,700']
           }
         })
