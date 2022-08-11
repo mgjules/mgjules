@@ -71,7 +71,8 @@ function isCurrentLink(url: string) {
         <div class="w-full max-w-full overflow-hidden">
           {(tabs || print) &&
           <div id="tabs" class="flex text-[0.8rem] text-slate-600 bg-slate-900/50 items-center justify-between gap-2">
-            <div class="swup-preserve-scroll flex -mb-[2px] items-center overflow-x-scroll min-h-8 shrink scrollbar">
+            <div id="left-tabs"
+              class="swup-preserve-scroll flex -mb-[2px] items-center overflow-x-scroll min-h-8 shrink scrollbar">
               {tabs && tabs.map(tab =>
               <a href={`${tab.link || '#' }`} class={`${current_tab.name===tab.name
                 ? 'text-slate-400 bg-slate-600/10 border-b-white/20' : '' } tab flex border-b border-b-transparent
