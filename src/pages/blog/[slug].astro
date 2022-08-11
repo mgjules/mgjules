@@ -25,32 +25,19 @@ const tabs = [
 
 <EditorLayout current_tab={current_tab} extension="post" links={links} tabs={tabs} print>
   <div class="relative">
-    <div class="absolute bottom-0 left-0 w-full px-4 py-2 bg-slate-900/70 backdrop-blur-md">
-      <div class="flex flex-col sm:items-center sm:justify-between sm:flex-row">
-        <div class="flex gap-2 sm:gap-4">
-          <div
-            class="w-full h-full my-0 ml-0 overflow-hidden sm:-my-2 sm:-ml-4 shrink-0 max-w-12 max-h-12 sm:max-w-16 sm:max-h-16 aspect-square">
-            <img src={`${import.meta.env.DIRECTUS_URL}assets/${post.user_created.avatar}/avatar.jpg?key=blog-avatar`}
-              alt="Cover Image" class="object-cover aspect-square" />
-          </div>
-          <div>
-            <div class="text-xl drop-shadow-sm text-slate-300">{post.title}</div>
-            <div class="mt-1 text-xs drop-shadow-sm text-slate-500"><span
-                class="text-slate-400">{format(parseISO(post.date_created as string), 'dd MMM yyyy')}</span> by
-              <span class="text-slate-400">{post.user_created.first_name} {post.user_created.last_name}</span>
-            </div>
+    <div class="absolute bottom-0 left-0 w-full">
+      <div class="flex">
+        <div class="hidden w-full h-full overflow-hidden sm:block shrink-0 max-w-16 max-h-16 aspect-square">
+          <img src={`${import.meta.env.DIRECTUS_URL}assets/${post.user_created.avatar}/avatar.jpg?key=blog-avatar`}
+            alt="Cover Image" class="object-cover aspect-square" />
+        </div>
+        <div class="flex flex-col justify-center w-full px-4 py-2 bg-slate-900/70 backdrop-blur-md">
+          <h3 class="my-0 drop-shadow-sm">{post.title}</h3>
+          <div class="mt-1 text-xs drop-shadow-sm text-slate-500"><span
+              class="text-slate-400">{format(parseISO(post.date_created as string), 'dd MMM yyyy')}</span> by
+            <span class="text-slate-400">{post.user_created.first_name} {post.user_created.last_name}</span>
           </div>
         </div>
-        {post.tags &&
-        <div class="flex flex-wrap gap-2 mt-2 sm:mt-0">
-          {post.tags.map(tag =>
-          <div
-            class="px-2 py-1 text-xs capitalize border rounded-md select-none border-b-3 border-slate-900/60 bg-slate-700/40">
-            {tag.tags_id.name}
-          </div>
-          )}
-        </div>
-        }
       </div>
     </div>
     <img src={`${import.meta.env.DIRECTUS_URL}assets/${post.cover_image}/cover.jpg?key=blog-cover`} alt="Cover Image"
@@ -58,4 +45,16 @@ const tabs = [
   </div>
   {post.summary && <div class="m-4 text-slate-500">{post.summary}</div>}
   <div class="m-4" set:html={marked.parse(post.content)}></div>
+  <div class="m-4">
+    {post.tags &&
+    <div class="flex flex-wrap gap-2 mt-2 sm:mt-0">
+      {post.tags.map(tag =>
+      <div
+        class="px-2 py-1 text-xs capitalize border rounded-md select-none border-b-3 border-slate-900/60 bg-slate-700/40">
+        {tag.tags_id.name}
+      </div>
+      )}
+    </div>
+    }
+  </div>
 </EditorLayout>
