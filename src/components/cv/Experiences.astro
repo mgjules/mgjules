@@ -26,9 +26,8 @@ experiences = experiences.map(experience => {
           </span>
         </a>
       </h3>
-      <span class="text-sm text-slate-500">{experience.formattedFrom === experience.formattedTo ? experience.formattedTo
-        : `${experience.formattedFrom} →
-        ${experience.formattedTo || 'present'}`}</span>
+      <span class="text-sm text-slate-500" set:html={ experience.formattedFrom===experience.formattedTo ?
+        experience.formattedTo : `${experience.formattedFrom} &rarr; ${experience.formattedTo || 'present' }` }></span>
     </div>
     <span class="text-slate-500 print:text-base">{ experience.position }</span>
     <div class="flex flex-wrap gap-5 mt-1">
