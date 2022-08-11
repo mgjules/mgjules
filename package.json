@@ -37,6 +37,7 @@
     "@iconify-json/simple-icons": "^1.1.21",
     "@iconify-json/twemoji": "^1.1.5",
     "@iconify-json/vscode-icons": "^1.1.10",
+    "@unocss/preset-web-fonts": "^0.45.6",
     "@unocss/reset": "^0.45.5",
     "astro": "^1.0.1",
     "astro-compress": "^0.0.17",

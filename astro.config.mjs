@@ -1,11 +1,17 @@
 import { defineConfig } from 'astro/config'
 
-import uno from 'astro-uno'
-import { presetUno, presetTypography } from 'unocss'
+// Astro Plugins
 import compress from 'astro-compress'
 import sitemap from '@astrojs/sitemap'
 import svelte from '@astrojs/svelte'
+
+// Astro Adapter
 import netlify from '@astrojs/netlify/functions'
+
+// Uno CSS
+import uno from 'astro-uno'
+import { presetUno, presetTypography } from 'unocss'
+import presetWebFonts from '@unocss/preset-web-fonts'
 
 // https://astro.build/config
 export default defineConfig({
@@ -29,6 +35,13 @@ export default defineConfig({
               color: '#22d3ee',
             },
           },
+        }),
+        presetWebFonts({
+          provider: 'google',
+          fonts: {
+            sans: 'Roboto',
+            mono: ['Fira Code', 'Fira Mono:400,700']
+          }
         })
       ],
     }),
