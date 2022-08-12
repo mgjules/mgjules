@@ -10,8 +10,8 @@ const interests = await getInterests()
   {interests.map(interest =>
   <li id={slugify("Interest "+interest.name)}
         class=" interest relative print:break-inside-avoid w-full max-h-20 overflow-hidden rounded-md shadow-md">
-    <img class="z-10 relative polygon-clip object-cover"
-      src={`${import.meta.env.DIRECTUS_URL}assets/${interest.image}/${slugify(interest.name)}.png?key=interest`}
+    <img class="z-10 relative polygon-clip object-cover w-full"
+      src={`${import.meta.env.DIRECTUS_URL}assets/${interest.image}/${slugify(interest.name)}.png?key=interest&v=2`}
       alt={`${interest.name} image` } />
     <h3 class="z-1 my-0 absolute top-1/2 right-1 -translate-y-1/2">{interest.name}</h3>
   </li>
