@@ -17,7 +17,7 @@ awards = awards.map(award => {
 <ul class="grid grid-cols-1 m-4 ml-0 list-none gap-x-12 gap-y-4 sm:grid-cols-2 print:block print:mt-4 print:columns-2">
   {awards.map(award =>
   <li id={slugify("Awards "+award.event+" "+award.formattedDate)}
-        class=" flex flex-col pl-0 my-0 group print:mt-4 print:first:mt-0 print:break-inside-avoid">
+        class="flex flex-col pl-0 my-0  group print:mt-4 print:first:mt-0 print:break-inside-avoid">
     <div class="flex flex-wrap items-center justify-between">
       <h3 class="my-0">
         <a href={ award.link } target="_blank" class="font-medium no-underline">{award.event}
@@ -28,7 +28,7 @@ awards = awards.map(award => {
       </h3>
       <span class="text-sm text-slate-500">{ award.formattedDate }</span>
     </div>
-    <div class="flex gap-2 items-center text-slate-500 print:text-base">
+    <div class="flex items-center gap-2 text-slate-500 print:text-base">
       <iconify-icon icon={award.icon} class="flex-shrink-0 w-4 h-4" width="16" height="16" />
       <span>{ award.result }</span>
     </div>
