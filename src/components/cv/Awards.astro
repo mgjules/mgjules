@@ -32,7 +32,7 @@ awards = awards.map(award => {
           </h3>
           <span class="text-sm text-slate-500">{ award.formattedDate }</span>
         </div>
-        <div class="m-0 text-slate-400" set:html={marked.parseInline(award.description)} />
+        <div class="mt-1 text-slate-400" set:html={marked.parseInline(award.description)} />
       </div>
     </div>
   </div>
