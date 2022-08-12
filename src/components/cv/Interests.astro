@@ -6,7 +6,7 @@ const interests = await getInterests()
 ---
 
 <ul role="list"
-  class="grid grid-cols-1 m-4 ml-0 list-none gap-x-12 gap-y-4 sm:grid-cols-2 print:block print:mt-4 print:columns-2">
+  class="grid grid-cols-1 m-4 ml-0 list-none gap-x-12 gap-y-8 sm:grid-cols-2 print:block print:mt-4 print:columns-2">
   {interests.map(interest =>
   <li id={slugify("Interest "+interest.name)}
         class="relative w-full overflow-hidden border rounded-md shadow-md  bg-slate-900/50 border-slate-900/50 group interest print:break-inside-avoid max-h-20">
