@@ -66,8 +66,6 @@ export type Meta = {
 export type Technologie = {
   id: ID;
   name: string;
-  icon: string;
-  saturate: boolean;
 }
 
 export type Task = {

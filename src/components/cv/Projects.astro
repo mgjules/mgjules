@@ -15,14 +15,8 @@ const github = meta?.github || ''
   <li id={slugify("Projects "+project.name)}
       class=" flex pl-0 my-0 border rounded-md border-b-3 border-slate-900/50 group print:mt-4 print:first:mt-0
     print:break-inside-avoid">
-    <div
-      class="flex items-center justify-center flex-shrink-0 w-20 text-sm font-medium text-slate-400 bg-slate-700/40 rounded-l-md">
-      <span title={project.technologies[0].technologies_id.name}>
-        <iconify-icon icon={project.technologies[0].technologies_id.icon} class="w-10 h-10" width="40" height="40" />
-      </span>
-    </div>
     <div class="flex items-center justify-between flex-1 bg-slate-700/10 rounded-r-md">
-      <div class="flex-1 px-4 py-2">
+      <div class="flex-1 px-4 py-3">
         <h3 class="my-0">
           <a href={ project.link } target="_blank" class="font-medium no-underline">{project.name}
             <span class="hidden text-sm print:inline">
@@ -33,9 +27,7 @@ const github = meta?.github || ''
         <div class="mt-1 break-words text-slate-400" set:html={marked.parseInline(project.description)} />
         {project.technologies.length > 1 &&
         <div class="flex flex-wrap gap-2 mt-2">
-          {project.technologies.map((technologie, i) => {
-          if (i === 0) return
-
+          {project.technologies.map(technologie => {
           return <span class="pill">
             {technologie.technologies_id.name}
           </span>

@@ -32,9 +32,7 @@ contributions = contributions.map(contribution => {
         `${contribution.formattedFrom} →
         ${contribution.formattedTo || 'present'}`}</span>
     </div>
-    <span class="mt-1 pill">
-      {contribution.role}
-    </span>
+    <span class="text-slate-500 print:text-base">{ contribution.role }</span>
     <div>{ contribution.title }</div>
   </li>
   )}

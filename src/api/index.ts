@@ -86,7 +86,7 @@ export async function getMeta(): Promise<PartialItem<Meta> | null | undefined> {
 
 export async function getExperiences(): Promise<Experience[] | null | undefined> {
   const experiences = await directus.items('experiences').readByQuery({
-    fields: ['id', 'company', 'position', 'from', 'to', 'link', 'technologies.*.name', 'technologies.*.icon', 'technologies.*.saturate', 'tasks', 'status'],
+    fields: ['id', 'company', 'position', 'from', 'to', 'link', 'technologies.*.name', 'tasks', 'status'],
     sort: ['-from'] as never,
     filter: {
       status: {
@@ -101,7 +101,7 @@ export async function getExperiences(): Promise<Experience[] | null | undefined>
 
 export async function getProjects(): Promise<Project[] | null | undefined> {
   const projects = await directus.items('projects').readByQuery({
-    fields: ['id', 'name', 'description', 'link', 'technologies.*.name', 'technologies.*.icon', 'technologies.*.saturate', 'status'],
+    fields: ['id', 'name', 'description', 'link', 'technologies.*.name', 'status'],
     sort: ['sort'] as never,
     filter: {
       status: {
