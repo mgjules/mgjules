@@ -25,7 +25,6 @@ const github = meta?.github || ''
           </a>
         </h3>
         <div class="mt-1 break-words text-slate-400" set:html={marked.parseInline(project.description)} />
-        {project.technologies.length > 1 &&
         <div class="flex flex-wrap gap-2 mt-2">
           {project.technologies.map(technologie => {
           return <span class="pill">
@@ -33,7 +32,6 @@ const github = meta?.github || ''
           </span>
           })}
         </div>
-        }
       </div>
     </div>
   </li>
