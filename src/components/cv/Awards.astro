@@ -18,7 +18,7 @@ awards = awards.map(award => {
   {awards.map(award =>
   <li id={slugify("Awards "+award.event+" "+award.formattedDate)}
         class="flex flex-col pl-0 my-0  group print:mt-4 print:first:mt-0 print:break-inside-avoid">
-    <div class="flex flex-wrap items-center justify-between">
+    <div class="flex flex-col sm:justify-between sm:flex-row gap-x-2">
       <h3 class="my-0">
         <a href={ award.link } target="_blank" class="font-medium no-underline">{award.event}
           <span class="hidden text-sm print:inline">
@@ -26,13 +26,13 @@ awards = awards.map(award => {
           </span>
         </a>
       </h3>
-      <span class="text-sm text-slate-500">{ award.formattedDate }</span>
+      <div class="mt-1 text-sm sm:mt-0 text-slate-500">{ award.formattedDate }</div>
     </div>
-    <div class="flex items-center gap-2 text-slate-500 print:text-base">
+    <div class="flex items-center gap-2 mt-1 text-slate-500 print:text-base">
       <iconify-icon icon={award.icon} class="flex-shrink-0 w-4 h-4" width="16" height="16" />
       <span>{ award.result }</span>
     </div>
-    <div set:html={marked.parseInline(award.description)} />
+    <div class="mt-1" set:html={marked.parseInline(award.description)} />
   </li>
   )}
 </ul>

@@ -18,7 +18,7 @@ experiences = experiences.map(experience => {
 <ul role="list" class="grid grid-cols-1 m-4 ml-0 list-none gap-y-8 print:block print:mt-4">
   {experiences.map(experience =>
   <li id={slugify("Experience "+experience.company)} class="pl-0 my-0  group print:mt-4 print:break-inside-avoid">
-    <div class="flex flex-wrap items-center justify-between">
+    <div class="flex flex-col sm:justify-between sm:flex-row gap-x-2">
       <h3 class="my-0">
         <a href={ experience.link } target="_blank" class="font-medium no-underline">{experience.company}
           <span class="hidden text-sm print:inline">
@@ -26,7 +26,7 @@ experiences = experiences.map(experience => {
           </span>
         </a>
       </h3>
-      <div class="flex items-center gap-2 text-sm shrink-0 text-slate-500">
+      <div class="flex items-center gap-2 mt-1 text-sm shrink-0 text-slate-500 sm:mt-0">
         {
         experience.formattedFrom===experience.formattedTo ? experience.formattedTo : <span>
           {experience.formattedFrom}</span>
@@ -35,8 +35,8 @@ experiences = experiences.map(experience => {
         }
       </div>
     </div>
-    <span class="text-slate-500 print:text-base">{ experience.position }</span>
-    <div class="flex flex-wrap gap-2 mt-1">
+    <div class="mt-1 text-slate-500 print:text-base">{ experience.position }</div>
+    <div class="flex flex-wrap gap-2 mt-2">
       {experience.technologies.map(technologie => {
       return <span class="pill">
         {technologie.technologies_id.name}
