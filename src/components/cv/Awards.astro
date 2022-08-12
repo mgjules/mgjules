@@ -14,27 +14,25 @@ awards = awards.map(award => {
 })
 ---
 
-<div class="grid grid-cols-1 p-4 gap-x-4 gap-y-4 sm:grid-cols-2 print:block print:mt-4 print:gap-x-6 print:columns-2">
+<ul class="grid grid-cols-1 m-4 ml-0 list-none gap-x-12 gap-y-4 sm:grid-cols-2 print:block print:mt-4 print:columns-2">
   {awards.map(award =>
-  <div id={slugify("Awards "+award.event+" "+award.formattedDate)}
-        class=" px-4 py-3 border rounded-md print:shadow-none border-slate-900/50 bg-slate-700/10 border-b-3 group
-    print:mt-4 print:first:mt-0 print:break-inside-avoid">
-    <div class="flex items-center gap-4" title={ award.result }>
-      <iconify-icon icon={award.icon} class="flex-shrink-0 w-10 h-10" width="40" height="40" />
-      <div class="w-full">
-        <div class="flex flex-wrap items-center justify-between">
-          <h3 class="my-0">
-            <a href={ award.link } target="_blank" class="font-medium no-underline">{award.event}
-              <span class="hidden text-sm print:inline">
-                ( {award.link.replace(/^https?:\/\//, "")} )
-              </span>
-            </a>
-          </h3>
-          <span class="text-sm text-slate-500">{ award.formattedDate }</span>
-        </div>
-        <div class="mt-1 text-slate-400" set:html={marked.parseInline(award.description)} />
-      </div>
+  <li id={slugify("Awards "+award.event+" "+award.formattedDate)}
+        class=" flex flex-col pl-0 my-0 group print:mt-4 print:first:mt-0 print:break-inside-avoid">
+    <div class="flex flex-wrap items-center justify-between">
+      <h3 class="my-0">
+        <a href={ award.link } target="_blank" class="font-medium no-underline">{award.event}
+          <span class="hidden text-sm print:inline">
+            ( {award.link.replace(/^https?:\/\//, "")} )
+          </span>
+        </a>
+      </h3>
+      <span class="text-sm text-slate-500">{ award.formattedDate }</span>
     </div>
-  </div>
+    <div class="flex gap-2 items-center text-slate-500 print:text-base">
+      <iconify-icon icon={award.icon} class="flex-shrink-0 w-4 h-4" width="16" height="16" />
+      <span>{ award.result }</span>
+    </div>
+    <div set:html={marked.parseInline(award.description)} />
+  </li>
   )}
-</div>
+</ul>
