@@ -9,7 +9,7 @@ const interests = await getInterests()
   class="grid grid-cols-1 m-4 ml-0 list-none gap-x-12 gap-y-4 sm:grid-cols-2 print:block print:mt-4 print:columns-2">
   {interests.map(interest =>
   <li id={slugify("Interest "+interest.name)}
-        class="relative w-full overflow-hidden border rounded-md shadow-md  border-slate-900/50 group interest print:break-inside-avoid max-h-20">
+        class="relative w-full overflow-hidden border rounded-md shadow-md  bg-slate-900/50 border-slate-900/50 group interest print:break-inside-avoid max-h-20">
     <img class="relative z-10 object-cover w-full polygon-clip"
       src={`${import.meta.env.DIRECTUS_URL}assets/${interest.image}/${slugify(interest.name)}.png?key=interest&v=1`}
       alt={`${interest.name} image` } />
@@ -26,6 +26,6 @@ const interests = await getInterests()
   }
 
   .interest:hover .polygon-clip {
-    clip-path: polygon(0 0, 40% 0, 60% 100%, 0 100%);
+    clip-path: polygon(0 0, 45% 0, 55% 100%, 0 100%);
   }
 </style>
