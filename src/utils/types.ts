@@ -129,7 +129,7 @@ export type Award = {
 export type Interest = {
   id: ID;
   name: string;
-  icon: string;
+  image: string;
   status: string;
 }
 

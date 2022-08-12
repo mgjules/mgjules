@@ -9,9 +9,22 @@ const interests = await getInterests()
   class="grid grid-cols-1 m-4 ml-0 list-none gap-x-12 gap-y-4 sm:grid-cols-2 print:block print:mt-4 print:columns-2">
   {interests.map(interest =>
   <li id={slugify("Interest "+interest.name)}
-        class=" flex items-center gap-4 pl-0 my-0 group print:mt-4 print:first:mt-0 print:break-inside-avoid">
-    <iconify-icon icon={interest.icon} class="flex-shrink-0 w-10 h-10" width="40" height="40" />
-    <span>{interest.name}</span>
+        class=" interest relative print:break-inside-avoid w-full overflow-hidden rounded-md box-shadow-md">
+    <img class="z-10 relative polygon-clip max-h-20 object-cover w-full"
+      src={`${import.meta.env.DIRECTUS_URL}assets/${interest.image}/${slugify(interest.name)}.jpg?key=interest`}
+      alt={`${interest.name} image` } />
+    <h3 class="z-1 my-0 absolute top-1/2 right-1 -translate-y-1/2">{interest.name}</h3>
   </li>
   )}
 </ul>
+
+<style is:global>
+  .polygon-clip {
+    transition: all 0.4s;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+
+  .interest:hover .polygon-clip {
+    clip-path: polygon(0 0, 40% 0, 60% 100%, 0 100%);
+  }
+</style>

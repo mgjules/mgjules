@@ -146,7 +146,7 @@ export async function getAwards(): Promise<Award[] | null | undefined> {
 
 export async function getInterests(): Promise<Interest[] | null | undefined> {
   const interests = await directus.items('interests').readByQuery({
-    fields: ['id', 'name', 'icon', 'status'],
+    fields: ['id', 'name', 'image', 'status'],
     sort: ['-sort'] as never,
     filter: {
       status: {
