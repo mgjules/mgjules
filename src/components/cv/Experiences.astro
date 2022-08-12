@@ -26,7 +26,7 @@ experiences = experiences.map(experience => {
           </span>
         </a>
       </h3>
-      <div class="flex items-center gap-2 text-sm shrink-0 text-slate-500">
+      <div class="flex items-center gap-2 text-sm shrink-0 text-slate-400">
         {
         experience.formattedFrom===experience.formattedTo ? experience.formattedTo : <span>
           {experience.formattedFrom}</span>
@@ -36,11 +36,10 @@ experiences = experiences.map(experience => {
       </div>
     </div>
     <span class="text-slate-500 print:text-base">{ experience.position }</span>
-    <div class="flex flex-wrap gap-5 mt-1">
+    <div class="flex flex-wrap gap-2 mt-1">
       {experience.technologies.map(technologie => {
-      return <span class="h-7" title={technologie.technologies_id.name}>
-        <iconify-icon icon={technologie.technologies_id.icon} class={`${technologie.technologies_id.saturate
-          ? 'saturate-0' : '' } w-7 h-7`} width="28" height="28" />
+      return <span class="pill">
+        {technologie.technologies_id.name}
       </span>
       }
       )}

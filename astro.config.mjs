@@ -24,6 +24,9 @@ export default defineConfig({
       safelist: [
         ...['text-xl', 'font-semibold', 'font-light', 'sm:mt-2', 'text-red']
       ],
+      shortcuts: {
+        'pill': 'w-fit border border-slate-500/50 py-1 px-2 text-xs text-slate-400/90 rounded-sm shadow-md select-none'
+      },
       presets: [
         presetUno(),
         presetTypography({

@@ -32,13 +32,12 @@ const github = meta?.github || ''
         </h3>
         <div class="mt-1 break-words text-slate-400" set:html={marked.parseInline(project.description)} />
         {project.technologies.length > 1 &&
-        <div class="flex flex-wrap gap-5 mt-2">
+        <div class="flex flex-wrap gap-2 mt-2">
           {project.technologies.map((technologie, i) => {
           if (i === 0) return
 
-          return <span class="h-7" title={technologie.technologies_id.name}>
-            <iconify-icon icon={technologie.technologies_id.icon} class={`${technologie.technologies_id.saturate
-              ? 'saturate-0' : '' } w-7 h-7`} width="28" height="28" />
+          return <span class="pill">
+            {technologie.technologies_id.name}
           </span>
           })}
         </div>
