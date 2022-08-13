@@ -10,7 +10,7 @@ const languages = await getLanguages()
   {languages.map(language =>
   <li id={slugify("Languages "+language.name)}
         class=" flex items-center gap-4 pl-0 my-0 group print:mt-4 print:first:mt-0 print:break-inside-avoid">
-    <div class="flex-shrink-0 overflow-hidden transition border rounded-md w-11 h-11 border-gray-900/30">
+    <div class="flex-shrink-0 overflow-hidden transition border rounded-md w-11 h-11 border-white/50">
       <iconify-icon icon={language.icon} width="42" height="42" />
     </div>
     <div>

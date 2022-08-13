@@ -31,7 +31,7 @@ export default defineConfig({
         colors: {
           'brand': {
             'background': '#191F28',
-            'primary': '#9ca3af', // text-gray-400
+            'primary': '#d1d5db', // text-gray-300
             'secondary': '#6b7280', // text-gray-500
             'accent': '#06b6d4' // text-cyan-500
           }
