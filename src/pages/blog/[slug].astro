@@ -28,7 +28,7 @@ const tabs = [
     <div class="absolute bottom-0 left-0 w-full">
       <div class="flex">
         <div class="hidden w-full h-full overflow-hidden sm:block shrink-0 max-w-16 max-h-16 aspect-square">
-          <img src={`${import.meta.env.DIRECTUS_URL}assets/${post.user_created.avatar}/avatar.jpg?key=blog-avatar`}
+          <img src={`${import.meta.env.DIRECTUS_URL}assets/${post.user_created.avatar}/avatar.webp?key=blog-avatar`}
             alt="Cover Image" class="object-cover aspect-square" />
         </div>
         <div class="flex flex-col justify-center w-full px-4 py-2 bg-gray-900/70 backdrop-blur-md">
@@ -40,7 +40,7 @@ const tabs = [
         </div>
       </div>
     </div>
-    <img src={`${import.meta.env.DIRECTUS_URL}assets/${post.cover_image}/cover.jpg?key=blog-cover`} alt="Cover Image"
+    <img src={`${import.meta.env.DIRECTUS_URL}assets/${post.cover_image}/cover.webp?key=blog-cover`} alt="Cover Image"
       class="object-cover w-full aspect-video max-h-72" />
   </div>
   {post.summary && <div class="m-4 text-brand-secondary">{post.summary}</div>}
