@@ -39,10 +39,12 @@
     "@iconify-json/vscode-icons": "^1.1.10",
     "@unocss/preset-web-fonts": "^0.45.6",
     "@unocss/reset": "^0.45.5",
+    "@unocss/transformer-directives": "^0.45.6",
     "astro": "^1.0.1",
     "astro-compress": "^0.0.17",
     "astro-uno": "^0.1.5",
     "date-fns": "^2.29.1",
+    "sass": "^1.54.4",
     "slugify": "^1.6.5",
     "unocss": "^0.45.5"
   }

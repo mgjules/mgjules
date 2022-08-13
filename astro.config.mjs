@@ -12,6 +12,7 @@ import netlify from '@astrojs/netlify/functions'
 import uno from 'astro-uno'
 import { presetUno, presetTypography } from 'unocss'
 import presetWebFonts from '@unocss/preset-web-fonts'
+import transformerDirective from '@unocss/transformer-directives'
 
 // https://astro.build/config
 export default defineConfig({
@@ -30,6 +31,7 @@ export default defineConfig({
       theme: {
         colors: {
           'brand': {
+            'foreground': '#252D38',
             'background': '#191F28',
             'primary': '#d1d5db', // text-gray-300
             'secondary': '#6b7280', // text-gray-500
@@ -57,6 +59,9 @@ export default defineConfig({
           }
         })
       ],
+      transformers: [
+        transformerDirective()
+      ]
     }),
     svelte(),
     compress(),
