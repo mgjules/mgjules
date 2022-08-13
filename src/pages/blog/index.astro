@@ -22,8 +22,8 @@ const posts = await getPosts()
       {posts.map(async post =>
       <div class="flex gap-4">
         <div class="flex flex-col items-center shrink-0">
-          <div class="text-4xl text-gray-400">{format(parseISO(post.date_created as string), 'dd')}</div>
-          <div class="text-lg text-gray-500">{format(parseISO(post.date_created as string), 'MMM yyy')}
+          <div class="text-4xl text-brand-primary">{format(parseISO(post.date_created as string), 'dd')}</div>
+          <div class="text-lg text-brand-secondary">{format(parseISO(post.date_created as string), 'MMM yyy')}
           </div>
         </div>
         <div class="flex-1">

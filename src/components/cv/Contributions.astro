@@ -27,13 +27,13 @@ contributions = contributions.map(contribution => {
           </span>
         </a>
       </h3>
-      <div class="text-sm sm:mt-0.5 text-gray-500 shrink-0 mt-1 sm:mt-0">{contribution.formattedFrom ===
+      <div class="text-sm sm:mt-0.5 text-brand-secondary shrink-0 mt-1 sm:mt-0">{contribution.formattedFrom ===
         contribution.formattedTo ?
         contribution.formattedTo :
         `${contribution.formattedFrom} →
         ${contribution.formattedTo || 'present'}`}</div>
     </div>
-    <div class="mt-1 text-gray-500 print:text-base">{ contribution.role }</div>
+    <div class="mt-1 text-brand-secondary print:text-base">{ contribution.role }</div>
     <div class="mt-1">{ contribution.title }</div>
   </li>
   )}

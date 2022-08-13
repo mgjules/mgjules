@@ -25,17 +25,27 @@ export default defineConfig({
         ...['text-xl', 'font-semibold', 'font-light', 'sm:mt-2', 'text-red']
       ],
       shortcuts: {
-        'pill': 'w-fit border border-gray-500/50 py-1 px-2 text-xs text-gray-400/90 shadow-md select-none'
+        'pill': 'w-fit border border-brand-secondary/50 py-1 px-2 text-xs text-brand-primary/90 shadow-md select-none'
+      },
+      theme: {
+        colors: {
+          'brand': {
+            'background': '#191F28',
+            'primary': '#9ca3af', // text-gray-400
+            'secondary': '#6b7280', // text-gray-500
+            'accent': '#06b6d4' // text-cyan-500
+          }
+        }
       },
       presets: [
         presetUno(),
         presetTypography({
           cssExtend: {
             'a,code': {
-              color: '#0891b2',
+              color: '#06b6d4', // text-cyan-500
             },
             'a:hover': {
-              color: '#22d3ee',
+              color: '#22d3ee', // text-cyan-400
             },
           },
         }),
