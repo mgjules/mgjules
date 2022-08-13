@@ -18,7 +18,7 @@ contributions = contributions.map(contribution => {
   class="grid grid-cols-1 m-4 ml-0 list-none gap-x-12 gap-y-8 sm:grid-cols-2 print:block print:mt-4 print:columns-2">
   {contributions.map(contribution =>
   <li id={slugify("Contributions "+contribution.event+" "+contribution.title)}
-        class="flex flex-col pl-0 my-0  group print:mt-4 print:first:mt-0 print:break-inside-avoid">
+        class=" flex flex-col pl-0 my-0 group print:mt-4 print:first:mt-0 print:break-inside-avoid">
     <div class="flex flex-col sm:justify-between sm:flex-row gap-x-2">
       <h3 class="my-0">
         <a href={ contribution.link } target="_blank" class="font-medium no-underline">{contribution.event}
@@ -27,13 +27,13 @@ contributions = contributions.map(contribution => {
           </span>
         </a>
       </h3>
-      <div class="text-sm sm:mt-0.5 text-slate-500 shrink-0 mt-1 sm:mt-0">{contribution.formattedFrom ===
+      <div class="text-sm sm:mt-0.5 text-gray-500 shrink-0 mt-1 sm:mt-0">{contribution.formattedFrom ===
         contribution.formattedTo ?
         contribution.formattedTo :
         `${contribution.formattedFrom} →
         ${contribution.formattedTo || 'present'}`}</div>
     </div>
-    <div class="mt-1 text-slate-500 print:text-base">{ contribution.role }</div>
+    <div class="mt-1 text-gray-500 print:text-base">{ contribution.role }</div>
     <div class="mt-1">{ contribution.title }</div>
   </li>
   )}

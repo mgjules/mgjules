@@ -9,11 +9,13 @@ const interests = await getInterests()
   class="grid grid-cols-1 m-4 ml-0 list-none gap-x-12 gap-y-8 sm:grid-cols-2 print:block print:mt-4 print:columns-2">
   {interests.map(interest =>
   <li id={slugify("Interest "+interest.name)}
-        class="relative w-full overflow-hidden border rounded-md shadow-md  bg-slate-900/50 border-slate-900/50 group interest print:break-inside-avoid max-h-20">
+        class=" relative w-full overflow-hidden border shadow-md bg-gray-900/40 border-gray-900/50 group interest
+    print:break-inside-avoid max-h-20">
     <img class="relative z-10 object-cover w-full polygon-clip"
       src={`${import.meta.env.DIRECTUS_URL}assets/${interest.image}/${slugify(interest.name)}.png?key=interest&v=1`}
       alt={`${interest.name} image` } />
-    <h3 class="absolute my-0 transition-all -translate-y-1/2 z-5 group-hover:z-20 top-1/2 right-4 drop-shadow-md">
+    <h3
+      class="absolute my-0 transition-all -translate-y-1/2 z-5 opacity-0 group-hover:opacity-100 group-hover:z-20 top-1/2 right-4 drop-shadow-md">
       {interest.name}</h3>
   </li>
   )}

@@ -31,11 +31,11 @@ const tabs = [
           <img src={`${import.meta.env.DIRECTUS_URL}assets/${post.user_created.avatar}/avatar.jpg?key=blog-avatar`}
             alt="Cover Image" class="object-cover aspect-square" />
         </div>
-        <div class="flex flex-col justify-center w-full px-4 py-2 bg-slate-900/70 backdrop-blur-md">
+        <div class="flex flex-col justify-center w-full px-4 py-2 bg-gray-900/70 backdrop-blur-md">
           <h3 class="my-0 drop-shadow-sm">{post.title}</h3>
-          <div class="mt-1 text-xs drop-shadow-sm text-slate-500"><span
-              class="text-slate-400">{format(parseISO(post.date_created as string), 'dd MMM yyyy')}</span> by
-            <span class="text-slate-400">{post.user_created.first_name} {post.user_created.last_name}</span>
+          <div class="mt-1 text-xs drop-shadow-sm text-gray-500"><span
+              class="text-gray-400">{format(parseISO(post.date_created as string), 'dd MMM yyyy')}</span> by
+            <span class="text-gray-400">{post.user_created.first_name} {post.user_created.last_name}</span>
           </div>
         </div>
       </div>
@@ -43,7 +43,7 @@ const tabs = [
     <img src={`${import.meta.env.DIRECTUS_URL}assets/${post.cover_image}/cover.jpg?key=blog-cover`} alt="Cover Image"
       class="object-cover w-full aspect-video max-h-72" />
   </div>
-  {post.summary && <div class="m-4 text-slate-500">{post.summary}</div>}
+  {post.summary && <div class="m-4 text-gray-500">{post.summary}</div>}
   <div class="m-4" set:html={marked.parse(post.content)}></div>
   <div class="m-4">
     {post.tags &&
