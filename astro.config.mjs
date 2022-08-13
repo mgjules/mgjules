@@ -13,6 +13,7 @@ import uno from 'astro-uno'
 import { presetUno, presetTypography } from 'unocss'
 import presetWebFonts from '@unocss/preset-web-fonts'
 import transformerDirective from '@unocss/transformer-directives'
+import { theme } from '@unocss/preset-mini'
 
 // https://astro.build/config
 export default defineConfig({
@@ -33,10 +34,10 @@ export default defineConfig({
           'brand': {
             'foreground': '#252D38',
             'background': '#191F28',
-            'primary': '#d1d5db', // text-gray-300
-            'secondary': '#6b7280', // text-gray-500
-            'tertiary': '#4b5563', // text-gray-600
-            'accent': '#06b6d4' // text-cyan-500
+            'primary': theme.colors.gray['300'],
+            'secondary': theme.colors.gray['500'],
+            'tertiary': theme.colors.gray['600'],
+            'accent': theme.colors.cyan['500']
           }
         }
       },
@@ -45,12 +46,12 @@ export default defineConfig({
         presetTypography({
           cssExtend: {
             'a,code': {
-              color: '#06b6d4', // text-cyan-500
+              color: theme.colors.cyan['500']
             },
             'a:hover': {
-              color: '#22d3ee', // text-cyan-400
-            },
-          },
+              color: theme.colors.cyan['400']
+            }
+          }
         }),
         presetWebFonts({
           provider: 'google',
