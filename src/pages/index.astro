@@ -6,13 +6,13 @@ import { Link } from '@utils/types'
 
 const links = await getLinks()
 
-const current_tab = links.find(link => link.name === 'Home') as Link
+const current_tab = { ...links.find(link => link.name === 'Home') as Link, extension: 'index' }
 
 const tabs = [
   current_tab
 ]
 ---
 
-<EditorLayout current_tab={current_tab} extension="index" links={links} tabs={tabs} print>
+<EditorLayout current_tab={current_tab} links={links} tabs={tabs} print>
   <Introduction />
 </EditorLayout>

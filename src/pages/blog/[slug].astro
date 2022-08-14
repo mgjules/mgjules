@@ -2,7 +2,8 @@
 import { marked } from 'marked'
 import { format, parseISO } from 'date-fns'
 import EditorLayout from '@layouts/EditorLayout.astro'
-import { getLinks, getPost } from '@api/index'
+import { getLinks, getPost, getPosts } from '@api/index'
+import { Link } from '@utils/types'
 
 const links = await getLinks()
 
@@ -15,15 +16,26 @@ if (!post) {
 
 const current_tab = {
   name: post.title,
-  icon: 'ooui:article-ltr'
+  icon: 'ooui:article-ltr',
+  extension: 'post'
 }
 
+const posts = await getPosts()
+
 const tabs = [
-  current_tab
+  { ...links.find(link => link.name === 'Blog') as Link, extension: 'index' },
+  ...posts.map(post => ({
+    name: post.title,
+    icon: 'ooui:article-ltr',
+    url: `/blog/${post.slug}`,
+    extension: 'post'
+  }))
 ]
+
+console.log(tabs)
 ---
 
-<EditorLayout current_tab={current_tab} extension="post" links={links} tabs={tabs} print>
+<EditorLayout current_tab={current_tab} links={links} tabs={tabs} print>
   <div class="relative">
     <div class="absolute bottom-0 left-0 w-full">
       <div class="flex">

@@ -16,7 +16,8 @@ const { section: current_tab_name } = Astro.params;
 const tabs = sections.map(section => {
   return {
     ...section as Link,
-    link: `/cv/${section.name.toLowerCase()}`
+    url: `/cv/${section.name.toLowerCase()}`,
+    extension: 'cv'
   }
 })
 
@@ -28,7 +29,7 @@ if (!current_tab) {
 
 ---
 
-<EditorLayout current_tab={current_tab} extension="cv" links={links} tabs={tabs} print>
+<EditorLayout current_tab={current_tab} links={links} tabs={tabs} print>
   {async () => {
   const DynamicComponent = (await import(`../../components/cv/${current_tab.name}.astro`)).default
   return <>
