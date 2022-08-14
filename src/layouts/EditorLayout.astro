@@ -64,7 +64,8 @@ function isCurrentLink(url: string) {
         <div id="sidebar" class="flex flex-col sidebar shrink-0 print:hidden">
           {links.map(link =>
           <a href={link.alternate_url || link.url} title={link.name} target={link.new_window ? "_blank" : "_self" }
-            class={`${ isCurrentLink(link.url) ? 'text-brand-primary border-brand-accent'
+            class={`${ isCurrentLink(link.url)
+            ? 'text-brand-primary border-brand-accent bg-gradient-to-r from-brand-accent/10 via-brand-accent/5 to-transparent'
             : 'text-brand-tertiary border-transparent' } hover:text-brand-primary transition-all flex items-center
             justify-center shrink-0 box-border border-l-2 p-4`} data-swup-preload={!link.new_window}>
             <iconify-icon icon={link.icon} class="inline-block h-6 w-6" width="24" />
