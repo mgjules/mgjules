@@ -8,11 +8,16 @@ const links = await getLinks()
 
 const current_tab = links.find(link => link.name === 'Blog') as Link
 
-const tabs = [
-  current_tab
-]
-
 const posts = await getPosts()
+
+const tabs = [
+  current_tab,
+  ...posts.map(post => ({
+    name: post.title,
+    icon: 'ooui:article-ltr',
+    link: `/blog/${post.slug}`
+  }))
+]
 ---
 
 <EditorLayout current_tab={current_tab} extension="index" links={links} tabs={tabs}>
