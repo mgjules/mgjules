@@ -40,8 +40,8 @@ const tabs = [
         </div>
       </div>
     </div>
-    <img src={`${import.meta.env.DIRECTUS_URL}assets/${post.cover_image}/cover.webp?key=blog-cover`} alt="Cover Image"
-      class="object-cover w-full aspect-video max-h-72" />
+    <img src={`${import.meta.env.DIRECTUS_URL}assets/${post.cover_image}/cover.webp?key=blog-cover&v=1`}
+      alt="Cover Image" class="object-cover w-full aspect-video max-h-72" />
   </div>
   {post.summary && <div class="m-4 text-brand-secondary">{post.summary}</div>}
   <div class="m-4" set:html={marked.parse(post.content)}></div>
