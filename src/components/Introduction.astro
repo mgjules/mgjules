@@ -1,13 +1,44 @@
 ---
 import { marked } from 'marked'
-import { getIntroduction } from '@api/index'
+import { getMeta, getIntroduction, getLinks } from '@api/index'
 
 const intro = await getIntroduction()
+const meta = await getMeta()
+if (!meta) {
+  return Astro.redirect("/400")
+}
+
+const links = await getLinks()
+
 ---
 
-<div class="m-4">
-  <img class="float-left w-14 h-14 mr-4 transition-all rounded-md scale-x-[-1]"
-    src={`${import.meta.env.DIRECTUS_URL}assets/${intro.avatar}/avatar.webp?key=intro-avatar`} alt="Avatar"
-    loading="lazy">
-  <div set:html={marked.parse(intro.introduction)} />
+<div class="flex flex-col-reverse items-center sm:flex-row sm:justify-around m-4 mt-12 gap-8">
+  <div class="flex flex-col items-center sm:items-start">
+    <h1 class="uppercase my-0 text-brand-primary text-center sm:text-left"><span
+        class="font-light">{meta.first_name}</span> <span class="semibold">{meta.last_name}</span>
+    </h1>
+    <h2 class="uppercase my-0 mt-3 text-brand-accent text-center sm:text-left">&lt; Backend Engineer /&gt;</h2>
+    <div class="text-lg mt-4 text-center sm:text-left" set:html={marked.parseInline(intro.introduction)} />
+    <div class="mt-4">
+      <a href={links[1].alternate_url || links[1].url}
+        class="inline-block px-3 py-2 decoration-none border border-brand-accent text-brand-primary shadow-md">Learn
+        more</a>
+    </div>
+  </div>
+  <div class="shrink-0 h-40 w-40 sm:h-60 sm:w-60 relative">
+    <div class="clip-avatar h-full w-full bg-brand-foreground/70"></div>
+    <div class="clip-box absolute bottom-0 h-full w-full bg-brand-foreground/50"></div>
+    <img class="clip-avatar absolute bottom-0 contrast-125 brightness-95"
+      src={`${import.meta.env.DIRECTUS_URL}assets/${intro.avatar}/avatar.webp`} alt="Avatar" loading="lazy">
+  </div>
 </div>
+
+<style is:global>
+  .clip-avatar {
+    clip-path: polygon(0 6%, 100% 0, 83% 100%, 5% 95%);
+  }
+
+  .clip-box {
+    clip-path: polygon(6% 0, 100% 14%, 98% 85%, 0 100%);
+  }
+</style>
