@@ -43,7 +43,7 @@ function isCurrentLink(url: string) {
   avatar={meta.avatar} base_url={meta.base_url} gender={meta.gender} username={meta.username}>
   <div class="flex justify-center p-4 print:p-0">
     <div
-      class="text-brand-primary w-full max-w-4xl print:max-w-full print:rounded-none backdrop-blur-sm bg-brand-background/90 shadow-xl">
+      class="text-brand-primary w-full max-w-6xl print:max-w-full print:rounded-none backdrop-blur-sm bg-brand-background/90 shadow-xl">
       <div id="swup-progress-bar-container" class="relative h-fit">
         <div class="flex items-center justify-between w-full gap-4 p-3">
           <div class="flex gap-1.5">
@@ -78,10 +78,10 @@ function isCurrentLink(url: string) {
               class="swup-preserve-scroll transition-all flex -mb-[2px] items-center overflow-x-scroll min-h-8 shrink scrollbar">
               {tabs && tabs.map(tab =>
               <a href={`${tab.link || '#' }`} class={`${current_tab.name===tab.name
-                ? 'text-brand-primary bg-brand-secondary/10 border-b-brand-primary/20'
+                ? 'text-brand-primary bg-brand-foreground/60 border-b-brand-primary/20'
                 : 'text-brand-tertiary hover:text-brand-secondary' } tab flex border-b border-b-transparent items-center
                 justify-center gap-2 shrink-0 px-4 leading-7 border-r border-r-gray-900/60 transition-all text-xs
-                hover:bg-brand-secondary/10 hover:cursor-pointer`} data-swup-preload>
+                hover:bg-brand-foreground hover:cursor-pointer`} data-swup-preload>
                 <iconify-icon icon={tab.icon} class="w-3 h-3" width="12" height="12" />
                 <span>{tab.name}.{extension}</span>
               </a>

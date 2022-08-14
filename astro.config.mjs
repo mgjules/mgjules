@@ -31,13 +31,13 @@ export default defineConfig({
       },
       theme: {
         colors: {
-          'brand': {
-            'foreground': '#252D38',
-            'background': '#191F28',
-            'primary': theme.colors.gray['300'],
-            'secondary': theme.colors.gray['500'],
-            'tertiary': theme.colors.gray['600'],
-            'accent': theme.colors.cyan['500']
+          brand: {
+            foreground: '#252D38',
+            background: '#191F28',
+            primary: theme.colors.gray['300'],
+            secondary: theme.colors.gray['500'],
+            tertiary: theme.colors.gray['600'],
+            accent: theme.colors.cyan['500']
           }
         }
       },

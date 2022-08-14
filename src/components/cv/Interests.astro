@@ -9,8 +9,8 @@ const interests = await getInterests()
   class="grid grid-cols-1 m-4 ml-0 list-none gap-x-12 gap-y-8 sm:grid-cols-2 print:block print:mt-4 print:columns-2">
   {interests.map(interest =>
   <li id={slugify("Interest "+interest.name)}
-        class=" relative w-full overflow-hidden border shadow-md bg-gray-900/40 border-gray-900/50 group interest
-    print:break-inside-avoid max-h-20">
+        class=" relative w-full overflow-hidden border shadow-md bg-brand-foreground/10 border-brand-foreground/30
+    group interest print:break-inside-avoid max-h-20">
     <img class="relative z-10 object-cover w-full polygon-clip"
       src={`${import.meta.env.DIRECTUS_URL}assets/${interest.image}/${slugify(interest.name)}.webp?key=interest&v=1`}
       alt={`${interest.name} image` } />
