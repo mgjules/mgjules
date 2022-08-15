@@ -52,11 +52,9 @@ function isCurrentLink(url: string) {
             <div class="w-2.5 h-2.5 rounded-full bg-brand-tertiary"></div>
             <div class="w-2.5 h-2.5 rounded-full bg-brand-tertiary"></div>
           </div>
-          <div id="title" class="text-xs truncate transition-all text-brand-tertiary">
+          <div id="title" class="text-sm truncate transition-all text-brand-tertiary">
             {current_tab.name}.{current_tab.extension} -
-            {meta.username} -
-            MG
-            Code
+            {meta.username}
           </div>
           <div></div>
         </div>
@@ -82,9 +80,9 @@ function isCurrentLink(url: string) {
               <a href={`${tab.url || '#' }`} class={`${current_tab.name===tab.name
                 ? 'text-brand-primary bg-brand-foreground/60 border-b-brand-primary/20'
                 : 'text-brand-tertiary hover:text-brand-secondary' } tab flex border-b border-b-transparent items-center
-                justify-center gap-2 shrink-0 px-4 leading-7 border-r border-r-gray-900/60 transition-all text-xs
+                justify-center gap-2 shrink-0 px-4 leading-7 border-r border-r-gray-900/60 transition-all text-sm
                 hover:bg-brand-foreground hover:cursor-pointer`} data-swup-preload>
-                <iconify-icon icon={tab.icon} class="w-3 h-3" width="12" height="12" />
+                <iconify-icon icon={tab.icon} class="w-4 h-4" width="14" height="14" />
                 <span>{tab.name}.{tab.extension}</span>
               </a>
               )}
