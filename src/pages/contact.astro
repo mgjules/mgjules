@@ -14,34 +14,34 @@ const tabs = [
 
 <EditorLayout current_tab={current_tab} links={links} tabs={tabs}>
   <div class="m-4">
-    <form name="contact" method="POST" class="grid grid-cols-1 mt-6 gap-y-6 sm:grid-cols-2 sm:gap-x-8"
-      data-netlify-recaptcha="true" data-netlify="true">
+    <form name="contact" method="POST" class="grid grid-cols-1 mt-6 gap-y-6 sm:grid-cols-2 sm:gap-x-8" netlify-recaptcha
+      netlify-honeypot netlify>
       <div class="hidden">
         <label for="bot-field" class="block text-sm font-medium">Don’t fill this out if you’re human</label>
         <div class="mt-1">
           <input type="text" name="bot-field" id="bot-field"
-            class="block w-full px-3 py-2 border bg-brand-foreground focus:outline-none focus:border-brand-accent/60 border-brand-foreground" />
+            class="block w-full px-3 py-2 border bg-brand-foreground/90 focus:outline-none focus:border-brand-accent/60 border-brand-foreground" />
         </div>
       </div>
       <div>
         <label for="name" class="block text-sm font-medium">Name</label>
         <div class="mt-1">
           <input type="text" name="name" id="name" autocomplete="name"
-            class="block w-full px-3 py-2 border bg-brand-foreground focus:outline-none focus:border-brand-accent/60 border-brand-foreground" />
+            class="block w-full px-3 py-2 border bg-brand-foreground/90 focus:outline-none focus:border-brand-accent/60 border-brand-foreground" />
         </div>
       </div>
       <div>
         <label for="email" class="block text-sm font-medium">Email</label>
         <div class="mt-1">
           <input id="email" name="email" type="email" autocomplete="email"
-            class="block w-full px-3 py-2 border bg-brand-foreground focus:outline-none focus:border-brand-accent/60 border-brand-foreground" />
+            class="block w-full px-3 py-2 border bg-brand-foreground/90 focus:outline-none focus:border-brand-accent/60 border-brand-foreground" />
         </div>
       </div>
       <div class="sm:col-span-2">
         <label for="subject" class="block text-sm font-medium">Subject</label>
         <div class="mt-1">
           <input type="text" name="subject" id="subject"
-            class="block w-full px-3 py-2 border bg-brand-foreground focus:outline-none focus:border-brand-accent/60 border-brand-foreground" />
+            class="block w-full px-3 py-2 border bg-brand-foreground/90 focus:outline-none focus:border-brand-accent/60 border-brand-foreground" />
         </div>
       </div>
       <div class="sm:col-span-2">
@@ -51,7 +51,7 @@ const tabs = [
         </div>
         <div class="mt-1">
           <textarea id="message" name="message" rows="4"
-            class="block w-full px-3 py-2 border bg-brand-foreground focus:outline-none focus:border-brand-accent/60 border-brand-foreground"
+            class="block w-full px-3 py-2 border bg-brand-foreground/90 focus:outline-none focus:border-brand-accent/60 border-brand-foreground"
             aria-describedby="message-max" />
         </div>
       </div>
