@@ -12,22 +12,22 @@ const links = await getLinks()
 
 ---
 
-<div class="flex flex-col-reverse items-center sm:flex-row sm:justify-around m-4 sm:mt-12 gap-8">
+<div class="flex flex-col-reverse items-center gap-8 m-4 sm:flex-row sm:justify-around sm:mt-12">
   <div class="flex flex-col items-center sm:items-start">
-    <h1 class="uppercase my-0 text-brand-primary text-center sm:text-left"><span
+    <h1 class="my-0 text-center uppercase text-brand-primary sm:text-left"><span
         class="font-light">{meta.first_name}</span> <span class="semibold">{meta.last_name}</span>
     </h1>
-    <h2 class="uppercase my-0 mt-3 text-brand-accent text-center sm:text-left">&lt; Backend Engineer /&gt;</h2>
-    <div class="text-lg mt-4 text-center sm:text-left" set:html={marked.parseInline(intro.introduction)} />
+    <h2 class="my-0 mt-3 text-center uppercase text-brand-accent sm:text-left">&lt; Backend Engineer /&gt;</h2>
+    <div class="mt-4 text-lg text-center sm:text-left" set:html={marked.parseInline(intro.introduction)} />
     <div class="mt-4">
       <a href={links[1].alternate_url || links[1].url} class="btn">Learn
         more</a>
     </div>
   </div>
-  <div class="shrink-0 h-40 w-40 sm:h-60 sm:w-60 relative">
-    <div class="clip-avatar h-full w-full bg-brand-foreground/70"></div>
-    <div class="clip-box absolute bottom-0 h-full w-full bg-brand-foreground/50"></div>
-    <img class="clip-avatar absolute bottom-0 contrast-125 brightness-95"
+  <div class="relative w-40 h-40 shrink-0 sm:h-60 sm:w-60">
+    <div class="w-full h-full transition-all clip-avatar bg-brand-foreground/70"></div>
+    <div class="absolute bottom-0 w-full h-full transition-all clip-box bg-brand-foreground/50"></div>
+    <img class="absolute bottom-0 transition-all clip-avatar contrast-125 brightness-95"
       src={`${import.meta.env.DIRECTUS_URL}assets/${intro.avatar}/avatar.webp?key=intro-avatar&v=1`} alt="Avatar">
   </div>
 </div>
