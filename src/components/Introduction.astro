@@ -18,7 +18,7 @@ const links = await getLinks()
         class="font-light">{meta.first_name}</span> <span class="semibold">{meta.last_name}</span>
     </h1>
     <h2 class="my-0 mt-3 text-center uppercase text-brand-accent sm:text-left">&lt; Backend Engineer /&gt;</h2>
-    <div class="mt-4 text-lg text-center sm:text-left" set:html={marked.parseInline(intro.introduction)} />
+    <div class="mt-4 text-base text-center sm:text-left" set:html={marked.parseInline(intro.introduction)} />
     <div class="mt-4">
       <a href={links[1].alternate_url || links[1].url} class="btn" data-swup-preload>Learn
         more</a>

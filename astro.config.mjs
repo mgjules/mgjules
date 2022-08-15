@@ -61,7 +61,7 @@ export default defineConfig({
           provider: 'google',
           fonts: {
             sans: 'Open Sans',
-            mono: ['Fira Code', 'Fira Mono:400,700']
+            mono: ['Fira Code VF']
           }
         })
       ],

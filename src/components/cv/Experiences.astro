@@ -35,7 +35,7 @@ experiences = experiences.map(experience => {
         }
       </div>
     </div>
-    <div class="mt-1 text-brand-secondary print:text-base">{ experience.position }</div>
+    <div class="mt-1 text-sm text-brand-secondary">{ experience.position }</div>
     <div class="flex flex-wrap gap-2 mt-2">
       {experience.technologies.map(technologie => {
       return <span class="pill">
@@ -44,9 +44,9 @@ experiences = experiences.map(experience => {
       }
       )}
     </div>
-    <ul role="list" class="mt-3 mb-0 print:text-base">
+    <ul role="list" class="mt-3 mb-0">
       {experience.tasks?.map(task =>
-      <li class="mt-1 mb-0" set:html={marked.parseInline(task.task)}></li>
+      <li class="mt-1 mb-0 text-base" set:html={marked.parseInline(task.task)}></li>
       )}
     </ul>
   </li>
