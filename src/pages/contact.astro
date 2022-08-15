@@ -16,6 +16,7 @@ const tabs = [
   <div class="m-4">
     <form name="contact" method="POST" class="grid grid-cols-1 mt-6 gap-y-6 sm:grid-cols-2 sm:gap-x-8" netlify-recaptcha
       netlify-honeypot netlify>
+      <input type="hidden" name="form-name" value="contact" />
       <div class="hidden">
         <label for="bot-field" class="block text-sm font-medium">Don’t fill this out if you’re human</label>
         <div class="mt-1">
