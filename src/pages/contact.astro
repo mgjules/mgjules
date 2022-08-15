@@ -1,0 +1,66 @@
+---
+import EditorLayout from '@layouts/EditorLayout.astro'
+import { getLinks } from '@api/index'
+import { Link } from '@utils/types'
+
+const links = await getLinks()
+
+const current_tab = { ...links.find(link => link.name === 'Contact') as Link, extension: 'index' }
+
+const tabs = [
+  current_tab
+]
+---
+
+<EditorLayout current_tab={current_tab} links={links} tabs={tabs}>
+  <div class="m-4">
+    <form name="contact" method="POST" class="grid grid-cols-1 mt-6 gap-y-6 sm:grid-cols-2 sm:gap-x-8"
+      data-netlify="true">
+      <div class="hidden">
+        <label for="bot-field" class="block text-sm font-medium">Don’t fill this out if you’re human</label>
+        <div class="mt-1">
+          <input type="text" name="bot-field" id="bot-field"
+            class="block w-full px-3 py-2 border bg-brand-foreground focus:outline-none focus:border-brand-accent/60 border-brand-foreground" />
+        </div>
+      </div>
+      <div>
+        <label for="name" class="block text-sm font-medium">Name</label>
+        <div class="mt-1">
+          <input type="text" name="name" id="name" autocomplete="name"
+            class="block w-full px-3 py-2 border bg-brand-foreground focus:outline-none focus:border-brand-accent/60 border-brand-foreground" />
+        </div>
+      </div>
+      <div>
+        <label for="email" class="block text-sm font-medium">Email</label>
+        <div class="mt-1">
+          <input id="email" name="email" type="email" autocomplete="email"
+            class="block w-full px-3 py-2 border bg-brand-foreground focus:outline-none focus:border-brand-accent/60 border-brand-foreground" />
+        </div>
+      </div>
+      <div class="sm:col-span-2">
+        <label for="subject" class="block text-sm font-medium">Subject</label>
+        <div class="mt-1">
+          <input type="text" name="subject" id="subject"
+            class="block w-full px-3 py-2 border bg-brand-foreground focus:outline-none focus:border-brand-accent/60 border-brand-foreground" />
+        </div>
+      </div>
+      <div class="sm:col-span-2">
+        <div class="flex justify-between">
+          <label for="message" class="block text-sm font-medium">Message</label>
+          <span id="message-max" class="text-sm text-brand-tertiary">Max. 500 characters</span>
+        </div>
+        <div class="mt-1">
+          <textarea id="message" name="message" rows="4"
+            class="block w-full px-3 py-2 border bg-brand-foreground focus:outline-none focus:border-brand-accent/60 border-brand-foreground"
+            aria-describedby="message-max" />
+        </div>
+      </div>
+      <div class="sm:col-span-2">
+        <div data-netlify-recaptcha="true"></div>
+      </div>
+      <div class="sm:col-span-2">
+        <button type="submit" class="btn">Submit</button>
+      </div>
+    </form>
+  </div>
+</EditorLayout>
