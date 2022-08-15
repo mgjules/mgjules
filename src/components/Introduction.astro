@@ -20,8 +20,7 @@ const links = await getLinks()
     <h2 class="uppercase my-0 mt-3 text-brand-accent text-center sm:text-left">&lt; Backend Engineer /&gt;</h2>
     <div class="text-lg mt-4 text-center sm:text-left" set:html={marked.parseInline(intro.introduction)} />
     <div class="mt-4">
-      <a href={links[1].alternate_url || links[1].url}
-        class="inline-block px-3 py-2 decoration-none border border-brand-accent text-brand-primary shadow-md">Learn
+      <a href={links[1].alternate_url || links[1].url} class="btn">Learn
         more</a>
     </div>
   </div>

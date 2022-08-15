@@ -27,7 +27,8 @@ export default defineConfig({
         ...['text-xl', 'font-semibold', 'font-light', 'sm:mt-2', 'text-red']
       ],
       shortcuts: {
-        'pill': 'w-fit border border-brand-secondary/50 py-1 px-2 text-xs text-brand-primary/90 shadow-md select-none'
+        'pill': 'w-fit border border-brand-secondary/50 py-1 px-2 text-xs text-brand-primary/90 shadow-md select-none',
+        'btn': 'inline-block px-3 py-2 transition-all decoration-none border border-brand-accent text-brand-primary shadow-md hover:shadow-sm'
       },
       theme: {
         colors: {
