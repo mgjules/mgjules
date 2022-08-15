@@ -15,9 +15,9 @@ experiences = experiences.map(experience => {
 })
 ---
 
-<ul role="list" class="grid grid-cols-1 m-4 ml-0 list-none gap-y-8 print:block print:mt-4">
+<ul role="list" class="grid grid-cols-1 m-4 ml-0 list-none gap-y-10 print:block print:mt-4">
   {experiences.map(experience =>
-  <li id={slugify("Experience "+experience.company)} class=" pl-0 my-0 group print:mt-4 print:break-inside-avoid">
+  <li id={slugify("Experience "+experience.company)} class="pl-0 my-0  group print:mt-4 print:break-inside-avoid">
     <div class="flex flex-col sm:justify-between sm:flex-row gap-x-2">
       <h3 class="my-0">
         <a href={ experience.link } target="_blank" class="font-medium no-underline">{experience.company}
@@ -44,7 +44,7 @@ experiences = experiences.map(experience => {
       }
       )}
     </div>
-    <ul role="list" class="mt-2 mb-0 print:text-base">
+    <ul role="list" class="mt-3 mb-0 print:text-base">
       {experience.tasks?.map(task =>
       <li class="mt-1 mb-0" set:html={marked.parseInline(task.task)}></li>
       )}
