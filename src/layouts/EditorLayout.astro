@@ -60,7 +60,7 @@ function isCurrentLink(url: string) {
         </div>
       </div>
       <div class="flex flex-row">
-        <div id="sidebar" class="flex flex-col sidebar shrink-0 print:hidden">
+        <div id="sidebar" class="sticky top-0 h-fit sidebar print:hidden">
           {links.map(link =>
           <a href={link.alternate_url || link.url} title={link.name} target={link.new_window ? "_blank" : "_self" }
             class={`${ isCurrentLink(link.url)
