@@ -10,35 +10,56 @@ const projects = await getProjects()
 const github = meta?.github || ''
 ---
 
-<ul role="list" class="flex flex-col m-4 ml-0 list-none gap-y-10 print:block print:mt-4 print:columns-1">
-  {projects.map(project =>
-  <li id={slugify("Projects "+project.name)}
-      class="flex pl-0 my-0  group print:mt-4 print:first:mt-0 print:break-inside-avoid">
-    <div class="flex items-center justify-between flex-1 rounded-r-md">
-      <div class="flex-1">
-        <h3 class="my-0">
-          <a href={ project.link } target="_blank" class="font-medium no-underline">{project.name}
-            <span class="hidden text-sm print:inline">
-              ( {project.link.replace(/^https?:\/\//, "")} )
-            </span>
-          </a>
-        </h3>
-        <div class="mt-1 break-words" set:html={marked.parseInline(project.description)} />
-        <div class="flex flex-wrap gap-2 mt-2">
-          {project.technologies.map(technologie => {
-          return <span class="pill">
-            {technologie.technologies_id.name}
-          </span>
-          })}
+<ul
+  role="list"
+  class="flex flex-col m-4 ml-0 list-none gap-y-10 print:block print:mt-4 print:columns-1"
+>
+  {
+    projects.map((project) => (
+      <li
+        id={slugify('Projects ' + project.name)}
+        class="flex pl-0 my-0  group print:mt-4 print:first:mt-0 print:break-inside-avoid"
+      >
+        <div class="flex items-center justify-between flex-1 rounded-r-md">
+          <div class="flex-1">
+            <h3 class="my-0">
+              <a
+                href={project.link}
+                target="_blank"
+                class="font-medium no-underline"
+              >
+                {project.name}
+                <span class="hidden text-sm print:inline">
+                  ( {project.link.replace(/^https?:\/\//, '')} )
+                </span>
+              </a>
+            </h3>
+            <div
+              class="mt-1 break-words"
+              set:html={marked.parseInline(project.description)}
+            />
+            <div class="flex flex-wrap gap-2 mt-2">
+              {project.technologies.map((technologie) => {
+                return (
+                  <span class="pill">{technologie.technologies_id.name}</span>
+                )
+              })}
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </li>
-  )}
+      </li>
+    ))
+  }
   <li class="pl-0 my-0 print:mt-4">
-    <a href={github} target="_blank" class="flex items-center gap-2 w-fit btn">View
-      more <span class="hidden print:inline">[ {github.replace(/^https?:\/\//, "")} ]</span>
-      <iconify-icon icon="uil:external-link-alt" class="inline-block w-4.5 h-4.5" width="18" />
+    <a href={github} target="_blank" class="flex items-center gap-2 w-fit btn"
+      >View more <span class="hidden print:inline"
+        >[ {github.replace(/^https?:\/\//, '')} ]
+      </span>
+      <iconify-icon
+        icon="uil:external-link-alt"
+        class="inline-block w-4.5 h-4.5"
+        width="18"
+      />
     </a>
   </li>
 </ul>

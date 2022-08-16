@@ -23,8 +23,11 @@ const current_tab = {
 const posts = await getPosts()
 
 const tabs = [
-  { ...links.find(link => link.name === 'Blog') as Link, extension: 'index' },
-  ...posts.map(post => ({
+  {
+    ...(links.find((link) => link.name === 'Blog') as Link),
+    extension: 'index'
+  },
+  ...posts.map((post) => ({
     name: post.title,
     icon: 'ooui:article-ltr',
     url: `/blog/${post.slug}`,
@@ -37,33 +40,51 @@ const tabs = [
   <div class="relative">
     <div class="absolute bottom-0 left-0 w-full">
       <div class="flex">
-        <div class="hidden w-full h-full overflow-hidden sm:block shrink-0 max-w-16 max-h-16 aspect-square">
-          <img src={`${import.meta.env.DIRECTUS_URL}assets/${post.user_created.avatar}/avatar.webp?key=blog-avatar`}
-            alt="Cover Image" class="object-cover aspect-square" />
+        <div
+          class="hidden w-full h-full overflow-hidden sm:block shrink-0 max-w-16 max-h-16 aspect-square"
+        >
+          <img
+            src={`${import.meta.env.DIRECTUS_URL}assets/${
+              post.user_created.avatar
+            }/avatar.webp?key=blog-avatar`}
+            alt="Cover Image"
+            class="object-cover aspect-square"
+          />
         </div>
-        <div class="flex flex-col justify-center w-full px-4 py-2 bg-brand-background/90 backdrop-blur-md">
+        <div
+          class="flex flex-col justify-center w-full px-4 py-2 bg-brand-background/90 backdrop-blur-md"
+        >
           <h3 class="my-0 drop-shadow-sm">{post.title}</h3>
-          <div class="mt-1 text-xs drop-shadow-sm text-brand-secondary"><span
-              class="text-brand-primary">{format(parseISO(post.date_created as string), 'dd MMM yyyy')}</span> by
-            <span class="text-brand-primary">{post.user_created.first_name} {post.user_created.last_name}</span>
+          <div class="mt-1 text-xs drop-shadow-sm text-brand-secondary">
+            <span class="text-brand-primary"
+              >{format(parseISO(post.date_created as string), 'dd MMM yyyy')}
+            </span> by
+            <span class="text-brand-primary"
+              >{post.user_created.first_name} {post.user_created.last_name}
+            </span>
           </div>
         </div>
       </div>
     </div>
-    <img src={`${import.meta.env.DIRECTUS_URL}assets/${post.cover_image}/cover.webp?key=blog-cover&v=1`}
-      alt="Cover Image" class="object-cover w-full aspect-video max-h-72" />
+    <img
+      src={`${import.meta.env.DIRECTUS_URL}assets/${
+        post.cover_image
+      }/cover.webp?key=blog-cover&v=1`}
+      alt="Cover Image"
+      class="object-cover w-full aspect-video max-h-72"
+    />
   </div>
   {post.summary && <div class="m-4 text-brand-secondary">{post.summary}</div>}
   <div class="m-4" set:html={marked.parse(post.content)}></div>
   <div class="m-4">
-    {post.tags &&
-    <div class="flex flex-wrap gap-2 mt-2 sm:mt-0">
-      {post.tags.map(tag =>
-      <span class="pill">
-        {tag.tags_id.name}
-      </span>
-      )}
-    </div>
+    {
+      post.tags && (
+        <div class="flex flex-wrap gap-2 mt-2 sm:mt-0">
+          {post.tags.map((tag) => (
+            <span class="pill">{tag.tags_id.name}</span>
+          ))}
+        </div>
+      )
     }
   </div>
 </EditorLayout>

@@ -27,8 +27,8 @@ export default defineConfig({
         ...['text-xl', 'font-semibold', 'font-light', 'sm:mt-2', 'text-red']
       ],
       shortcuts: {
-        'pill': 'w-fit border border-brand-secondary/50 py-1 px-2 text-xs text-brand-primary/90 shadow-md select-none',
-        'btn': 'inline-block px-3 py-2 transition-all decoration-none border border-brand-accent text-brand-primary shadow-md hover:text-brand-accent hover:shadow-sm'
+        pill: 'w-fit border border-brand-secondary/50 py-1 px-2 text-xs text-brand-primary/90 shadow-md select-none',
+        btn: 'inline-block px-3 py-2 transition-all decoration-none border border-brand-accent text-brand-primary shadow-md hover:text-brand-accent hover:shadow-sm'
       },
       theme: {
         colors: {
@@ -47,7 +47,7 @@ export default defineConfig({
         presetTypography({
           cssExtend: {
             'h1,h2,h3,h4,h5,h6': {
-              color: theme.colors.gray[300],
+              color: theme.colors.gray[300]
             },
             'a,code': {
               color: theme.colors.cyan[500]
@@ -65,9 +65,7 @@ export default defineConfig({
           }
         })
       ],
-      transformers: [
-        transformerDirective()
-      ]
+      transformers: [transformerDirective()]
     }),
     svelte(),
     compress(),

@@ -44,6 +44,8 @@
     "astro-compress": "^0.0.19",
     "astro-uno": "^0.1.6",
     "date-fns": "^2.29.1",
+    "prettier": "^2.7.1",
+    "prettier-plugin-astro": "^0.5.0",
     "sass": "^1.54.4",
     "slugify": "^1.6.5",
     "unocss": "^0.45.7"

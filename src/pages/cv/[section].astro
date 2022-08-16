@@ -11,29 +11,36 @@ function capitalize(str) {
   return str.charAt(0).toUpperCase() + str.slice(1)
 }
 
-const { section: current_tab_name } = Astro.params;
+const { section: current_tab_name } = Astro.params
 
-const tabs = sections.map(section => {
+const tabs = sections.map((section) => {
   return {
-    ...section as Link,
+    ...(section as Link),
     url: `/cv/${section.name.toLowerCase()}`,
     extension: 'cv'
   }
 })
 
-const current_tab = tabs.find(tab => tab.name === capitalize(current_tab_name))
+const current_tab = tabs.find(
+  (tab) => tab.name === capitalize(current_tab_name)
+)
 
 if (!current_tab) {
   return Astro.redirect('/404')
 }
-
 ---
 
 <EditorLayout current_tab={current_tab} links={links} tabs={tabs} print>
-  {async () => {
-  const DynamicComponent = (await import(`../../components/cv/${current_tab.name}.astro`)).default
-  return <>
-    <DynamicComponent />
-  </>
-  }}
+  {
+    async () => {
+      const DynamicComponent = (
+        await import(`../../components/cv/${current_tab.name}.astro`)
+      ).default
+      return (
+        <>
+          <DynamicComponent />
+        </>
+      )
+    }
+  }
 </EditorLayout>
