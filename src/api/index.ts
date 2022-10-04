@@ -185,22 +185,19 @@ export async function getContributions(): Promise<
 }
 
 export async function getAwards(): Promise<Award[] | null | undefined> {
-  const awards = await directus.items('awards').readByQuery({
-    fields: [
-      'id',
-      'event',
-      'description',
-      'date',
-      'link',
-      'result',
-      'icon',
-      'status'
-    ],
-    sort: ['-date'] as never,
-    limit: -1
-  })
-
-  return awards.data
+  const result: Award[] | null = await client.query(`
+    select CVAward {
+      id,
+      event,
+      description,
+      result,
+      date,
+      link,
+      icon
+    } order by .date desc
+  `)
+  console.log(result)
+  return result
 }
 
 export async function getInterests(): Promise<Interest[] | null | undefined> {

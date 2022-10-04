@@ -1,6 +1,6 @@
 ---
 import { marked } from 'marked'
-import { format, parseISO } from 'date-fns'
+import { format, parse } from 'date-fns'
 import slugify from 'slugify'
 import { getAwards } from '@api/index'
 
@@ -9,7 +9,10 @@ let awards = await getAwards()
 awards = awards.map((award) => {
   return {
     ...award,
-    formattedDate: format(parseISO(award.date), 'MMM yyyy')
+    formattedDate: format(
+      parse(award.date, 'yyyy-MM-dd', new Date()),
+      'MMM yyyy'
+    )
   }
 })
 ---

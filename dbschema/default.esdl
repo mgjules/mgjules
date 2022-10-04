@@ -100,4 +100,13 @@ module default {
     required property title -> str;
     required property link -> str;
   }
+
+  type CVAward extending Timestamps {
+    required property event -> str;
+    required property description -> str;
+    required property date -> cal::local_date;
+    required property link -> str;
+    required property icon -> str;
+    required property result -> str;
+  }
 };
