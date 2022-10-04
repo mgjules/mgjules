@@ -196,7 +196,7 @@ export async function getAwards(): Promise<Award[] | null | undefined> {
       icon
     } order by .date desc
   `)
-  console.log(result)
+
   return result
 }
 
