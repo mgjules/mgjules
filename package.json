@@ -12,6 +12,7 @@
     "@astrojs/netlify": "^1.0.1",
     "@astrojs/svelte": "^1.0.0",
     "@directus/sdk": "^10.1.4",
+    "edgedb": "^0.22.8",
     "marked": "^4.0.18"
   },
   "devDependencies": {
@@ -37,6 +38,7 @@
     "@iconify-json/simple-icons": "^1.1.22",
     "@iconify-json/twemoji": "^1.1.5",
     "@iconify-json/vscode-icons": "^1.1.10",
+    "@types/marked": "^4.0.7",
     "@unocss/preset-web-fonts": "^0.45.7",
     "@unocss/reset": "^0.45.7",
     "@unocss/transformer-directives": "^0.45.7",

@@ -1,17 +1,16 @@
 import { ID } from '@directus/sdk'
 
 export type Link = {
-  id: ID
+  id: string
   name: string
   url: string
   icon: string
   alternate_url?: string
   new_window?: boolean
-  status: string
 }
 
 export type Introduction = {
-  id: ID
+  id: string
   introduction: string
   avatar: string
 }
@@ -35,7 +34,6 @@ export type Post = {
   date_created: string
   cover_image: string
   content: string
-  status: string
   tags: {
     id: ID
     tags_id: Tag
@@ -44,13 +42,13 @@ export type Post = {
 }
 
 export type Section = {
-  id: ID
+  id: string
   name: string
   icon: string
 }
 
 export type Meta = {
-  id: ID
+  id: string
   base_url: string
   lang: string
   description: string
@@ -63,8 +61,8 @@ export type Meta = {
   avatar: string
 }
 
-export type Technologie = {
-  id: ID
+export type Technology = {
+  id: string
   name: string
 }
 
@@ -81,12 +79,8 @@ export type Experience = {
   formattedFrom?: string
   formattedTo?: string
   link: string
-  technologies: {
-    id: ID
-    technologies_id: Technologie
-  }[]
-  tasks: Task[]
-  status: string
+  technologies: Technology[]
+  tasks: string[]
 }
 
 export type Project = {
@@ -94,11 +88,7 @@ export type Project = {
   name: string
   link: string
   description: string
-  technologies: {
-    id: ID
-    technologies_id: Technologie
-  }[]
-  status: string
+  technologies: Technology[]
 }
 
 export type Contribution = {
@@ -111,7 +101,6 @@ export type Contribution = {
   formattedFrom?: string
   formattedTo?: string
   role: string
-  status: string
 }
 
 export type Award = {
@@ -123,14 +112,12 @@ export type Award = {
   link: string
   result: string
   icon: string
-  status: string
 }
 
 export type Interest = {
   id: ID
   name: string
   image: string
-  status: string
 }
 
 export type Language = {
@@ -138,7 +125,6 @@ export type Language = {
   name: string
   icon: string
   level: string
-  status: string
 }
 
 export type MySpace = {
@@ -148,7 +134,7 @@ export type MySpace = {
   tags: Tag
   sections: Section
   meta: Meta
-  technologies: Technologie
+  technologies: Technology
   experiences: Experience
   projects: Project
   contributions: Contribution

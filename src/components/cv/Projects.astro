@@ -39,10 +39,8 @@ const github = meta?.github || ''
               set:html={marked.parseInline(project.description)}
             />
             <div class="flex flex-wrap gap-2 mt-2">
-              {project.technologies.map((technologie) => {
-                return (
-                  <span class="pill">{technologie.technologies_id.name}</span>
-                )
+              {project.technologies.map((technology) => {
+                return <span class="pill">{technology.name}</span>
               })}
             </div>
           </div>

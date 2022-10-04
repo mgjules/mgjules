@@ -1,3 +1,4 @@
+import client from '../utils/api-client'
 import directus from '../utils/directus-client'
 import { PartialItem } from '@directus/sdk'
 import {
@@ -15,34 +16,32 @@ import {
 } from '../utils/types'
 
 export async function getLinks(): Promise<Link[] | null | undefined> {
-  const links = await directus.items('links').readByQuery({
-    fields: [
-      'id',
-      'name',
-      'url',
-      'icon',
-      'alternate_url',
-      'new_window',
-      'status'
-    ],
-    sort: ['sort'] as never,
-    filter: {
-      status: {
-        _eq: 'published'
-      }
-    },
-    limit: -1
-  })
+  const result: Link[] | null = await client.query(`
+    select SiteLink {
+      id,
+      name,
+      url,
+      alternate_url,
+      new_window,
+      icon
+    } order by .sort
+  `)
 
-  return links.data
+  return result
 }
 
 export async function getIntroduction(): Promise<
   PartialItem<Introduction> | undefined | null
 > {
-  return await directus
-    .items('introduction')
-    .readOne('01a48809-19e1-4e23-9f91-d6182ddc28bf')
+  const result: Introduction | null = await client.querySingle(`
+    select Introduction {
+      id,
+      introduction,
+      avatar
+    } filter .id = <uuid>$id
+  `, { id: 'a4296eac-441b-11ed-924c-830c8fd1144c' })
+
+  return result
 }
 
 export async function getPosts(): Promise<Post[] | null | undefined> {
@@ -59,11 +58,6 @@ export async function getPosts(): Promise<Post[] | null | undefined> {
       'status'
     ],
     sort: ['-date_created'] as never,
-    filter: {
-      status: {
-        _eq: 'published'
-      }
-    },
     limit: -1
   })
 
@@ -104,68 +98,72 @@ export async function getPost(slug: string): Promise<Post | null> {
 }
 
 export async function getSections(): Promise<Section[] | null | undefined> {
-  const sections = await directus.items('sections').readByQuery({
-    fields: ['id', 'name', 'icon'],
-    sort: ['sort'] as never,
-    limit: -1
-  })
+  const result: Section[] | null = await client.query(`
+    select CVSection {
+      id,
+      name,
+      icon,
+    } order by .sort
+  `)
 
-  return sections.data
+  return result
 }
 
-export async function getMeta(): Promise<PartialItem<Meta> | null | undefined> {
-  return await directus
-    .items('meta')
-    .readOne('7b0504e8-58d0-4bf3-9d70-514f486ca962')
+export async function getMeta(): Promise<Meta | null | undefined> {
+  const result: Meta | null = await client.querySingle(`
+    select Meta {
+      id,
+      base_url,
+      lang,
+      first_name,
+      last_name,
+      gender,
+      description,
+      keywords,
+      github,
+      username,
+      avatar
+    } filter .id = <uuid>$id
+  `, { id: 'bd99e066-440b-11ed-924c-9fd15527df84' })
+
+  return result
 }
 
 export async function getExperiences(): Promise<
   Experience[] | null | undefined
 > {
-  const experiences = await directus.items('experiences').readByQuery({
-    fields: [
-      'id',
-      'company',
-      'position',
-      'from',
-      'to',
-      'link',
-      'technologies.*.name',
-      'tasks',
-      'status'
-    ],
-    sort: ['-from'] as never,
-    filter: {
-      status: {
-        _eq: 'published'
-      }
-    },
-    limit: -1
-  })
+  const result: Experience[] | null = await client.query(`
+    select CVExperience {
+      id,
+      company,
+      position,
+      from,
+      to,
+      link,
+      tasks,
+      technologies: {
+        name
+      } order by @sort
+    } order by .from desc
+  `)
 
-  return experiences.data
+  return result
 }
 
 export async function getProjects(): Promise<Project[] | null | undefined> {
-  const projects = await directus.items('projects').readByQuery({
-    fields: [
-      'id',
-      'name',
-      'description',
-      'link',
-      'technologies.*.name',
-      'status'
-    ],
-    sort: ['sort'] as never,
-    filter: {
-      status: {
-        _eq: 'published'
+  const result: Project[] | null = await client.query(`
+    select CVProject {
+      id,
+      name,
+      link,
+      description,
+      technologies: {
+        name
       }
-    },
-    limit: -1
-  })
+    } order by .sort
+  `)
 
-  return projects.data
+  return result
 }
 
 export async function getContributions(): Promise<
@@ -174,11 +172,6 @@ export async function getContributions(): Promise<
   const contributions = await directus.items('contributions').readByQuery({
     fields: ['id', 'event', 'title', 'from', 'to', 'link', 'role', 'status'],
     sort: ['-from'] as never,
-    filter: {
-      status: {
-        _eq: 'published'
-      }
-    },
     limit: -1
   })
 
@@ -198,11 +191,6 @@ export async function getAwards(): Promise<Award[] | null | undefined> {
       'status'
     ],
     sort: ['-date'] as never,
-    filter: {
-      status: {
-        _eq: 'published'
-      }
-    },
     limit: -1
   })
 
@@ -213,11 +201,6 @@ export async function getInterests(): Promise<Interest[] | null | undefined> {
   const interests = await directus.items('interests').readByQuery({
     fields: ['id', 'name', 'image', 'status'],
     sort: ['-sort'] as never,
-    filter: {
-      status: {
-        _eq: 'published'
-      }
-    },
     limit: -1
   })
 

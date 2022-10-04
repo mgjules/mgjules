@@ -1,0 +1,91 @@
+module default {
+  scalar type Lang extending enum<En, Fr>;
+  scalar type Gender extending enum<Male, Female, Robot>;
+
+  abstract type Timestamps {
+    required property created_at -> datetime {
+      default := datetime_current();
+      readonly := true;
+    }
+  }
+
+  abstract type Avatar {
+    required property avatar -> str{
+      default := "https://mgjules.dev/img/avatar.webp"
+    }
+  }
+
+  abstract type Sort {
+    required property sort -> int32 {
+      default := 0;
+    }
+  }
+
+  abstract link link_with_sort {
+    property sort -> int32;
+    constraint expression on (
+      __subject__@sort >= 0
+    );
+  }
+
+  type Meta extending Timestamps, Avatar {
+    required property base_url -> str;
+    required property lang -> Lang;
+    required property first_name -> str;
+    required property last_name -> str;
+    required property gender -> Gender;
+    required property description -> str;
+    required property keywords -> array<str>;
+    required property github -> str;
+    required property username -> str;
+  }
+
+  type SiteLink extending Timestamps, Sort {
+    required property name -> str;
+    required property url -> str; 
+    property alternate_url -> str; 
+    required property new_window -> bool {
+      default := false;
+    };
+    required property icon -> str;
+  }
+
+  type Introduction extending Timestamps, Avatar {
+    required property introduction -> str;
+  }
+
+  type CVSection extending Timestamps, Sort {
+    required property name -> str {
+      constraint exclusive;
+    };
+    required property icon -> str;
+  }
+
+  type CVTechnology extending Timestamps {
+    required property name -> str {
+      constraint exclusive;
+    };
+  }
+
+  type CVExperience extending Timestamps {
+    required property company -> str;
+    required property position -> str {
+      default := "Backend Engineer"
+    };
+    required property from -> cal::local_date;
+    property to -> cal::local_date;
+    required property link -> str;
+    multi link technologies extending link_with_sort -> CVTechnology;
+    required property tasks -> array<str>;
+  }
+
+  type CVProject extending Timestamps, Sort {
+    required property name -> str {
+      constraint exclusive;
+    };
+    required property link -> str;
+    required property description -> str;
+    multi link technologies extending link_with_sort -> CVTechnology;
+  }
+
+};
