@@ -1,6 +1,9 @@
 module default {
   scalar type Lang extending enum<En, Fr>;
+
   scalar type Gender extending enum<Male, Female, Robot>;
+
+  scalar type Role extending enum<'Founder', 'Co-Founder', 'Speaker', 'Co-Speaker'>;
 
   abstract type Timestamps {
     required property created_at -> datetime {
@@ -19,6 +22,11 @@ module default {
     required property sort -> int32 {
       default := 0;
     }
+  }
+
+  abstract type Period {
+    required property from -> cal::local_date;
+    property to -> cal::local_date;
   }
 
   abstract link link_with_sort {
@@ -67,13 +75,11 @@ module default {
     };
   }
 
-  type CVExperience extending Timestamps {
+  type CVExperience extending Timestamps, Period {
     required property company -> str;
     required property position -> str {
       default := "Backend Engineer"
     };
-    required property from -> cal::local_date;
-    property to -> cal::local_date;
     required property link -> str;
     multi link technologies extending link_with_sort -> CVTechnology;
     required property tasks -> array<str>;
@@ -88,4 +94,10 @@ module default {
     multi link technologies extending link_with_sort -> CVTechnology;
   }
 
+  type CVContribution extending Timestamps, Period {
+    required property event -> str;
+    required property role -> Role;
+    required property title -> str;
+    required property link -> str;
+  }
 };

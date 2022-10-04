@@ -92,7 +92,7 @@ export type Project = {
 }
 
 export type Contribution = {
-  id: ID
+  id: string
   event: string
   title: string
   from: string

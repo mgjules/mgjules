@@ -169,13 +169,19 @@ export async function getProjects(): Promise<Project[] | null | undefined> {
 export async function getContributions(): Promise<
   Contribution[] | null | undefined
 > {
-  const contributions = await directus.items('contributions').readByQuery({
-    fields: ['id', 'event', 'title', 'from', 'to', 'link', 'role', 'status'],
-    sort: ['-from'] as never,
-    limit: -1
-  })
+  const result: Contribution[] | null = await client.query(`
+    select CVContribution {
+      id,
+      event,
+      title,
+      role,
+      from,
+      to,
+      link
+    } order by .from desc
+  `)
 
-  return contributions.data
+  return result
 }
 
 export async function getAwards(): Promise<Award[] | null | undefined> {
