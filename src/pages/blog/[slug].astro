@@ -44,10 +44,8 @@ const tabs = [
           class="hidden w-full h-full overflow-hidden sm:block shrink-0 max-w-16 max-h-16 aspect-square"
         >
           <img
-            src={`${import.meta.env.DIRECTUS_URL}assets/${
-              post.user_created.avatar
-            }/avatar.webp?key=blog-avatar`}
-            alt="Cover Image"
+            src={post.created_by.avatar}
+            alt={`${post.created_by.first_name} ${post.created_by.first_name} Avatar`}
             class="object-cover aspect-square"
           />
         </div>
@@ -57,19 +55,17 @@ const tabs = [
           <h3 class="my-0 drop-shadow-sm">{post.title}</h3>
           <div class="mt-1 text-xs drop-shadow-sm text-brand-secondary">
             <span class="text-brand-primary"
-              >{format(parseISO(post.date_created as string), 'dd MMM yyyy')}
+              >{format(post.created_at, 'dd MMM yyyy')}
             </span> by
             <span class="text-brand-primary"
-              >{post.user_created.first_name} {post.user_created.last_name}
+              >{post.created_by.first_name} {post.created_by.last_name}
             </span>
           </div>
         </div>
       </div>
     </div>
     <img
-      src={`${import.meta.env.DIRECTUS_URL}assets/${
-        post.cover_image
-      }/cover.webp?key=blog-cover&v=1`}
+      src={post.cover_image}
       alt="Cover Image"
       class="object-cover w-full aspect-video max-h-72"
     />
@@ -81,7 +77,7 @@ const tabs = [
       post.tags && (
         <div class="flex flex-wrap gap-2 mt-2 sm:mt-0">
           {post.tags.map((tag) => (
-            <span class="pill">{tag.tags_id.name}</span>
+            <span class="pill">{tag.name}</span>
           ))}
         </div>
       )

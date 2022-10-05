@@ -44,56 +44,53 @@ export async function getIntroduction(): Promise<
 }
 
 export async function getPosts(): Promise<Post[] | null> {
-  const posts = await directus.items('posts').readByQuery({
-    fields: [
-      'id',
-      'title',
-      'slug',
-      'summary',
-      'date_created',
-      'cover_image',
-      'content',
-      'tags.*.name',
-      'status'
-    ],
-    sort: ['-date_created'] as never,
-    limit: -1
-  })
+  const result: Post[] | null = await client.query(`
+    select BlogPost {
+      id,
+      title,
+      slug,
+      summary,
+      cover_image,
+      content,
+      tags: {
+        name,
+        slug
+      },
+      created_by: {
+        first_name,
+        last_name,
+        avatar
+      },
+      created_at
+    } order by .created_at desc
+  `)
 
-  return posts.data
+  return result
 }
 
 export async function getPost(slug: string): Promise<Post | null> {
-  const posts = await directus.items('posts').readByQuery({
-    fields: [
-      'id',
-      'title',
-      'slug',
-      'summary',
-      'date_created',
-      'cover_image',
-      'content',
-      'tags.*.name',
-      'user_created.*',
-      'status'
-    ],
-    sort: ['-date_created'] as never,
-    filter: {
-      slug: {
-        _eq: slug
+  const result: Post | null = await client.querySingle(`
+    select BlogPost {
+      id,
+      title,
+      slug,
+      summary,
+      cover_image,
+      content,
+      tags: {
+        name,
+        slug
       },
-      status: {
-        _eq: 'published'
-      }
-    },
-    limit: 1
-  })
+      created_by: {
+        first_name,
+        last_name,
+        avatar
+      },
+      created_at
+    } filter BlogPost.slug = <str>$slug limit 1
+  `, { slug: slug })
 
-  if (posts.data && posts.data.length > 0) {
-    return posts.data[0] as Post
-  }
-
-  return null
+  return result
 }
 
 export async function getSections(): Promise<Section[] | null> {

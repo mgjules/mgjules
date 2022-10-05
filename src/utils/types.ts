@@ -18,6 +18,7 @@ export type Introduction = {
 export type Tag = {
   id: ID
   name: string
+  slug: string
 }
 
 export type User = {
@@ -31,14 +32,11 @@ export type Post = {
   title: string
   slug: string
   summary: string
-  date_created: string
   cover_image: string
   content: string
-  tags: {
-    id: ID
-    tags_id: Tag
-  }[]
-  user_created: User
+  tags: Tag[]
+  created_at: Date
+  created_by: User
 }
 
 export type Section = {

@@ -120,4 +120,26 @@ module default {
     required property icon -> str;
     required property level -> str;
   }
+
+  type User extending Timestamps, Avatar {
+    required property first_name -> str;
+    required property last_name -> str;
+  }
+
+  type BlogTag extending Timestamps {
+    required property name -> str;
+    required property slug := str_lower(str_replace(str_trim(.name), ' ', '-'));
+  }
+
+  type BlogPost extending Timestamps {
+    required property title -> str;
+    required property slug := str_lower(str_replace(str_trim(.title), ' ', '-'));
+    required property summary -> str;
+    required property cover_image -> str;
+    required property content -> str;
+    required multi link tags -> BlogTag;
+    required link created_by -> User {
+      constraint exclusive;
+    };
+  }
 };
