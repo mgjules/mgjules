@@ -104,7 +104,7 @@ export type Contribution = {
 }
 
 export type Award = {
-  id: ID
+  id: string
   event: string
   description: string
   date: string
@@ -115,7 +115,7 @@ export type Award = {
 }
 
 export type Interest = {
-  id: ID
+  id: string
   name: string
   image: string
 }
