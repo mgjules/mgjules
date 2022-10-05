@@ -114,4 +114,10 @@ module default {
     required property name -> str;
     required property image -> str;
   }
+
+  type CVLanguage extending Timestamps, Sort {
+    required property name -> str;
+    required property icon -> str;
+    required property level -> str;
+  }
 };

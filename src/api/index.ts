@@ -1,6 +1,5 @@
 import client from '../utils/api-client'
 import directus from '../utils/directus-client'
-import { PartialItem } from '@directus/sdk'
 import {
   Introduction,
   Post,
@@ -15,7 +14,7 @@ import {
   Language
 } from '../utils/types'
 
-export async function getLinks(): Promise<Link[] | null | undefined> {
+export async function getLinks(): Promise<Link[] | null> {
   const result: Link[] | null = await client.query(`
     select SiteLink {
       id,
@@ -31,7 +30,7 @@ export async function getLinks(): Promise<Link[] | null | undefined> {
 }
 
 export async function getIntroduction(): Promise<
-  PartialItem<Introduction> | undefined | null
+  Introduction | null
 > {
   const result: Introduction | null = await client.querySingle(`
     select Introduction {
@@ -44,7 +43,7 @@ export async function getIntroduction(): Promise<
   return result
 }
 
-export async function getPosts(): Promise<Post[] | null | undefined> {
+export async function getPosts(): Promise<Post[] | null> {
   const posts = await directus.items('posts').readByQuery({
     fields: [
       'id',
@@ -97,7 +96,7 @@ export async function getPost(slug: string): Promise<Post | null> {
   return null
 }
 
-export async function getSections(): Promise<Section[] | null | undefined> {
+export async function getSections(): Promise<Section[] | null> {
   const result: Section[] | null = await client.query(`
     select CVSection {
       id,
@@ -109,7 +108,7 @@ export async function getSections(): Promise<Section[] | null | undefined> {
   return result
 }
 
-export async function getMeta(): Promise<Meta | null | undefined> {
+export async function getMeta(): Promise<Meta | null> {
   const result: Meta | null = await client.querySingle(`
     select Meta {
       id,
@@ -130,7 +129,7 @@ export async function getMeta(): Promise<Meta | null | undefined> {
 }
 
 export async function getExperiences(): Promise<
-  Experience[] | null | undefined
+  Experience[] | null
 > {
   const result: Experience[] | null = await client.query(`
     select CVExperience {
@@ -150,7 +149,7 @@ export async function getExperiences(): Promise<
   return result
 }
 
-export async function getProjects(): Promise<Project[] | null | undefined> {
+export async function getProjects(): Promise<Project[] | null> {
   const result: Project[] | null = await client.query(`
     select CVProject {
       id,
@@ -167,7 +166,7 @@ export async function getProjects(): Promise<Project[] | null | undefined> {
 }
 
 export async function getContributions(): Promise<
-  Contribution[] | null | undefined
+  Contribution[] | null
 > {
   const result: Contribution[] | null = await client.query(`
     select CVContribution {
@@ -184,7 +183,7 @@ export async function getContributions(): Promise<
   return result
 }
 
-export async function getAwards(): Promise<Award[] | null | undefined> {
+export async function getAwards(): Promise<Award[] | null> {
   const result: Award[] | null = await client.query(`
     select CVAward {
       id,
@@ -200,24 +199,27 @@ export async function getAwards(): Promise<Award[] | null | undefined> {
   return result
 }
 
-export async function getInterests(): Promise<Interest[] | null | undefined> {
+export async function getInterests(): Promise<Interest[] | null> {
   const result: Interest[] | null = await client.query(`
     select CVInterest {
       id,
       name,
       image
-    } order by .sort desc
+    } order by .sort
   `)
 
   return result
 }
 
-export async function getLanguages(): Promise<Language[] | null | undefined> {
-  const languages = await directus.items('languages').readByQuery({
-    fields: ['id', 'name', 'icon', 'level', 'status'],
-    sort: ['-sort'] as never,
-    limit: -1
-  })
+export async function getLanguages(): Promise<Language[] | null> {
+  const result: Language[] | null = await client.query(`
+    select CVLanguage {
+      id,
+      name,
+      icon,
+      level
+    } order by .sort
+  `)
 
-  return languages.data
+  return result
 }
