@@ -129,6 +129,7 @@ module default {
   type BlogTag extending Timestamps {
     required property name -> str;
     required property slug := str_lower(str_replace(str_trim(.name), ' ', '-'));
+    index on (.slug);
   }
 
   type BlogPost extending Timestamps {
@@ -143,5 +144,6 @@ module default {
     required link created_by -> User {
       constraint exclusive;
     };
+    index on (.slug);
   }
 };
