@@ -159,7 +159,7 @@ export async function getProjects(): Promise<Project[] | null | undefined> {
       description,
       technologies: {
         name
-      }
+      } order by @sort
     } order by .sort
   `)
 
