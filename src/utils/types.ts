@@ -1,5 +1,3 @@
-import { ID } from '@directus/sdk'
-
 export type Link = {
   id: string
   name: string
@@ -16,7 +14,7 @@ export type Introduction = {
 }
 
 export type Tag = {
-  id: ID
+  id: string
   name: string
   slug: string
 }
@@ -28,7 +26,7 @@ export type User = {
 }
 
 export type Post = {
-  id: ID
+  id: string
   title: string
   slug: string
   summary: string
@@ -69,7 +67,7 @@ export type Task = {
 }
 
 export type Experience = {
-  id: ID
+  id: string
   company: string
   position: string
   from: string
@@ -82,7 +80,7 @@ export type Experience = {
 }
 
 export type Project = {
-  id: ID
+  id: string
   name: string
   link: string
   description: string
@@ -119,26 +117,8 @@ export type Interest = {
 }
 
 export type Language = {
-  id: ID
+  id: string
   name: string
   icon: string
   level: string
-}
-
-export type MySpace = {
-  links: Link
-  posts: Post
-  introduction: Introduction
-  tags: Tag
-  sections: Section
-  meta: Meta
-  technologies: Technology
-  experiences: Experience
-  projects: Project
-  contributions: Contribution
-  awards: Award
-  interests: Interest
-  languages: Language
-
-  directus_users: User
 }

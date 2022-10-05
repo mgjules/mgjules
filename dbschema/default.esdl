@@ -14,7 +14,7 @@ module default {
 
   abstract type Avatar {
     required property avatar -> str{
-      default := "https://mgjules.dev/img/avatar.webp"
+      default := "https://mgjules.dev/img/avatar.webp";
     }
   }
 
@@ -135,7 +135,9 @@ module default {
     required property title -> str;
     required property slug := str_lower(str_replace(str_trim(.title), ' ', '-'));
     required property summary -> str;
-    required property cover_image -> str;
+    required property cover_image -> str {
+      default := "https://mgjules.dev/img/blog/modern-code-screen.webp";
+    };
     required property content -> str;
     required multi link tags -> BlogTag;
     required link created_by -> User {

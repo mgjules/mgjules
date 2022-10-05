@@ -1,5 +1,4 @@
 import client from '../utils/api-client'
-import directus from '../utils/directus-client'
 import {
   Introduction,
   Post,
