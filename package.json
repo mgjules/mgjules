@@ -11,7 +11,6 @@
   "dependencies": {
     "@astrojs/netlify": "^1.1.0",
     "@astrojs/svelte": "^1.0.1",
-    "@directus/sdk": "^10.1.4",
     "edgedb": "^0.22.8",
     "marked": "^4.1.1"
   },

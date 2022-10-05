@@ -1,6 +1,5 @@
 ---
 import Layout from '@layouts/Layout.astro'
-import { PartialItem } from '@directus/sdk'
 import { getMeta } from '@api/index'
 import { Link } from '@utils/types'
 
@@ -21,7 +20,7 @@ export interface Props {
     url?: string
     extension: string
   }[]
-  links: PartialItem<Link>[]
+  links: Link[]
   print?: boolean
 }
 
