@@ -128,13 +128,13 @@ module default {
 
   type BlogTag extending Timestamps {
     required property name -> str;
-    required property slug := str_lower(str_replace(str_trim(.name), ' ', '-'));
+    required property slug := re_replace(r'[^a-z]+', '_', str_lower(.name), flags := 'g');
     index on (.slug);
   }
 
   type BlogPost extending Timestamps {
     required property title -> str;
-    required property slug := str_lower(str_replace(str_trim(.title), ' ', '-'));
+    required property slug := re_replace(r'[^a-z]+', '_', str_lower(.title), flags := 'g');
     required property summary -> str;
     required property cover_image -> str {
       default := "https://mgjules.dev/img/blog/modern-code-screen.webp";
