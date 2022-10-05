@@ -1,6 +1,6 @@
 ---
 import slugify from 'slugify'
-import { format, parseISO } from 'date-fns'
+import { format, parse } from 'date-fns'
 import { getContributions } from '@api/index'
 
 let contributions = await getContributions()
@@ -8,9 +8,13 @@ let contributions = await getContributions()
 contributions = contributions.map((contribution) => {
   return {
     ...contribution,
-    formattedFrom: format(parseISO(contribution.from), 'MMM yyyy'),
+    formattedFrom: format(
+      parse(contribution.from, 'yyyy-MM-dd', new Date()),
+      'MMM yyyy'
+    ),
     formattedTo:
-      contribution.to && format(parseISO(contribution.to), 'MMM yyyy')
+      contribution.to &&
+      format(parse(contribution.to, 'yyyy-MM-dd', new Date()), 'MMM yyyy')
   }
 })
 ---

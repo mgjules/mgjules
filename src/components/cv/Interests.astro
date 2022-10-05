@@ -18,9 +18,7 @@ const interests = await getInterests()
       >
         <img
           class="relative z-10 object-cover w-full polygon-clip"
-          src={`${import.meta.env.DIRECTUS_URL}assets/${
-            interest.image
-          }/${slugify(interest.name)}.webp?key=interest&v=1`}
+          src={interest.image}
           alt={`${interest.name} image`}
         />
         <h3 class="absolute my-0 transition-all -translate-y-1/2 z-5 opacity-0 group-hover:opacity-100 group-hover:z-20 top-1/2 right-4 drop-shadow-md">

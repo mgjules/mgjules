@@ -1,5 +1,6 @@
 ---
 import '@unocss/reset/tailwind.css'
+import 'unocss-hmr-fix'
 
 export interface Props {
   title: string
@@ -44,10 +45,7 @@ const {
     <meta property="og:title" content={title} />
     <meta property="og:type" content="profile" />
     <meta property="og:description" content={description} />
-    <meta
-      property="og:image"
-      content={`${import.meta.env.DIRECTUS_URL}assets/${avatar}/profile.webp`}
-    />
+    <meta property="og:image" content={avatar} />
     <meta property="og:url" content={base_url} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta property="og:site_name" content={title} />

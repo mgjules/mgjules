@@ -1,24 +1,22 @@
-import { ID } from '@directus/sdk'
-
 export type Link = {
-  id: ID
+  id: string
   name: string
   url: string
   icon: string
   alternate_url?: string
   new_window?: boolean
-  status: string
 }
 
 export type Introduction = {
-  id: ID
+  id: string
   introduction: string
   avatar: string
 }
 
 export type Tag = {
-  id: ID
+  id: string
   name: string
+  slug: string
 }
 
 export type User = {
@@ -28,29 +26,25 @@ export type User = {
 }
 
 export type Post = {
-  id: ID
+  id: string
   title: string
   slug: string
   summary: string
-  date_created: string
   cover_image: string
   content: string
-  status: string
-  tags: {
-    id: ID
-    tags_id: Tag
-  }[]
-  user_created: User
+  tags: Tag[]
+  created_at: Date
+  created_by: User
 }
 
 export type Section = {
-  id: ID
+  id: string
   name: string
   icon: string
 }
 
 export type Meta = {
-  id: ID
+  id: string
   base_url: string
   lang: string
   description: string
@@ -63,8 +57,8 @@ export type Meta = {
   avatar: string
 }
 
-export type Technologie = {
-  id: ID
+export type Technology = {
+  id: string
   name: string
 }
 
@@ -73,7 +67,7 @@ export type Task = {
 }
 
 export type Experience = {
-  id: ID
+  id: string
   company: string
   position: string
   from: string
@@ -81,28 +75,20 @@ export type Experience = {
   formattedFrom?: string
   formattedTo?: string
   link: string
-  technologies: {
-    id: ID
-    technologies_id: Technologie
-  }[]
-  tasks: Task[]
-  status: string
+  technologies: Technology[]
+  tasks: string[]
 }
 
 export type Project = {
-  id: ID
+  id: string
   name: string
   link: string
   description: string
-  technologies: {
-    id: ID
-    technologies_id: Technologie
-  }[]
-  status: string
+  technologies: Technology[]
 }
 
 export type Contribution = {
-  id: ID
+  id: string
   event: string
   title: string
   from: string
@@ -111,11 +97,10 @@ export type Contribution = {
   formattedFrom?: string
   formattedTo?: string
   role: string
-  status: string
 }
 
 export type Award = {
-  id: ID
+  id: string
   event: string
   description: string
   date: string
@@ -123,38 +108,17 @@ export type Award = {
   link: string
   result: string
   icon: string
-  status: string
 }
 
 export type Interest = {
-  id: ID
+  id: string
   name: string
   image: string
-  status: string
 }
 
 export type Language = {
-  id: ID
+  id: string
   name: string
   icon: string
   level: string
-  status: string
-}
-
-export type MySpace = {
-  links: Link
-  posts: Post
-  introduction: Introduction
-  tags: Tag
-  sections: Section
-  meta: Meta
-  technologies: Technologie
-  experiences: Experience
-  projects: Project
-  contributions: Contribution
-  awards: Award
-  interests: Interest
-  languages: Language
-
-  directus_users: User
 }

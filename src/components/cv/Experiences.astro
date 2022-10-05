@@ -1,6 +1,6 @@
 ---
 import slugify from 'slugify'
-import { format, parseISO } from 'date-fns'
+import { format, parse } from 'date-fns'
 import { marked } from 'marked'
 import { getExperiences } from '@api/index'
 
@@ -9,8 +9,8 @@ let experiences = await getExperiences()
 experiences = experiences.map(experience => {
   return {
     ...experience,
-    formattedFrom: format(parseISO(experience.from), 'MMM yyyy'),
-    formattedTo: experience.to && format(parseISO(experience.to), 'MMM yyyy')
+    formattedFrom: format(parse(experience.from, 'yyyy-MM-dd', new Date()), 'MMM yyyy'),
+    formattedTo: experience.to && format(parse(experience.to, 'yyyy-MM-dd', new Date()), 'MMM yyyy')
   }
 })
 ---
@@ -37,16 +37,16 @@ experiences = experiences.map(experience => {
     </div>
     <div class="mt-1 text-sm text-brand-secondary">{ experience.position }</div>
     <div class="flex flex-wrap gap-2 mt-2">
-      {experience.technologies.map(technologie => {
+      {experience.technologies.map(technology => {
       return <span class="pill">
-        {technologie.technologies_id.name}
+        {technology.name}
       </span>
       }
       )}
     </div>
     <ul role="list" class="mt-3 mb-0">
       {experience.tasks?.map(task =>
-      <li class="mt-1 mb-0 text-base" set:html={marked.parseInline(task.task)}></li>
+      <li class="mt-1 mb-0 text-base" set:html={marked.parseInline(task)}></li>
       )}
     </ul>
   </li>
