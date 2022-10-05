@@ -201,13 +201,15 @@ export async function getAwards(): Promise<Award[] | null | undefined> {
 }
 
 export async function getInterests(): Promise<Interest[] | null | undefined> {
-  const interests = await directus.items('interests').readByQuery({
-    fields: ['id', 'name', 'image', 'status'],
-    sort: ['-sort'] as never,
-    limit: -1
-  })
+  const result: Interest[] | null = await client.query(`
+    select CVInterest {
+      id,
+      name,
+      image
+    } order by .sort desc
+  `)
 
-  return interests.data
+  return result
 }
 
 export async function getLanguages(): Promise<Language[] | null | undefined> {

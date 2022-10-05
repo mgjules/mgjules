@@ -109,4 +109,9 @@ module default {
     required property icon -> str;
     required property result -> str;
   }
+
+  type CVInterest extending Timestamps, Sort {
+    required property name -> str;
+    required property image -> str;
+  }
 };
