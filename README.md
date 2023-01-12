@@ -1,4 +1,4 @@
-<a href="https://github.com/mgjules" target="blank">![Github Banner](https://media-exp1.licdn.com/dms/image/C4D16AQEhq5Y_fFdQ4A/profile-displaybackgroundimage-shrink_350_1400/0/1643522906540?e=1672876800&v=beta&t=gJZXlxPKvPxzUNh48NqnRQKfLxglEfBwYTMWq_XuiPM)</a>
+<a href="https://github.com/mgjules" target="blank">![Github Banner](https://newrelic.com/sites/default/files/2021-04/golang-gopher.jpg)</a>
 
 ```golang
 package mike
