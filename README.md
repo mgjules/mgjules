@@ -3,19 +3,16 @@
 ```golang
 package mike
 
-// Intro returns a brief introduction.
-func Intro() string {
-  return `
-    Hello world!
+const Intro = `
+  Hello world!
 
-    Since 2005, when I wrote my first line of code in DarkBASIC, I've been hooked on programming!
-    Throughout school and college, I jumped on projects to learn and grow as a developer. From there,
-    I specialized in Go, becoming a proud Gopher at heart.
-    I've worked on various projects, big and small, from monoliths to microservices.
+  Since 2005, when I wrote my first line of code in DarkBASIC, I've been hooked on programming!
+  Throughout school and college, I jumped on projects to learn and grow as a developer. From there,
+  I specialized in Go, becoming a proud Gopher at heart.
+  I've worked on various projects, big and small, from monoliths to microservices.
 
-    Excited about Go and emerging tech? Let's chat! 
-  `
-}
+  Excited about Go and emerging tech? Let's chat! 
+`
 ```
 
 <div align ="center">
